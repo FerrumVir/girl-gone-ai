@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Girl Gone AI — Review Access</title>
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="./styles.css">
   <style>
     .login-wrap { display:flex; align-items:center; justify-content:center; min-height:80vh; }
     .login-box { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
@@ -41,7 +41,7 @@ async function checkPw(){
   const hash=await sha256(pw);
   if(hash==='b3663c549efd737afcc2792fafc77b2369475e2e308a66423b77212c6704b4c2'){
     sessionStorage.setItem('nc_auth',hash);
-    window.location.href='/';
+    window.location.href='./';
     return false;
   }
   document.getElementById('err').style.display='block';
