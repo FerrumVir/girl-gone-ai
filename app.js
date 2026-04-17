@@ -49,6 +49,9 @@
   var formsubmitUrl = formsubmitEmail ? 'https://formsubmit.co/ajax/' + formsubmitEmail : '';
   // Netlify Forms fallback: when no external backend is configured, use Netlify Forms
   var useNetlifyForms = !useApi && !formspreeUrl && !formsubmitUrl;
+  // Detect site root from stylesheet link for relative path construction
+  var styleLink = document.querySelector('link[rel="stylesheet"][href*="styles.css"]');
+  var siteRoot = styleLink ? styleLink.getAttribute('href').replace(/styles\.css$/, '') : './';
 
   function netlifyEncode(data) {
     return Object.keys(data).map(function(key) {
@@ -273,7 +276,7 @@
           });
         }
         if (!r.ok) throw new Error('Failed');
-        return '/downloads/' + encodeURIComponent(downloadSlug) + '.md';
+        return siteRoot + 'downloads/' + encodeURIComponent(downloadSlug) + '.md';
       }).then(function(downloadUrl) {
         freeForm.innerHTML = '<div class="download-success">' +
           '<p class="download-ready">Your download is ready!</p>' +
