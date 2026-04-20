@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design Concepts Review</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .concept-card { transition: transform 0.2s; }
+        .concept-card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+    <header class="bg-white shadow-sm py-10">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-4xl font-extrabold text-gray-900">Logo Design Concepts</h1>
+            <p class="mt-2 text-lg text-gray-600">Review the initial brand identity directions for the website project.</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Concept 1 -->
+            <div class="concept-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                <div class="h-48 flex items-center justify-center bg-[#0A192F]">
+                    <!-- Placeholder for Tech-Forward Icon -->
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="40" stroke="#64FFDA" stroke-width="2" stroke-dasharray="10 5"/>
+                        <path d="M30 50L50 30L70 50L50 70L30 50Z" fill="#64FFDA"/>
+                        <circle cx="50" cy="50" r="10" fill="#0A192F"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-800">Tech-Forward Minimalist</h2>
+                    <p class="text-sm text-gray-500 mt-2 mb-4">Clean, geometric, and high-tech.</p>
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-6 h-6 rounded-full bg-[#0A192F]" title="Navy"></div>
+                        <div class="w-6 h-6 rounded-full bg-[#64FFDA]" title="Cyan"></div>
+                    </div>
+                    <p class="text-sm text-gray-600">Focuses on connectivity and growth via thin line weights and negative space.</p>
+                </div>
+            </div>
+
+            <!-- Concept 2 -->
+            <div class="concept-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                <div class="h-48 flex items-center justify-center bg-[#2D3748]">
+                    <!-- Placeholder for Trusted Guardian Icon -->
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 15L80 30V55C80 75 50 85 50 85C50 85 20 75 20 55V30L50 15Z" fill="#3182CE"/>
+                        <path d="M50 25L70 35V55C70 68 50 75 50 75C50 75 30 68 30 55V35L50 25Z" fill="#E2E8F0"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-800">Trusted Guardian</h2>
+                    <p class="text-sm text-gray-500 mt-2 mb-4">Reliable, stable, and secure.</p>
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-6 h-6 rounded-full bg-[#2D3748]" title="Slate"></div>
+                        <div class="w-6 h-6 rounded-full bg-[#3182CE]" title="Royal Blue"></div>
+                        <div class="w-6 h-6 rounded-full bg-[#E2E8F0]" title="Silver"></div>
+                    </div>
+                    <p class="text-sm text-gray-600">Uses solid shapes and authoritative colors to build instant trust.</p>
+                </div>
+            </div>
+
+            <!-- Concept 3 -->
+            <div class="concept-card bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+                <div class="h-48 flex items-center justify-center bg-gradient-to-br from-[#4A148C] to-[#FF7043]">
+                    <!-- Placeholder for Dynamic Catalyst Icon -->
+                    <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 80C20 80 40 20 80 20" stroke="white" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M40 70C40 70 55 40 75 40" stroke="white" stroke-width="6" stroke-linecap="round" opacity="0.6"/>
+                    </svg>
+                </div>
+                <div class="p-6">
+                    <h2 class="text-xl font-bold text-gray-800">Dynamic Catalyst</h2>
+                    <p class="text-sm text-gray-500 mt-2 mb-4">Energetic, fast, and bold.</p>
+                    <div class="flex space-x-2 mb-4">
+                        <div class="w-6 h-6 rounded-full bg-[#4A148C]" title="Purple"></div>
+                        <div class="w-6 h-6 rounded-full bg-[#FF7043]" title="Orange"></div>
+                    </div>
+                    <p class="text-sm text-gray-600">Utilizes gradients and organic curves to suggest rapid deployment.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <section class="mt-16 bg-white p-8 rounded-xl shadow-sm border border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Next Steps</h3>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700">
+                <li><strong>Review:</strong> Look through the visual directions above.</li>
+                <li><strong>Select:</strong> Choose one concept to proceed with.</li>
+                <li><strong>Refine:</strong> We will then create the production-ready SVG and PNG assets.</li>
+                <li><strong>Deploy:</strong> The final logo will be integrated into the live demo site.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="text-center py-10 text-gray-400 text-sm">
+        &copy; 2026 Website Project - Internal Concept Review
+    </footer>
+
+</body>
+</html>

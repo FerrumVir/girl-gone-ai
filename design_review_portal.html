@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Asset Review Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .asset-card { transition: all 0.3s ease; }
+        .asset-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); }
+        .placeholder-img { background: linear-gradient(45deg, #e2e8f0 25%, #f8fafc 25%, #f8fafc 50%, #e2e8f0 50%, #e2e8f0 75%, #f8fafc 75%, #f8fafc 100%); background-size: 40px 40px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold">D</span>
+                    </div >
+                    <span class="font-bold text-xl tracking-tight text-slate-800">DesignReview</span>
+                </div >
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#" class="hover:text-indigo-600">Logos</a>
+                    <a href="#" class="hover:text-indigo-600">Imagery</a>
+                    <a href="#" class="hover:text-indigo-600">Typography</a>
+                </div >
+                <div >
+                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Status: Ready for Assets
+                    </span>
+                </div >
+            </div >
+        </div >
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl">Visual Identity Review</h1>
+            <p class="mt-4 text-xl text-slate-500 max-w-2xl mx-auto">
+                A centralized staging area for the design team to upload and review new logo concepts and brand imagery.
+            </p>
+        </div >
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section: Brand Story (NEW) -->
+        <div class="mb-16">
+            <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-8">
+                <h2 class="text-2xl font-bold text-slate-800">Brand Story</h2>
+                <span class="text-sm text-slate-500">Featured Content</span>
+            </div >
+            
+            <div class="bg-white rounded-2xl border border-slate-200 p-8 md:p-12 shadow-sm">
+                <div class="max-w-3xl mx-auto">
+                    <blockquote class="text-2xl md:text-3xl font-medium italic text-slate-700 leading-relaxed">
+                        "I wasn’t supposed to stay where I was. On paper, everything was fine. I had the job, the routine, the structure. I knew how to do everything I needed to do. But it never felt like enough. Not in an ungrateful way—just in a this can’t be it kind of way. I didn’t want my life to revolve around a schedule I didn’t choose, doing work that didn’t actually build anything for me. I kept thinking… there has to be more than this. I didn’t find AI because I was trying to get into tech. I found it because I was looking for a way out. At first, it was small. Just making things easier. Faster. Less draining. But then I realized—this wasn’t just helping me do my job better. It was giving me leverage. Time back. Energy back. Options. And once I saw that, I couldn’t ignore it. I didn’t learn to code. I didn’t suddenly become someone different. I just stopped waiting and started figuring things out as I went. I built things that made my life easier. Then I realized other people needed the same thing. So I turned it into something. Girl Gone AI isn’t about becoming a tech person. It’s about becoming someone who stops settling. It’s for the people who know they’re meant for more but don’t have some perfect, mapped-out plan yet. Because I didn’t either. I just knew I wasn’t staying where I was."
+                    </blockquote>
+                </div>
+            </div >
+        </div>
+
+        <!-- Section: Logos -->
+        <div class="mb-16">
+            <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-8">
+                <h2 class="text-2xl font-bold text-slate-800">Logo Concepts</h2 >
+                <span class="text-sm text-slate-500">3 Slots Available</span >
+            </div >
+            
+            <div class="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3">
+                
+                <!-- Logo Placeholder 1 -->
+                <div class="asset-card bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square placeholder-img flex items-center justify-center border-b border-slate-100">
+                        <div class="text-center p-6">
+                            <svg class="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Drop Logo Concept A here</p>
+                        </div >
+                    </div >
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-slate-900">Concept Alpha</h3 >
+                        <p class="text-sm text-slate-500 mt-1">Primary Mark / Vector</p>
+                        <div class="mt-6 flex items-center justify-between">
+                            <span class="text-xs font-mono text-slate-400">v1.0.0</span >
+                            <button class="text-sm font-medium text-indigo-600 hover:text-indigo-500">View Details →</button>
+                        </div >
+                    </div >
+                </div >
+
+                <!-- Logo Placeholder 2 -->
+                <div class="asset-card bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square placeholder-img flex items-center justify-center border-b border-slate-100">
+                        <div class="text-center p-6">
+                            <svg class="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Drop Logo Concept B here</p>
+                        </div >
+                    </div >
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-slate-900">Concept Beta</h3 >
+                        <p class="text-sm text-slate-500 mt-1">Secondary Mark / Variation</p>
+                        <div class="mt-6 flex items-center justify-between">
+                            <span class="text-xs font-mono text-slate-400">v1.0.0</span >
+                            <button class="text-sm font-medium text-indigo-600 hover:text-indigo-500">View Details →</button>
+                        </div >
+                    </div >
+                </div >
+
+                <!-- Logo Placeholder 3 -->
+                <div class="asset-card bg-white rounded-2xl border border-slate-200 overflow-hidden">
+                    <div class="aspect-square placeholder-img flex items-center justify-center border-b border-slate-100">
+                        <div class="text-center p-6">
+                            <svg class="mx-auto h-12 w-12 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                            <p class="mt-2 text-sm font-medium text-slate-500">Drop Logo Concept C here</p>
+                        </div >
+                    </div >
+                    <div class="p-6">
+                        <h3 class="text-lg font-semibold text-slate-900">Concept Gamma</h3 >
+                        <p class="text-sm text-slate-500 mt-1">Wordmark / Typography</p>
+                        <div class="mt-6 flex items-center justify-between">
+                            <span class="text-xs font-mono text-slate-400">v1.0.0</span >
+                            <button class="text-sm font-medium text-indigo-600 hover:text-indigo-500">View Details →</button>
+                        </div >
+                    </div >
+                </div >
+
+            </div >
+        </div >
+
+        <!-- Section: Imagery -->
+        <div >
+            <div class="flex items-baseline justify-between border-b border-slate-200 pb-4 mb-8">
+                <h2 class="text-2xl font-bold text-slate-800">Hero & Brand Imagery</h2 >
+                <span class="text-sm text-slate-500">Empty</span >
+            </div >
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                <div class="aspect-video rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">
+                    No hero images uploaded
+                </div >
+                <div class="aspect-video rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">
+                    No lifestyle images uploaded
+                </div >
+                <div class="aspect-video rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">
+                    No icon sets uploaded
+                </div >
+                <div class="aspect-video rounded-xl border-2 border-dashed border-slate-300 flex items-center justify-center text-slate-400 text-sm">
+                    No textures uploaded
+                </div >
+            </div >
+        </div >
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm">&copy; 2026 Website Project • Design Review Portal • Internal Use Only</p>
+            <p class="mt-2 text-xs uppercase tracking-widest">Drafting Phase: Asset Review</p>
+        </div >
+    </footer >
+
+</body >
+</html >
