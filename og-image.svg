@@ -1,23 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FDF2F7"/>
+      <stop offset="0%" stop-color="#FFF0F5"/>
       <stop offset="50%" stop-color="#F5F0FF"/>
-      <stop offset="100%" stop-color="#EEF4FF"/>
+      <stop offset="100%" stop-color="#EFF6FF"/>
     </linearGradient>
     <linearGradient id="og-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#E879A8"/>
-      <stop offset="50%" stop-color="#B48EE0"/>
-      <stop offset="100%" stop-color="#5B9EF4"/>
+      <stop offset="0%" stop-color="#FF3B8B"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1000" cy="100" r="200" fill="#B48EE0" opacity="0.08"/>
-  <circle cx="200" cy="500" r="250" fill="#E879A8" opacity="0.06"/>
-  <!-- Sparkle -->
-  <path d="M160 200 L170 240 L210 250 L170 260 L160 300 L150 260 L110 250 L150 240 Z" fill="url(#og-grad)" opacity="0.4"/>
-  <path d="M1020 400 L1028 430 L1058 438 L1028 446 L1020 476 L1012 446 L982 438 L1012 430 Z" fill="url(#og-grad)" opacity="0.3"/>
-  <text x="600" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#2D2D3F">Girl Gone AI</text>
-  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#7B7B8E">Beauty Pro Turned Digital Entrepreneur</text>
-  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#B48EE0">140+ Digital Products &bull; Templates &bull; Planners &bull; AI Prompts</text>
+  <circle cx="950" cy="120" r="220" fill="#FF3B8B" opacity="0.06"/>
+  <circle cx="250" cy="480" r="280" fill="#3B82F6" opacity="0.05"/>
+  <circle cx="600" cy="300" r="180" fill="#A855F7" opacity="0.04"/>
+  <!-- Lightning bolt -->
+  <path d="M540 180 L510 280 L540 280 L520 340 L560 260 L530 260 Z" fill="url(#og-grad)" opacity="0.3"/>
+  <text x="600" y="270" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="72" font-weight="700" fill="#0F172A">Girl Gone AI</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="28" fill="#64748B">AI Insider Turned Digital Entrepreneur</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="22" fill="#A855F7">140+ Digital Products &bull; Templates &bull; Planners &bull; AI Prompts</text>
 </svg>
