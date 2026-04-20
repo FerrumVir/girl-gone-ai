@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Space+Grotesk:wght@300;500;700&display=swap');
+
+:root {
+  --pink: #FF00FF;
+  --purple: #800080;
+  --dark-purple: #2e004f;
+  --black: #000000;
+  --accent-cyan: #00FFFF;
+  --text-light: #f0f0f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--text-light);
+  font-family: 'Space Grotesk', sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* 90s Grid Background Effect */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(to right, rgba(255, 0, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -1;
+}
+
+header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  border-bottom: 2px solid var(--purple);
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo-container img {
+  height: 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 30px;
+}
+
+nav ul li a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: var(--pink);
+  text-shadow: 0 0 8px var(--pink);
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: radial-gradient(circle at center, var(--dark-purple) 0%, var(--black) 70%);
+}
+
+.hero h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  background: linear-gradient(to bottom, var(--pink), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 15px rgba(255, 0, 255, 0.5));
+}
+
+.hero p {
+  font-size: 1.5rem;
+  max-width: 700px;
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  background: transparent;
+  color: var(--pink);
+  border: 2px solid var(--pink);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
+}
+
+.cta-button:hover {
+  background: var(--pink);
+  color: var(--black);
+  box-shadow: 0 0 30px var(--pink);
+}
+
+/* Products Section */
+.products {
+  padding: 100px 5%;
+}
+
+.section-title {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 60px;
+  color: var(--pink);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--purple);
+  padding: 40px;
+  text-align: center;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--pink);
+}
+
+.product-card .category-icon-placeholder {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 20px;
+  border: 2px dashed var(--purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--purple);
+  text-transform: uppercase;
+}
+
+.product-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 15px;
+  color: var(--text-light);
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Footer */
+footer {
+  padding: 50px 5%;
+  border-top: 1px solid var(--purple);
+  text-align: center;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes flicker {
+  0% { opacity: 0.9; }
+  50% { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+
+.glitch-text {
+  animation: flicker 2s infinite;
+}
