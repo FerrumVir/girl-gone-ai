@@ -8,13 +8,16 @@ window.addEventListener('scroll', () => {
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
 menuBtn.addEventListener('click', () => {
-  nav.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', nav.classList.contains('open'));
+  menuBtn.classList.toggle('active');
+  nav.classList.toggle('active');
 });
 
 // Close mobile menu on nav link click
 nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => nav.classList.remove('open'));
+  link.addEventListener('click', () => {
+    nav.classList.remove('active');
+    menuBtn.classList.remove('active');
+  });
 });
 
 // Smooth scroll for anchor links
@@ -37,7 +40,7 @@ if (form) {
     e.preventDefault();
     const email = form.querySelector('input[type="email"]');
     if (email && email.value) {
-      form.innerHTML = '<p style="color: var(--pink); font-weight: 600; font-size: 1.1rem;">You\'re in! Welcome to the Girl Gone AI community.</p>';
+      form.innerHTML = '<p style="color: var(--pink); font-weight: 600; font-size: 1.1rem; padding: 16px 0;">You\'re in! Welcome to the Girl Gone AI community.</p>';
     }
   });
 }
@@ -54,9 +57,9 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
-document.querySelectorAll('.product-card, .social-card, .about-grid').forEach(el => {
+document.querySelectorAll('.product-card, .social-card, .about-grid, .newsletter-inner').forEach(el => {
   el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  el.style.transform = 'translateY(24px)';
+  el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
   observer.observe(el);
 });

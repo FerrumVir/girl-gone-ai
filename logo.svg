@@ -1,22 +1,44 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 80" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
   <defs>
-    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF3B8B"/>
-      <stop offset="100%" stop-color="#A855F7"/>
+    <linearGradient id="bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2D78"/>
+      <stop offset="50%" stop-color="#E040FB"/>
+      <stop offset="100%" stop-color="#7C4DFF"/>
+    </linearGradient>
+    <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF2D78"/>
+      <stop offset="100%" stop-color="#7C4DFF"/>
     </linearGradient>
     <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#3B82F6"/>
-      <stop offset="100%" stop-color="#A855F7"/>
+      <stop offset="0%" stop-color="#448AFF"/>
+      <stop offset="100%" stop-color="#E040FB"/>
     </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <!-- Lightning bolt icon -->
-  <g transform="translate(4, 8)">
-    <rect x="6" y="6" width="48" height="48" rx="14" fill="url(#glow)" opacity="0.12"/>
-    <path d="M34 12 L22 34 L30 34 L26 52 L40 28 L32 28 Z" fill="url(#glow)" stroke="url(#glow)" stroke-width="0.5" stroke-linejoin="round"/>
+  <!-- Icon: Circle with lightning bolt -->
+  <circle cx="50" cy="50" r="42" fill="url(#ring-grad)" opacity="0.1"/>
+  <circle cx="50" cy="50" r="36" stroke="url(#ring-grad)" stroke-width="3" fill="none" opacity="0.6"/>
+  <g filter="url(#glow)">
+    <path d="M56 14 L36 48 L48 48 L42 86 L64 44 L52 44 Z" fill="url(#bolt-grad)"/>
   </g>
-  <!-- Text -->
-  <text x="68" y="36" font-family="'Poppins', 'Inter', sans-serif" font-size="26" font-weight="700" letter-spacing="0.5">
-    <tspan fill="#0F172A">Girl Gone</tspan>
-  </text>
-  <text x="68" y="62" font-family="'Poppins', 'Inter', sans-serif" font-size="28" font-weight="800" letter-spacing="6" fill="url(#ai-grad)">AI</text>
+  <!-- Sparkle accents -->
+  <circle cx="82" cy="20" r="3" fill="#FF2D78" opacity="0.7"/>
+  <circle cx="88" cy="14" r="1.5" fill="#E040FB" opacity="0.5"/>
+  <circle cx="18" cy="78" r="2" fill="#7C4DFF" opacity="0.6"/>
+  <!-- Wordmark -->
+  <text x="105" y="42" font-family="'Poppins', sans-serif" font-size="32" font-weight="700" letter-spacing="0.5" fill="#0F172A">Girl Gone</text>
+  <text x="105" y="78" font-family="'Poppins', sans-serif" font-size="38" font-weight="800" letter-spacing="8" fill="url(#ai-grad)">AI</text>
+  <!-- Sparkle after AI -->
+  <g transform="translate(195, 60)">
+    <line x1="0" y1="-8" x2="0" y2="8" stroke="#E040FB" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-8" y1="0" x2="8" y2="0" stroke="#E040FB" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#E040FB" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="5" y1="-5" x2="-5" y2="5" stroke="#E040FB" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
 </svg>
