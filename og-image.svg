@@ -1,6 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#2563eb"/>
-  <text x="600" y="260" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="72" font-weight="700" fill="white">NovoClaw</text>
-  <text x="600" y="340" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="32" fill="rgba(255,255,255,0.85)">140+ Digital Products That Work</text>
-  <text x="600" y="400" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="24" fill="rgba(255,255,255,0.65)">Notion Templates • Planners • Prompt Packs • Productivity Tools</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF2F7"/>
+      <stop offset="50%" stop-color="#F5F0FF"/>
+      <stop offset="100%" stop-color="#EEF4FF"/>
+    </linearGradient>
+    <linearGradient id="og-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E879A8"/>
+      <stop offset="50%" stop-color="#B48EE0"/>
+      <stop offset="100%" stop-color="#5B9EF4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="100" r="200" fill="#B48EE0" opacity="0.08"/>
+  <circle cx="200" cy="500" r="250" fill="#E879A8" opacity="0.06"/>
+  <!-- Sparkle -->
+  <path d="M160 200 L170 240 L210 250 L170 260 L160 300 L150 260 L110 250 L150 240 Z" fill="url(#og-grad)" opacity="0.4"/>
+  <path d="M1020 400 L1028 430 L1058 438 L1028 446 L1020 476 L1012 446 L982 438 L1012 430 Z" fill="url(#og-grad)" opacity="0.3"/>
+  <text x="600" y="260" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="700" fill="#2D2D3F">Girl Gone AI</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#7B7B8E">Beauty Pro Turned Digital Entrepreneur</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#B48EE0">140+ Digital Products &bull; Templates &bull; Planners &bull; AI Prompts</text>
 </svg>
