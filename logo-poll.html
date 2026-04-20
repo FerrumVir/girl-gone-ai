@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Girl Gone AI — Logo Poll</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a12;
+      color: #e8e6f0;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Ambient background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(232,121,168,0.06) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(91,158,244,0.06) 0%, transparent 50%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ff5e9e, #b48ee0, #5b9ef4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      color: #8a7fa8;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .header .instructions {
+      margin-top: 1rem;
+      padding: 0.75rem 1.25rem;
+      background: rgba(180,142,224,0.08);
+      border: 1px solid rgba(180,142,224,0.15);
+      border-radius: 10px;
+      display: inline-block;
+      font-size: 0.85rem;
+      color: #b48ee0;
+    }
+
+    /* Logo card */
+    .logo-card {
+      background: #12121c;
+      border: 1px solid #1e1e30;
+      border-radius: 20px;
+      margin-bottom: 2.5rem;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .logo-card:hover {
+      border-color: #3a3a5a;
+    }
+
+    .logo-card.rated {
+      border-color: rgba(180,142,224,0.4);
+      box-shadow: 0 0 30px rgba(180,142,224,0.08);
+    }
+
+    .logo-display {
+      position: relative;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      overflow: hidden;
+    }
+
+    /* Different background treatments for each card */
+    .logo-display.bg-deep {
+      background: radial-gradient(ellipse at center, #16122a 0%, #0c0c16 100%);
+    }
+    .logo-display.bg-warm {
+      background: radial-gradient(ellipse at center, #1c1020 0%, #0c0c16 100%);
+    }
+    .logo-display.bg-cool {
+      background: radial-gradient(ellipse at center, #101828 0%, #0c0c16 100%);
+    }
+    .logo-display.bg-neutral {
+      background: radial-gradient(ellipse at center, #181820 0%, #0c0c16 100%);
+    }
+    .logo-display.bg-vivid {
+      background: radial-gradient(ellipse at 40% 40%, #1a1028 0%, #0c0c16 100%);
+    }
+
+    /* Subtle grid texture overlay */
+    .logo-display::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      pointer-events: none;
+    }
+
+    .logo-display .mockup-hint {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .card-label {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(180,142,224,0.5);
+    }
+
+    .card-body {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .card-body h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body .tagline {
+      font-size: 0.85rem;
+      color: #8a7fa8;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-body .use-cases {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+    }
+
+    .card-body .use-cases span {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.7rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      color: #9b8fb8;
+    }
+
+    /* Star rating */
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .rating-row .label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #6b6580;
+      white-space: nowrap;
+    }
+
+    .stars {
+      display: flex;
+      gap: 6px;
+    }
+
+    .star {
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      transition: transform 0.15s;
+      position: relative;
+    }
+
+    .star:hover { transform: scale(1.2); }
+    .star:active { transform: scale(0.95); }
+
+    .star svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .star .star-empty { fill: #2a2a3e; stroke: #3a3a52; stroke-width: 1; }
+    .star .star-filled { fill: url(#star-gradient); stroke: none; display: none; }
+    .star.active .star-empty { display: none; }
+    .star.active .star-filled { display: block; }
+
+    .rating-value {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #b48ee0;
+      min-width: 20px;
+    }
+
+    /* Submit section */
+    .submit-section {
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .submit-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 1rem 3rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background: linear-gradient(135deg, #e879a8, #b48ee0, #5b9ef4);
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(180,142,224,0.3);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(180,142,224,0.4);
+    }
+
+    .submit-btn:active { transform: translateY(0); }
+
+    .submit-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .submit-hint {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      color: #5a5470;
+    }
+
+    /* Results overlay */
+    .results-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,10,18,0.92);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .results-overlay.show { display: flex; }
+
+    .results-card {
+      background: #14141e;
+      border: 1px solid #2a2a3e;
+      border-radius: 24px;
+      padding: 3rem;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .results-card .trophy { font-size: 3rem; margin-bottom: 1rem; }
+
+    .results-card h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ff5e9e, #b48ee0, #5b9ef4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .results-card .winner-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e8e6f0;
+      margin-bottom: 1.5rem;
+    }
+
+    .results-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .results-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #1e1e30;
+      font-size: 0.9rem;
+    }
+
+    .results-list li:last-child { border-bottom: none; }
+
+    .results-list .rank { color: #6b6580; font-weight: 600; width: 28px; }
+    .results-list .name { flex: 1; text-align: left; margin-left: 0.5rem; }
+    .results-list .score {
+      font-weight: 700;
+      color: #b48ee0;
+    }
+
+    .results-list li.winner .name { color: #ff5e9e; font-weight: 700; }
+
+    .close-results {
+      padding: 0.7rem 2rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #e8e6f0;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .close-results:hover { background: rgba(255,255,255,0.1); }
+
+    /* 3D SVG enhancements */
+    .shadow-3d {
+      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.5)) drop-shadow(0 2px 8px rgba(180,142,224,0.15));
+    }
+
+    @media (max-width: 600px) {
+      .header h1 { font-size: 1.7rem; }
+      .logo-display { min-height: 260px; padding: 2rem 1rem; }
+      .card-body { padding: 1.25rem 1.5rem 1.5rem; }
+      .star { width: 30px; height: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared SVG defs -->
+  <svg width="0" height="0" style="position:absolute;">
+    <defs>
+      <linearGradient id="star-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#fbbf24"/>
+        <stop offset="100%" stop-color="#f59e0b"/>
+      </linearGradient>
+      <linearGradient id="pink-blue" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ff5e9e"/>
+        <stop offset="50%" stop-color="#b48ee0"/>
+        <stop offset="100%" stop-color="#5b9ef4"/>
+      </linearGradient>
+      <linearGradient id="hot-pink" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ff2d78"/>
+        <stop offset="100%" stop-color="#e040fb"/>
+      </linearGradient>
+      <linearGradient id="chrome-1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#e8e6f0"/>
+        <stop offset="25%" stop-color="#ff9ec7"/>
+        <stop offset="50%" stop-color="#c4a0f0"/>
+        <stop offset="75%" stop-color="#7eb8ff"/>
+        <stop offset="100%" stop-color="#e8e6f0"/>
+      </linearGradient>
+      <linearGradient id="gold-metal" x1="0%" y1="0%" x2="50%" y2="100%">
+        <stop offset="0%" stop-color="#ffe4a0"/>
+        <stop offset="30%" stop-color="#ffc040"/>
+        <stop offset="60%" stop-color="#e8a020"/>
+        <stop offset="100%" stop-color="#ffd060"/>
+      </linearGradient>
+      <linearGradient id="neon-edge" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#ff2d78"/>
+        <stop offset="50%" stop-color="#e040fb"/>
+        <stop offset="100%" stop-color="#5b9ef4"/>
+      </linearGradient>
+      <filter id="emboss">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"/>
+        <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.8" specularExponent="20" result="specOut">
+          <fePointLight x="-100" y="-100" z="200"/>
+        </feSpecularLighting>
+        <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut"/>
+        <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+      </filter>
+      <filter id="glow-strong">
+        <feGaussianBlur stdDeviation="6" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="glow-soft">
+        <feGaussianBlur stdDeviation="3" result="blur"/>
+        <feMerge>
+          <feMergeNode in="blur"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+      <filter id="bevel">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+        <feSpecularLighting in="blur" surfaceScale="4" specularConstant="1" specularExponent="30" result="spec">
+          <feDistantLight azimuth="225" elevation="45"/>
+        </feSpecularLighting>
+        <feComposite in="spec" in2="SourceAlpha" operator="in" result="spec"/>
+        <feComposite in="SourceGraphic" in2="spec" operator="arithmetic" k1="0" k2="1" k3="0.6" k4="0"/>
+      </filter>
+      <filter id="inner-shadow">
+        <feComponentTransfer in="SourceAlpha">
+          <feFuncA type="table" tableValues="1 0"/>
+        </feComponentTransfer>
+        <feGaussianBlur stdDeviation="3"/>
+        <feOffset dx="2" dy="3" result="offsetblur"/>
+        <feFlood flood-color="#000" flood-opacity="0.5" result="color"/>
+        <feComposite in2="offsetblur" operator="in"/>
+        <feComposite in2="SourceGraphic" operator="over"/>
+      </filter>
+      <radialGradient id="orb-glass" cx="35%" cy="30%" r="65%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0.25)"/>
+        <stop offset="50%" stop-color="rgba(255,255,255,0.02)"/>
+        <stop offset="100%" stop-color="rgba(0,0,0,0.3)"/>
+      </radialGradient>
+    </defs>
+  </svg>
+
+  <div class="container">
+    <div class="header">
+      <h1>Girl Gone AI — Logo Poll</h1>
+      <p>5 logo concepts designed to stand alone on merch (hats, shirts, stickers). Rate each 1-5 stars, then submit to pick your winner.</p>
+      <div class="instructions">Rate all 5 logos below, then hit "Submit My Ratings"</div>
+    </div>
+
+    <!-- LOGO 1: 3D Chrome Shield -->
+    <div class="logo-card" data-logo="1">
+      <div class="logo-display bg-deep">
+        <span class="card-label">Logo 1</span>
+        <svg viewBox="0 0 260 260" width="240" class="shadow-3d" xmlns="http://www.w3.org/2000/svg">
+          <!-- Shield shape with 3D bevel -->
+          <defs>
+            <linearGradient id="shield-face" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1c1030"/>
+              <stop offset="50%" stop-color="#120a22"/>
+              <stop offset="100%" stop-color="#0e0818"/>
+            </linearGradient>
+            <linearGradient id="shield-edge" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff5e9e"/>
+              <stop offset="33%" stop-color="#d070e8"/>
+              <stop offset="66%" stop-color="#7c8ff8"/>
+              <stop offset="100%" stop-color="#5b9ef4"/>
+            </linearGradient>
+          </defs>
+          <!-- 3D base shadow -->
+          <path d="M130 240 L40 180 L40 70 L130 30 L220 70 L220 180 Z" fill="#000" opacity="0.4" transform="translate(4,6)"/>
+          <!-- Shield edge (3D border) -->
+          <path d="M130 235 L42 177 L42 72 L130 34 L218 72 L218 177 Z" fill="none" stroke="url(#shield-edge)" stroke-width="3.5"/>
+          <!-- Shield face -->
+          <path d="M130 232 L45 175 L45 74 L130 38 L215 74 L215 175 Z" fill="url(#shield-face)"/>
+          <!-- Glass highlight -->
+          <path d="M130 38 L215 74 L215 100 L130 64 L45 100 L45 74 Z" fill="rgba(255,255,255,0.04)"/>
+          <!-- Circuit texture lines -->
+          <g stroke="rgba(180,142,224,0.08)" stroke-width="0.5" fill="none">
+            <line x1="80" y1="80" x2="80" y2="180"/>
+            <line x1="130" y1="60" x2="130" y2="200"/>
+            <line x1="180" y1="80" x2="180" y2="180"/>
+            <line x1="55" y1="110" x2="205" y2="110"/>
+            <line x1="55" y1="150" x2="205" y2="150"/>
+          </g>
+          <!-- "G" monogram - 3D embossed -->
+          <text x="130" y="128" font-family="'Poppins', sans-serif" font-size="72" font-weight="900" fill="url(#chrome-1)" text-anchor="middle" dominant-baseline="middle" filter="url(#bevel)">G</text>
+          <!-- "AI" below G -->
+          <text x="130" y="182" font-family="'Poppins', sans-serif" font-size="30" font-weight="800" letter-spacing="10" fill="url(#neon-edge)" text-anchor="middle" filter="url(#glow-soft)">AI</text>
+          <!-- Corner sparkles -->
+          <g filter="url(#glow-soft)">
+            <circle cx="130" cy="38" r="3" fill="#ff5e9e"/>
+            <circle cx="42" cy="72" r="2" fill="#b48ee0" opacity="0.7"/>
+            <circle cx="218" cy="72" r="2" fill="#5b9ef4" opacity="0.7"/>
+          </g>
+        </svg>
+        <span class="mockup-hint">Hat / Patch Ready</span>
+      </div>
+      <div class="card-body">
+        <h3>Chrome Shield</h3>
+        <p class="tagline">3D beveled shield with holographic chrome monogram. Military-meets-glam with circuit texture. Embossed metallic finish pops on dark merch.</p>
+        <div class="use-cases">
+          <span>Snapback hats</span>
+          <span>Embroidered patch</span>
+          <span>Metal pin</span>
+          <span>App icon</span>
+        </div>
+        <div class="rating-row">
+          <span class="label">Your rating:</span>
+          <div class="stars" data-logo="1"></div>
+          <span class="rating-value" data-logo="1">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 2: 3D Neon Cube -->
+    <div class="logo-card" data-logo="2">
+      <div class="logo-display bg-cool">
+        <span class="card-label">Logo 2</span>
+        <svg viewBox="0 0 260 260" width="240" class="shadow-3d" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cube-top" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2a1848"/>
+              <stop offset="100%" stop-color="#1a1030"/>
+            </linearGradient>
+            <linearGradient id="cube-left" x1="100%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#1a0e30"/>
+              <stop offset="100%" stop-color="#0e0620"/>
+            </linearGradient>
+            <linearGradient id="cube-right" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#160c28"/>
+              <stop offset="100%" stop-color="#0c0618"/>
+            </linearGradient>
+          </defs>
+          <!-- Floor reflection -->
+          <ellipse cx="130" cy="230" rx="80" ry="12" fill="url(#neon-edge)" opacity="0.08"/>
+          <!-- 3D Cube - isometric -->
+          <!-- Bottom shadow -->
+          <polygon points="130,240 50,195 130,150 210,195" fill="#000" opacity="0.3"/>
+          <!-- Left face -->
+          <polygon points="50,115 130,70 130,190 50,235" fill="url(#cube-left)" stroke="url(#neon-edge)" stroke-width="1.5"/>
+          <!-- Right face -->
+          <polygon points="210,115 130,70 130,190 210,235" fill="url(#cube-right)" stroke="url(#neon-edge)" stroke-width="1.5"/>
+          <!-- Top face -->
+          <polygon points="130,30 210,75 130,120 50,75" fill="url(#cube-top)" stroke="url(#neon-edge)" stroke-width="1.5"/>
+          <!-- Neon edge glow -->
+          <g filter="url(#glow-strong)">
+            <line x1="130" y1="30" x2="210" y2="75" stroke="#e040fb" stroke-width="1" opacity="0.6"/>
+            <line x1="130" y1="30" x2="50" y2="75" stroke="#ff2d78" stroke-width="1" opacity="0.6"/>
+            <line x1="130" y1="120" x2="130" y2="190" stroke="#5b9ef4" stroke-width="1" opacity="0.4"/>
+          </g>
+          <!-- Front face text "AI" -->
+          <text x="130" y="165" font-family="'Poppins', sans-serif" font-size="48" font-weight="900" letter-spacing="6" fill="url(#neon-edge)" text-anchor="middle" filter="url(#glow-soft)">AI</text>
+          <!-- Top face text "GG" -->
+          <text x="130" y="86" font-family="'Poppins', sans-serif" font-size="24" font-weight="700" letter-spacing="4" fill="rgba(255,255,255,0.3)" text-anchor="middle" transform="skewX(-0) skewY(-12) translate(18, 18)">GG</text>
+          <!-- Floating particles -->
+          <g filter="url(#glow-soft)">
+            <circle cx="60" cy="50" r="2" fill="#ff5e9e" opacity="0.6"/>
+            <circle cx="200" cy="45" r="1.5" fill="#5b9ef4" opacity="0.5"/>
+            <circle cx="40" cy="140" r="1.5" fill="#e040fb" opacity="0.4"/>
+            <circle cx="220" cy="160" r="2" fill="#b48ee0" opacity="0.4"/>
+          </g>
+        </svg>
+        <span class="mockup-hint">Streetwear Ready</span>
+      </div>
+      <div class="card-body">
+        <h3>Neon Cube</h3>
+        <p class="tagline">Isometric 3D cube with glowing neon edges. "AI" blazes on the front face. Cyberpunk-futuristic vibe that screams tech energy.</p>
+        <div class="use-cases">
+          <span>Streetwear tees</span>
+          <span>Hoodie chest print</span>
+          <span>Sticker</span>
+          <span>Social avatar</span>
+        </div>
+        <div class="rating-row">
+          <span class="label">Your rating:</span>
+          <div class="stars" data-logo="2"></div>
+          <span class="rating-value" data-logo="2">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 3: 3D Glossy Orb -->
+    <div class="logo-card" data-logo="3">
+      <div class="logo-display bg-vivid">
+        <span class="card-label">Logo 3</span>
+        <svg viewBox="0 0 260 260" width="240" class="shadow-3d" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="orb-base" cx="45%" cy="40%" r="55%">
+              <stop offset="0%" stop-color="#d070e8"/>
+              <stop offset="40%" stop-color="#a050c8"/>
+              <stop offset="80%" stop-color="#6030a0"/>
+              <stop offset="100%" stop-color="#301860"/>
+            </radialGradient>
+            <radialGradient id="orb-highlight" cx="35%" cy="25%" r="40%">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.45)"/>
+              <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+            </radialGradient>
+            <radialGradient id="orb-rim" cx="50%" cy="50%" r="50%">
+              <stop offset="85%" stop-color="rgba(0,0,0,0)"/>
+              <stop offset="100%" stop-color="rgba(0,0,0,0.4)"/>
+            </radialGradient>
+          </defs>
+          <!-- Floor shadow -->
+          <ellipse cx="130" cy="235" rx="72" ry="14" fill="rgba(160,80,200,0.12)"/>
+          <!-- Outer glow ring -->
+          <circle cx="130" cy="125" r="96" fill="none" stroke="url(#neon-edge)" stroke-width="0.8" opacity="0.2"/>
+          <!-- Main sphere -->
+          <circle cx="130" cy="125" r="88" fill="url(#orb-base)"/>
+          <!-- Glass highlight -->
+          <circle cx="130" cy="125" r="88" fill="url(#orb-highlight)"/>
+          <!-- Rim shadow -->
+          <circle cx="130" cy="125" r="88" fill="url(#orb-rim)"/>
+          <!-- Surface texture - subtle hexagon pattern -->
+          <g opacity="0.06" stroke="white" stroke-width="0.5" fill="none">
+            <polygon points="130,60 155,72 155,96 130,108 105,96 105,72"/>
+            <polygon points="130,108 155,120 155,144 130,156 105,144 105,120"/>
+            <polygon points="160,85 185,97 185,121 160,133 135,121 135,97"/>
+            <polygon points="100,85 125,97 125,121 100,133 75,121 75,97"/>
+            <polygon points="160,133 185,145 185,169 160,181 135,169 135,145"/>
+            <polygon points="100,133 125,145 125,169 100,181 75,169 75,145"/>
+          </g>
+          <!-- Center "G" letterform with inner glow -->
+          <text x="130" y="120" font-family="'Poppins', sans-serif" font-size="68" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle" opacity="0.95" filter="url(#glow-soft)">G</text>
+          <!-- "ai" subscript on sphere -->
+          <text x="130" y="166" font-family="'Poppins', sans-serif" font-size="22" font-weight="800" letter-spacing="8" fill="rgba(255,255,255,0.7)" text-anchor="middle">AI</text>
+          <!-- Sparkle reflections -->
+          <g filter="url(#glow-soft)">
+            <circle cx="98" cy="82" r="4" fill="white" opacity="0.6"/>
+            <circle cx="88" cy="92" r="1.5" fill="white" opacity="0.3"/>
+          </g>
+        </svg>
+        <span class="mockup-hint">Premium Merch</span>
+      </div>
+      <div class="card-body">
+        <h3>Glossy Orb</h3>
+        <p class="tagline">Photorealistic 3D glass sphere with deep purple gradient, hexagonal surface texture, and luminous "G" monogram. Luxe and futuristic.</p>
+        <div class="use-cases">
+          <span>Puff print tee</span>
+          <span>Holographic sticker</span>
+          <span>Enamel pin</span>
+          <span>Favicon</span>
+        </div>
+        <div class="rating-row">
+          <span class="label">Your rating:</span>
+          <div class="stars" data-logo="3"></div>
+          <span class="rating-value" data-logo="3">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 4: Embroidered Badge / Patch -->
+    <div class="logo-card" data-logo="4">
+      <div class="logo-display bg-warm">
+        <span class="card-label">Logo 4</span>
+        <svg viewBox="0 0 260 260" width="240" class="shadow-3d" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="badge-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#1e0e2e"/>
+              <stop offset="100%" stop-color="#140a20"/>
+            </linearGradient>
+            <linearGradient id="thread-gold" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#ffd060"/>
+              <stop offset="50%" stop-color="#ffe890"/>
+              <stop offset="100%" stop-color="#ffc840"/>
+            </linearGradient>
+          </defs>
+          <!-- 3D shadow underneath -->
+          <ellipse cx="134" cy="136" rx="100" ry="100" fill="#000" opacity="0.3"/>
+          <!-- Badge base with fabric texture -->
+          <circle cx="130" cy="130" r="100" fill="url(#badge-bg)"/>
+          <!-- Stitched border (outer) - dashed for embroidery feel -->
+          <circle cx="130" cy="130" r="97" fill="none" stroke="url(#thread-gold)" stroke-width="2.5" stroke-dasharray="6 4" opacity="0.8"/>
+          <circle cx="130" cy="130" r="90" fill="none" stroke="url(#thread-gold)" stroke-width="1" opacity="0.3"/>
+          <!-- Inner ring -->
+          <circle cx="130" cy="130" r="78" fill="none" stroke="url(#neon-edge)" stroke-width="1.5" opacity="0.5"/>
+          <!-- Fabric weave texture -->
+          <g opacity="0.03" stroke="white" stroke-width="0.3">
+            <line x1="50" y1="80" x2="210" y2="80"/>
+            <line x1="50" y1="90" x2="210" y2="90"/>
+            <line x1="50" y1="100" x2="210" y2="100"/>
+            <line x1="50" y1="110" x2="210" y2="110"/>
+            <line x1="50" y1="120" x2="210" y2="120"/>
+            <line x1="50" y1="130" x2="210" y2="130"/>
+            <line x1="50" y1="140" x2="210" y2="140"/>
+            <line x1="50" y1="150" x2="210" y2="150"/>
+            <line x1="50" y1="160" x2="210" y2="160"/>
+            <line x1="50" y1="170" x2="210" y2="170"/>
+            <line x1="50" y1="180" x2="210" y2="180"/>
+          </g>
+          <!-- "GIRL GONE" curved top text -->
+          <path id="curve-top" d="M58,130 A72,72 0 0,1 202,130" fill="none"/>
+          <text font-family="'Poppins', sans-serif" font-size="13" font-weight="700" letter-spacing="5" fill="url(#thread-gold)">
+            <textPath href="#curve-top" startOffset="50%" text-anchor="middle">GIRL GONE</textPath>
+          </text>
+          <!-- Lightning bolt center -->
+          <g transform="translate(110, 100)" filter="url(#glow-soft)">
+            <path d="M26 0 L10 28 L20 28 L14 52 L34 20 L24 20 Z" fill="url(#neon-edge)" opacity="0.9"/>
+          </g>
+          <!-- "AI" below bolt -->
+          <text x="130" y="178" font-family="'Poppins', sans-serif" font-size="28" font-weight="900" letter-spacing="8" fill="url(#neon-edge)" text-anchor="middle" filter="url(#glow-soft)">AI</text>
+          <!-- Est. date at bottom -->
+          <path id="curve-bottom" d="M68,130 A62,62 0 0,0 192,130" fill="none"/>
+          <text font-family="'Poppins', sans-serif" font-size="9" font-weight="600" letter-spacing="3" fill="rgba(255,220,100,0.4)">
+            <textPath href="#curve-bottom" startOffset="50%" text-anchor="middle">EST. 2026</textPath>
+          </text>
+        </svg>
+        <span class="mockup-hint">Embroidery Ready</span>
+      </div>
+      <div class="card-body">
+        <h3>Varsity Patch</h3>
+        <p class="tagline">Embroidered badge aesthetic with gold thread border, lightning bolt center, and curved text. Born for hats and jackets. Classic meets electric.</p>
+        <div class="use-cases">
+          <span>Dad hat embroidery</span>
+          <span>Iron-on patch</span>
+          <span>Varsity jacket</span>
+          <span>Tote bag</span>
+        </div>
+        <div class="rating-row">
+          <span class="label">Your rating:</span>
+          <div class="stars" data-logo="4"></div>
+          <span class="rating-value" data-logo="4">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- LOGO 5: 3D Floating Lettermark -->
+    <div class="logo-card" data-logo="5">
+      <div class="logo-display bg-neutral">
+        <span class="card-label">Logo 5</span>
+        <svg viewBox="0 0 260 260" width="240" class="shadow-3d" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="letter-face" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ff5e9e"/>
+              <stop offset="50%" stop-color="#c860e0"/>
+              <stop offset="100%" stop-color="#5b9ef4"/>
+            </linearGradient>
+            <linearGradient id="letter-shadow" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#8020a0"/>
+              <stop offset="100%" stop-color="#301050"/>
+            </linearGradient>
+            <linearGradient id="letter-side" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#a040c0"/>
+              <stop offset="100%" stop-color="#502080"/>
+            </linearGradient>
+          </defs>
+          <!-- Floor reflection -->
+          <ellipse cx="130" cy="232" rx="90" ry="10" fill="url(#neon-edge)" opacity="0.06"/>
+          <!-- 3D "GG" lettermark - layered depth -->
+          <!-- Back letter "G" offset -->
+          <g transform="translate(58, 48)">
+            <!-- Side extrusion -->
+            <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="110" font-weight="900" fill="url(#letter-shadow)" opacity="0.5" transform="translate(6, 6)">G</text>
+            <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="110" font-weight="900" fill="url(#letter-shadow)" opacity="0.3" transform="translate(4, 4)">G</text>
+            <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="110" font-weight="900" fill="url(#letter-shadow)" opacity="0.2" transform="translate(2, 2)">G</text>
+            <!-- Front face -->
+            <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="110" font-weight="900" fill="url(#letter-face)">G</text>
+            <!-- Specular highlight -->
+            <text x="0" y="90" font-family="'Poppins', sans-serif" font-size="110" font-weight="900" fill="rgba(255,255,255,0.15)" clip-path="inset(0 0 50% 0)">G</text>
+          </g>
+          <!-- Horizontal divider with glow -->
+          <g filter="url(#glow-soft)">
+            <line x1="50" y1="172" x2="210" y2="172" stroke="url(#neon-edge)" stroke-width="2" opacity="0.6"/>
+          </g>
+          <!-- "GIRL GONE AI" below -->
+          <text x="130" y="198" font-family="'Poppins', sans-serif" font-size="14" font-weight="700" letter-spacing="6" fill="rgba(255,255,255,0.5)" text-anchor="middle">GIRL GONE</text>
+          <text x="130" y="222" font-family="'Poppins', sans-serif" font-size="28" font-weight="900" letter-spacing="10" fill="url(#neon-edge)" text-anchor="middle" filter="url(#glow-soft)">AI</text>
+          <!-- Decorative sparkles -->
+          <g filter="url(#glow-soft)">
+            <path d="M188 60 L190 68 L198 70 L190 72 L188 80 L186 72 L178 70 L186 68 Z" fill="#5b9ef4" opacity="0.7"/>
+            <path d="M200 90 L201 94 L205 95 L201 96 L200 100 L199 96 L195 95 L199 94 Z" fill="#e040fb" opacity="0.5"/>
+            <circle cx="55" cy="55" r="2" fill="#ff5e9e" opacity="0.5"/>
+          </g>
+        </svg>
+        <span class="mockup-hint">Print Ready</span>
+      </div>
+      <div class="card-body">
+        <h3>3D Lettermark</h3>
+        <p class="tagline">Bold extruded "G" with stacked depth layers and gradient face. Clean, punchy, unmistakable from across the room. Pure brand power.</p>
+        <div class="use-cases">
+          <span>Screen print tee</span>
+          <span>Hat front</span>
+          <span>Vinyl decal</span>
+          <span>Neon sign</span>
+        </div>
+        <div class="rating-row">
+          <span class="label">Your rating:</span>
+          <div class="stars" data-logo="5"></div>
+          <span class="rating-value" data-logo="5">—</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="submit-section">
+      <button class="submit-btn" id="submitBtn" disabled>Submit My Ratings</button>
+      <p class="submit-hint" id="submitHint">Rate all 5 logos to unlock submit</p>
+    </div>
+  </div>
+
+  <!-- Results Overlay -->
+  <div class="results-overlay" id="resultsOverlay">
+    <div class="results-card">
+      <div class="trophy">&#127942;</div>
+      <h2>Your Pick</h2>
+      <p class="winner-name" id="winnerName"></p>
+      <ul class="results-list" id="resultsList"></ul>
+      <button class="close-results" id="closeResults">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const logoNames = {
+      1: 'Chrome Shield',
+      2: 'Neon Cube',
+      3: 'Glossy Orb',
+      4: 'Varsity Patch',
+      5: '3D Lettermark'
+    };
+
+    const ratings = {};
+    const starPath = 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z';
+
+    // Build star elements
+    document.querySelectorAll('.stars').forEach(container => {
+      const logoId = container.dataset.logo;
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        star.dataset.value = i;
+        star.innerHTML = `<svg viewBox="0 0 24 24"><path class="star-empty" d="${starPath}"/><path class="star-filled" d="${starPath}"/></svg>`;
+        star.addEventListener('click', () => setRating(logoId, i));
+        container.appendChild(star);
+      }
+    });
+
+    function setRating(logoId, value) {
+      ratings[logoId] = value;
+      const container = document.querySelector(`.stars[data-logo="${logoId}"]`);
+      container.querySelectorAll('.star').forEach((star, idx) => {
+        star.classList.toggle('active', idx < value);
+      });
+      document.querySelector(`.rating-value[data-logo="${logoId}"]`).textContent = value;
+      document.querySelector(`.logo-card[data-logo="${logoId}"]`).classList.add('rated');
+      checkSubmit();
+    }
+
+    function checkSubmit() {
+      const allRated = [1,2,3,4,5].every(id => ratings[id]);
+      const btn = document.getElementById('submitBtn');
+      const hint = document.getElementById('submitHint');
+      btn.disabled = !allRated;
+      if (allRated) {
+        hint.textContent = 'All rated — ready to submit';
+        hint.style.color = '#b48ee0';
+      } else {
+        const remaining = 5 - Object.keys(ratings).length;
+        hint.textContent = `Rate ${remaining} more logo${remaining === 1 ? '' : 's'} to unlock submit`;
+      }
+    }
+
+    document.getElementById('submitBtn').addEventListener('click', () => {
+      // Find winner
+      let maxRating = 0;
+      let winnerId = 1;
+      const sorted = Object.entries(ratings)
+        .map(([id, score]) => ({ id: parseInt(id), score, name: logoNames[parseInt(id)] }))
+        .sort((a, b) => b.score - a.score);
+
+      winnerId = sorted[0].id;
+      document.getElementById('winnerName').textContent = `#${winnerId} — ${logoNames[winnerId]} (${sorted[0].score} stars)`;
+
+      const list = document.getElementById('resultsList');
+      list.innerHTML = '';
+      sorted.forEach((item, idx) => {
+        const li = document.createElement('li');
+        li.className = idx === 0 ? 'winner' : '';
+        li.innerHTML = `
+          <span class="rank">#${idx + 1}</span>
+          <span class="name">${item.name}</span>
+          <span class="score">${'&#9733;'.repeat(item.score)}${'&#9734;'.repeat(5 - item.score)}</span>
+        `;
+        list.appendChild(li);
+      });
+
+      document.getElementById('resultsOverlay').classList.add('show');
+
+      // Store results in localStorage
+      localStorage.setItem('ggai-logo-poll', JSON.stringify({
+        ratings,
+        winner: winnerId,
+        winnerName: logoNames[winnerId],
+        submittedAt: new Date().toISOString()
+      }));
+    });
+
+    document.getElementById('closeResults').addEventListener('click', () => {
+      document.getElementById('resultsOverlay').classList.remove('show');
+    });
+
+    // Restore previous ratings if any
+    const saved = localStorage.getItem('ggai-logo-poll');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        Object.entries(data.ratings).forEach(([id, value]) => setRating(id, value));
+      } catch (e) {}
+    }
+  </script>
+</body>
+</html>
