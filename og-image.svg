@@ -1,24 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1A0A2E"/>
-      <stop offset="100%" stop-color="#0F0A1A"/>
+      <stop offset="0%" stop-color="#0D0B1A"/>
+      <stop offset="100%" stop-color="#1A0F2E"/>
     </linearGradient>
     <linearGradient id="og-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF2D78"/>
-      <stop offset="50%" stop-color="#E040FB"/>
-      <stop offset="100%" stop-color="#7C4DFF"/>
+      <stop offset="0%" stop-color="#FF3B8B"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="200" cy="315" r="300" fill="#FF2D78" opacity="0.05"/>
-  <circle cx="1000" cy="315" r="300" fill="#7C4DFF" opacity="0.05"/>
-  <!-- Lightning bolt icon -->
-  <g transform="translate(510, 100)">
+  <circle cx="200" cy="315" r="300" fill="#FF3B8B" opacity="0.04"/>
+  <circle cx="1000" cy="315" r="300" fill="#3B82F6" opacity="0.04"/>
+  <g transform="translate(510, 80)">
     <circle cx="90" cy="90" r="78" stroke="url(#og-grad)" stroke-width="4" fill="none" opacity="0.3"/>
     <path d="M100 20 L72 88 L92 88 L82 160 L112 76 L92 76 Z" fill="url(#og-grad)"/>
   </g>
-  <text x="600" y="340" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="6" fill="rgba(255,255,255,0.7)">GIRL GONE</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="6" fill="rgba(255,255,255,0.7)">GIRL GONE</text>
   <text x="600" y="420" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="96" font-weight="900" letter-spacing="20" fill="url(#og-grad)">AI</text>
   <text x="600" y="500" text-anchor="middle" font-family="Poppins, Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.4)">Smart Girl Energy Meets Artificial Intelligence</text>
 </svg>

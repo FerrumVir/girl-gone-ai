@@ -1,44 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <linearGradient id="bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF2D78"/>
-      <stop offset="50%" stop-color="#E040FB"/>
-      <stop offset="100%" stop-color="#7C4DFF"/>
+    <linearGradient id="bolt-main" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B"/>
+      <stop offset="50%" stop-color="#A855F7"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
     </linearGradient>
-    <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FF2D78"/>
-      <stop offset="100%" stop-color="#7C4DFF"/>
+    <linearGradient id="bolt-highlight" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FF6BAF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
     </linearGradient>
-    <linearGradient id="ai-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#448AFF"/>
-      <stop offset="100%" stop-color="#E040FB"/>
+    <linearGradient id="bolt-shadow" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#1E1B4B" stop-opacity="0.6"/>
     </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="bolt-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.2 0 0 0  0 0 0.5 0 0  0 0 0 0.6 0"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+    <linearGradient id="ring-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.6"/>
+      <stop offset="50%" stop-color="#A855F7" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0.6"/>
+    </linearGradient>
   </defs>
-  <!-- Icon: Circle with lightning bolt -->
-  <circle cx="50" cy="50" r="42" fill="url(#ring-grad)" opacity="0.1"/>
-  <circle cx="50" cy="50" r="36" stroke="url(#ring-grad)" stroke-width="3" fill="none" opacity="0.6"/>
-  <g filter="url(#glow)">
-    <path d="M56 14 L36 48 L48 48 L42 86 L64 44 L52 44 Z" fill="url(#bolt-grad)"/>
-  </g>
-  <!-- Sparkle accents -->
-  <circle cx="82" cy="20" r="3" fill="#FF2D78" opacity="0.7"/>
-  <circle cx="88" cy="14" r="1.5" fill="#E040FB" opacity="0.5"/>
-  <circle cx="18" cy="78" r="2" fill="#7C4DFF" opacity="0.6"/>
-  <!-- Wordmark -->
-  <text x="105" y="42" font-family="'Poppins', sans-serif" font-size="32" font-weight="700" letter-spacing="0.5" fill="#0F172A">Girl Gone</text>
-  <text x="105" y="78" font-family="'Poppins', sans-serif" font-size="38" font-weight="800" letter-spacing="8" fill="url(#ai-grad)">AI</text>
-  <!-- Sparkle after AI -->
-  <g transform="translate(195, 60)">
-    <line x1="0" y1="-8" x2="0" y2="8" stroke="#E040FB" stroke-width="2" stroke-linecap="round"/>
-    <line x1="-8" y1="0" x2="8" y2="0" stroke="#E040FB" stroke-width="2" stroke-linecap="round"/>
-    <line x1="-5" y1="-5" x2="5" y2="5" stroke="#E040FB" stroke-width="1.5" stroke-linecap="round"/>
-    <line x1="5" y1="-5" x2="-5" y2="5" stroke="#E040FB" stroke-width="1.5" stroke-linecap="round"/>
-  </g>
+  <circle cx="200" cy="200" r="170" fill="none" stroke="url(#ring-grad)" stroke-width="3"/>
+  <circle cx="200" cy="200" r="155" fill="none" stroke="url(#ring-grad)" stroke-width="1" opacity="0.3"/>
+  <path d="M225 50 L155 185 L195 185 L175 350 L265 170 L220 170 Z"
+        fill="#1E1B4B" opacity="0.3" transform="translate(6, 6)"/>
+  <path d="M225 50 L155 185 L195 185 L175 350 L265 170 L220 170 Z"
+        fill="url(#bolt-main)" filter="url(#bolt-glow)"/>
+  <path d="M225 50 L155 185 L195 185 L185 220 L225 50 Z"
+        fill="url(#bolt-highlight)" opacity="0.7"/>
+  <path d="M195 185 L175 350 L210 260 L195 185 Z"
+        fill="url(#bolt-shadow)" opacity="0.5"/>
+  <path d="M225 50 L155 185 L195 185 L175 350 L265 170 L220 170 Z"
+        fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+  <ellipse cx="210" cy="120" rx="12" ry="20" fill="white" opacity="0.15" transform="rotate(-15, 210, 120)"/>
+  <ellipse cx="195" cy="260" rx="8" ry="14" fill="white" opacity="0.08" transform="rotate(-10, 195, 260)"/>
+  <circle cx="145" cy="160" r="4" fill="#FF3B8B" opacity="0.5"/>
+  <circle cx="275" cy="190" r="3" fill="#3B82F6" opacity="0.5"/>
+  <circle cx="160" cy="300" r="3" fill="#A855F7" opacity="0.4"/>
+  <circle cx="250" cy="100" r="2.5" fill="#FF3B8B" opacity="0.4"/>
 </svg>

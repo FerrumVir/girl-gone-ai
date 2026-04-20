@@ -45,7 +45,7 @@ if (form) {
   });
 }
 
-// Fade-in on scroll (intersection observer)
+// Fade-in on scroll
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

@@ -29,19 +29,15 @@
       <a href="./" class="logo-link" aria-label="Girl Gone AI Home">
         <div class="logo-icon">
           <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="28" stroke="url(#hdr-ring)" stroke-width="2.5" fill="none" opacity="0.5"/>
-            <path d="M36 8 L22 30 L30 30 L26 56 L42 28 L34 28 Z" fill="url(#hdr-bolt)"/>
             <defs>
-              <linearGradient id="hdr-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FF2D78"/>
-                <stop offset="100%" stop-color="#7C4DFF"/>
-              </linearGradient>
-              <linearGradient id="hdr-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FF2D78"/>
-                <stop offset="50%" stop-color="#E040FB"/>
-                <stop offset="100%" stop-color="#7C4DFF"/>
+              <linearGradient id="hdr-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#FF3B8B"/>
+                <stop offset="50%" stop-color="#A855F7"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
               </linearGradient>
             </defs>
+            <circle cx="32" cy="32" r="28" stroke="url(#hdr-grad)" stroke-width="2.5" fill="none" opacity="0.4"/>
+            <path d="M36 8 L22 30 L30 30 L26 56 L42 28 L34 28 Z" fill="url(#hdr-grad)"/>
           </svg>
         </div>
         <span class="logo-text">Girl Gone <span class="logo-ai">AI</span></span>
@@ -63,34 +59,55 @@
   <!-- ========== Hero ========== -->
   <section class="hero">
     <div class="hero-bg"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
     <div class="hero-particles" aria-hidden="true">
       <span class="particle p1"></span>
       <span class="particle p2"></span>
       <span class="particle p3"></span>
       <span class="particle p4"></span>
       <span class="particle p5"></span>
+      <span class="particle p6"></span>
+      <span class="particle p7"></span>
+      <span class="particle p8"></span>
     </div>
     <div class="container hero-content">
-      <div class="hero-logo-large">
+      <div class="hero-logo-showcase">
+        <div class="hero-logo-glow"></div>
+        <div class="hero-logo-ring"></div>
         <div class="hero-logo-icon">
           <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="60" cy="60" r="52" stroke="url(#hero-ring)" stroke-width="3" fill="none" opacity="0.4"/>
-            <circle cx="60" cy="60" r="44" fill="url(#hero-ring)" opacity="0.08"/>
-            <path d="M68 16 L44 58 L56 58 L50 104 L76 52 L64 52 Z" fill="url(#hero-bolt)"/>
-            <circle cx="95" cy="25" r="4" fill="#FF2D78" opacity="0.6"/>
-            <circle cx="100" cy="18" r="2" fill="#E040FB" opacity="0.4"/>
-            <circle cx="25" cy="92" r="3" fill="#7C4DFF" opacity="0.5"/>
             <defs>
-              <linearGradient id="hero-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FF2D78"/>
-                <stop offset="100%" stop-color="#7C4DFF"/>
-              </linearGradient>
               <linearGradient id="hero-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#FF2D78"/>
-                <stop offset="50%" stop-color="#E040FB"/>
-                <stop offset="100%" stop-color="#7C4DFF"/>
+                <stop offset="0%" stop-color="#FF3B8B"/>
+                <stop offset="50%" stop-color="#A855F7"/>
+                <stop offset="100%" stop-color="#3B82F6"/>
               </linearGradient>
+              <linearGradient id="hero-bolt-hi" x1="0%" y1="0%" x2="50%" y2="100%">
+                <stop offset="0%" stop-color="#FF6BAF" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#A855F7" stop-opacity="0"/>
+              </linearGradient>
+              <filter id="hero-glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+                <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 0.2 0 0 0  0 0 0.5 0 0  0 0 0 0.5 0"/>
+                <feMerge>
+                  <feMergeNode/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
             </defs>
+            <!-- Shadow for depth -->
+            <path d="M68 16 L44 58 L56 58 L50 104 L76 52 L64 52 Z" fill="#1E1B4B" opacity="0.4" transform="translate(3, 3)"/>
+            <!-- Main bolt -->
+            <path d="M68 16 L44 58 L56 58 L50 104 L76 52 L64 52 Z" fill="url(#hero-bolt)" filter="url(#hero-glow)"/>
+            <!-- 3D highlight -->
+            <path d="M68 16 L44 58 L56 58 L52 70 L68 16 Z" fill="url(#hero-bolt-hi)" opacity="0.6"/>
+            <!-- Edge highlight -->
+            <path d="M68 16 L44 58 L56 58 L50 104 L76 52 L64 52 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+            <!-- Specular -->
+            <ellipse cx="62" cy="38" rx="6" ry="10" fill="white" opacity="0.12" transform="rotate(-15, 62, 38)"/>
           </svg>
         </div>
         <div class="hero-logo-text">
@@ -123,7 +140,15 @@
           <div class="about-avatar">
             <div class="avatar-ring"></div>
             <div class="avatar-inner">
-              <span class="avatar-bolt">&#9889;</span>
+              <svg viewBox="0 0 48 48" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="av-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF3B8B"/>
+                    <stop offset="100%" stop-color="#3B82F6"/>
+                  </linearGradient>
+                </defs>
+                <path d="M28 4 L16 22 L22 22 L19 44 L34 20 L27 20 Z" fill="url(#av-bolt)"/>
+              </svg>
             </div>
           </div>
           <h3 class="about-name">Jaci</h3>
@@ -177,19 +202,25 @@
       </div>
       <div class="product-grid">
         <div class="product-card">
-          <div class="product-emoji">&#129302;</div>
+          <div class="product-icon-wrap">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none"><defs><linearGradient id="pi1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FF3B8B"/><stop offset="100%" stop-color="#A855F7"/></linearGradient></defs><rect x="4" y="8" width="40" height="32" rx="4" stroke="url(#pi1)" stroke-width="2.5" fill="none"/><path d="M14 20h20M14 28h12" stroke="url(#pi1)" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
           <h3>Content Creator AI Prompt Pack</h3>
           <p>100+ ready-to-use prompts for captions, blogs, email sequences, and video scripts.</p>
           <span class="product-price">$15</span>
         </div>
         <div class="product-card">
-          <div class="product-emoji">&#128203;</div>
+          <div class="product-icon-wrap">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none"><defs><linearGradient id="pi2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#A855F7"/><stop offset="100%" stop-color="#3B82F6"/></linearGradient></defs><rect x="6" y="6" width="36" height="36" rx="4" stroke="url(#pi2)" stroke-width="2.5" fill="none"/><path d="M14 18h20M14 24h20M14 30h10" stroke="url(#pi2)" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
           <h3>Freelance Invoicing & Client Tracker</h3>
           <p>Track invoices, clients, and payments in one Notion workspace with dashboards.</p>
           <span class="product-price">$12</span>
         </div>
         <div class="product-card">
-          <div class="product-emoji">&#127807;</div>
+          <div class="product-icon-wrap">
+            <svg viewBox="0 0 48 48" width="32" height="32" fill="none"><defs><linearGradient id="pi3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#FF3B8B"/></linearGradient></defs><circle cx="24" cy="24" r="18" stroke="url(#pi3)" stroke-width="2.5" fill="none"/><path d="M24 14v10l7 7" stroke="url(#pi3)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
           <h3>ADHD Daily Planner & Focus System</h3>
           <p>Brain-friendly planning designed for how ADHD actually works. Flexible and dopamine-aware.</p>
           <span class="product-price">$14</span>
@@ -272,19 +303,15 @@
           <a href="./" class="logo-link" aria-label="Girl Gone AI Home">
             <div class="logo-icon">
               <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="32" cy="32" r="28" stroke="url(#ft-ring)" stroke-width="2" fill="none" opacity="0.4"/>
-                <path d="M36 8 L22 30 L30 30 L26 56 L42 28 L34 28 Z" fill="url(#ft-bolt)"/>
                 <defs>
-                  <linearGradient id="ft-ring" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FF2D78"/>
-                    <stop offset="100%" stop-color="#7C4DFF"/>
-                  </linearGradient>
-                  <linearGradient id="ft-bolt" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#FF2D78"/>
-                    <stop offset="50%" stop-color="#E040FB"/>
-                    <stop offset="100%" stop-color="#7C4DFF"/>
+                  <linearGradient id="ft-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#FF3B8B"/>
+                    <stop offset="50%" stop-color="#A855F7"/>
+                    <stop offset="100%" stop-color="#3B82F6"/>
                   </linearGradient>
                 </defs>
+                <circle cx="32" cy="32" r="28" stroke="url(#ft-grad)" stroke-width="2" fill="none" opacity="0.4"/>
+                <path d="M36 8 L22 30 L30 30 L26 56 L42 28 L34 28 Z" fill="url(#ft-grad)"/>
               </svg>
             </div>
             <span class="logo-text">Girl Gone <span class="logo-ai">AI</span></span>
