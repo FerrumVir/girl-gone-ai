@@ -91,6 +91,10 @@ if (freeForm) {
     if (!emailInput || !emailInput.value) return;
     if (btn) btn.disabled = true;
 
+    // Direct download path (works on static hosting without API)
+    const basePath = window.location.pathname.includes('/products/') ? '..' : '.';
+    const downloadUrl = basePath + '/downloads/' + encodeURIComponent(slug) + '.md';
+
     try {
       const resp = await fetch('/api/free-download', {
         method: 'POST',
@@ -106,13 +110,15 @@ if (freeForm) {
         if (msgEl) msgEl.textContent = 'Download starting...';
         window.location.href = data.downloadUrl;
         setTimeout(() => { if (freeModal) freeModal.style.display = 'none'; }, 1500);
-      } else {
-        if (msgEl) msgEl.textContent = data.message || 'Success!';
+        return;
       }
     } catch (err) {
-      if (msgEl) msgEl.textContent = 'Something went wrong. Please try again.';
-      if (btn) btn.disabled = false;
+      // API unavailable (static hosting) — fall through to direct download
     }
+
+    if (msgEl) msgEl.textContent = 'Download starting...';
+    window.location.href = downloadUrl;
+    setTimeout(() => { if (freeModal) freeModal.style.display = 'none'; }, 1500);
   });
 }
 
