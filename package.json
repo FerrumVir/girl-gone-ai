@@ -2,7 +2,7 @@
   "name": "novoclaw-site",
   "version": "1.0.0",
   "private": true,
-  "description": "NovoClaw digital product catalog with Stripe checkout",
+  "description": "Girl Gone AI digital product catalog with Stripe checkout",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

@@ -518,7 +518,7 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`NovoClaw server running at http://localhost:${PORT}`);
+  console.log(`Girl Gone AI server running at http://localhost:${PORT}`);
   if (stripe) {
     console.log('Stripe: configured (checkout enabled)');
   } else {

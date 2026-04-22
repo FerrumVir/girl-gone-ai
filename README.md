@@ -1,4 +1,4 @@
-# NovoClaw — Digital Product Catalog
+# Girl Gone AI — Digital Product Catalog
 
 Static site with 140+ digital products. Deploys to any static host.
 

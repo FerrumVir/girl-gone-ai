@@ -9,7 +9,7 @@ const command = args[0];
 
 function usage() {
   console.log(`
-NovoClaw Email Drip CLI
+Girl Gone AI Email Drip CLI
 
 Usage:
   node email/cli.js <command> [options]
@@ -24,7 +24,7 @@ Commands:
 
 Environment:
   SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS  - SMTP credentials for live sending
-  SMTP_FROM                                    - From address (default: NovoClaw <hello@novoclaw.com>)
+  SMTP_FROM                                    - From address (default: Girl Gone AI <hello@girlgoneai.com>)
   BASE_URL                                     - Site base URL (default: http://localhost:3000)
   DRY_RUN=1                                    - Output emails without sending
 `);

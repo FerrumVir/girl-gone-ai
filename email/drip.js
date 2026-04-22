@@ -19,7 +19,7 @@ const WELCOME_SEQUENCE = [
   { step: 1, delayDays: 0, template: 'welcome', subject: 'Your free {{productTitle}} is here' },
   { step: 2, delayDays: 2, template: 'recommendation', subject: '{{name}}, check out what pairs perfectly with {{productTitle}}' },
   { step: 3, delayDays: 5, template: 'bundle-offer', subject: 'Exclusive bundle deal for you, {{name}}' },
-  { step: 4, delayDays: 10, template: 'social-proof', subject: 'See what NovoClaw users are building' },
+  { step: 4, delayDays: 10, template: 'social-proof', subject: 'See what Girl Gone AI users are building' },
 ];
 
 // --- File I/O helpers ---
@@ -328,7 +328,7 @@ async function sendViaSMTP(emailData, smtpConfig) {
 
   const transporter = nodemailer.createTransport(smtpConfig);
   const info = await transporter.sendMail({
-    from: smtpConfig.from || 'NovoClaw <hello@novoclaw.com>',
+    from: smtpConfig.from || 'Girl Gone AI <hello@girlgoneai.com>',
     to: emailData.to,
     subject: emailData.subject,
     html: emailData.html,
@@ -341,7 +341,7 @@ function getSMTPConfig() {
   const port = parseInt(process.env.SMTP_PORT || '587', 10);
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
-  const from = process.env.SMTP_FROM || 'NovoClaw <hello@novoclaw.com>';
+  const from = process.env.SMTP_FROM || 'Girl Gone AI <hello@girlgoneai.com>';
 
   if (!host || !user || !pass) return null;
 
