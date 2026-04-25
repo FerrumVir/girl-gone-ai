@@ -6,8 +6,37 @@
   <title>Factory 1 Dashboard — Girl Gone AI</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <link rel="stylesheet" href="dashboard-styles.css">
+  <style>
+    .pw-overlay{position:fixed;inset:0;background:#0a0a0a;z-index:9999;display:flex;align-items:center;justify-content:center}
+    .pw-box{background:#1a1a2e;border:1px solid #333;border-radius:12px;padding:40px;max-width:400px;width:90%;text-align:center;box-shadow:0 8px 32px rgba(0,0,0,.5)}
+    .pw-box h2{color:#fff;margin:0 0 8px;font-size:1.4rem}
+    .pw-box p{color:#999;margin:0 0 24px;font-size:.9rem}
+    .pw-box input{width:100%;padding:12px 16px;border:1px solid #444;border-radius:8px;background:#111;color:#fff;font-size:1rem;margin-bottom:12px;box-sizing:border-box}
+    .pw-box button{width:100%;padding:12px;background:#6c5ce7;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+    .pw-box button:hover{background:#5a4bd1}
+    .pw-err{color:#e74c3c;font-size:.85rem;margin-bottom:8px;display:none}
+  </style>
 </head>
 <body>
+  <div class="pw-overlay" id="pw-overlay">
+    <div class="pw-box">
+      <h2>Factory 1 Dashboard</h2>
+      <p>Enter your credentials to access the dashboard.</p>
+      <div class="pw-err" id="pw-err">Incorrect credentials.</div>
+      <form onsubmit="return dashLogin()">
+        <input type="text" id="pw-user" placeholder="User ID" autofocus>
+        <input type="password" id="pw-input" placeholder="Password">
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+  </div>
+  <script>
+    const DASH_USER='Knovot';
+    const DASH_HASH='3d7cf05d7f59cef0b419a654173a4281f73b2aa0e3cd698a2d0bfb1c2e9e2ba0';
+    async function sha256(m){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(m));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
+    function dashLogin(){const u=document.getElementById('pw-user').value;sha256(document.getElementById('pw-input').value).then(h=>{if(u===DASH_USER&&h===DASH_HASH){sessionStorage.setItem('dash-auth','1');document.getElementById('pw-overlay').style.display='none'}else{document.getElementById('pw-err').style.display='block'}});return false}
+    if(sessionStorage.getItem('dash-auth')==='1')document.getElementById('pw-overlay').style.display='none';
+  </script>
   <header>
     <div class="header-left">
       <h1>Factory 1</h1>

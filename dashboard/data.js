@@ -114,13 +114,13 @@ const SeedData = {
   },
 
   topProducts() {
-    // No sales yet — show top catalog items ready to sell
+    // Gumroad Day 1 products — created, awaiting Stripe to publish
     return [
-      { name: 'ADHD Daily Planner', sales: 0, revenue: 0 },
-      { name: 'Freelance Invoice Template', sales: 0, revenue: 0 },
-      { name: 'Content Creator Notion Kit', sales: 0, revenue: 0 },
-      { name: 'AI Prompt Pack — Coding', sales: 0, revenue: 0 },
-      { name: 'Goal-Setting System', sales: 0, revenue: 0 },
+      { name: 'Daily Glow Planner', sales: 0, revenue: 0 },
+      { name: 'Simple Habit Tracker Bundle', sales: 0, revenue: 0 },
+      { name: 'Morning Reset Checklist Pack', sales: 0, revenue: 0 },
+      { name: 'Productivity Flow Kit', sales: 0, revenue: 0 },
+      { name: 'Motivation Affirmation Deck', sales: 0, revenue: 0 },
     ];
   },
 
