@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Owner Dashboard — Girl Gone AI</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f1117; --surface: #1a1d27; --surface-hover: #222632; --border: #2a2e3a;
+  --text: #e4e6eb; --text-muted: #8b8fa3;
+  --accent: #6366f1; --accent-light: #818cf8;
+  --green: #22c55e; --green-bg: rgba(34,197,94,.1);
+  --red: #ef4444; --red-bg: rgba(239,68,68,.1);
+  --yellow: #eab308; --blue: #3b82f6; --orange: #f97316;
+  --radius: 10px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; }
+
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 32px; border-bottom:1px solid var(--border); }
+.header-left { display:flex; align-items:baseline; gap:12px; }
+header h1 { font-size:22px; font-weight:700; }
+.subtitle { font-size:14px; color:var(--text-muted); }
+.header-right { display:flex; align-items:center; gap:16px; }
+.status-badge { font-size:11px; font-weight:600; letter-spacing:.5px; padding:4px 10px; border-radius:4px; background:var(--green); color:#000; }
+.last-updated { font-size:13px; color:var(--text-muted); }
+.logout-btn { font-size:12px; color:var(--accent-light); background:none; border:1px solid var(--border); border-radius:6px; padding:6px 12px; cursor:pointer; font-family:var(--font); }
+.logout-btn:hover { border-color:var(--accent); }
+
+main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; }
+
+.kpi-row { display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
+.kpi-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; display:flex; flex-direction:column; gap:6px; }
+.kpi-label { font-size:13px; color:var(--text-muted); font-weight:500; }
+.kpi-value { font-size:28px; font-weight:700; letter-spacing:-.5px; }
+.kpi-delta { font-size:13px; font-weight:500; }
+.kpi-delta.positive { color:var(--green); }
+.kpi-delta.negative { color:var(--red); }
+.kpi-delta.neutral { color:var(--text-muted); }
+.kpi-sub { font-size:13px; color:var(--text-muted); }
+
+.panel-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.panel-row.single { grid-template-columns:1fr; }
+.panel-row.three-col { grid-template-columns:1fr 1fr 1fr; }
+.panel { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; }
+.panel h2 { font-size:15px; font-weight:600; color:var(--text-muted); margin-bottom:16px; text-transform:uppercase; letter-spacing:.5px; }
+.panel-empty-msg { font-size:13px; color:var(--text-muted); text-align:center; padding:16px 0; font-style:italic; }
+
+.chart-container { position:relative; width:100%; height:260px; }
+.chart-container.small { height:200px; }
+
+table.data-table { width:100%; border-collapse:collapse; }
+.data-table th { text-align:left; font-size:12px; color:var(--text-muted); font-weight:500; padding:8px 0; border-bottom:1px solid var(--border); }
+.data-table td { font-size:14px; padding:10px 0; border-bottom:1px solid var(--border); }
+.data-table tr:last-child td { border-bottom:none; }
+.data-table td:nth-child(n+2), .data-table th:nth-child(n+2) { text-align:right; }
+.data-table a { color:var(--accent-light); text-decoration:none; font-size:13px; }
+.data-table a:hover { text-decoration:underline; }
+
+.milestone-container { display:flex; flex-direction:column; align-items:center; gap:20px; }
+.progress-ring-wrapper { position:relative; display:inline-flex; }
+.progress-center { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-size:28px; font-weight:700; }
+.detail-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); width:100%; }
+.detail-row:last-child { border-bottom:none; }
+.detail-label { font-size:13px; color:var(--text-muted); }
+.detail-value { font-size:14px; font-weight:600; }
+
+.payout-container, .reinvest-container { display:flex; flex-direction:column; gap:16px; }
+.payout-total, .reinvest-total { display:flex; justify-content:space-between; align-items:baseline; }
+.payout-label, .reinvest-label { font-size:14px; color:var(--text-muted); }
+.payout-value, .reinvest-value { font-size:24px; font-weight:700; color:var(--green); }
+
+footer { display:flex; justify-content:space-between; padding:16px 32px; border-top:1px solid var(--border); font-size:12px; color:var(--text-muted); }
+
+@media (max-width:1200px) { .kpi-row { grid-template-columns:repeat(3,1fr); } .panel-row.three-col { grid-template-columns:1fr; } }
+@media (max-width:900px) { .kpi-row { grid-template-columns:repeat(2,1fr); } .panel-row { grid-template-columns:1fr; } main { padding:16px; } header { padding:16px; flex-wrap:wrap; gap:8px; } }
+@media (max-width:480px) { .kpi-row { grid-template-columns:1fr; } .kpi-value { font-size:22px; } header h1 { font-size:18px; } }
+</style>
+</head>
+<body>
+<script>
+if (sessionStorage.getItem('dash-role') !== 'owner') { window.location.href = 'index.html'; }
+</script>
+<header>
+  <div class="header-left">
+    <h1>Factory 1</h1>
+    <span class="subtitle">Owner / Investor Dashboard</span>
+  </div>
+  <div class="header-right">
+    <span class="status-badge">LIVE</span>
+    <span class="last-updated" id="last-updated">&mdash;</span>
+    <button class="logout-btn" onclick="sessionStorage.clear();location.href='index.html'">Sign Out</button>
+  </div>
+</header>
+
+<main>
+  <section class="kpi-row">
+    <div class="kpi-card"><span class="kpi-label">Today's Revenue</span><span class="kpi-value" id="kpi-rev-today">$0</span><span class="kpi-delta neutral">&mdash;</span></div>
+    <div class="kpi-card"><span class="kpi-label">This Week</span><span class="kpi-value" id="kpi-rev-week">$0</span><span class="kpi-delta neutral">&mdash;</span></div>
+    <div class="kpi-card"><span class="kpi-label">This Month</span><span class="kpi-value" id="kpi-rev-month">$0</span><span class="kpi-delta neutral">&mdash;</span></div>
+    <div class="kpi-card"><span class="kpi-label">Net Profit</span><span class="kpi-value" id="kpi-net">$0</span><span class="kpi-delta neutral">&mdash;</span></div>
+    <div class="kpi-card"><span class="kpi-label">15% Payout</span><span class="kpi-value" id="kpi-payout">$0</span><span class="kpi-sub">Owner's share</span></div>
+    <div class="kpi-card"><span class="kpi-label">Cash Balance</span><span class="kpi-value" id="kpi-cash">$24,749</span><span class="kpi-sub">of $25,000 seed</span></div>
+  </section>
+
+  <section class="panel-row">
+    <div class="panel">
+      <h2>Revenue Trend</h2>
+      <div class="chart-container"><canvas id="revenue-chart"></canvas></div>
+      <p class="panel-empty-msg">Store is LIVE. Revenue tracking begins when first sale is recorded.</p>
+    </div>
+    <div class="panel">
+      <h2>Ad ROAS by Platform</h2>
+      <div class="chart-container"><canvas id="roas-chart"></canvas></div>
+      <p class="panel-empty-msg">Ad accounts not yet provisioned. Waiting for board approval.</p>
+    </div>
+  </section>
+
+  <section class="panel-row">
+    <div class="panel">
+      <h2>Top Products</h2>
+      <table class="data-table" id="products-table">
+        <thead><tr><th>Product</th><th>Price</th><th>Sales</th><th>Revenue</th><th>Link</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div class="panel">
+      <h2>Revenue by Category</h2>
+      <table class="data-table" id="category-table">
+        <thead><tr><th>Category</th><th>Products</th><th>Revenue</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel-row single">
+    <div class="panel">
+      <h2>Cash Flow</h2>
+      <div class="chart-container"><canvas id="cashflow-chart"></canvas></div>
+    </div>
+  </section>
+
+  <section class="panel-row three-col">
+    <div class="panel">
+      <h2>25% ROI Progress</h2>
+      <div class="milestone-container">
+        <div class="progress-ring-wrapper">
+          <canvas id="milestone-ring" width="180" height="180"></canvas>
+          <span class="progress-center" id="milestone-pct">0%</span>
+        </div>
+        <div style="width:100%">
+          <div class="detail-row"><span class="detail-label">Deployed Capital</span><span class="detail-value">$25,000</span></div>
+          <div class="detail-row"><span class="detail-label">Cumulative Net Profit</span><span class="detail-value" id="ms-profit">$0</span></div>
+          <div class="detail-row"><span class="detail-label">Target</span><span class="detail-value">$6,250</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Owner Payouts (15%)</h2>
+      <div class="payout-container">
+        <div class="payout-total"><span class="payout-label">Total Paid Out</span><span class="payout-value" id="payout-total">$0</span></div>
+        <table class="data-table"><thead><tr><th>Month</th><th>Net Profit</th><th>Payout</th></tr></thead>
+          <tbody><tr><td>Apr 2026</td><td>$0</td><td>$0</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+    <div class="panel">
+      <h2>Reinvestment (85%)</h2>
+      <div class="reinvest-container">
+        <div class="reinvest-total"><span class="reinvest-label">Total Reinvested</span><span class="reinvest-value">$251</span></div>
+        <div class="chart-container small"><canvas id="reinvest-chart"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel-row single">
+    <div class="panel">
+      <h2>Full Product Catalog</h2>
+      <table class="data-table" id="full-catalog">
+        <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Status</th><th>Gumroad</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Factory 1 Owner Dashboard v3.0 &mdash; Girl Gone AI</span>
+  <span id="footer-status">10 products on Gumroad</span>
+</footer>
+
+<script>
+const PRODUCTS = [
+  { name:'Wedding Planning Dashboard', price:18, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/hxntlz' },
+  { name:'Midjourney & AI Art Prompt Pack', price:17, sales:0, revenue:0, category:'AI Prompt Packs', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/rjfayx' },
+  { name:'Podcast Launch Kit', price:14, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/jfuzt' },
+  { name:'Teacher Lesson Planner', price:12, sales:0, revenue:0, category:'Education', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/gkdlq' },
+  { name:'Product Launch Playbook', price:12, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/apbls' },
+  { name:'Meal Prep & Recipe Planner', price:10, sales:0, revenue:0, category:'Lifestyle', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/btxunu' },
+  { name:'Client Proposal Template Kit', price:10, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/baqfdx' },
+  { name:'Side Hustle Income Tracker', price:9, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/xrlbjs' },
+  { name:'Student Study System', price:8, sales:0, revenue:0, category:'Education', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/rypqg' },
+  { name:'Professional Invoice Generator', price:8, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/thtyoc' }
+];
+
+function esc(s) { const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+
+function renderProducts() {
+  const top = document.querySelector('#products-table tbody');
+  top.innerHTML = PRODUCTS.slice(0,5).map(p =>
+    `<tr><td>${esc(p.name)}</td><td>$${p.price}</td><td>${p.sales}</td><td>$${p.revenue}</td><td><a href="${esc(p.link)}" target="_blank">View</a></td></tr>`
+  ).join('');
+
+  const cats = {};
+  PRODUCTS.forEach(p => {
+    if (!cats[p.category]) cats[p.category] = { count:0, rev:0 };
+    cats[p.category].count++;
+    cats[p.category].rev += p.revenue;
+  });
+  const catBody = document.querySelector('#category-table tbody');
+  catBody.innerHTML = Object.entries(cats).map(([k,v]) =>
+    `<tr><td>${esc(k)}</td><td>${v.count}</td><td>$${v.rev}</td></tr>`
+  ).join('');
+
+  const full = document.querySelector('#full-catalog tbody');
+  full.innerHTML = PRODUCTS.map(p =>
+    `<tr><td>${esc(p.name)}</td><td>${esc(p.category)}</td><td>$${p.price}</td><td>${esc(p.status)}</td><td><a href="${esc(p.link)}" target="_blank">View on Gumroad</a></td></tr>`
+  ).join('');
+}
+
+function drawMilestoneRing(pct) {
+  const canvas = document.getElementById('milestone-ring');
+  const ctx = canvas.getContext('2d');
+  const cx=90, cy=90, r=70, lw=14;
+  ctx.clearRect(0,0,180,180);
+  ctx.beginPath(); ctx.arc(cx,cy,r,0,2*Math.PI); ctx.strokeStyle='#2a2e3a'; ctx.lineWidth=lw; ctx.stroke();
+  if (pct > 0) {
+    ctx.beginPath(); ctx.arc(cx,cy,r,-Math.PI/2,-Math.PI/2+2*Math.PI*(pct/100)); ctx.strokeStyle='#22c55e'; ctx.lineWidth=lw; ctx.lineCap='round'; ctx.stroke();
+  }
+}
+
+function drawRevenueChart() {
+  const ctx = document.getElementById('revenue-chart').getContext('2d');
+  const labels = [];
+  const data = [];
+  const today = new Date();
+  for (let i=29; i>=0; i--) {
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    labels.push(d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+    data.push(0);
+  }
+  new Chart(ctx, {
+    type:'line',
+    data:{ labels, datasets:[{ label:'Revenue', data, borderColor:'#6366f1', backgroundColor:'rgba(99,102,241,.1)', fill:true, tension:.3, pointRadius:0 }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#8b8fa3',maxTicksLimit:7},grid:{color:'#2a2e3a'}}, y:{ticks:{color:'#8b8fa3',callback:v=>'$'+v},grid:{color:'#2a2e3a'},beginAtZero:true} } }
+  });
+}
+
+function drawCashFlowChart() {
+  const ctx = document.getElementById('cashflow-chart').getContext('2d');
+  const labels = []; const balances = [];
+  let bal = 25000;
+  const today = new Date();
+  for (let i=6; i>=0; i--) {
+    const d = new Date(today); d.setDate(d.getDate()-i);
+    labels.push(d.toLocaleDateString('en-US',{month:'short',day:'numeric'}));
+    bal -= Math.round(251/7);
+    balances.push(bal);
+  }
+  new Chart(ctx, {
+    type:'line',
+    data:{ labels, datasets:[{ label:'Cash Balance', data:balances, borderColor:'#22c55e', backgroundColor:'rgba(34,197,94,.1)', fill:true, tension:.3, pointRadius:2 }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#8b8fa3'},grid:{color:'#2a2e3a'}}, y:{ticks:{color:'#8b8fa3',callback:v=>'$'+v.toLocaleString()},grid:{color:'#2a2e3a'}} } }
+  });
+}
+
+function drawReinvestChart() {
+  const ctx = document.getElementById('reinvest-chart').getContext('2d');
+  new Chart(ctx, {
+    type:'doughnut',
+    data:{ labels:['Agent Spend','Ad Spend','Product Creation','Tools & Infra'], datasets:[{ data:[251,0,0,0], backgroundColor:['#6366f1','#3b82f6','#22c55e','#f97316'] }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'bottom',labels:{color:'#8b8fa3',padding:12,font:{size:12}}}} }
+  });
+}
+
+function drawROASChart() {
+  const ctx = document.getElementById('roas-chart').getContext('2d');
+  new Chart(ctx, {
+    type:'bar',
+    data:{ labels:['Meta','Google','TikTok','Organic'], datasets:[{ label:'ROAS', data:[0,0,0,0], backgroundColor:['#3b82f6','#22c55e','#000','#f97316'] }] },
+    options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{ x:{ticks:{color:'#8b8fa3'},grid:{display:false}}, y:{ticks:{color:'#8b8fa3',callback:v=>v+'x'},grid:{color:'#2a2e3a'},beginAtZero:true} } }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderProducts();
+  drawMilestoneRing(0);
+  drawRevenueChart();
+  drawCashFlowChart();
+  drawReinvestChart();
+  drawROASChart();
+  document.getElementById('last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
+});
+</script>
+</body>
+</html>
