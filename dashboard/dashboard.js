@@ -134,14 +134,18 @@ async function renderRevenueChart() {
 async function renderTopProducts() {
   const products = await DataSource.getTopProducts();
   const hasSales = products.some(p => p.sales > 0);
-  toggleEmpty('products-empty', !hasSales);
+  toggleEmpty('products-empty', !hasSales && !products.some(p => p.status === 'LIVE'));
+
+  const thead = document.querySelector('#top-products-table thead tr');
+  thead.innerHTML = '<th>Product</th><th>Price</th><th>Sales</th><th>Status</th>';
 
   const tbody = document.querySelector('#top-products-table tbody');
-  tbody.innerHTML = products.slice(0, 8).map(p => `
+  tbody.innerHTML = products.slice(0, 10).map(p => `
     <tr>
-      <td>${escHtml(p.name)}</td>
+      <td>${p.link ? '<a href="' + p.link + '" target="_blank" style="color:#818cf8;text-decoration:none">' + escHtml(p.name) + '</a>' : escHtml(p.name)}</td>
+      <td>${p.price ? '$' + p.price : '\u2014'}</td>
       <td>${p.sales}</td>
-      <td>${fmt$(p.revenue)}</td>
+      <td><span style="color:${p.status === 'LIVE' ? '#22c55e' : '#eab308'};font-weight:600;font-size:0.8em">${p.status || 'DRAFT'}</span></td>
     </tr>
   `).join('');
 }

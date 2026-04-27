@@ -13,7 +13,7 @@ const CONFIG = {
   ownerPayoutRate: 0.15,
   reinvestmentRate: 0.85,
   refreshIntervalMs: 60000,
-  productsInCatalog: 140,
+  productsInCatalog: 10,
   // Set to a real base URL when APIs are available
   apiBaseUrl: null,
   // Path to JSON data file (for manual updates or webhook integration)
@@ -114,23 +114,27 @@ const SeedData = {
   },
 
   topProducts() {
-    // Gumroad Day 1 products — created, awaiting Stripe to publish
     return [
-      { name: 'Daily Glow Planner', sales: 0, revenue: 0 },
-      { name: 'Simple Habit Tracker Bundle', sales: 0, revenue: 0 },
-      { name: 'Morning Reset Checklist Pack', sales: 0, revenue: 0 },
-      { name: 'Productivity Flow Kit', sales: 0, revenue: 0 },
-      { name: 'Motivation Affirmation Deck', sales: 0, revenue: 0 },
+      { name: 'Wedding Planning Dashboard', sales: 0, revenue: 0, price: 18, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/hxntlz' },
+      { name: 'Midjourney & AI Art Prompt Pack', sales: 0, revenue: 0, price: 17, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/rjfayx' },
+      { name: 'Podcast Launch Kit', sales: 0, revenue: 0, price: 14, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/jfuzt' },
+      { name: 'Teacher Lesson Planner', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/gkdlq' },
+      { name: 'Product Launch Playbook', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/apbls' },
+      { name: 'Meal Prep & Recipe Planner', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/btxunu' },
+      { name: 'Client Proposal Template Kit', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/baqfdx' },
+      { name: 'Side Hustle Income Tracker', sales: 0, revenue: 0, price: 9, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/xrlbjs' },
+      { name: 'Student Study System', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/rypqg' },
+      { name: 'Professional Invoice Generator', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/thtyoc' },
     ];
   },
 
   revenueByCategory() {
     return [
-      { category: 'Notion Templates', revenue: 0, products: 42 },
-      { category: 'Digital Planners', revenue: 0, products: 35 },
-      { category: 'AI Prompt Packs', revenue: 0, products: 28 },
-      { category: 'Spreadsheet Tools', revenue: 0, products: 20 },
-      { category: 'Workflow Kits', revenue: 0, products: 15 },
+      { category: 'Productivity & Planning', revenue: 0, products: 3 },
+      { category: 'Business Templates', revenue: 0, products: 3 },
+      { category: 'AI Prompt Packs', revenue: 0, products: 1 },
+      { category: 'Education', revenue: 0, products: 2 },
+      { category: 'Lifestyle', revenue: 0, products: 1 },
     ];
   },
 
