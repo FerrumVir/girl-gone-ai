@@ -65,7 +65,7 @@
   <div class="logo">Girl Gone <span>AI</span></div>
   <div class="subtitle">Sign in to your dashboard</div>
   <div class="error" id="err">Invalid email or password.</div>
-  <form id="login-form" onsubmit="return handleLogin()">
+  <form id="login-form">
     <div class="field">
       <label for="email">Email</label>
       <input type="email" id="email" placeholder="you@novolinkai.com" autocomplete="email" autofocus required>
@@ -87,7 +87,8 @@ async function sha256(msg) {
   const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
 }
-async function handleLogin() {
+document.getElementById('login-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
   const email = document.getElementById('email').value.trim().toLowerCase();
   const pw = document.getElementById('password').value;
   const hash = await sha256(pw);
@@ -99,8 +100,7 @@ async function handleLogin() {
   } else {
     document.getElementById('err').style.display = 'block';
   }
-  return false;
-}
+});
 </script>
 </body>
 </html>
