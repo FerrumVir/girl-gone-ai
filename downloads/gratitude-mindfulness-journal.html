@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123569132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18123569132');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gratitude &amp; Mindfulness Journal — 90-Day Guided Practice — Girl Gone AI</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1e1e2e;
+      background: #f5f6fa;
+    }
+
+    /* ── Brand header ── */
+    .brand-header {
+      background: #2563eb;
+      color: #fff;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.18);
+    }
+    .brand-header .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .brand-header .logo span {
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin-left: 12px;
+      letter-spacing: 0;
+    }
+    .brand-header .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* ── Document title block ── */
+    .doc-title {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .doc-title h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .doc-title .subtitle {
+      margin-top: 6px;
+      font-size: 1rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* ── Headings ── */
+    h1 { font-size: 1.7rem; font-weight: 800; color: #111827; margin: 40px 0 16px; }
+    h2 { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 36px 0 12px; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 28px 0 10px;
+    }
+    h4 { font-size: 0.95rem; font-weight: 700; color: #374151; margin: 18px 0 6px; }
+
+    /* ── Section headers (full-bleed accent) ── */
+    .section-header {
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 8px;
+      margin: 48px 0 24px;
+    }
+    .section-header h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Paragraphs & lists ── */
+    p { margin-bottom: 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    ul li, ol li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 5px;
+    }
+    ul li::before {
+      content: "\2022";
+      position: absolute;
+      left: 6px;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    ol { counter-reset: list-counter; }
+    ol li { counter-increment: list-counter; }
+    ol li::before {
+      content: counter(list-counter) ".";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    strong { font-weight: 700; color: #111827; }
+    em { font-style: italic; color: #4b5563; }
+
+    /* ── Horizontal rule / divider ── */
+    hr {
+      border: none;
+      border-top: 1.5px solid #e5e7eb;
+      margin: 28px 0;
+    }
+
+    /* ── Blockquote / callout ── */
+    blockquote {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #1e40af;
+    }
+    blockquote p { margin: 0 0 6px; }
+    blockquote p:last-child { margin: 0; }
+    blockquote strong { color: #1d4ed8; }
+
+    /* ── Code / text blocks ── */
+    pre {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.85rem;
+      color: #374151;
+      white-space: pre-wrap;
+      margin: 10px 0 16px;
+      min-height: 80px;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 14px 0 20px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    thead tr {
+      background: #2563eb;
+      color: #fff;
+    }
+    thead th {
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    tbody tr { border-bottom: 1px solid #f1f2f6; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8f9ff; }
+    tbody tr:hover { background: #eff6ff; }
+    td { padding: 9px 12px; vertical-align: middle; }
+    td:first-child { font-weight: 600; color: #374151; }
+
+    /* ── Checkbox styled items ── */
+    .checklist { list-style: none; padding: 0; margin: 8px 0 14px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px 0;
+      padding-left: 0;
+    }
+    .checklist li::before { display: none; }
+    .checkbox-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      border: 2px solid #9ca3af;
+      border-radius: 3px;
+      background: #fff;
+      margin-top: 3px;
+    }
+
+    /* ── Energy dot badges ── */
+    .energy-high  { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; margin-right: 4px; vertical-align: middle; }
+    .energy-med   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #eab308; margin-right: 4px; vertical-align: middle; }
+    .energy-low   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #16a34a; margin-right: 4px; vertical-align: middle; }
+    .energy-break { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #9ca3af; margin-right: 4px; vertical-align: middle; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 12px;
+      padding: 2px 9px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-high  { background: #fee2e2; color: #b91c1c; }
+    .badge-med   { background: #fef9c3; color: #92400e; }
+    .badge-low   { background: #dcfce7; color: #166534; }
+    .badge-break { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Sub-section label ── */
+    .sub-label {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ── Decision tree boxes ── */
+    .decision-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .decision-item h4 {
+      color: #2563eb;
+      margin-bottom: 6px;
+    }
+    .decision-item p, .decision-item ul { margin: 0; }
+    .decision-item ul li { margin-bottom: 3px; }
+
+    /* ── Callout box (non-blockquote variant) ── */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      color: #14532d;
+    }
+    .callout strong { color: #166534; }
+
+    /* ── Info box ── */
+    .info-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .info-box h4 { margin-top: 0; color: #1e293b; }
+
+    /* ── Celebration section ── */
+    .celebration {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin: 20px 0;
+    }
+    .celebration h3 { color: #1d4ed8; }
+
+    /* ── Philosophy Q&A ── */
+    .qa-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #f1f2f6;
+    }
+    .qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .qa-item .question {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.97rem;
+      margin-bottom: 6px;
+    }
+
+    /* ── Database property list ── */
+    .prop-list { margin: 10px 0 16px; }
+    .prop-list li {
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 0.87rem;
+    }
+    .prop-list li::before { display: none; }
+    .prop-list li .prop-name {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    /* ── Quote highlight ── */
+    .quote-highlight {
+      text-align: center;
+      padding: 24px 20px;
+      color: #6b7280;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    .quote-highlight strong { color: #374151; font-style: normal; }
+
+    /* ── Mood grid ── */
+    .mood-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+      margin: 14px 0 20px;
+    }
+    .mood-grid .day-cell {
+      background: #fff;
+      border: 1.5px solid #e5e7eb;
+      border-radius: 6px;
+      text-align: center;
+      padding: 8px 4px;
+      min-height: 48px;
+      font-size: 0.78rem;
+      color: #9ca3af;
+    }
+    .mood-grid .day-cell .day-num {
+      display: block;
+      font-weight: 700;
+      color: #374151;
+      font-size: 0.82rem;
+      margin-bottom: 2px;
+    }
+    .mood-grid .day-header {
+      background: #2563eb;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      border-radius: 6px;
+      padding: 6px 4px;
+      text-align: center;
+    }
+
+    /* ── Prompt card ── */
+    .prompt-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 16px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .prompt-card .prompt-num {
+      font-weight: 700;
+      color: #2563eb;
+      margin-right: 8px;
+      font-size: 0.82rem;
+    }
+
+    /* ── Meditation script box ── */
+    .meditation-script {
+      background: #fefce8;
+      border: 1px solid #fde68a;
+      border-left: 4px solid #eab308;
+      border-radius: 0 8px 8px 0;
+      padding: 18px 22px;
+      margin: 16px 0;
+      color: #713f12;
+    }
+    .meditation-script h4 { color: #92400e; margin-top: 0; }
+    .meditation-script p { margin-bottom: 10px; color: #78350f; }
+    .meditation-script p:last-child { margin-bottom: 0; }
+
+    /* ── Utility ── */
+    .mt-0 { margin-top: 0 !important; }
+    .mb-sm { margin-bottom: 8px; }
+    .text-muted { color: #6b7280; font-size: 0.87rem; }
+    .section-note { color: #6b7280; font-size: 0.87rem; font-style: italic; margin-bottom: 18px; }
+
+    /* ── PRINT ── */
+    @media print {
+      .brand-header { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page { padding: 20px 0; max-width: 100%; }
+      .section-header { background: none !important; border: 2px solid #000; color: #000 !important; }
+      .section-header h1 { color: #000 !important; }
+      blockquote { background: none; border-left: 3px solid #000; color: #000; }
+      .decision-item { border-left-color: #000; background: none; border-color: #ccc; }
+      .callout { background: none; border-color: #000; color: #000; }
+      .celebration { background: none; border: 1px solid #ccc; }
+      .info-box { background: none; border: 1px solid #ccc; }
+      .meditation-script { background: none; border-color: #999; color: #000; }
+      .meditation-script h4, .meditation-script p { color: #000; }
+      table { box-shadow: none; font-size: 9pt; }
+      thead tr { background: #e5e5e5 !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      tbody tr:nth-child(even) { background: #f5f5f5 !important; }
+      tbody tr:hover { background: none !important; }
+      .table-wrap { box-shadow: none; page-break-inside: avoid; }
+      pre { background: #f5f5f5; border: 1px solid #ccc; min-height: 60px; }
+      h1, h2, h3, h4 { page-break-after: avoid; }
+      .decision-item, .callout, .info-box, blockquote, .meditation-script { page-break-inside: avoid; }
+      .mood-grid .day-cell { border-color: #ccc; }
+      .mood-grid .day-header { background: #e5e5e5; color: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .prompt-card { border-left-color: #000; background: none; border-color: #ccc; }
+      @page { margin: 1.5cm 1.8cm; size: A4; }
+      .badge-high, .badge-med, .badge-low, .badge-break { background: none; color: #000; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand Header -->
+  <header class="brand-header" aria-label="Girl Gone AI brand header">
+    <div class="logo">Girl Gone AI <span>Digital Downloads</span></div>
+    <div class="badge">Printable Download</div>
+  </header>
+
+  <main class="page">
+
+    <!-- Document Title -->
+    <div class="doc-title">
+      <h1>Gratitude &amp; Mindfulness Journal</h1>
+      <div class="subtitle">A 90-Day Guided Practice with Daily Prompts, Mood Mapping &amp; Meditation Scripts</div>
+    </div>
+
+    <!-- Quick Start Callout -->
+    <blockquote>
+      <p><strong>QUICK START — Read This First (Takes 2 Minutes)</strong></p>
+      <ol>
+        <li>Pick a consistent time — morning, evening, or both (5-10 minutes is all you need)</li>
+        <li>Start with today's Daily Journal Page — fill in the morning gratitude section first</li>
+        <li>Use the daily prompt that matches your day number, or pick any prompt that calls to you</li>
+        <li>At the end of each week, try one Mindfulness Exercise from Section 5</li>
+        <li>At the end of each month, complete the Monthly Reflection and color in your Mood Map</li>
+      </ol>
+      <p style="margin-top:10px;">That's it. There is no wrong way to do this. Even one sentence counts. Start today.</p>
+    </blockquote>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1: Quick Start Guide -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 1: Quick Start Guide</h1>
+    </div>
+
+    <p class="section-note">Everything you need to know before you begin your 90-day practice.</p>
+
+    <h2>How to Use This Journal</h2>
+
+    <p>This journal is designed to meet you where you are. Some days you will write paragraphs. Some days you will write three words. Both are valid. The only rule is that you show up — imperfectly, honestly, and without judgment.</p>
+
+    <h3>When to Write</h3>
+    <div class="info-box">
+      <h4>Option A: Morning Only (5 minutes)</h4>
+      <p>Fill in the morning gratitude and set your intention for the day. Come back briefly in the evening to complete the reflection, or skip it entirely.</p>
+      <h4>Option B: Evening Only (5-10 minutes)</h4>
+      <p>Reflect on the full day at once — gratitude, mood, wins, and tomorrow's intention. Best for people who need to decompress before bed.</p>
+      <h4>Option C: Morning + Evening (10 minutes total)</h4>
+      <p>Split it up. Morning gratitude and intention take 3 minutes. Evening reflection and mood check take 5-7 minutes. This is the most effective approach, but only if you can sustain it.</p>
+    </div>
+
+    <h3>Guidelines for Success</h3>
+    <ul>
+      <li><strong>Be specific.</strong> "I'm grateful for coffee" is fine. "I'm grateful for the quiet ten minutes I had this morning with my coffee before anyone else woke up" rewires your brain faster.</li>
+      <li><strong>Don't repeat.</strong> Challenge yourself to find new things each day. This trains your brain to scan for good throughout the day.</li>
+      <li><strong>Write by hand if possible.</strong> Research shows handwriting engages the brain differently than typing — it deepens the emotional processing.</li>
+      <li><strong>Skip perfection.</strong> Messy handwriting, incomplete sentences, doodles in the margins — all welcome.</li>
+      <li><strong>If you miss a day, just start again.</strong> No guilt. No catching up. Just open to today's page.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>The 21-Day Threshold:</strong> Research suggests it takes about 21 days for gratitude journaling to start producing measurable changes in mood and outlook. The first two weeks may feel mechanical. Keep going. The shift will come.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2: How Gratitude Rewires Your Brain -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 2: How Gratitude Rewires Your Brain</h1>
+    </div>
+
+    <p class="section-note">A brief look at why this practice works — backed by neuroscience and clinical research.</p>
+
+    <h2>The Science of Gratitude</h2>
+
+    <p>Gratitude is not just a feeling. It is a <strong>neurological event</strong> that changes the structure and function of your brain over time. When you deliberately focus on what you are thankful for, you activate specific neural pathways that strengthen with repetition — the same way a muscle grows with exercise.</p>
+
+    <h3>Dopamine &amp; Serotonin Release</h3>
+    <p>When you consciously acknowledge something you are grateful for, your brain releases <strong>dopamine</strong> (the "reward" neurotransmitter) and <strong>serotonin</strong> (the "contentment" neurotransmitter). These are the same chemicals targeted by most antidepressant medications. A daily gratitude practice essentially gives your brain a small, natural dose of both — without a prescription.</p>
+
+    <h3>Neuroplasticity: Rewiring the Default</h3>
+    <p>Your brain has a built-in negativity bias. It evolved to prioritize threats over rewards — that is what kept your ancestors alive. But neuroplasticity means your brain can be retrained. Every time you write down something you are grateful for, you are literally <strong>building new neural pathways</strong> that make it easier to notice good things in the future. Over weeks, your default lens begins to shift from "what's wrong" to "what's here."</p>
+
+    <h3>What the Research Shows</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Finding</th>
+            <th>Source</th>
+            <th>Key Takeaway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gratitude journaling for 10 weeks led to 25% higher well-being scores</td>
+            <td>Emmons &amp; McCullough, 2003</td>
+            <td>Consistent practice produces measurable mood improvements</td>
+          </tr>
+          <tr>
+            <td>Gratitude activates the medial prefrontal cortex — the brain's "reward center"</td>
+            <td>Fox et al., 2015 (fMRI study)</td>
+            <td>Gratitude literally lights up the same brain region as receiving a gift</td>
+          </tr>
+          <tr>
+            <td>Writing gratitude letters reduced depressive symptoms for 12+ weeks</td>
+            <td>Wong &amp; Brown, 2017 (Indiana University)</td>
+            <td>The benefits outlast the writing period itself</td>
+          </tr>
+          <tr>
+            <td>Mindfulness meditation increased gray matter density in 8 weeks</td>
+            <td>Holzel et al., 2011 (Harvard/MGH)</td>
+            <td>Even short daily practice changes brain structure</td>
+          </tr>
+          <tr>
+            <td>Gratitude practice improved sleep quality and reduced time to fall asleep</td>
+            <td>Wood et al., 2009</td>
+            <td>Writing gratitude before bed quiets the anxious mind</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <p><strong>Bottom line:</strong> This journal is not just a feel-good exercise. It is a evidence-based tool for changing your brain chemistry, improving your sleep, reducing anxiety, and building long-term emotional resilience. Five minutes a day. Ninety days. Real, measurable change.</p>
+    </blockquote>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3: Daily Journal Page Template -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 3: Daily Journal Page Template</h1>
+    </div>
+
+    <p class="section-note">Print multiple copies of this page — one for each day — or use it as a guide in your own notebook.</p>
+
+    <h2>Daily Journal — Day ___ of 90 &nbsp;&nbsp;|&nbsp;&nbsp; Date: ___/___/___</h2>
+
+    <h3>Morning Gratitude</h3>
+    <p><em>Write 3 things you are grateful for right now. Be specific. Try not to repeat previous days.</em></p>
+    <pre>1.
+
+2.
+
+3.
+</pre>
+
+    <h3>Today's Intention</h3>
+    <p><em>One sentence. What do you want today to feel like? What kind of person do you want to be today?</em></p>
+    <pre>Today, I intend to...
+
+
+</pre>
+
+    <h3>Mood Check-In</h3>
+    <p><em>Circle or mark your current mood. Check in once in the morning and once in the evening.</em></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>1 — Struggling</th>
+            <th>2 — Low</th>
+            <th>3 — Neutral</th>
+            <th>4 — Good</th>
+            <th>5 — Great</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Morning</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+          </tr>
+          <tr>
+            <td>Evening</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+            <td>&#9711;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="text-muted"><strong>What influenced your mood today?</strong> (weather, sleep, people, food, exercise, news, hormones, etc.)</p>
+    <pre style="min-height:50px;">&nbsp;</pre>
+
+    <hr />
+
+    <h3>Daily Prompt</h3>
+    <p><em>Answer today's prompt from Section 4, or choose one that resonates. Write as much or as little as you want.</em></p>
+    <pre>Prompt #___:
+
+
+
+</pre>
+
+    <hr />
+
+    <h3>Evening Reflection</h3>
+    <p><em>Take 3-5 minutes before bed to close out the day.</em></p>
+
+    <h4>What went well today?</h4>
+    <pre style="min-height:60px;">&nbsp;</pre>
+
+    <h4>What challenged me today, and what did it teach me?</h4>
+    <pre style="min-height:60px;">&nbsp;</pre>
+
+    <h4>One thing I am proud of today:</h4>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <h4>Tomorrow's Intention:</h4>
+    <p><em>Set yourself up for the morning. What do you want to carry into tomorrow?</em></p>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <div class="quote-highlight">
+      <strong>"Today was enough. I was enough."</strong>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4: 90 Unique Daily Prompts -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 4: 90 Unique Daily Prompts</h1>
+    </div>
+
+    <p class="section-note">Use one prompt per day in order, or choose any prompt that speaks to you. Each prompt is designed to deepen a different aspect of awareness.</p>
+
+    <!-- GRATITUDE PROMPTS 1-30 -->
+    <h2>Days 1-30: Gratitude Prompts</h2>
+    <p>These prompts train your brain to actively search for good in your everyday life — in relationships, in small moments, and in yourself.</p>
+
+    <div class="prompt-card"><span class="prompt-num">1.</span> What is one ordinary thing in your daily routine that you usually take for granted? Describe why it actually matters.</div>
+    <div class="prompt-card"><span class="prompt-num">2.</span> Write about a person who made your life better this year. What specifically did they do, and have you told them?</div>
+    <div class="prompt-card"><span class="prompt-num">3.</span> Describe a meal you truly enjoyed recently. What made it special — the food, the company, the setting, or something else?</div>
+    <div class="prompt-card"><span class="prompt-num">4.</span> What is one thing your body did for you today that you can appreciate? (Breathing, walking, healing, carrying you through the day.)</div>
+    <div class="prompt-card"><span class="prompt-num">5.</span> Write about a place that makes you feel safe and calm. What does it look, smell, and sound like?</div>
+    <div class="prompt-card"><span class="prompt-num">6.</span> What is a skill or ability you have that once felt impossible to learn? How does it serve you now?</div>
+    <div class="prompt-card"><span class="prompt-num">7.</span> Describe a small act of kindness someone showed you recently — even if it was just a smile or a held door.</div>
+    <div class="prompt-card"><span class="prompt-num">8.</span> What is something in nature that caught your attention this week? A cloud, a tree, a sunset, rain on a window?</div>
+    <div class="prompt-card"><span class="prompt-num">9.</span> Write about a piece of technology you are grateful for. How would your day be different without it?</div>
+    <div class="prompt-card"><span class="prompt-num">10.</span> What is a song, album, or piece of music that has carried you through a hard time? Why does it matter to you?</div>
+    <div class="prompt-card"><span class="prompt-num">11.</span> Describe a friendship that has lasted through changes in your life. What keeps it alive?</div>
+    <div class="prompt-card"><span class="prompt-num">12.</span> What is one thing about your home — however imperfect — that you genuinely appreciate?</div>
+    <div class="prompt-card"><span class="prompt-num">13.</span> Write about a teacher, mentor, or coach who shaped you. What lesson from them do you still carry?</div>
+    <div class="prompt-card"><span class="prompt-num">14.</span> What is something you are looking forward to — big or small — in the next two weeks?</div>
+    <div class="prompt-card"><span class="prompt-num">15.</span> Describe a moment today when you felt a flash of genuine contentment, even if it was brief.</div>
+    <div class="prompt-card"><span class="prompt-num">16.</span> What is a book, show, or movie that changed the way you think? What did it open up for you?</div>
+    <div class="prompt-card"><span class="prompt-num">17.</span> Write about a challenge from your past that you now see as a turning point. What grew from it?</div>
+    <div class="prompt-card"><span class="prompt-num">18.</span> What is something about the current season (weather, light, activities) that you genuinely enjoy?</div>
+    <div class="prompt-card"><span class="prompt-num">19.</span> Describe a comfort you have access to that many people in the world do not. How does recognizing this shift your perspective?</div>
+    <div class="prompt-card"><span class="prompt-num">20.</span> Who is someone in your life who makes you laugh? Write about a specific moment with them.</div>
+    <div class="prompt-card"><span class="prompt-num">21.</span> What is a personal tradition or ritual (morning coffee, Sunday walks, bedtime routine) that brings you peace?</div>
+    <div class="prompt-card"><span class="prompt-num">22.</span> Write about your pet, or an animal that has brought joy into your life. What do they teach you about being present?</div>
+    <div class="prompt-card"><span class="prompt-num">23.</span> What is one freedom you exercise regularly that you rarely stop to appreciate?</div>
+    <div class="prompt-card"><span class="prompt-num">24.</span> Describe a sensory experience you are grateful for — a texture, a taste, a sound, a smell that brings you comfort.</div>
+    <div class="prompt-card"><span class="prompt-num">25.</span> Write about something that went wrong recently that ended up having an unexpected silver lining.</div>
+    <div class="prompt-card"><span class="prompt-num">26.</span> What is something about your work — paid or unpaid — that gives you a sense of purpose or satisfaction?</div>
+    <div class="prompt-card"><span class="prompt-num">27.</span> Who is someone you have never met (an author, artist, historical figure) whose work has enriched your life?</div>
+    <div class="prompt-card"><span class="prompt-num">28.</span> What is one thing you did for yourself this week that was an act of self-care, even if it felt small?</div>
+    <div class="prompt-card"><span class="prompt-num">29.</span> Write a thank-you note to your past self for a decision they made that your current self benefits from.</div>
+    <div class="prompt-card"><span class="prompt-num">30.</span> Look around the room you are in right now. Name five things you can see that you are grateful to have. Write why for each one.</div>
+
+    <hr />
+
+    <!-- SELF-REFLECTION PROMPTS 31-60 -->
+    <h2>Days 31-60: Self-Reflection Prompts</h2>
+    <p>These prompts encourage you to look inward — to understand your patterns, your values, and who you are becoming.</p>
+
+    <div class="prompt-card"><span class="prompt-num">31.</span> What emotion have you been avoiding lately? What would happen if you let yourself feel it fully for two minutes?</div>
+    <div class="prompt-card"><span class="prompt-num">32.</span> Describe the version of yourself you are when you are at your best. What does that person do differently than your everyday self?</div>
+    <div class="prompt-card"><span class="prompt-num">33.</span> What is a belief you hold about yourself that might not actually be true? Where did it come from?</div>
+    <div class="prompt-card"><span class="prompt-num">34.</span> Write about a boundary you need to set or reinforce. What is stopping you?</div>
+    <div class="prompt-card"><span class="prompt-num">35.</span> If your ten-year-old self could see your life today, what would they be most surprised by? What would they be proud of?</div>
+    <div class="prompt-card"><span class="prompt-num">36.</span> What drains your energy the most right now? What would it look like to reduce its hold on you by just 10%?</div>
+    <div class="prompt-card"><span class="prompt-num">37.</span> Describe a moment this week when you reacted in a way you wish you had not. What was really going on underneath that reaction?</div>
+    <div class="prompt-card"><span class="prompt-num">38.</span> What do you need to forgive yourself for? Write it down. Then write one sentence of compassion to yourself about it.</div>
+    <div class="prompt-card"><span class="prompt-num">39.</span> What are three qualities you admire in others that you already possess — even in small amounts?</div>
+    <div class="prompt-card"><span class="prompt-num">40.</span> If you could change one habit starting tomorrow, what would it be? What is the smallest possible first step?</div>
+    <div class="prompt-card"><span class="prompt-num">41.</span> Write about a relationship in your life that needs attention. What would honest communication look like?</div>
+    <div class="prompt-card"><span class="prompt-num">42.</span> What are you afraid of that is actually holding you back from something you want?</div>
+    <div class="prompt-card"><span class="prompt-num">43.</span> Describe your inner critic's voice. What does it usually say? Now write what a compassionate mentor would say instead.</div>
+    <div class="prompt-card"><span class="prompt-num">44.</span> What is something you have been procrastinating on? What is the real reason (not the surface excuse)?</div>
+    <div class="prompt-card"><span class="prompt-num">45.</span> Write about a time you said "yes" when you meant "no." What would honoring your own needs have looked like?</div>
+    <div class="prompt-card"><span class="prompt-num">46.</span> If you had zero obligations for an entire day, how would you spend it? What does that tell you about what you value?</div>
+    <div class="prompt-card"><span class="prompt-num">47.</span> What does "enough" look like for you — in terms of money, success, relationships, or achievement? Have you ever actually defined it?</div>
+    <div class="prompt-card"><span class="prompt-num">48.</span> Write about a compliment you received that you deflected or dismissed. Why was it hard to accept?</div>
+    <div class="prompt-card"><span class="prompt-num">49.</span> What story do you keep telling yourself about why you cannot have the life you want? Is it actually fact, or is it a story?</div>
+    <div class="prompt-card"><span class="prompt-num">50.</span> Describe a moment when you surprised yourself with your own strength or courage. What made it possible?</div>
+    <div class="prompt-card"><span class="prompt-num">51.</span> What part of your life feels most aligned with who you really are? What part feels most out of alignment?</div>
+    <div class="prompt-card"><span class="prompt-num">52.</span> Write about a mistake that taught you something essential about yourself.</div>
+    <div class="prompt-card"><span class="prompt-num">53.</span> What would you attempt if you knew nobody would judge you for failing?</div>
+    <div class="prompt-card"><span class="prompt-num">54.</span> Describe the kind of old person you want to become. What values does that person hold? What does their daily life look like?</div>
+    <div class="prompt-card"><span class="prompt-num">55.</span> What is one area of your life where you are comparing yourself to someone else? What happens if you stop?</div>
+    <div class="prompt-card"><span class="prompt-num">56.</span> Write about something you have outgrown — a belief, a relationship, a habit, an identity. How does it feel to let it go?</div>
+    <div class="prompt-card"><span class="prompt-num">57.</span> If your emotions had a weather forecast for today, what would it say? ("Partly cloudy with a chance of frustration, clearing by evening.")</div>
+    <div class="prompt-card"><span class="prompt-num">58.</span> What is one thing you do well that you rarely give yourself credit for?</div>
+    <div class="prompt-card"><span class="prompt-num">59.</span> Write a permission slip to yourself. What are you giving yourself permission to do, feel, or stop doing?</div>
+    <div class="prompt-card"><span class="prompt-num">60.</span> Look back at your answers from Day 31 to today. What themes do you notice? What is your subconscious trying to tell you?</div>
+
+    <hr />
+
+    <!-- MINDFULNESS PROMPTS 61-90 -->
+    <h2>Days 61-90: Mindfulness Prompts</h2>
+    <p>These prompts bring your attention to the present moment — to sensation, awareness, and the practice of simply being here.</p>
+
+    <div class="prompt-card"><span class="prompt-num">61.</span> Close your eyes for 30 seconds. When you open them, write down the first three sounds you notice. What were you filtering out?</div>
+    <div class="prompt-card"><span class="prompt-num">62.</span> Describe exactly what your hands feel like right now — temperature, texture, tension, weight. Stay with the sensations for a full minute before writing.</div>
+    <div class="prompt-card"><span class="prompt-num">63.</span> Take five slow breaths before you write anything. Then describe what shifted in your body between breath one and breath five.</div>
+    <div class="prompt-card"><span class="prompt-num">64.</span> Walk to a window. Describe the scene outside as if you are writing it for someone who has never seen this place.</div>
+    <div class="prompt-card"><span class="prompt-num">65.</span> What is one thing you did today entirely on autopilot? Describe what it would be like to do that same thing with full attention.</div>
+    <div class="prompt-card"><span class="prompt-num">66.</span> Hold a common object (a pen, a cup, a piece of fruit) and study it for 60 seconds. Describe it as if you are seeing it for the first time.</div>
+    <div class="prompt-card"><span class="prompt-num">67.</span> Write about the space between your thoughts. When you sit quietly, what lives in the silence? Is it uncomfortable or peaceful?</div>
+    <div class="prompt-card"><span class="prompt-num">68.</span> Scan your body from your toes to the top of your head. Where are you holding tension? Write a message to that part of your body.</div>
+    <div class="prompt-card"><span class="prompt-num">69.</span> Eat one bite of something slowly — chew it 20 times. Describe the full sensory experience: texture, flavor, temperature, sound.</div>
+    <div class="prompt-card"><span class="prompt-num">70.</span> What is your mind doing right now — planning, worrying, reminiscing, judging, or wandering? Just notice and name it, without trying to change it.</div>
+    <div class="prompt-card"><span class="prompt-num">71.</span> Describe the light in the room you are sitting in. How does it fall? What shadows does it create? How does it make you feel?</div>
+    <div class="prompt-card"><span class="prompt-num">72.</span> Think of someone you will see today. Before you see them, set an intention to be fully present with them. Write about what that means to you.</div>
+    <div class="prompt-card"><span class="prompt-num">73.</span> What is one repetitive worry your mind loops on? Write it down, then write: "I notice I am having the thought that..." How does that reframing feel?</div>
+    <div class="prompt-card"><span class="prompt-num">74.</span> Step outside for 60 seconds. Feel the air on your skin. Then come back and describe the temperature, the wind, and how it felt to pause.</div>
+    <div class="prompt-card"><span class="prompt-num">75.</span> Write about a moment today when time seemed to slow down or speed up. What were you doing? Were you fully present or distracted?</div>
+    <div class="prompt-card"><span class="prompt-num">76.</span> Put your hand on your chest and feel your heartbeat. Count ten beats. Then write about what it feels like to be aware of the thing keeping you alive.</div>
+    <div class="prompt-card"><span class="prompt-num">77.</span> What does stillness feel like to you — restful, uncomfortable, boring, sacred, or something else? When was the last time you were truly still?</div>
+    <div class="prompt-card"><span class="prompt-num">78.</span> Notice your posture right now. Adjust it gently. Write about what changed in your body and your mood when you sat up straighter or softened.</div>
+    <div class="prompt-card"><span class="prompt-num">79.</span> Describe the most beautiful thing you saw today — even if it was small or ordinary. What made you notice it?</div>
+    <div class="prompt-card"><span class="prompt-num">80.</span> Set a timer for two minutes and do nothing. No phone, no writing, no task. Afterward, describe what that was like.</div>
+    <div class="prompt-card"><span class="prompt-num">81.</span> Listen to a piece of music with your eyes closed. Do not multitask. Write about what you noticed that you normally miss.</div>
+    <div class="prompt-card"><span class="prompt-num">82.</span> What is one thing happening in this exact moment that you can accept completely, without wishing it were different?</div>
+    <div class="prompt-card"><span class="prompt-num">83.</span> Take a sip of water slowly and deliberately. Notice the glass in your hand, the temperature, the way it feels going down. Describe the experience.</div>
+    <div class="prompt-card"><span class="prompt-num">84.</span> Write about the concept of impermanence. What in your life is temporary that you tend to treat as permanent?</div>
+    <div class="prompt-card"><span class="prompt-num">85.</span> Choose one task today and do it in slow motion — washing a dish, folding a shirt, writing a sentence. What did slowing down reveal?</div>
+    <div class="prompt-card"><span class="prompt-num">86.</span> Think of a judgment you made about someone today. Can you replace it with curiosity? Write: "I wonder what's going on for them that..."</div>
+    <div class="prompt-card"><span class="prompt-num">87.</span> Describe the feeling of gratitude in your body. Where do you feel it? Does it have a color, a temperature, a shape?</div>
+    <div class="prompt-card"><span class="prompt-num">88.</span> Spend one minute watching something move — clouds, leaves, people walking, traffic. Describe the movement without labeling it as good or bad.</div>
+    <div class="prompt-card"><span class="prompt-num">89.</span> What has this 90-day practice taught you about your own mind? What patterns do you see now that you could not see on Day 1?</div>
+    <div class="prompt-card"><span class="prompt-num">90.</span> Write a letter to yourself from the perspective of 90 days from now. What will that future version be grateful to you for starting today?</div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5: Weekly Mindfulness Exercises -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 5: Weekly Mindfulness Exercises</h1>
+    </div>
+
+    <p class="section-note">Choose one exercise per week. Rotate through all four types over the course of your 90 days. Each exercise takes 5-15 minutes.</p>
+
+    <!-- Body Scan Exercises -->
+    <h2>Body Scan Exercises</h2>
+    <p>Body scans build the connection between your mind and physical sensations. They reduce stress, improve body awareness, and help you notice where you hold emotions.</p>
+
+    <div class="decision-item">
+      <h4>Exercise 1: Full Body Scan (10 minutes)</h4>
+      <p>Lie down or sit comfortably. Close your eyes. Starting at the top of your head, slowly move your attention downward through each part of your body: forehead, jaw, neck, shoulders, upper arms, forearms, hands, chest, stomach, hips, thighs, knees, calves, feet, toes. At each area, notice any sensation — warmth, tightness, tingling, numbness, or nothing at all. Do not try to change anything. Just notice. Spend 20-30 seconds on each area. When you reach your toes, take three deep breaths and slowly open your eyes.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 2: Tension and Release Scan (8 minutes)</h4>
+      <p>Sit or lie down. Starting with your feet, deliberately tense each muscle group for 5 seconds, then release completely for 10 seconds. Move upward: feet, calves, thighs, glutes, stomach, hands (make fists), arms, shoulders (shrug to ears), face (scrunch everything). After tensing and releasing the face, let your whole body go heavy and loose. Notice the contrast between tension and relaxation. Stay in the released state for 2 minutes.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 3: Emotional Body Scan (7 minutes)</h4>
+      <p>Sit quietly and name the emotion you are feeling right now — even if it is "I don't know" or "numb." Then scan your body and find where that emotion lives physically. Anxiety might be a tight chest. Sadness might be heavy shoulders. Anger might be a clenched jaw. Place your hand on that area. Breathe into it. Say silently: "I notice this feeling. It is allowed to be here." Stay for 3-5 minutes. Notice if the sensation changes, moves, or softens.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 4: Quick 3-Point Check (3 minutes)</h4>
+      <p>Use this when you are short on time or feeling overwhelmed. Check three points: (1) <strong>Jaw</strong> — is it clenched? Soften it. Let your tongue drop from the roof of your mouth. (2) <strong>Shoulders</strong> — are they up near your ears? Drop them. Roll them back once. (3) <strong>Hands</strong> — are they clenched or tight? Open them. Place them palm-up on your knees. Take three slow breaths. You just reset your nervous system in under three minutes.</p>
+    </div>
+
+    <hr />
+
+    <!-- Breathing Exercises -->
+    <h2>Breathing Exercises</h2>
+    <p>Controlled breathing is the fastest way to shift from the stress response (sympathetic nervous system) to the calm response (parasympathetic). These exercises work immediately.</p>
+
+    <div class="decision-item">
+      <h4>Exercise 1: Box Breathing (4 minutes)</h4>
+      <p>Inhale for 4 counts. Hold for 4 counts. Exhale for 4 counts. Hold empty for 4 counts. Repeat 6-8 cycles. This technique is used by Navy SEALs to stay calm under extreme pressure. Focus all attention on the counting. If your mind wanders, gently return to the count without judgment.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 2: 4-7-8 Calming Breath (5 minutes)</h4>
+      <p>Inhale through your nose for 4 counts. Hold your breath for 7 counts. Exhale slowly through your mouth for 8 counts, making a soft "whoosh" sound. Repeat 4-6 cycles. The extended exhale activates the vagus nerve, which directly triggers your body's relaxation response. Best used before bed or during moments of high anxiety.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 3: Physiological Sigh (1 minute)</h4>
+      <p>Take a deep breath in through your nose. At the top, add one more short, sharp inhale through your nose (a double inhale). Then exhale slowly and completely through your mouth. Repeat 3 times. This is the fastest known method for reducing real-time stress — discovered by Stanford neuroscientist Andrew Huberman. The double inhale reinflates the tiny air sacs in your lungs, and the long exhale slows your heart rate almost immediately.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 4: Counting Breath Meditation (10 minutes)</h4>
+      <p>Sit comfortably. Breathe naturally — do not try to control the breath. On each exhale, count silently. Exhale one, exhale two, up to ten. Then start over at one. If you lose count or go past ten, simply return to one with no frustration. The purpose is not to reach ten every time. The purpose is to notice when your mind wanders and gently bring it back. That act of returning IS the practice.</p>
+    </div>
+
+    <hr />
+
+    <!-- Grounding Techniques -->
+    <h2>Grounding Techniques</h2>
+    <p>Grounding pulls you out of anxious thought spirals and back into your body and your immediate environment. Use these when your mind is racing or you feel disconnected.</p>
+
+    <div class="decision-item">
+      <h4>Exercise 1: 5-4-3-2-1 Sensory Grounding</h4>
+      <p>Wherever you are, identify: <strong>5 things you can see</strong> (name them out loud or in writing). <strong>4 things you can physically feel</strong> (the chair beneath you, the texture of your sleeve). <strong>3 things you can hear</strong> (the hum of a vent, a distant car, your own breathing). <strong>2 things you can smell</strong> (bring something to your nose if needed). <strong>1 thing you can taste</strong> (take a sip of water or notice the current taste in your mouth). By the time you reach one, your nervous system has recalibrated.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 2: Cold Water Reset</h4>
+      <p>Run cold water over the insides of your wrists for 30 seconds. Or hold an ice cube in your palm. Or splash cold water on your face. Cold activates the mammalian dive reflex, which instantly slows your heart rate and brings blood flow back to your core organs. Pair this with 3 slow exhales. This is especially effective for moments of panic or intense emotional overwhelm.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 3: Feet on the Floor</h4>
+      <p>Remove your shoes if possible. Press your feet flat into the ground. Notice the temperature of the floor. Press down through your heels, then your toes, then the balls of your feet. Imagine roots growing from the soles of your feet deep into the earth. Stay here for 2 minutes. This technique works well in meetings, waiting rooms, or any situation where you need to ground yourself without anyone noticing.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 4: Object Anchoring</h4>
+      <p>Choose a small object you can carry with you — a smooth stone, a coin, a ring, a piece of fabric. When anxiety rises, hold the object in your hand. Focus all of your attention on it: its weight, its temperature, its edges, its texture. Describe it to yourself in extreme detail as if narrating to someone who cannot see it. This redirects your brain's processing power from the anxiety loop to sensory input, breaking the cycle.</p>
+    </div>
+
+    <hr />
+
+    <!-- Walking Meditation -->
+    <h2>Walking Meditation Instructions</h2>
+    <p>Walking meditation combines gentle movement with present-moment awareness. It is ideal for people who find sitting meditation difficult or who need to move to think.</p>
+
+    <div class="decision-item">
+      <h4>Exercise 1: Slow Walking (10 minutes)</h4>
+      <p>Find a path where you can walk 20-30 steps in a straight line (a hallway, a sidewalk, a room). Walk much slower than normal. With each step, notice: the lift of your foot, the movement through the air, the placement on the ground, the shift of weight. When you reach the end, pause for one breath, turn around, and walk back. Focus only on the physical act of walking. When your mind wanders (it will), return to the sensation of your feet meeting the ground.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 2: Noticing Walk (15 minutes)</h4>
+      <p>Walk at a normal pace outdoors. For the first 5 minutes, focus only on what you see — colors, shapes, movement, light. For the next 5 minutes, shift to sounds — near, far, constant, intermittent. For the final 5 minutes, focus on physical sensation — the air on your skin, the ground under your feet, the rhythm of your stride. Do not label anything as good or bad. Just notice.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 3: Gratitude Walk (10 minutes)</h4>
+      <p>Walk at any pace. With each step, silently name one thing you can see that you are grateful for. It does not have to be profound. "That tree. That mailbox. That crack in the sidewalk that somehow grew a flower." The goal is to flood your brain with rapid-fire micro-gratitudes while your body moves. This combines the neurological benefits of gratitude with the mood-boosting effects of physical movement.</p>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 4: Breath-Synced Walk (8 minutes)</h4>
+      <p>Walk and sync your breathing to your steps. Inhale for 4 steps. Exhale for 4 steps. If this is too fast or slow, adjust to 3 steps or 5 steps per breath — find your natural rhythm. Focus entirely on the marriage of breath and movement. This creates a moving meditation that reduces cortisol, regulates heart rate, and produces a calm alertness that lasts for hours after the walk ends.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6: Monthly Mood Map -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 6: Monthly Mood Map</h1>
+    </div>
+
+    <p class="section-note">At the end of each day, color in or mark the cell for that day with your overall mood. At month's end, you will see your emotional pattern at a glance.</p>
+
+    <h2>Mood Color Key</h2>
+    <div class="info-box">
+      <ul>
+        <li><span class="badge badge-high"><span class="energy-high"></span>1 — Struggling</span> — red / dark — really hard day, survival mode</li>
+        <li><span class="badge badge-med"><span class="energy-med"></span>2 — Low</span> — orange / yellow — below average, sluggish or sad</li>
+        <li><span class="badge badge-break"><span class="energy-break"></span>3 — Neutral</span> — gray — nothing great, nothing terrible, just a day</li>
+        <li><span class="badge badge-low"><span class="energy-low"></span>4 — Good</span> — light green — solid day, felt present and okay</li>
+        <li><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#2563eb;margin-right:4px;vertical-align:middle;"></span><span class="badge" style="background:#dbeafe;color:#1e40af;">5 — Great</span> — blue — genuinely happy, grateful, or at peace</li>
+      </ul>
+    </div>
+
+    <h2>Month 1 Mood Map</h2>
+    <div class="mood-grid">
+      <div class="day-header">Mon</div>
+      <div class="day-header">Tue</div>
+      <div class="day-header">Wed</div>
+      <div class="day-header">Thu</div>
+      <div class="day-header">Fri</div>
+      <div class="day-header">Sat</div>
+      <div class="day-header">Sun</div>
+      <div class="day-cell"><span class="day-num">1</span></div>
+      <div class="day-cell"><span class="day-num">2</span></div>
+      <div class="day-cell"><span class="day-num">3</span></div>
+      <div class="day-cell"><span class="day-num">4</span></div>
+      <div class="day-cell"><span class="day-num">5</span></div>
+      <div class="day-cell"><span class="day-num">6</span></div>
+      <div class="day-cell"><span class="day-num">7</span></div>
+      <div class="day-cell"><span class="day-num">8</span></div>
+      <div class="day-cell"><span class="day-num">9</span></div>
+      <div class="day-cell"><span class="day-num">10</span></div>
+      <div class="day-cell"><span class="day-num">11</span></div>
+      <div class="day-cell"><span class="day-num">12</span></div>
+      <div class="day-cell"><span class="day-num">13</span></div>
+      <div class="day-cell"><span class="day-num">14</span></div>
+      <div class="day-cell"><span class="day-num">15</span></div>
+      <div class="day-cell"><span class="day-num">16</span></div>
+      <div class="day-cell"><span class="day-num">17</span></div>
+      <div class="day-cell"><span class="day-num">18</span></div>
+      <div class="day-cell"><span class="day-num">19</span></div>
+      <div class="day-cell"><span class="day-num">20</span></div>
+      <div class="day-cell"><span class="day-num">21</span></div>
+      <div class="day-cell"><span class="day-num">22</span></div>
+      <div class="day-cell"><span class="day-num">23</span></div>
+      <div class="day-cell"><span class="day-num">24</span></div>
+      <div class="day-cell"><span class="day-num">25</span></div>
+      <div class="day-cell"><span class="day-num">26</span></div>
+      <div class="day-cell"><span class="day-num">27</span></div>
+      <div class="day-cell"><span class="day-num">28</span></div>
+      <div class="day-cell"><span class="day-num">29</span></div>
+      <div class="day-cell"><span class="day-num">30</span></div>
+    </div>
+
+    <h2>Month 2 Mood Map</h2>
+    <div class="mood-grid">
+      <div class="day-header">Mon</div>
+      <div class="day-header">Tue</div>
+      <div class="day-header">Wed</div>
+      <div class="day-header">Thu</div>
+      <div class="day-header">Fri</div>
+      <div class="day-header">Sat</div>
+      <div class="day-header">Sun</div>
+      <div class="day-cell"><span class="day-num">31</span></div>
+      <div class="day-cell"><span class="day-num">32</span></div>
+      <div class="day-cell"><span class="day-num">33</span></div>
+      <div class="day-cell"><span class="day-num">34</span></div>
+      <div class="day-cell"><span class="day-num">35</span></div>
+      <div class="day-cell"><span class="day-num">36</span></div>
+      <div class="day-cell"><span class="day-num">37</span></div>
+      <div class="day-cell"><span class="day-num">38</span></div>
+      <div class="day-cell"><span class="day-num">39</span></div>
+      <div class="day-cell"><span class="day-num">40</span></div>
+      <div class="day-cell"><span class="day-num">41</span></div>
+      <div class="day-cell"><span class="day-num">42</span></div>
+      <div class="day-cell"><span class="day-num">43</span></div>
+      <div class="day-cell"><span class="day-num">44</span></div>
+      <div class="day-cell"><span class="day-num">45</span></div>
+      <div class="day-cell"><span class="day-num">46</span></div>
+      <div class="day-cell"><span class="day-num">47</span></div>
+      <div class="day-cell"><span class="day-num">48</span></div>
+      <div class="day-cell"><span class="day-num">49</span></div>
+      <div class="day-cell"><span class="day-num">50</span></div>
+      <div class="day-cell"><span class="day-num">51</span></div>
+      <div class="day-cell"><span class="day-num">52</span></div>
+      <div class="day-cell"><span class="day-num">53</span></div>
+      <div class="day-cell"><span class="day-num">54</span></div>
+      <div class="day-cell"><span class="day-num">55</span></div>
+      <div class="day-cell"><span class="day-num">56</span></div>
+      <div class="day-cell"><span class="day-num">57</span></div>
+      <div class="day-cell"><span class="day-num">58</span></div>
+      <div class="day-cell"><span class="day-num">59</span></div>
+      <div class="day-cell"><span class="day-num">60</span></div>
+    </div>
+
+    <h2>Month 3 Mood Map</h2>
+    <div class="mood-grid">
+      <div class="day-header">Mon</div>
+      <div class="day-header">Tue</div>
+      <div class="day-header">Wed</div>
+      <div class="day-header">Thu</div>
+      <div class="day-header">Fri</div>
+      <div class="day-header">Sat</div>
+      <div class="day-header">Sun</div>
+      <div class="day-cell"><span class="day-num">61</span></div>
+      <div class="day-cell"><span class="day-num">62</span></div>
+      <div class="day-cell"><span class="day-num">63</span></div>
+      <div class="day-cell"><span class="day-num">64</span></div>
+      <div class="day-cell"><span class="day-num">65</span></div>
+      <div class="day-cell"><span class="day-num">66</span></div>
+      <div class="day-cell"><span class="day-num">67</span></div>
+      <div class="day-cell"><span class="day-num">68</span></div>
+      <div class="day-cell"><span class="day-num">69</span></div>
+      <div class="day-cell"><span class="day-num">70</span></div>
+      <div class="day-cell"><span class="day-num">71</span></div>
+      <div class="day-cell"><span class="day-num">72</span></div>
+      <div class="day-cell"><span class="day-num">73</span></div>
+      <div class="day-cell"><span class="day-num">74</span></div>
+      <div class="day-cell"><span class="day-num">75</span></div>
+      <div class="day-cell"><span class="day-num">76</span></div>
+      <div class="day-cell"><span class="day-num">77</span></div>
+      <div class="day-cell"><span class="day-num">78</span></div>
+      <div class="day-cell"><span class="day-num">79</span></div>
+      <div class="day-cell"><span class="day-num">80</span></div>
+      <div class="day-cell"><span class="day-num">81</span></div>
+      <div class="day-cell"><span class="day-num">82</span></div>
+      <div class="day-cell"><span class="day-num">83</span></div>
+      <div class="day-cell"><span class="day-num">84</span></div>
+      <div class="day-cell"><span class="day-num">85</span></div>
+      <div class="day-cell"><span class="day-num">86</span></div>
+      <div class="day-cell"><span class="day-num">87</span></div>
+      <div class="day-cell"><span class="day-num">88</span></div>
+      <div class="day-cell"><span class="day-num">89</span></div>
+      <div class="day-cell"><span class="day-num">90</span></div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> At the end of each month, look at your mood map as a whole. You are not looking for "all good days." You are looking for <em>patterns</em> — which days of the week tend to be harder? Do moods cluster? Is there a gradual upward shift over time? Awareness is the first step to change.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7: Monthly Reflection Template -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 7: Monthly Reflection Template</h1>
+    </div>
+
+    <p class="section-note">Complete this at the end of each 30-day cycle. Takes 10-15 minutes. Print three copies — one per month.</p>
+
+    <h2>Monthly Reflection — Month ___ of 3</h2>
+
+    <h3>Patterns I Noticed</h3>
+    <p><em>Look back at your daily entries and mood map. What themes keep surfacing?</em></p>
+    <pre>What I'm consistently grateful for:
+
+
+What triggers my low moods:
+
+
+What time of day I feel best:
+
+
+What time of day I struggle most:
+
+</pre>
+
+    <h3>Growth Areas</h3>
+    <p><em>Where have you grown this month? Be specific — emotional awareness, patience, self-talk, presence, habits.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Area</th>
+            <th>Where I Started This Month</th>
+            <th>Where I Am Now</th>
+            <th>What Helped</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Gratitude Practice</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Self-Awareness</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Mindfulness / Presence</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Emotional Regulation</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Self-Compassion</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Biggest Win This Month</h3>
+    <p><em>One thing — internal or external — that you are most proud of from the past 30 days.</em></p>
+    <pre style="min-height:60px;">&nbsp;</pre>
+
+    <h3>Biggest Challenge This Month</h3>
+    <p><em>What was the hardest part of the last 30 days? What did it teach you?</em></p>
+    <pre style="min-height:60px;">&nbsp;</pre>
+
+    <h3>Favorite Journal Entry</h3>
+    <p><em>Go back and re-read your entries. Which one surprised you, moved you, or revealed something? Write the day number and why it stands out.</em></p>
+    <pre style="min-height:50px;">Day #___:
+
+</pre>
+
+    <h3>One Word for This Month</h3>
+    <p><em>If you had to summarize this entire month in a single word, what would it be?</em></p>
+    <pre style="min-height:44px; text-align:center; font-size:1.2rem;">&nbsp;</pre>
+
+    <h3>Intention for Next Month</h3>
+    <p><em>What do you want to deepen, explore, or change in the next 30 days?</em></p>
+    <pre style="min-height:60px;">&nbsp;</pre>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8: Guided Meditation Scripts -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 8: Guided Meditation Scripts</h1>
+    </div>
+
+    <p class="section-note">Read these slowly to yourself, or record them in your own voice and play them back. Pause wherever you see [...]. Each pause should be 3-5 seconds of silence.</p>
+
+    <!-- Script 1: 5-Minute Morning -->
+    <h2>Script 1: 5-Minute Morning Meditation</h2>
+    <p class="text-muted">Best used first thing in the morning, before looking at your phone or starting your day.</p>
+
+    <div class="meditation-script">
+      <h4>Morning Clarity</h4>
+
+      <p>Find a comfortable position. You can sit up in bed, sit in a chair, or stand by a window. Let your hands rest wherever they fall naturally. Close your eyes, or soften your gaze toward the floor.</p>
+
+      <p>Take one deep breath in through your nose [...] and let it out slowly through your mouth. [...]</p>
+
+      <p>Take another breath in — this time, imagine you are breathing in the freshness of a new day [...] and as you exhale, let go of whatever you carried from yesterday. [...]</p>
+
+      <p>One more breath. Inhale possibility [...] exhale expectation. [...]</p>
+
+      <p>Now let your breathing return to its natural rhythm. You do not need to control it.</p>
+
+      <p>Bring your attention to this moment. Right here. You are alive. You woke up. Your heart is beating. Your lungs are working. That alone is worth pausing for. [...]</p>
+
+      <p>Now, in your mind, think of one thing you are grateful for this morning. It can be anything — a person, a comfort, something you are looking forward to, the fact that you have nowhere to be for the next five minutes. Let that thing fill your awareness. [...] Notice where you feel it in your body — your chest, your face, your hands. [...]</p>
+
+      <p>Now set one quiet intention for today. Not a to-do. An intention. How do you want to move through this day? Patient? Present? Kind? Brave? Choose one word. [...] Hold it in your mind. [...]</p>
+
+      <p>Take one final deep breath in [...] and let it go. [...]</p>
+
+      <p>When you are ready, open your eyes. Carry that word with you. Today is yours.</p>
+    </div>
+
+    <!-- Script 2: 10-Minute Stress Relief -->
+    <h2>Script 2: 10-Minute Stress Relief Meditation</h2>
+    <p class="text-muted">Use this when anxiety is high, after a difficult conversation, or during any moment of overwhelm.</p>
+
+    <div class="meditation-script">
+      <h4>Releasing What You Cannot Control</h4>
+
+      <p>Sit comfortably. Let your feet rest flat on the floor. Place your hands on your thighs, palms down. Close your eyes. [...]</p>
+
+      <p>Begin by noticing your body. Not changing anything — just noticing. Where is there tension? [...] Where is there ease? [...] Just observe, like you are watching clouds pass. [...]</p>
+
+      <p>Now take a slow, deep breath in through your nose for a count of four. One [...] two [...] three [...] four. Hold gently for a count of four. One [...] two [...] three [...] four. Exhale slowly through your mouth for a count of six. One [...] two [...] three [...] four [...] five [...] six. [...]</p>
+
+      <p>Again. Inhale, four counts [...] hold, four counts [...] exhale, six counts. [...] Feel your body softening with each exhale. [...]</p>
+
+      <p>One more round. Breathe in calm [...] hold [...] breathe out tension. [...]</p>
+
+      <p>Now let your breathing return to normal.</p>
+
+      <p>I want you to imagine that you are holding two handfuls of sand. In your left hand, you hold everything that is worrying you right now — the tasks, the fears, the conversations, the uncertainty. Feel the weight of it. [...]</p>
+
+      <p>In your right hand, you hold everything that is actually within your control right now — this breath, this moment, your next choice, how you speak to yourself. Feel this, too. [...]</p>
+
+      <p>Now, slowly turn your left hand over. Let the sand fall. You are not solving those problems right now. You are not ignoring them. You are simply setting them down for these ten minutes. Watch them fall. [...] Your left hand is now empty. Light. [...]</p>
+
+      <p>Keep your right hand as it is. What you hold there — that is enough. That is all you need to carry. [...]</p>
+
+      <p>Bring your attention to the feeling of the chair supporting you. You do not have to hold yourself up right now. The chair is doing that. [...] Let yourself be held. [...]</p>
+
+      <p>Notice the air around you — its temperature on your skin. [...] The sounds in the room. [...] The rhythm of your own heartbeat. [...] You are here. You are safe in this moment. [...]</p>
+
+      <p>Now think of one person, one place, or one memory that makes you feel calm. It could be a parent's voice, a beach, a childhood bedroom, a friend's laugh. Bring it to mind. [...] Let it fill you the way warm water fills a glass — slowly, from the bottom up. [...]</p>
+
+      <p>Stay here for a moment. There is nowhere else you need to be. [...]</p>
+
+      <p>When you are ready, take one last deep breath in [...] and a long, slow exhale out. [...]</p>
+
+      <p>Wiggle your fingers. Roll your shoulders. Open your eyes slowly.</p>
+
+      <p>You can return to the world now. But you do not have to carry everything at once. One thing at a time. One breath at a time.</p>
+    </div>
+
+    <!-- Script 3: 5-Minute Bedtime -->
+    <h2>Script 3: 5-Minute Bedtime Meditation</h2>
+    <p class="text-muted">Use this after completing your evening journal entry, right before sleep.</p>
+
+    <div class="meditation-script">
+      <h4>Letting the Day Go</h4>
+
+      <p>Lie down in your bed. Let your arms rest at your sides or on your chest — wherever feels most natural. Close your eyes. [...]</p>
+
+      <p>Take a deep breath in [...] and sigh it out. Let it be audible — a real, full sigh. [...]</p>
+
+      <p>Again. Breathe in [...] and sigh it all out. [...]</p>
+
+      <p>One more. Breathe in [...] and let everything go. [...]</p>
+
+      <p>The day is done. You cannot add to it. You cannot undo any part of it. It is complete. Whatever happened — the good, the hard, the mundane — it is finished. [...]</p>
+
+      <p>Think of three things from today that you are grateful for. They do not have to be big. A meal. A moment. A feeling. A sentence someone said. Let each one surface on its own. [...]</p>
+
+      <p>First one. [...] Let it settle in your chest like a warm light. [...]</p>
+
+      <p>Second one. [...] Let the warmth grow. [...]</p>
+
+      <p>Third one. [...] Let your whole body soften with it. [...]</p>
+
+      <p>Now, silently say to yourself: "I did enough today. I was enough today." [...] If it feels hard to believe, say it anyway. Repetition builds belief. [...]</p>
+
+      <p>Let your body sink into the mattress. Feel the weight of your head on the pillow. [...] Your shoulders dropping. [...] Your jaw unclenching. [...] Your hands opening. [...]</p>
+
+      <p>There is nothing left to do. Nothing to fix. Nothing to figure out. Tomorrow will come, and you will meet it. But not now. Now, you rest. [...]</p>
+
+      <p>Let your breathing slow naturally. Do not try to control it. Let sleep come when it comes. You are safe. You are held. Today was enough.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9: Celebration / Completion Page -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header" style="background: linear-gradient(90deg, #1e293b 0%, #374151 100%);">
+      <h1>Section 9: Completion &amp; Celebration</h1>
+    </div>
+
+    <div class="celebration">
+      <h3>You Completed 90 Days</h3>
+
+      <p>If you are reading this page, you committed to 90 days of showing up for yourself. That is extraordinary. Not because it was perfect — it almost certainly was not — but because you kept coming back.</p>
+
+      <h4>By the Numbers</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Your Count</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Total days journaled</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 90</td></tr>
+            <tr><td>Total gratitude items written</td><td>&nbsp;</td></tr>
+            <tr><td>Prompts completed</td><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/ 90</td></tr>
+            <tr><td>Mindfulness exercises practiced</td><td>&nbsp;</td></tr>
+            <tr><td>Meditations completed</td><td>&nbsp;</td></tr>
+            <tr><td>Longest streak of consecutive days</td><td>&nbsp;</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Looking Back: Day 1 vs Day 90</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">How I felt on Day 1:
+
+
+How I feel on Day 90:
+
+
+The biggest shift I notice in myself:
+
+</pre>
+
+      <h4>What I Want to Carry Forward</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">The habit or practice I want to keep:
+
+
+The lesson I do not want to forget:
+
+
+The version of myself I am becoming:
+
+</pre>
+
+      <h4>A Letter to Yourself</h4>
+      <p><em>Write a short letter to the person who started this journal 90 days ago. What would you tell them?</em></p>
+      <pre style="background:#fff; border-color:#bfdbfe; min-height:120px;">Dear Me,
+
+
+
+
+</pre>
+
+      <div class="quote-highlight">
+        <strong>"You did not just fill in a journal. You rewired your brain. You trained yourself to see the good. That changes everything."</strong>
+      </div>
+
+      <div class="callout" style="margin-top: 20px;">
+        <p><strong>What's next?</strong> You can start another 90-day cycle with fresh eyes — the prompts will land differently the second time. Or you can continue freeform with just the daily template and mood map. The practice is yours now. It lives in you, not in these pages.</p>
+        <p style="margin-top:8px;">— Girl Gone AI</p>
+      </div>
+    </div>
+
+  </main>
+
+<!-- Event snippet for Purchase conversion page -->
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18123569132/gKkPCPid26McEOzv_sFD',
+    'value': 1.0,
+    'currency': 'USD',
+    'transaction_id': ''   // leave empty or populate dynamically if possible
+  });
+</script>
+</body>
+</html>

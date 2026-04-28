@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123569132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18123569132');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Esthetician Client Management System — Girl Gone AI</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1e1e2e;
+      background: #f5f6fa;
+    }
+
+    /* ── Brand header ── */
+    .brand-header {
+      background: #2563eb;
+      color: #fff;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.18);
+    }
+    .brand-header .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .brand-header .logo span {
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin-left: 12px;
+      letter-spacing: 0;
+    }
+    .brand-header .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* ── Document title block ── */
+    .doc-title {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .doc-title h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .doc-title .subtitle {
+      margin-top: 6px;
+      font-size: 1rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* ── Headings ── */
+    h1 { font-size: 1.7rem; font-weight: 800; color: #111827; margin: 40px 0 16px; }
+    h2 { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 36px 0 12px; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 28px 0 10px;
+    }
+    h4 { font-size: 0.95rem; font-weight: 700; color: #374151; margin: 18px 0 6px; }
+
+    /* ── Section headers (full-bleed accent) ── */
+    .section-header {
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 8px;
+      margin: 48px 0 24px;
+    }
+    .section-header h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Paragraphs & lists ── */
+    p { margin-bottom: 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    ul li, ol li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 5px;
+    }
+    ul li::before {
+      content: "\2022";
+      position: absolute;
+      left: 6px;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    ol { counter-reset: list-counter; }
+    ol li { counter-increment: list-counter; }
+    ol li::before {
+      content: counter(list-counter) ".";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    strong { font-weight: 700; color: #111827; }
+    em { font-style: italic; color: #4b5563; }
+
+    /* ── Horizontal rule / divider ── */
+    hr {
+      border: none;
+      border-top: 1.5px solid #e5e7eb;
+      margin: 28px 0;
+    }
+
+    /* ── Blockquote / callout ── */
+    blockquote {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #1e40af;
+    }
+    blockquote p { margin: 0 0 6px; }
+    blockquote p:last-child { margin: 0; }
+    blockquote strong { color: #1d4ed8; }
+
+    /* ── Code / text blocks ── */
+    pre {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.85rem;
+      color: #374151;
+      white-space: pre-wrap;
+      margin: 10px 0 16px;
+      min-height: 80px;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 14px 0 20px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    thead tr {
+      background: #2563eb;
+      color: #fff;
+    }
+    thead th {
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    tbody tr { border-bottom: 1px solid #f1f2f6; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8f9ff; }
+    tbody tr:hover { background: #eff6ff; }
+    td { padding: 9px 12px; vertical-align: middle; }
+    td:first-child { font-weight: 600; color: #374151; }
+
+    /* ── Checkbox styled items ── */
+    .checklist { list-style: none; padding: 0; margin: 8px 0 14px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px 0;
+      padding-left: 0;
+    }
+    .checklist li::before { display: none; }
+    .checkbox-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      border: 2px solid #9ca3af;
+      border-radius: 3px;
+      background: #fff;
+      margin-top: 3px;
+    }
+
+    /* ── Energy dot badges ── */
+    .energy-high  { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; margin-right: 4px; vertical-align: middle; }
+    .energy-med   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #eab308; margin-right: 4px; vertical-align: middle; }
+    .energy-low   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #16a34a; margin-right: 4px; vertical-align: middle; }
+    .energy-break { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #9ca3af; margin-right: 4px; vertical-align: middle; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 12px;
+      padding: 2px 9px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-high  { background: #fee2e2; color: #b91c1c; }
+    .badge-med   { background: #fef9c3; color: #92400e; }
+    .badge-low   { background: #dcfce7; color: #166534; }
+    .badge-break { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Sub-section label ── */
+    .sub-label {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ── Decision tree boxes ── */
+    .decision-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .decision-item h4 {
+      color: #2563eb;
+      margin-bottom: 6px;
+    }
+    .decision-item p, .decision-item ul { margin: 0; }
+    .decision-item ul li { margin-bottom: 3px; }
+
+    /* ── Callout box (non-blockquote variant) ── */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      color: #14532d;
+    }
+    .callout strong { color: #166534; }
+
+    /* ── Info box ── */
+    .info-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .info-box h4 { margin-top: 0; color: #1e293b; }
+
+    /* ── Celebration section ── */
+    .celebration {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin: 20px 0;
+    }
+    .celebration h3 { color: #1d4ed8; }
+
+    /* ── Philosophy Q&A ── */
+    .qa-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #f1f2f6;
+    }
+    .qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .qa-item .question {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.97rem;
+      margin-bottom: 6px;
+    }
+
+    /* ── Database property list ── */
+    .prop-list { margin: 10px 0 16px; }
+    .prop-list li {
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 0.87rem;
+    }
+    .prop-list li::before { display: none; }
+    .prop-list li .prop-name {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    /* ── Quote highlight ── */
+    .quote-highlight {
+      text-align: center;
+      padding: 24px 20px;
+      color: #6b7280;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    .quote-highlight strong { color: #374151; font-style: normal; }
+
+    /* ── Utility ── */
+    .mt-0 { margin-top: 0 !important; }
+    .mb-sm { margin-bottom: 8px; }
+    .text-muted { color: #6b7280; font-size: 0.87rem; }
+    .section-note { color: #6b7280; font-size: 0.87rem; font-style: italic; margin-bottom: 18px; }
+
+    /* ── PRINT ── */
+    @media print {
+      .brand-header { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page { padding: 20px 0; max-width: 100%; }
+      .section-header { background: none !important; border: 2px solid #000; color: #000 !important; }
+      .section-header h1 { color: #000 !important; }
+      blockquote { background: none; border-left: 3px solid #000; color: #000; }
+      .decision-item { border-left-color: #000; background: none; border-color: #ccc; }
+      .callout { background: none; border-color: #000; color: #000; }
+      .celebration { background: none; border: 1px solid #ccc; }
+      .info-box { background: none; border: 1px solid #ccc; }
+      table { box-shadow: none; font-size: 9pt; }
+      thead tr { background: #e5e5e5 !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      tbody tr:nth-child(even) { background: #f5f5f5 !important; }
+      tbody tr:hover { background: none !important; }
+      .table-wrap { box-shadow: none; page-break-inside: avoid; }
+      pre { background: #f5f5f5; border: 1px solid #ccc; min-height: 60px; }
+      h1, h2, h3, h4 { page-break-after: avoid; }
+      .decision-item, .callout, .info-box, blockquote { page-break-inside: avoid; }
+      @page { margin: 1.5cm 1.8cm; size: A4; }
+      .badge-high, .badge-med, .badge-low, .badge-break { background: none; color: #000; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand Header -->
+  <header class="brand-header" aria-label="Girl Gone AI brand header">
+    <div class="logo">Girl Gone AI <span>Digital Download</span></div>
+    <div class="badge">Esthetician CRM</div>
+  </header>
+
+  <main class="page">
+
+    <!-- Document Title -->
+    <div class="doc-title">
+      <h1>Esthetician Client Management System</h1>
+      <div class="subtitle">Complete CRM, Appointment Tracking, Treatment Protocols &amp; Business Analytics for Estheticians</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1: QUICK START -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 1: Quick Start Guide</h1>
+    </div>
+
+    <blockquote>
+      <p><strong>START HERE -- 5 Minutes to Set Up</strong></p>
+      <ol>
+        <li>Duplicate this template into your Notion workspace (or recreate in your preferred tool)</li>
+        <li>Customize the Client Intake Form with your specific services and branding</li>
+        <li>Set up the Client Profile Database -- add your existing clients first</li>
+        <li>Review the Treatment Protocol Library and adjust pricing to your market</li>
+        <li>Start using the Appointment Tracker for this week's bookings</li>
+      </ol>
+      <p style="margin-top:10px;">That's your foundation. Add the revenue dashboard and inventory tracker as you get comfortable. Don't try to build everything at once.</p>
+    </blockquote>
+
+    <h2>How This System Works</h2>
+    <p>This is a complete business-in-a-box for estheticians -- whether you're solo, renting a suite, or building a team. Every section is designed to work independently or together. Use what you need now, grow into the rest.</p>
+    <p><strong>The core loop:</strong></p>
+    <ul>
+      <li><strong>Intake</strong> -- New client fills out the intake form (digitally or on paper)</li>
+      <li><strong>Profile</strong> -- You create their client profile in the database</li>
+      <li><strong>Treat</strong> -- You pull the treatment protocol, customize for their skin, and document everything</li>
+      <li><strong>Follow up</strong> -- Automated reminders for aftercare, rebooking, and retention</li>
+      <li><strong>Track</strong> -- Revenue, inventory, and growth metrics update as you work</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Pro tip:</strong> Print the Client Intake Form and Treatment Protocols for your treatment room. Keep the digital versions for your database and tracking. The paper-digital combo is how most successful solo estheticians actually operate.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2: CLIENT INTAKE FORM -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 2: Client Intake Form Template</h1>
+    </div>
+
+    <p class="section-note">Print this or send digitally before a client's first appointment. Keep a completed copy in their file.</p>
+
+    <h2>Client Intake &amp; Consultation Form</h2>
+
+    <h3>Contact Information</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Client Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Full Name</td><td>&nbsp;</td></tr>
+          <tr><td>Date of Birth</td><td>&nbsp;</td></tr>
+          <tr><td>Phone Number</td><td>&nbsp;</td></tr>
+          <tr><td>Email Address</td><td>&nbsp;</td></tr>
+          <tr><td>Mailing Address</td><td>&nbsp;</td></tr>
+          <tr><td>Emergency Contact Name</td><td>&nbsp;</td></tr>
+          <tr><td>Emergency Contact Phone</td><td>&nbsp;</td></tr>
+          <tr><td>How Did You Hear About Us?</td><td>&nbsp;</td></tr>
+          <tr><td>Preferred Contact Method</td><td>Text / Email / Phone</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Skin Profile</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Client Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fitzpatrick Skin Type (I-VI)</td><td>&nbsp;</td></tr>
+          <tr><td>Skin Type</td><td>Normal / Dry / Oily / Combination / Sensitive</td></tr>
+          <tr><td>Primary Skin Concerns</td><td>&nbsp;</td></tr>
+          <tr><td>Secondary Skin Concerns</td><td>&nbsp;</td></tr>
+          <tr><td>Do you experience breakouts?</td><td>Rarely / Sometimes / Frequently / Cystic</td></tr>
+          <tr><td>Sun exposure level</td><td>Minimal / Moderate / Frequent / Daily unprotected</td></tr>
+          <tr><td>Do you use SPF daily?</td><td>Yes / No / Sometimes</td></tr>
+          <tr><td>Do you smoke?</td><td>Yes / No / Former</td></tr>
+          <tr><td>Daily water intake</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Current Skincare Routine</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Morning Product</th>
+            <th>Evening Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Cleanser</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Toner</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Serum</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Moisturizer</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>SPF</td><td>&nbsp;</td><td>N/A</td></tr>
+          <tr><td>Eye Cream</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Treatments/Actives</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Other</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Medical History</h3>
+    <p class="text-muted">Please check all that apply:</p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0;">
+      <div class="info-box" style="margin:0;">
+        <h4>Skin Conditions</h4>
+        <ul class="checklist">
+          <li><span class="checkbox-box"></span> Eczema</li>
+          <li><span class="checkbox-box"></span> Psoriasis</li>
+          <li><span class="checkbox-box"></span> Rosacea</li>
+          <li><span class="checkbox-box"></span> Dermatitis</li>
+          <li><span class="checkbox-box"></span> Cold sores / HSV</li>
+          <li><span class="checkbox-box"></span> Skin cancer history</li>
+          <li><span class="checkbox-box"></span> Keloid scarring</li>
+          <li><span class="checkbox-box"></span> Vitiligo</li>
+        </ul>
+      </div>
+      <div class="info-box" style="margin:0;">
+        <h4>Medical Conditions</h4>
+        <ul class="checklist">
+          <li><span class="checkbox-box"></span> Diabetes</li>
+          <li><span class="checkbox-box"></span> Autoimmune disorder</li>
+          <li><span class="checkbox-box"></span> Heart condition</li>
+          <li><span class="checkbox-box"></span> Epilepsy / seizures</li>
+          <li><span class="checkbox-box"></span> Blood clotting disorder</li>
+          <li><span class="checkbox-box"></span> Thyroid condition</li>
+          <li><span class="checkbox-box"></span> Currently pregnant or nursing</li>
+          <li><span class="checkbox-box"></span> Metal implants / pacemaker</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4>Allergies &amp; Sensitivities</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Product/Ingredient Allergies</td><td>&nbsp;</td></tr>
+          <tr><td>Latex Allergy</td><td>Yes / No</td></tr>
+          <tr><td>Fragrance Sensitivity</td><td>Yes / No</td></tr>
+          <tr><td>Nut Allergies (relevant for oils)</td><td>Yes / No</td></tr>
+          <tr><td>Other Allergies</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Current Medications &amp; Treatments</h4>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Question</th>
+            <th>Response</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Current medications (list all)</td><td>&nbsp;</td></tr>
+          <tr><td>Using Accutane now or in past 6 months?</td><td>Yes / No</td></tr>
+          <tr><td>Using Retin-A / tretinoin / retinoids?</td><td>Yes / No</td></tr>
+          <tr><td>Using oral antibiotics?</td><td>Yes / No</td></tr>
+          <tr><td>Using blood thinners?</td><td>Yes / No</td></tr>
+          <tr><td>Recent Botox or fillers? (within 2 weeks)</td><td>Yes / No -- Date: ___</td></tr>
+          <tr><td>Recent chemical peel or laser? (within 4 weeks)</td><td>Yes / No -- Date: ___</td></tr>
+          <tr><td>Hormone therapy or birth control?</td><td>Yes / No</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Goals &amp; Preferences</h3>
+    <pre>What are your top 3 skin goals?
+1.
+2.
+3.
+
+What results are you hoping to see in 3 months?
+
+
+Are there any treatments you're interested in or curious about?
+
+
+Is there anything else you'd like me to know?
+
+</pre>
+
+    <h3>Consent &amp; Acknowledgements</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> I confirm the above information is accurate and complete to the best of my knowledge</li>
+      <li><span class="checkbox-box"></span> I understand I must inform my esthetician of any changes to my health, medications, or skincare routine</li>
+      <li><span class="checkbox-box"></span> I understand that results vary and are not guaranteed</li>
+      <li><span class="checkbox-box"></span> I consent to before/after photos for my treatment record (photos will not be shared without separate written consent)</li>
+      <li><span class="checkbox-box"></span> I understand the cancellation policy: 24-hour notice required or a fee of $_____ applies</li>
+      <li><span class="checkbox-box"></span> I consent to receive appointment reminders via my preferred contact method</li>
+      <li><span class="checkbox-box"></span> I have read and agree to the treatment policies and aftercare responsibilities</li>
+    </ul>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Signature Fields</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Client Signature</td><td>&nbsp;</td></tr>
+          <tr><td>Date</td><td>&nbsp;</td></tr>
+          <tr><td>Esthetician Signature</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3: CLIENT PROFILE DATABASE -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 3: Client Profile Database Properties</h1>
+    </div>
+
+    <p class="section-note">Set up a Notion database (or Airtable, Google Sheets, etc.) with these fields. Each client gets one row. Link their treatment notes, photos, and purchase history.</p>
+
+    <h3>Core Client Properties</h3>
+    <ul class="prop-list">
+      <li><span class="prop-name">Client Name</span> -- title (primary field)</li>
+      <li><span class="prop-name">Phone</span> -- phone number</li>
+      <li><span class="prop-name">Email</span> -- email</li>
+      <li><span class="prop-name">Date of Birth</span> -- date (for birthday messages)</li>
+      <li><span class="prop-name">Client Since</span> -- date (first appointment)</li>
+      <li><span class="prop-name">Referral Source</span> -- select: Instagram / Google / Friend / Walk-in / Yelp / Other</li>
+      <li><span class="prop-name">Status</span> -- select: Active / Inactive (90+ days) / VIP / New</li>
+      <li><span class="prop-name">Preferred Contact</span> -- select: Text / Email / Phone / DM</li>
+    </ul>
+
+    <h3>Skin &amp; Health Properties</h3>
+    <ul class="prop-list">
+      <li><span class="prop-name">Fitzpatrick Type</span> -- select: I / II / III / IV / V / VI</li>
+      <li><span class="prop-name">Skin Type</span> -- select: Normal / Dry / Oily / Combination / Sensitive</li>
+      <li><span class="prop-name">Primary Concerns</span> -- multi-select: Acne / Aging / Hyperpigmentation / Rosacea / Dehydration / Texture / Scarring</li>
+      <li><span class="prop-name">Allergies</span> -- text (critical -- always check before treatment)</li>
+      <li><span class="prop-name">Contraindications</span> -- text (Accutane, pregnancy, pacemaker, etc.)</li>
+      <li><span class="prop-name">Current Medications</span> -- text</li>
+      <li><span class="prop-name">Preferred Products</span> -- multi-select (your retail lines)</li>
+    </ul>
+
+    <h3>Service &amp; Business Properties</h3>
+    <ul class="prop-list">
+      <li><span class="prop-name">Last Appointment</span> -- date</li>
+      <li><span class="prop-name">Next Appointment</span> -- date</li>
+      <li><span class="prop-name">Favorite Services</span> -- multi-select: Facial / Peel / Microderm / LED / Microneedling / Wax / Lash / Brow / Body</li>
+      <li><span class="prop-name">Visit Frequency</span> -- select: Weekly / Biweekly / Monthly / Every 6 Weeks / Quarterly / Sporadic</li>
+      <li><span class="prop-name">Lifetime Revenue</span> -- number (auto-calculate from linked treatments)</li>
+      <li><span class="prop-name">Total Visits</span> -- number (rollup from linked treatment log)</li>
+      <li><span class="prop-name">Product Purchases</span> -- relation to Product Sales database</li>
+      <li><span class="prop-name">Treatment Notes</span> -- relation to Treatment Log database</li>
+      <li><span class="prop-name">Photo Consent</span> -- checkbox</li>
+      <li><span class="prop-name">Before/After Photos</span> -- files &amp; media</li>
+      <li><span class="prop-name">Internal Notes</span> -- text (preferences, conversation topics, personal details to remember)</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Retention tip:</strong> The "Internal Notes" field is your secret weapon. Write down that her daughter just started college, that she's training for a marathon, that she hates the smell of lavender. Remembering personal details is what turns a client into a lifer.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4: TREATMENT PROTOCOL LIBRARY -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 4: Treatment Protocol Library</h1>
+    </div>
+
+    <p class="section-note">Reference these protocols during consultations and treatments. Adjust pricing to your local market and experience level. These are starting frameworks -- customize based on your training and product lines.</p>
+
+    <!-- Treatment 1: Classic Facial -->
+    <h2>1. Classic European Facial</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>The foundational facial service. Includes cleansing, skin analysis, exfoliation, extractions (if needed), massage, mask, and moisturizer with SPF. Suitable for most skin types and the ideal first-visit service for new clients.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>60 minutes</td></tr>
+          <tr><td>Suggested Price Range</td><td>$75 -- $125</td></tr>
+          <tr><td>Frequency</td><td>Every 4--6 weeks</td></tr>
+          <tr><td>Skin Types</td><td>All skin types</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Active sunburn or open wounds on treatment area</li>
+      <li>Active cold sores (reschedule)</li>
+      <li>Severe cystic acne (modify -- avoid aggressive extractions)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Avoid direct sun exposure for 24--48 hours; apply SPF 30+ daily</li>
+      <li>Do not touch your face or apply makeup for at least 6 hours post-treatment</li>
+      <li>Skip active ingredients (retinol, AHAs, BHAs) for 48 hours</li>
+      <li>Stay hydrated -- drink extra water for 24 hours</li>
+      <li>Mild redness is normal and should resolve within a few hours</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 2: Chemical Peel -->
+    <h2>2. Chemical Peel (Light / Medium)</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Chemical exfoliation using AHAs (glycolic, lactic, mandelic), BHAs (salicylic), or combination peels. Light peels (20--30% concentration) have minimal downtime. Medium peels (30--50%) produce visible peeling for 3--7 days. Treats hyperpigmentation, fine lines, acne, and texture.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>30--45 minutes</td></tr>
+          <tr><td>Suggested Price Range</td><td>$85 -- $175 (varies by depth)</td></tr>
+          <tr><td>Frequency</td><td>Every 2--4 weeks (light) / Every 4--6 weeks (medium)</td></tr>
+          <tr><td>Series Recommendation</td><td>4--6 sessions for optimal results</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Accutane use within the past 6--12 months</li>
+      <li>Active retinoid use (discontinue 5--7 days prior)</li>
+      <li>Pregnancy or nursing</li>
+      <li>Recent waxing, laser, or sunburn on treatment area (within 7--14 days)</li>
+      <li>Active herpes simplex (prescribe antiviral prophylaxis for history of cold sores)</li>
+      <li>Fitzpatrick V--VI: use mandelic or lactic acid only; avoid glycolic to prevent PIH</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>NO sun exposure for 7--14 days. SPF 50 is mandatory, reapply every 2 hours outdoors</li>
+      <li>Do not pick, peel, or scratch flaking skin -- let it shed naturally</li>
+      <li>Use only gentle cleanser and hydrating moisturizer for 7 days</li>
+      <li>No retinol, AHAs, BHAs, vitamin C, or active exfoliants for 7--10 days</li>
+      <li>No hot showers on face, saunas, steam rooms, or heavy exercise for 48 hours</li>
+      <li>Expect redness, tightness, and peeling -- this is normal and means the peel is working</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 3: Microdermabrasion -->
+    <h2>3. Microdermabrasion</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Mechanical exfoliation using diamond-tip or crystal handpiece to remove the outer layer of dead skin cells. Improves texture, reduces mild scarring, evens skin tone, and enhances product penetration. Often combined with a hydrating mask or LED therapy for enhanced results.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>30--45 minutes (60 with add-ons)</td></tr>
+          <tr><td>Suggested Price Range</td><td>$100 -- $175</td></tr>
+          <tr><td>Frequency</td><td>Every 2--4 weeks</td></tr>
+          <tr><td>Series Recommendation</td><td>6--10 sessions for best results</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Active acne, rosacea flare-ups, or inflamed skin</li>
+      <li>Eczema or psoriasis on treatment area</li>
+      <li>Recent chemical peel (within 14 days)</li>
+      <li>Use of blood thinners (increased bruising risk)</li>
+      <li>Active cold sores</li>
+      <li>Sunburn or recent excessive sun exposure</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>SPF 30+ daily for at least 2 weeks -- skin is more vulnerable to UV damage</li>
+      <li>Apply hydrating serum and moisturizer morning and night</li>
+      <li>Avoid makeup for 24 hours if possible</li>
+      <li>No retinoids or exfoliating acids for 5--7 days</li>
+      <li>Skin may feel slightly tight or sensitive -- this resolves within 24 hours</li>
+      <li>Stay hydrated and avoid touching the treated area</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 4: LED Light Therapy -->
+    <h2>4. LED Light Therapy</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Non-invasive treatment using specific wavelengths of light to target skin concerns. Red light (630--700nm) stimulates collagen and reduces inflammation. Blue light (400--490nm) kills acne-causing bacteria. Near-infrared (800--900nm) promotes deep tissue healing. Excellent as a standalone or add-on service.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>15--20 minutes (standalone) / 10--15 minutes (add-on)</td></tr>
+          <tr><td>Suggested Price Range</td><td>$35 -- $65 (standalone) / $15 -- $30 (add-on)</td></tr>
+          <tr><td>Frequency</td><td>2--3 times per week for best results</td></tr>
+          <tr><td>Series Recommendation</td><td>8--12 sessions, then maintenance 1x/week</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Epilepsy or seizure disorders (light sensitivity)</li>
+      <li>Photosensitizing medications (tetracycline, doxycycline, certain diuretics)</li>
+      <li>Active use of Accutane</li>
+      <li>Pregnancy (as a precaution -- limited research)</li>
+      <li>Eye conditions -- protective goggles must be worn during treatment</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>No specific downtime -- client can apply makeup and resume normal activities immediately</li>
+      <li>Apply SPF as part of regular routine</li>
+      <li>Drink water to support cellular recovery</li>
+      <li>Results are cumulative -- encourage consistent sessions for visible improvement</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Business tip:</strong> LED therapy is the highest-margin add-on in esthetics. It takes almost no extra time, has zero consumable cost (just the device), and clients feel immediate results. Offer it as a $25 add-on to every facial and watch your average ticket jump.</p>
+    </div>
+
+    <hr />
+
+    <!-- Treatment 5: Microneedling -->
+    <h2>5. Microneedling</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Collagen induction therapy using a derma pen or roller with fine needles (0.25mm--2.0mm depth, depending on license and training). Creates controlled micro-injuries that trigger the body's wound-healing response, producing new collagen and elastin. Treats scarring, fine lines, enlarged pores, stretch marks, and hyperpigmentation.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>45--75 minutes (including numbing time)</td></tr>
+          <tr><td>Suggested Price Range</td><td>$200 -- $400 per session</td></tr>
+          <tr><td>Frequency</td><td>Every 4--6 weeks</td></tr>
+          <tr><td>Series Recommendation</td><td>3--6 sessions for significant improvement</td></tr>
+          <tr><td>Numbing Required</td><td>Yes -- 20--30 minutes with topical lidocaine</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Active acne, pustules, or open wounds in treatment area</li>
+      <li>Accutane use within past 6 months</li>
+      <li>Active eczema, psoriasis, or rosacea</li>
+      <li>Pregnancy or nursing</li>
+      <li>Blood clotting disorders or anticoagulant use</li>
+      <li>Keloid or hypertrophic scarring tendency</li>
+      <li>Active skin infections (bacterial, viral, fungal)</li>
+      <li>Recent Botox or filler (within 2 weeks)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Skin will be red and feel sunburned for 24--72 hours -- this is expected</li>
+      <li>Apply only approved post-procedure serums (hyaluronic acid, growth factors) for 24 hours</li>
+      <li>NO makeup for 24 hours minimum (48 hours ideal)</li>
+      <li>NO sun exposure for 7--14 days. SPF 50 is non-negotiable</li>
+      <li>No retinoids, AHAs, BHAs, or vitamin C for 7 days</li>
+      <li>No swimming, sauna, hot tub, or heavy sweating for 72 hours</li>
+      <li>Sleep on a clean pillowcase (silk preferred)</li>
+      <li>Do not touch or scratch the treated area</li>
+      <li>Full results visible at 4--6 weeks as collagen remodels</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 6: Waxing Services -->
+    <h2>6. Waxing Services</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Hair removal using hard wax (no strip, ideal for sensitive areas) or soft/strip wax. Services include face (brow, lip, chin, sideburns), body (underarms, arms, legs, back), and bikini (bikini line, Brazilian). Proper technique minimizes discomfort and ingrown hairs.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>Duration</th><th>Suggested Price</th></tr></thead>
+        <tbody>
+          <tr><td>Brow Wax</td><td>10--15 min</td><td>$15 -- $30</td></tr>
+          <tr><td>Lip Wax</td><td>5--10 min</td><td>$10 -- $20</td></tr>
+          <tr><td>Chin Wax</td><td>5--10 min</td><td>$10 -- $20</td></tr>
+          <tr><td>Full Face Wax</td><td>20--30 min</td><td>$40 -- $65</td></tr>
+          <tr><td>Underarm Wax</td><td>10--15 min</td><td>$20 -- $35</td></tr>
+          <tr><td>Half Leg Wax</td><td>20--30 min</td><td>$35 -- $55</td></tr>
+          <tr><td>Full Leg Wax</td><td>45--60 min</td><td>$60 -- $90</td></tr>
+          <tr><td>Bikini Line Wax</td><td>15--20 min</td><td>$35 -- $50</td></tr>
+          <tr><td>Brazilian Wax</td><td>30--45 min</td><td>$55 -- $85</td></tr>
+          <tr><td>Full Arm Wax</td><td>20--30 min</td><td>$30 -- $50</td></tr>
+          <tr><td>Back Wax</td><td>30--45 min</td><td>$45 -- $75</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Accutane use within past 6--12 months (skin tears easily)</li>
+      <li>Active retinoid or prescription exfoliant use on wax area (discontinue 5--7 days prior)</li>
+      <li>Sunburned or irritated skin</li>
+      <li>Varicose veins (avoid waxing directly over them)</li>
+      <li>Recent chemical peel or microdermabrasion (within 7--14 days)</li>
+      <li>Diabetes with poor circulation (higher infection risk)</li>
+      <li>Moles or skin tags -- wax around, never over</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Avoid sun exposure, tanning beds, hot baths, and saunas for 24--48 hours</li>
+      <li>No tight clothing over waxed areas for 24 hours</li>
+      <li>Apply a soothing, fragrance-free aloe or post-wax lotion</li>
+      <li>No exfoliating for 48 hours, then gently exfoliate 2--3 times per week to prevent ingrowns</li>
+      <li>Avoid deodorant on underarms for 12 hours post-wax</li>
+      <li>Do not scratch or pick at bumps -- mild redness and bumps resolve within 24 hours</li>
+      <li>For bikini/Brazilian: wear cotton underwear and avoid sexual activity for 24 hours</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 7: Lash Services -->
+    <h2>7. Lash Services</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Includes lash lifts (also called lash perms), lash tinting, and lash lift + tint combos. Lash lifts use a silicone rod and perming solution to curl natural lashes upward, creating the appearance of longer, fuller lashes without extensions. Results last 6--8 weeks through the natural lash cycle.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>Duration</th><th>Suggested Price</th></tr></thead>
+        <tbody>
+          <tr><td>Lash Lift</td><td>45--60 min</td><td>$65 -- $95</td></tr>
+          <tr><td>Lash Tint</td><td>15--20 min</td><td>$25 -- $40</td></tr>
+          <tr><td>Lash Lift + Tint</td><td>60--75 min</td><td>$85 -- $120</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Eye infections, styes, or conjunctivitis</li>
+      <li>Allergic reaction to prior lash treatments (perform patch test 24--48 hours prior)</li>
+      <li>Recent eye surgery (within 3 months)</li>
+      <li>Very short or damaged lashes (lift may not hold or could cause breakage)</li>
+      <li>Pregnancy (some clients experience poor results due to hormone changes)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Keep lashes completely dry for 24--48 hours after treatment</li>
+      <li>Do not rub or touch eyes for 24 hours</li>
+      <li>Avoid waterproof mascara (regular mascara is fine after 48 hours)</li>
+      <li>No oil-based products around the eye area for 48 hours</li>
+      <li>Use a lash serum to nourish and prolong results</li>
+      <li>Avoid saunas, steam rooms, and swimming for 48 hours</li>
+      <li>Results last 6--8 weeks; schedule next appointment at the 6-week mark</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 8: Brow Services -->
+    <h2>8. Brow Services</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Includes brow shaping (wax, tweeze, or thread), brow tinting, brow lamination, and combination services. Brow lamination uses a chemical straightening solution to redirect brow hairs upward and set them in place, creating a fuller, brushed-up look for 4--6 weeks.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>Duration</th><th>Suggested Price</th></tr></thead>
+        <tbody>
+          <tr><td>Brow Shape (wax + tweeze)</td><td>15--20 min</td><td>$20 -- $35</td></tr>
+          <tr><td>Brow Tint</td><td>10--15 min</td><td>$20 -- $30</td></tr>
+          <tr><td>Brow Shape + Tint</td><td>25--30 min</td><td>$35 -- $55</td></tr>
+          <tr><td>Brow Lamination</td><td>45--60 min</td><td>$65 -- $95</td></tr>
+          <tr><td>Brow Lamination + Tint</td><td>60--75 min</td><td>$85 -- $120</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Allergies to dye ingredients (always patch test 24--48 hours before first tint)</li>
+      <li>Open cuts, abrasions, or sunburn on brow area</li>
+      <li>Recent Botox in forehead area (within 72 hours)</li>
+      <li>Active eczema or psoriasis on brow area</li>
+      <li>Over-processed or very thin brow hairs (lamination may cause breakage)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>For tinting: avoid oil-based cleansers around brows for 48 hours to extend color</li>
+      <li>For lamination: keep brows dry for 24 hours; do not get them wet, apply makeup, or brush them</li>
+      <li>After 24 hours, brush brows into place daily with a spoolie and apply nourishing brow serum</li>
+      <li>Avoid exfoliating the brow area for 72 hours</li>
+      <li>Results last 4--6 weeks; schedule maintenance at the 4-week mark</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 9: Body Treatments -->
+    <h2>9. Body Treatments</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Includes body wraps, scrubs, back facials, and dry brushing. Body treatments address concerns like cellulite appearance, dry skin, back acne (bacne), KP (keratosis pilaris), and overall skin texture. These are high-value upsell services that differentiate your menu.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Service</th><th>Duration</th><th>Suggested Price</th></tr></thead>
+        <tbody>
+          <tr><td>Back Facial (cleanse, exfoliate, extractions, mask)</td><td>45--60 min</td><td>$85 -- $135</td></tr>
+          <tr><td>Full Body Sugar Scrub</td><td>30--45 min</td><td>$65 -- $100</td></tr>
+          <tr><td>Body Wrap (detox / hydrating / slimming)</td><td>60--90 min</td><td>$100 -- $175</td></tr>
+          <tr><td>Dry Brushing + Body Oil</td><td>20--30 min</td><td>$40 -- $60</td></tr>
+          <tr><td>Enzyme Body Peel</td><td>45--60 min</td><td>$95 -- $150</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Open wounds, sunburn, or rashes on treatment area</li>
+      <li>Pregnancy (certain wraps with detox ingredients -- check ingredient safety)</li>
+      <li>High blood pressure or heart conditions (body wraps increase circulation)</li>
+      <li>Claustrophobia (for full body wraps -- offer alternative draping)</li>
+      <li>Varicose veins (avoid dry brushing or heavy pressure directly on veins)</li>
+      <li>Recent shaving (within 12 hours -- causes stinging with scrubs/peels)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Drink at least 8 glasses of water in the 24 hours following treatment</li>
+      <li>Avoid sun exposure on treated areas for 48 hours</li>
+      <li>For wraps: avoid showering for 4--6 hours to let products continue absorbing</li>
+      <li>For scrubs/peels: moisturize daily and avoid harsh soaps for 48 hours</li>
+      <li>Mild redness or tingling is normal and should resolve within hours</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 10: Dermaplaning -->
+    <h2>10. Dermaplaning</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Manual exfoliation using a sterile surgical scalpel (10R blade) held at a 45-degree angle to gently scrape away dead skin cells and vellus hair (peach fuzz) from the face. Creates an immediately smoother, brighter complexion and dramatically improves product penetration and makeup application.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>30--45 minutes (standalone) / 15--20 minutes (add-on)</td></tr>
+          <tr><td>Suggested Price Range</td><td>$75 -- $125 (standalone) / $35 -- $50 (add-on)</td></tr>
+          <tr><td>Frequency</td><td>Every 3--4 weeks (matches skin cell turnover cycle)</td></tr>
+          <tr><td>Pairs Well With</td><td>Chemical peels, LED therapy, hydrating facials</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Active acne, pustules, or inflamed breakouts</li>
+      <li>Rosacea or highly reactive/vascular skin</li>
+      <li>Active cold sores or skin infections</li>
+      <li>Accutane use within past 6 months</li>
+      <li>Use of blood thinners (increased nick risk)</li>
+      <li>Raised moles, skin tags, or warts in treatment area (blade around, not over)</li>
+      <li>Sunburned or recently peeled skin</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>SPF 30+ daily -- freshly exposed skin is more UV-sensitive</li>
+      <li>No retinoids, AHAs, or BHAs for 3--5 days</li>
+      <li>No heavy makeup for 24 hours (mineral makeup OK after 12 hours)</li>
+      <li>Avoid sun, sauna, steam, and heavy exercise for 24--48 hours</li>
+      <li>Use gentle cleanser and hydrating moisturizer only for 48 hours</li>
+      <li>Hair will NOT grow back thicker -- this is a myth. Vellus hair regrows the same</li>
+    </ul>
+
+    <hr />
+
+    <!-- Treatment 11: Hydrafacial / Hydrodermabrasion -->
+    <h2>11. Hydrafacial / Hydrodermabrasion</h2>
+    <div class="decision-item">
+      <h4>Overview</h4>
+      <p>Multi-step treatment that combines cleansing, exfoliation, extraction, hydration, and antioxidant protection simultaneously using vortex suction technology. Delivers serums deep into the skin while removing impurities. No downtime. Suitable for almost all skin types, including sensitive skin.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Detail</th><th>Specification</th></tr></thead>
+        <tbody>
+          <tr><td>Duration</td><td>30--45 minutes</td></tr>
+          <tr><td>Suggested Price Range</td><td>$150 -- $275</td></tr>
+          <tr><td>Frequency</td><td>Every 2--4 weeks</td></tr>
+          <tr><td>Series Recommendation</td><td>Monthly maintenance; series of 3--6 for targeted concerns</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h4>Contraindications</h4>
+    <ul>
+      <li>Active rashes, sunburn, or rosacea flare-up</li>
+      <li>Pregnancy (some boosters contain contraindicated ingredients -- check each one)</li>
+      <li>Active cold sores</li>
+      <li>Recent Botox or filler (within 72 hours)</li>
+    </ul>
+    <h4>Aftercare Instructions</h4>
+    <ul>
+      <li>Minimal to no downtime -- client can apply makeup and resume normal activities</li>
+      <li>Apply SPF as usual</li>
+      <li>Avoid exfoliating products for 48 hours (skin is already freshly exfoliated)</li>
+      <li>Skin may appear slightly pink for 30--60 minutes post-treatment</li>
+      <li>Best results with consistent monthly treatments</li>
+    </ul>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5: APPOINTMENT TRACKER -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 5: Appointment Tracker</h1>
+    </div>
+
+    <p class="section-note">Use this daily/weekly schedule to manage your bookings. Print weekly or maintain digitally. Color-code by service type for quick visual scanning.</p>
+
+    <h3>Daily Schedule Template</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Client Name</th>
+            <th>Service</th>
+            <th>Duration</th>
+            <th>Notes / Prep Needed</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>9:00 AM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>10:00 AM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>11:00 AM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>12:00 PM</td><td colspan="5" style="text-align:center; color:#6b7280; font-style:italic;">Lunch / Buffer Block</td></tr>
+          <tr><td>1:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>2:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>3:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>4:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>5:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+          <tr><td>6:00 PM</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>Confirmed / Pending</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Weekly Overview</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Total Appointments</th>
+            <th>Services Booked</th>
+            <th>Projected Revenue</th>
+            <th>Open Slots</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Tuesday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Wednesday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Thursday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Friday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Saturday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Sunday</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td><strong>Week Total</strong></td><td>&nbsp;</td><td>&nbsp;</td><td><strong>$</strong></td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Booking &amp; Follow-Up System</h3>
+    <div class="info-box">
+      <h4>Before the Appointment</h4>
+      <ul>
+        <li>Send booking confirmation immediately after scheduling</li>
+        <li>Send reminder 48 hours before appointment</li>
+        <li>Send reminder 2 hours before appointment (text or automated)</li>
+        <li>Review client profile: allergies, contraindications, last treatment notes</li>
+        <li>Prep room: clean linens, products staged, equipment sanitized</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>After the Appointment</h4>
+      <ul>
+        <li>Update treatment notes in client profile within 1 hour</li>
+        <li>Send aftercare instructions via text or email (same day)</li>
+        <li>Send follow-up check-in at 48 hours ("How is your skin feeling?")</li>
+        <li>Send rebooking prompt at 2 weeks if no appointment scheduled</li>
+        <li>Log revenue and services in the daily tracker</li>
+      </ul>
+    </div>
+
+    <blockquote>
+      <p><strong>Buffer time matters.</strong> Schedule 15-minute buffers between appointments for room turnover, notes, and bathroom breaks. Running behind stresses you and the client. A packed schedule with no buffers is a recipe for burnout.</p>
+    </blockquote>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6: PRODUCT INVENTORY TRACKER -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 6: Product Inventory Tracker</h1>
+    </div>
+
+    <p class="section-note">Track your professional (back bar) and retail products. Know your margins, know your reorder points, and never run out mid-treatment.</p>
+
+    <h3>Professional (Back Bar) Inventory</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Brand / Line</th>
+            <th>Size</th>
+            <th>Wholesale Cost</th>
+            <th>Uses Per Unit</th>
+            <th>Cost Per Use</th>
+            <th>Qty on Hand</th>
+            <th>Reorder Level</th>
+            <th>Supplier</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Enzyme Cleanser</td><td>&nbsp;</td><td>16 oz</td><td>$28</td><td>~80</td><td>$0.35</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>Glycolic Peel 30%</td><td>&nbsp;</td><td>4 oz</td><td>$45</td><td>~20</td><td>$2.25</td><td>&nbsp;</td><td>1</td><td>&nbsp;</td></tr>
+          <tr><td>Hydrating Mask</td><td>&nbsp;</td><td>8 oz</td><td>$32</td><td>~30</td><td>$1.07</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>Hyaluronic Acid Serum</td><td>&nbsp;</td><td>2 oz</td><td>$22</td><td>~40</td><td>$0.55</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>SPF 50 Moisturizer</td><td>&nbsp;</td><td>4 oz</td><td>$18</td><td>~25</td><td>$0.72</td><td>&nbsp;</td><td>3</td><td>&nbsp;</td></tr>
+          <tr><td>Hard Wax Beads</td><td>&nbsp;</td><td>2.2 lb</td><td>$25</td><td>~35</td><td>$0.71</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>Lash Lift Kit</td><td>&nbsp;</td><td>Kit</td><td>$40</td><td>~15</td><td>$2.67</td><td>&nbsp;</td><td>1</td><td>&nbsp;</td></tr>
+          <tr><td>Brow Tint</td><td>&nbsp;</td><td>1 oz</td><td>$15</td><td>~25</td><td>$0.60</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Retail Product Inventory</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Brand</th>
+            <th>Wholesale Cost</th>
+            <th>Retail Price</th>
+            <th>Margin %</th>
+            <th>Qty on Hand</th>
+            <th>Reorder Level</th>
+            <th>Sold This Month</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Vitamin C Serum</td><td>&nbsp;</td><td>$18</td><td>$45</td><td>60%</td><td>&nbsp;</td><td>3</td><td>&nbsp;</td></tr>
+          <tr><td>Daily Moisturizer SPF 30</td><td>&nbsp;</td><td>$14</td><td>$38</td><td>63%</td><td>&nbsp;</td><td>4</td><td>&nbsp;</td></tr>
+          <tr><td>Retinol Night Cream</td><td>&nbsp;</td><td>$22</td><td>$55</td><td>60%</td><td>&nbsp;</td><td>3</td><td>&nbsp;</td></tr>
+          <tr><td>Gentle Cleanser</td><td>&nbsp;</td><td>$10</td><td>$28</td><td>64%</td><td>&nbsp;</td><td>4</td><td>&nbsp;</td></tr>
+          <tr><td>Exfoliating Pads</td><td>&nbsp;</td><td>$12</td><td>$32</td><td>63%</td><td>&nbsp;</td><td>3</td><td>&nbsp;</td></tr>
+          <tr><td>Eye Cream</td><td>&nbsp;</td><td>$16</td><td>$42</td><td>62%</td><td>&nbsp;</td><td>2</td><td>&nbsp;</td></tr>
+          <tr><td>Hyaluronic Acid Serum</td><td>&nbsp;</td><td>$15</td><td>$40</td><td>63%</td><td>&nbsp;</td><td>3</td><td>&nbsp;</td></tr>
+          <tr><td>Lip Treatment</td><td>&nbsp;</td><td>$8</td><td>$22</td><td>64%</td><td>&nbsp;</td><td>4</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Margin rule of thumb:</strong> Retail skincare should have a 50--65% margin (you pay $15, you sell for $38--$42). If your margin is under 50%, the product is not worth shelf space unless it's a loss leader that drives rebookings. Track your cost-per-use on back bar products too -- you need to know the true cost of each treatment you deliver.</p>
+    </div>
+
+    <h3>Inventory Review Checklist (Monthly)</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Count all back bar products and update Qty on Hand</li>
+      <li><span class="checkbox-box"></span> Count all retail products and update Qty on Hand</li>
+      <li><span class="checkbox-box"></span> Check expiration dates -- pull anything expiring within 60 days</li>
+      <li><span class="checkbox-box"></span> Reorder products at or below reorder level</li>
+      <li><span class="checkbox-box"></span> Review which retail products sold well vs. sat on the shelf</li>
+      <li><span class="checkbox-box"></span> Calculate total inventory value (wholesale cost x quantity)</li>
+      <li><span class="checkbox-box"></span> Evaluate if any products should be discontinued or replaced</li>
+    </ul>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7: REVENUE DASHBOARD -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 7: Revenue Dashboard Template</h1>
+    </div>
+
+    <p class="section-note">Track your money weekly and monthly. Knowing your numbers is the difference between a hobby and a business.</p>
+
+    <h3>Daily Revenue Log</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Client</th>
+            <th>Service(s)</th>
+            <th>Service Revenue</th>
+            <th>Product Sales</th>
+            <th>Tips</th>
+            <th>Total</th>
+            <th>Payment Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td colspan="3"><strong>Daily Total</strong></td><td><strong>$</strong></td><td><strong>$</strong></td><td><strong>$</strong></td><td><strong>$</strong></td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Weekly Revenue Summary</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>This Week</th>
+            <th>Last Week</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Service Revenue</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Total Retail Sales</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Total Tips</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Total Revenue (all sources)</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Number of Clients Seen</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Average Ticket (total / clients)</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Product-to-Service Ratio</td><td>%</td><td>%</td><td>&nbsp;</td></tr>
+          <tr><td>No-Shows / Cancellations</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Monthly Revenue Summary</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>This Month</th>
+            <th>Last Month</th>
+            <th>Target</th>
+            <th>% to Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Revenue</td><td>$</td><td>$</td><td>$</td><td>%</td></tr>
+          <tr><td>Service Revenue</td><td>$</td><td>$</td><td>$</td><td>%</td></tr>
+          <tr><td>Retail Revenue</td><td>$</td><td>$</td><td>$</td><td>%</td></tr>
+          <tr><td>Total Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>New Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Returning Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Client Retention Rate</td><td>%</td><td>%</td><td>&gt;70%</td><td>&nbsp;</td></tr>
+          <tr><td>Average Ticket</td><td>$</td><td>$</td><td>$</td><td>&nbsp;</td></tr>
+          <tr><td>Rebooking Rate</td><td>%</td><td>%</td><td>&gt;60%</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Top Services This Month</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Service</th>
+            <th>Times Booked</th>
+            <th>Revenue Generated</th>
+            <th>% of Total Revenue</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>%</td></tr>
+          <tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>%</td></tr>
+          <tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>%</td></tr>
+          <tr><td>4</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>%</td></tr>
+          <tr><td>5</td><td>&nbsp;</td><td>&nbsp;</td><td>$</td><td>%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h4>Revenue Health Check</h4>
+      <ul>
+        <li><strong>Healthy product-to-service ratio:</strong> 15--25% (if $1,000 in services, you should sell $150--$250 in retail)</li>
+        <li><strong>Healthy average ticket:</strong> Aim to increase by $10--$15 each quarter through add-ons and upgrades</li>
+        <li><strong>Healthy retention rate:</strong> 60--80% of clients rebook within their recommended timeframe</li>
+        <li><strong>Revenue per hour:</strong> Calculate your total revenue divided by hours worked. This is your real hourly rate.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8: CLIENT COMMUNICATION TEMPLATES -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 8: Client Communication Templates</h1>
+    </div>
+
+    <p class="section-note">Copy, customize, and save these in your phone or booking software. Replace [brackets] with your info.</p>
+
+    <!-- Template 1 -->
+    <h2>1. Booking Confirmation</h2>
+    <pre>Hi [Client Name]! Your appointment is confirmed:
+
+[Service Name]
+[Date] at [Time]
+[Your Business Name / Location]
+
+A few things before your visit:
+- Please arrive 5-10 minutes early
+- Come with a clean face (no makeup if possible for facial services)
+- Let me know if anything changes with your skin, medications, or health
+
+If you need to reschedule, please give at least 24 hours notice.
+
+See you soon!
+[Your Name]</pre>
+
+    <!-- Template 2 -->
+    <h2>2. Appointment Reminder (48 Hours)</h2>
+    <pre>Hi [Client Name]! Just a friendly reminder about your upcoming appointment:
+
+[Service Name]
+[Date] at [Time]
+
+Quick reminders:
+- Discontinue retinol/exfoliants 3-5 days before peels or microneedling
+- No waxing if you've been in the sun or used self-tanner in the last 48 hours
+- Arrive with clean skin when possible
+
+Need to reschedule? Just reply to this message. Otherwise, I'll see you [day]!
+
+[Your Name]</pre>
+
+    <!-- Template 3 -->
+    <h2>3. Aftercare Follow-Up (48 Hours Post-Treatment)</h2>
+    <pre>Hi [Client Name]! I hope you're loving your skin after your [Service Name] on [Date]!
+
+Just checking in -- how is your skin feeling? Here's a quick reminder of your aftercare:
+
+- [Key aftercare point 1 specific to their treatment]
+- [Key aftercare point 2 specific to their treatment]
+- [Key aftercare point 3 specific to their treatment]
+
+Some redness or sensitivity is completely normal for the first 24-72 hours. If you notice anything unusual or have any concerns, don't hesitate to reach out.
+
+Talk soon!
+[Your Name]</pre>
+
+    <!-- Template 4 -->
+    <h2>4. Rebooking Prompt (2 Weeks After Appointment)</h2>
+    <pre>Hi [Client Name]! It's been a couple of weeks since your [Service Name] and I wanted to check in.
+
+For best results, your next treatment is recommended around [Date range based on service frequency]. I have some openings coming up:
+
+- [Date/Time option 1]
+- [Date/Time option 2]
+- [Date/Time option 3]
+
+Would any of these work for you? You can also book directly at [booking link] anytime.
+
+Looking forward to seeing you!
+[Your Name]</pre>
+
+    <!-- Template 5 -->
+    <h2>5. Birthday / Holiday Message</h2>
+    <pre>Happy Birthday, [Client Name]!
+
+I hope your day is as beautiful as you are. As a little birthday treat, I'd love to offer you [choose one]:
+
+- 15% off your next service (valid for 30 days)
+- A complimentary add-on (LED therapy, dermaplaning, or lash tint) with your next booking
+- $[amount] off any retail product
+
+Just mention this message when you book. Here's to another amazing year of glowing skin!
+
+[Your Name] at [Your Business Name]
+
+(To book: [booking link or phone number])</pre>
+
+    <div class="callout">
+      <p><strong>Communication tips:</strong> Text messages get a 98% open rate vs. 20% for email. For time-sensitive messages (reminders, aftercare), use text. For marketing (promotions, newsletters), use email. And always personalize -- "Hi Sarah" converts dramatically better than "Hi there."</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9: BUSINESS GROWTH METRICS -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 9: Business Growth Metrics</h1>
+    </div>
+
+    <p class="section-note">Track these KPIs monthly. They tell you the health of your business better than revenue alone.</p>
+
+    <h3>Key Performance Indicators (KPIs)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>What It Measures</th>
+            <th>How to Calculate</th>
+            <th>Healthy Target</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Client Retention Rate</td>
+            <td>% of clients who return within their recommended timeframe</td>
+            <td>(Returning clients / Total clients) x 100</td>
+            <td>60--80%</td>
+          </tr>
+          <tr>
+            <td>Average Ticket</td>
+            <td>Average revenue per client visit</td>
+            <td>Total revenue / Number of client visits</td>
+            <td>$95--$150+ (varies by market)</td>
+          </tr>
+          <tr>
+            <td>Rebooking Rate</td>
+            <td>% of clients who book their next appointment before leaving</td>
+            <td>(Clients who rebooked at checkout / Total clients seen) x 100</td>
+            <td>&gt;60%</td>
+          </tr>
+          <tr>
+            <td>Product-to-Service Ratio</td>
+            <td>Retail revenue as a % of service revenue</td>
+            <td>(Retail sales / Service revenue) x 100</td>
+            <td>15--25%</td>
+          </tr>
+          <tr>
+            <td>Monthly Revenue</td>
+            <td>Total income from all sources</td>
+            <td>Services + Retail + Tips</td>
+            <td>Set your own target and increase 10% per quarter</td>
+          </tr>
+          <tr>
+            <td>Revenue Per Hour</td>
+            <td>Your true hourly earning rate</td>
+            <td>Total revenue / Total hours worked (including admin)</td>
+            <td>$75--$150+ depending on market</td>
+          </tr>
+          <tr>
+            <td>New Client Acquisition</td>
+            <td>How many new clients you gain per month</td>
+            <td>Count of first-time clients</td>
+            <td>8--15 new clients/month for a growing practice</td>
+          </tr>
+          <tr>
+            <td>No-Show Rate</td>
+            <td>% of booked appointments that don't show up</td>
+            <td>(No-shows / Total booked appointments) x 100</td>
+            <td>&lt;5%</td>
+          </tr>
+          <tr>
+            <td>Client Lifetime Value (CLV)</td>
+            <td>Total revenue a client generates over their relationship with you</td>
+            <td>Average ticket x Visit frequency x Average client lifespan (years)</td>
+            <td>$1,200--$3,000+ annually for active clients</td>
+          </tr>
+          <tr>
+            <td>Capacity Utilization</td>
+            <td>% of your available appointment slots that are filled</td>
+            <td>(Booked slots / Total available slots) x 100</td>
+            <td>75--85% (above 85% means time to raise prices)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Monthly KPI Tracker</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Jan</th>
+            <th>Feb</th>
+            <th>Mar</th>
+            <th>Apr</th>
+            <th>May</th>
+            <th>Jun</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Revenue</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Total Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>New Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Retention Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Average Ticket</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Rebooking Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Product/Service Ratio</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>No-Show Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Revenue/Hour</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Capacity Utilization</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Jul</th>
+            <th>Aug</th>
+            <th>Sep</th>
+            <th>Oct</th>
+            <th>Nov</th>
+            <th>Dec</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Total Revenue</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Total Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>New Clients</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Retention Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Average Ticket</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Rebooking Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Product/Service Ratio</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>No-Show Rate</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+          <tr><td>Revenue/Hour</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td><td>$</td></tr>
+          <tr><td>Capacity Utilization</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td><td>%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Growth Decision Tree</h3>
+    <div class="decision-item">
+      <h4>If retention is below 60%</h4>
+      <p>Your clients are not coming back. Investigate: Are follow-ups happening? Is the experience memorable? Are results meeting expectations? Start with the aftercare follow-up and rebooking templates in Section 8.</p>
+    </div>
+    <div class="decision-item">
+      <h4>If average ticket is stagnant</h4>
+      <p>Introduce add-on services (LED $25, dermaplaning $35, scalp massage $15). Train yourself to recommend one add-on per client visit. "Based on your skin today, I'd love to add 10 minutes of LED therapy -- it'll help with that redness we talked about."</p>
+    </div>
+    <div class="decision-item">
+      <h4>If product-to-service ratio is below 15%</h4>
+      <p>You're leaving money on the table. Use the products on the client during treatment, then recommend the take-home version. "I used this vitamin C serum on you today -- you can feel how it absorbed. Using it at home between visits will maintain everything we did today."</p>
+    </div>
+    <div class="decision-item">
+      <h4>If capacity is above 85%</h4>
+      <p>You're at peak capacity. Time to raise prices (start with 10--15%), extend your rebooking intervals slightly, or bring on a junior esthetician. Do not burn out trying to squeeze more into a full schedule.</p>
+    </div>
+    <div class="decision-item">
+      <h4>If no-show rate is above 5%</h4>
+      <p>Implement or enforce: (1) 48-hour text reminders, (2) credit card on file policy, (3) clear cancellation fee ($25--$50), (4) 24-hour cancellation policy. No-shows cost you the full price of the service in lost revenue.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 10: MARKETING CALENDAR -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 10: Marketing Calendar Template</h1>
+    </div>
+
+    <p class="section-note">Plan your promotions and content around seasons, skin concerns, and holidays. Esthetics is a seasonal business -- lean into it.</p>
+
+    <h3>Annual Marketing Calendar</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Seasonal Focus</th>
+            <th>Promotion Idea</th>
+            <th>Social Content Themes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>January</td>
+            <td>New Year skin reset, post-holiday recovery</td>
+            <td>"New Year, New Skin" package: facial + peel series at 15% off</td>
+            <td>Before/afters, skincare resolutions, ingredient education, "what your skin needs after the holidays"</td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td>Valentine's Day self-care, couples</td>
+            <td>Galentine's Day package: bring a friend, both get 10% off. Gift card promo.</td>
+            <td>Self-love skincare routines, gift guide for her, "treat yourself" content</td>
+          </tr>
+          <tr>
+            <td>March</td>
+            <td>Spring prep, transition from winter</td>
+            <td>Spring Peel Series: book 3 peels, get 4th free</td>
+            <td>Switching skincare for spring, exfoliation education, winter damage repair</td>
+          </tr>
+          <tr>
+            <td>April</td>
+            <td>Spring cleaning for skin, allergy season</td>
+            <td>Dermaplaning + facial combo at special price</td>
+            <td>Spring cleaning your skincare routine, ingredient swaps, sensitivity tips</td>
+          </tr>
+          <tr>
+            <td>May</td>
+            <td>Mother's Day, wedding season begins</td>
+            <td>Mother's Day gift cards, bridal packages (facial + brow + lash lift)</td>
+            <td>Mother's Day gift guide, bridal skincare timelines, "glow up" countdowns</td>
+          </tr>
+          <tr>
+            <td>June</td>
+            <td>Summer prep, sun protection</td>
+            <td>SPF education month, free SPF sample with any facial</td>
+            <td>Sunscreen myths, how to layer SPF, "what the sun actually does to your skin"</td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td>Summer glow, vacation prep</td>
+            <td>Summer glow package: hydrafacial + LED therapy</td>
+            <td>Travel skincare tips, body treatment content, hydration focus</td>
+          </tr>
+          <tr>
+            <td>August</td>
+            <td>Back to school, end of summer repair</td>
+            <td>Back-to-school teen facial intro price, sun damage repair series</td>
+            <td>Sun damage repair education, teen skincare basics, end-of-summer routines</td>
+          </tr>
+          <tr>
+            <td>September</td>
+            <td>Fall reset, stronger treatments resume</td>
+            <td>Fall Peel Season launch: introductory peel pricing for new clients</td>
+            <td>"Peel season is here" education, fall skincare swaps, retinol reintroduction</td>
+          </tr>
+          <tr>
+            <td>October</td>
+            <td>Peak peel/resurfacing season, Halloween</td>
+            <td>Microneedling series at package price, "Spooky Skin" fun content</td>
+            <td>Myth-busting skincare content, treatment process videos, Halloween-themed engagement</td>
+          </tr>
+          <tr>
+            <td>November</td>
+            <td>Holiday prep, gratitude, Black Friday</td>
+            <td>Black Friday: gift card bonus (buy $100, get $20 free), package deals</td>
+            <td>Gift guide for skincare lovers, grateful-for-clients content, holiday prep timelines</td>
+          </tr>
+          <tr>
+            <td>December</td>
+            <td>Holiday gifting, year-end reflection</td>
+            <td>Holiday gift sets (curated retail bundles), last-minute gift cards</td>
+            <td>12 days of skincare tips, year-in-review, holiday party prep skin tips</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Weekly Content Rotation</h3>
+    <p class="text-muted">Use this rotation to keep your social media content varied and consistent without overthinking it.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Content Type</th>
+            <th>Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Education / Tips</td>
+            <td>"Did you know..." skin facts, ingredient spotlights, myth-busting</td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Transformation / Results</td>
+            <td>Before/after photos (with consent), client testimonials, treatment journeys</td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Behind the Scenes</td>
+            <td>Treatment room setup, product unboxing, day-in-the-life, equipment demos</td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>Engagement / Interactive</td>
+            <td>Polls ("what's your skin type?"), Q&amp;A stories, "ask me anything," quizzes</td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Promotion / CTA</td>
+            <td>Current specials, open appointment slots, new service announcements, book-now links</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Personal / Relatable</td>
+            <td>Your own skincare routine, industry events, personal story, why you love esthetics</td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Self-Care / Lifestyle</td>
+            <td>Sunday reset routines, product recommendations, relaxation content, weekly skin tips</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h4>Marketing Rules for Estheticians</h4>
+      <ul>
+        <li><strong>Show your face.</strong> People book with people, not logos. Your face on your content builds trust faster than anything.</li>
+        <li><strong>Educate more than you sell.</strong> 80% education, 20% promotion. Clients who understand their skin invest more in treatment.</li>
+        <li><strong>Post consistently, not constantly.</strong> 3--5 posts per week beats 14 mediocre ones. Quality always wins.</li>
+        <li><strong>Before/afters are your best marketing.</strong> Get photo consent at intake, take consistent photos (same lighting, same angle, no makeup), and post them regularly.</li>
+        <li><strong>Google reviews matter more than followers.</strong> Ask every happy client for a Google review. 50 five-star reviews will fill your books faster than 5,000 Instagram followers.</li>
+        <li><strong>Email your client list monthly.</strong> A simple newsletter with one tip, one promo, and one personal touch keeps you top of mind.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- CLOSING -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header" style="background: linear-gradient(90deg, #1e293b 0%, #374151 100%);">
+      <h1>Final Notes: Building a Thriving Esthetics Practice</h1>
+    </div>
+
+    <div class="qa-item">
+      <div class="question">How long until I see results from tracking all of this?</div>
+      <p>Most estheticians who implement consistent tracking see measurable improvement within 60--90 days. The first month is setup and baseline. The second month shows patterns. By month three, you're making decisions based on data instead of guessing -- and that's when revenue starts climbing.</p>
+    </div>
+
+    <div class="qa-item">
+      <div class="question">Do I need to use every section right away?</div>
+      <p>No. Start with the Client Intake Form and Appointment Tracker -- those are your foundation. Add the Revenue Dashboard in week two. Layer in the Treatment Protocols, Inventory Tracker, and Marketing Calendar as you get comfortable. Building systems is a process, not an event.</p>
+    </div>
+
+    <div class="qa-item">
+      <div class="question">What's the single most impactful thing I can do for my business?</div>
+      <p>Rebook at checkout. If you do nothing else from this entire system, ask every single client to book their next appointment before they leave. A 60%+ rebooking rate transforms an unpredictable schedule into a reliable income stream. Everything else builds on that foundation.</p>
+    </div>
+
+    <div class="qa-item">
+      <div class="question">How do I raise my prices without losing clients?</div>
+      <p>Give 30 days notice. Communicate the value ("I've invested in advanced training and upgraded my product line to give you better results"). Raise by 10--15% at a time, not 50%. Loyal clients understand. The ones who leave over $10 were never your ideal client. And always grandfather existing series packages at the old price.</p>
+    </div>
+
+    <div class="celebration">
+      <h3>You're Building Something Real</h3>
+      <p>The fact that you invested in a system like this means you're thinking like a business owner, not just a service provider. That mindset is everything.</p>
+      <p>Your hands do the work. Your systems do the growing. Start where you are, use what you have, and build from there.</p>
+      <div class="quote-highlight">
+        <strong>"The best estheticians don't just have great technique -- they have great systems."</strong>
+      </div>
+      <p style="text-align:center; margin-top:8px;">-- Girl Gone AI</p>
+    </div>
+
+  </main>
+
+<!-- Event snippet for Purchase conversion page -->
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18123569132/gKkPCPid26McEOzv_sFD',
+    'value': 18.0,
+    'currency': 'USD',
+    'transaction_id': ''   // leave empty or populate dynamically if possible
+  });
+</script>
+</body>
+</html>

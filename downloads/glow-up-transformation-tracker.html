@@ -1,0 +1,2266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123569132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18123569132');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Glow-Up Transformation Tracker &amp; Self-Care Planner — Girl Gone AI</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1e1e2e;
+      background: #f5f6fa;
+    }
+
+    /* ── Brand header ── */
+    .brand-header {
+      background: #2563eb;
+      color: #fff;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.18);
+    }
+    .brand-header .logo {
+      font-size: 1.35rem;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .brand-header .logo span {
+      opacity: 0.75;
+      font-weight: 400;
+      font-size: 0.9rem;
+      margin-left: 12px;
+      letter-spacing: 0;
+    }
+    .brand-header .badge {
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    /* ── Page wrapper ── */
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+
+    /* ── Document title block ── */
+    .doc-title {
+      margin-bottom: 40px;
+      padding-bottom: 28px;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .doc-title h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #111827;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+    .doc-title .subtitle {
+      margin-top: 6px;
+      font-size: 1rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    /* ── Headings ── */
+    h1 { font-size: 1.7rem; font-weight: 800; color: #111827; margin: 40px 0 16px; }
+    h2 { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 36px 0 12px; }
+    h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2563eb;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 28px 0 10px;
+    }
+    h4 { font-size: 0.95rem; font-weight: 700; color: #374151; margin: 18px 0 6px; }
+
+    /* ── Section headers (full-bleed accent) ── */
+    .section-header {
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 8px;
+      margin: 48px 0 24px;
+    }
+    .section-header h1 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── Paragraphs & lists ── */
+    p { margin-bottom: 12px; }
+
+    ul, ol {
+      margin: 8px 0 14px 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    ul li, ol li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 5px;
+    }
+    ul li::before {
+      content: "\2022";
+      position: absolute;
+      left: 6px;
+      color: #2563eb;
+      font-weight: 700;
+    }
+    ol { counter-reset: list-counter; }
+    ol li { counter-increment: list-counter; }
+    ol li::before {
+      content: counter(list-counter) ".";
+      position: absolute;
+      left: 0;
+      color: #2563eb;
+      font-weight: 700;
+    }
+
+    strong { font-weight: 700; color: #111827; }
+    em { font-style: italic; color: #4b5563; }
+
+    /* ── Horizontal rule / divider ── */
+    hr {
+      border: none;
+      border-top: 1.5px solid #e5e7eb;
+      margin: 28px 0;
+    }
+
+    /* ── Blockquote / callout ── */
+    blockquote {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+      color: #1e40af;
+    }
+    blockquote p { margin: 0 0 6px; }
+    blockquote p:last-child { margin: 0; }
+    blockquote strong { color: #1d4ed8; }
+
+    /* ── Code / text blocks ── */
+    pre {
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.85rem;
+      color: #374151;
+      white-space: pre-wrap;
+      margin: 10px 0 16px;
+      min-height: 80px;
+    }
+    code {
+      background: #f3f4f6;
+      padding: 1px 5px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 14px 0 20px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    thead tr {
+      background: #2563eb;
+      color: #fff;
+    }
+    thead th {
+      padding: 10px 12px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+    tbody tr { border-bottom: 1px solid #f1f2f6; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8f9ff; }
+    tbody tr:hover { background: #eff6ff; }
+    td { padding: 9px 12px; vertical-align: middle; }
+    td:first-child { font-weight: 600; color: #374151; }
+
+    /* ── Checkbox styled items ── */
+    .checklist { list-style: none; padding: 0; margin: 8px 0 14px; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 5px 0;
+      padding-left: 0;
+    }
+    .checklist li::before { display: none; }
+    .checkbox-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 17px;
+      height: 17px;
+      min-width: 17px;
+      border: 2px solid #9ca3af;
+      border-radius: 3px;
+      background: #fff;
+      margin-top: 3px;
+    }
+
+    /* ── Energy dot badges ── */
+    .energy-high  { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #ef4444; margin-right: 4px; vertical-align: middle; }
+    .energy-med   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #eab308; margin-right: 4px; vertical-align: middle; }
+    .energy-low   { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #16a34a; margin-right: 4px; vertical-align: middle; }
+    .energy-break { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #9ca3af; margin-right: 4px; vertical-align: middle; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border-radius: 12px;
+      padding: 2px 9px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-high  { background: #fee2e2; color: #b91c1c; }
+    .badge-med   { background: #fef9c3; color: #92400e; }
+    .badge-low   { background: #dcfce7; color: #166534; }
+    .badge-break { background: #f3f4f6; color: #6b7280; }
+
+    /* ── Sub-section label ── */
+    .sub-label {
+      display: inline-block;
+      background: #eff6ff;
+      color: #2563eb;
+      border-radius: 4px;
+      padding: 2px 10px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* ── Decision tree boxes ── */
+    .decision-item {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-left: 4px solid #2563eb;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+    .decision-item h4 {
+      color: #2563eb;
+      margin-bottom: 6px;
+    }
+    .decision-item p, .decision-item ul { margin: 0; }
+    .decision-item ul li { margin-bottom: 3px; }
+
+    /* ── Callout box (non-blockquote variant) ── */
+    .callout {
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #16a34a;
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 16px 0;
+      color: #14532d;
+    }
+    .callout strong { color: #166534; }
+
+    /* ── Info box ── */
+    .info-box {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 18px 20px;
+      margin: 16px 0;
+    }
+    .info-box h4 { margin-top: 0; color: #1e293b; }
+
+    /* ── Celebration section ── */
+    .celebration {
+      background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+      border: 1px solid #bfdbfe;
+      border-radius: 12px;
+      padding: 24px 26px;
+      margin: 20px 0;
+    }
+    .celebration h3 { color: #1d4ed8; }
+
+    /* ── Philosophy Q&A ── */
+    .qa-item {
+      margin-bottom: 22px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid #f1f2f6;
+    }
+    .qa-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .qa-item .question {
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.97rem;
+      margin-bottom: 6px;
+    }
+
+    /* ── Database property list ── */
+    .prop-list { margin: 10px 0 16px; }
+    .prop-list li {
+      padding: 6px 12px;
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: 0.87rem;
+    }
+    .prop-list li::before { display: none; }
+    .prop-list li .prop-name {
+      font-weight: 700;
+      color: #2563eb;
+    }
+
+    /* ── Quote highlight ── */
+    .quote-highlight {
+      text-align: center;
+      padding: 24px 20px;
+      color: #6b7280;
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+    .quote-highlight strong { color: #374151; font-style: normal; }
+
+    /* ── Utility ── */
+    .mt-0 { margin-top: 0 !important; }
+    .mb-sm { margin-bottom: 8px; }
+    .text-muted { color: #6b7280; font-size: 0.87rem; }
+    .section-note { color: #6b7280; font-size: 0.87rem; font-style: italic; margin-bottom: 18px; }
+
+    /* ── PRINT ── */
+    @media print {
+      .brand-header { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page { padding: 20px 0; max-width: 100%; }
+      .section-header { background: none !important; border: 2px solid #000; color: #000 !important; }
+      .section-header h1 { color: #000 !important; }
+      blockquote { background: none; border-left: 3px solid #000; color: #000; }
+      .decision-item { border-left-color: #000; background: none; border-color: #ccc; }
+      .callout { background: none; border-color: #000; color: #000; }
+      .celebration { background: none; border: 1px solid #ccc; }
+      .info-box { background: none; border: 1px solid #ccc; }
+      table { box-shadow: none; font-size: 9pt; }
+      thead tr { background: #e5e5e5 !important; color: #000 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      tbody tr:nth-child(even) { background: #f5f5f5 !important; }
+      tbody tr:hover { background: none !important; }
+      .table-wrap { box-shadow: none; page-break-inside: avoid; }
+      pre { background: #f5f5f5; border: 1px solid #ccc; min-height: 60px; }
+      h1, h2, h3, h4 { page-break-after: avoid; }
+      .decision-item, .callout, .info-box, blockquote { page-break-inside: avoid; }
+      @page { margin: 1.5cm 1.8cm; size: A4; }
+      .badge-high, .badge-med, .badge-low, .badge-break { background: none; color: #000; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand Header -->
+  <header class="brand-header" aria-label="Girl Gone AI brand header">
+    <div class="logo">Girl Gone AI <span>Digital Download</span></div>
+    <div class="badge">Printable Planner</div>
+  </header>
+
+  <main class="page">
+
+    <!-- Document Title -->
+    <div class="doc-title">
+      <h1>Glow-Up Transformation Tracker &amp; Self-Care Planner</h1>
+      <div class="subtitle">Your 90-Day System for Skincare, Fitness, Mindset, Style &amp; Self-Care</div>
+    </div>
+
+    <!-- Quick Start Callout -->
+    <blockquote>
+      <p><strong>QUICK START -- Read This First (Takes 3 Minutes)</strong></p>
+      <ol>
+        <li>Print or save this planner somewhere you will actually open it every day</li>
+        <li>Go to Section 2 and fill out your 90-Day Calendar start date -- pick a Monday</li>
+        <li>Go to Section 4 (Skincare Routine Builder) and build your AM and PM routines</li>
+        <li>Tomorrow morning, use the Daily Tracker on page Section 3 for your first day</li>
+        <li>Do your Weekly Check-In every Sunday -- it takes 10 minutes and keeps you honest</li>
+      </ol>
+      <p style="margin-top:10px;">That is it. Do not try to fill out the entire planner right now. Start with Day 1 and build from there. This is a marathon, not a sprint.</p>
+    </blockquote>
+
+    <hr />
+
+    <!-- How This Works -->
+    <h2>How This Planner Works</h2>
+    <p>This is not a "drink more water" checklist you will abandon by Week 2. This is a structured 90-day transformation system that covers the five pillars of a real glow-up: <strong>skin, body, mind, style, and self-care</strong>. Each week builds on the last. Each section works together.</p>
+    <p><strong>The rules:</strong></p>
+    <ul>
+      <li><strong>Progress over perfection.</strong> A 70% day is still a glow-up day. You do not need to hit every single checkbox.</li>
+      <li><strong>Consistency beats intensity.</strong> Doing your skincare routine daily matters more than a single 2-hour spa night.</li>
+      <li><strong>You are allowed to adjust.</strong> If something is not working by Week 3, change it. This planner is a tool, not a prison.</li>
+      <li><strong>Rest is productive.</strong> Recovery days are built into this system on purpose. Use them.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Before you start:</strong> Take your Day 1 photos (front, side, no makeup, natural lighting). You will not want to later, and you will be so glad you did at Day 90. Store them somewhere private -- they are just for you.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 1: Quick Start Guide -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 1: Quick Start Guide</h1>
+    </div>
+
+    <p class="section-note">Everything you need to know before Day 1. Read this once, then get started.</p>
+
+    <h3>Your Five Glow-Up Pillars</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Pillar</th>
+            <th>What It Covers</th>
+            <th>Daily Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skincare</td>
+            <td>AM/PM routines, product layering, skin barrier health, targeted treatments</td>
+            <td>15-20 min</td>
+          </tr>
+          <tr>
+            <td>Fitness</td>
+            <td>Strength training, cardio, flexibility, active recovery</td>
+            <td>30-45 min</td>
+          </tr>
+          <tr>
+            <td>Mindset</td>
+            <td>Affirmations, journaling, gratitude, boundary-setting</td>
+            <td>10-15 min</td>
+          </tr>
+          <tr>
+            <td>Style</td>
+            <td>Closet audit, capsule wardrobe, outfit planning, personal brand</td>
+            <td>Varies (weekly)</td>
+          </tr>
+          <tr>
+            <td>Self-Care</td>
+            <td>Sleep hygiene, hydration, nutrition basics, stress management</td>
+            <td>Ongoing</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>What You Will Need</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> A basic skincare set (cleanser, moisturizer, SPF -- you can build from here)</li>
+      <li><span class="checkbox-box"></span> A water bottle you actually like using (aim for 64-80 oz daily)</li>
+      <li><span class="checkbox-box"></span> Workout clothes and a space to move (gym or home -- both work)</li>
+      <li><span class="checkbox-box"></span> A journal or notebook for the mindset sections</li>
+      <li><span class="checkbox-box"></span> A full-length mirror and phone camera for progress photos</li>
+      <li><span class="checkbox-box"></span> A measuring tape (soft/flexible, for body measurements)</li>
+    </ul>
+
+    <h3>How to Use This Planner Daily</h3>
+    <div class="info-box">
+      <h4>Morning (10 min)</h4>
+      <ul>
+        <li>Complete your AM skincare routine</li>
+        <li>Read your daily affirmation</li>
+        <li>Check the day's workout plan</li>
+        <li>Fill in the top of your Daily Tracker</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>During the Day</h4>
+      <ul>
+        <li>Track water intake as you go</li>
+        <li>Complete your workout</li>
+        <li>Do your self-care activity</li>
+      </ul>
+    </div>
+    <div class="info-box">
+      <h4>Evening (10 min)</h4>
+      <ul>
+        <li>Complete your PM skincare routine</li>
+        <li>Fill in remaining Daily Tracker sections</li>
+        <li>Journal or do gratitude practice</li>
+        <li>Rate your day and note one win</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 2: 90-Day Calendar -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 2: 90-Day Glow-Up Calendar</h1>
+    </div>
+
+    <p class="section-note">Each week has a theme. The themes build on each other so you are never overwhelmed. Write your start date below and fill in the actual dates as you go.</p>
+
+    <h4>My Start Date: _______________</h4>
+    <h4>My Day 90 Date: _______________</h4>
+
+    <hr />
+
+    <h3>Month 1: Foundation (Weeks 1-4)</h3>
+    <p><em>This month is about building the basics. No overhauls. No extremes. Just solid daily habits.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Theme</th>
+            <th>Skincare Focus</th>
+            <th>Fitness Focus</th>
+            <th>Mindset Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Week 1</td>
+            <td>Baseline &amp; Beginnings</td>
+            <td>Establish AM/PM cleanse + moisturize + SPF</td>
+            <td>3 days movement (walks count)</td>
+            <td>Daily gratitude (3 things)</td>
+          </tr>
+          <tr>
+            <td>Week 2</td>
+            <td>Hydration &amp; Habit Stacking</td>
+            <td>Add hydrating serum or toner</td>
+            <td>4 days movement, add bodyweight exercises</td>
+            <td>Morning affirmations</td>
+          </tr>
+          <tr>
+            <td>Week 3</td>
+            <td>Nourish Inside &amp; Out</td>
+            <td>Introduce exfoliation (2x/week)</td>
+            <td>4 days structured workouts</td>
+            <td>Journaling prompts begin</td>
+          </tr>
+          <tr>
+            <td>Week 4</td>
+            <td>Review &amp; Refine</td>
+            <td>Assess what is working, adjust products</td>
+            <td>First fitness benchmark test</td>
+            <td>Boundary-setting exercise</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Month 2: Elevation (Weeks 5-8)</h3>
+    <p><em>You have the foundation. Now we level up intensity, add targeted treatments, and deepen the mindset work.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Theme</th>
+            <th>Skincare Focus</th>
+            <th>Fitness Focus</th>
+            <th>Mindset Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Week 5</td>
+            <td>Targeted Treatments</td>
+            <td>Add treatment serum (vitamin C, niacinamide, or retinol)</td>
+            <td>5 days training, progressive overload</td>
+            <td>Identify limiting beliefs</td>
+          </tr>
+          <tr>
+            <td>Week 6</td>
+            <td>Style Awakening</td>
+            <td>Weekly mask or at-home facial</td>
+            <td>Add HIIT or new cardio form</td>
+            <td>Closet audit + style vision</td>
+          </tr>
+          <tr>
+            <td>Week 7</td>
+            <td>Deep Care</td>
+            <td>Eye cream + lip care routine</td>
+            <td>Deload/recovery week (lighter intensity)</td>
+            <td>Inner critic work + self-compassion</td>
+          </tr>
+          <tr>
+            <td>Week 8</td>
+            <td>Halfway Milestone</td>
+            <td>Full routine locked in, reassess products</td>
+            <td>Second fitness benchmark test</td>
+            <td>Halfway reflection + vision board update</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Month 3: Transformation (Weeks 9-13)</h3>
+    <p><em>This is where it all clicks. Your routine is autopilot. Your confidence is different. Now we polish and celebrate.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Week</th>
+            <th>Theme</th>
+            <th>Skincare Focus</th>
+            <th>Fitness Focus</th>
+            <th>Mindset Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Week 9</td>
+            <td>Polish &amp; Precision</td>
+            <td>Fine-tune layering order, test new masks</td>
+            <td>Peak training week</td>
+            <td>Future self visualization</td>
+          </tr>
+          <tr>
+            <td>Week 10</td>
+            <td>Capsule Wardrobe Build</td>
+            <td>Maintain routine, focus on consistency</td>
+            <td>Try a new workout style</td>
+            <td>Capsule wardrobe finalized</td>
+          </tr>
+          <tr>
+            <td>Week 11</td>
+            <td>Glow From Within</td>
+            <td>Pamper week -- extra masks, treatments</td>
+            <td>Active recovery focus + flexibility</td>
+            <td>Gratitude letter to yourself</td>
+          </tr>
+          <tr>
+            <td>Week 12</td>
+            <td>Final Push</td>
+            <td>Routine on autopilot</td>
+            <td>Final fitness benchmark test</td>
+            <td>90-day reflection begins</td>
+          </tr>
+          <tr>
+            <td>Week 13</td>
+            <td>Celebrate &amp; Sustain</td>
+            <td>Plan your ongoing maintenance routine</td>
+            <td>Plan your next training cycle</td>
+            <td>Full celebration + next 90-day vision</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Recovery days matter.</strong> Every week should include at least 1-2 rest days for fitness and at least 1 "bare minimum skincare only" day. Your body and skin need recovery to actually transform. More is not always more.</p>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 3: Daily Glow-Up Tracker -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 3: Daily Glow-Up Tracker Page</h1>
+    </div>
+
+    <p class="section-note">Print multiple copies of this page or recreate it in your journal. One page per day.</p>
+
+    <h2>Daily Tracker -- Day ___ of 90 &nbsp;|&nbsp; Date: ___________</h2>
+
+    <!-- Morning Vibe -->
+    <h3>Morning Check-In</h3>
+    <p class="text-muted">How are you feeling this morning? Check one.</p>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Tired / dragging</li>
+      <li><span class="checkbox-box"></span> Okay / neutral</li>
+      <li><span class="checkbox-box"></span> Good / motivated</li>
+      <li><span class="checkbox-box"></span> Amazing / let's go</li>
+    </ul>
+
+    <hr />
+
+    <!-- AM Skincare -->
+    <h3>AM Skincare Routine</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Gentle cleanser (or water rinse)</li>
+      <li><span class="checkbox-box"></span> Toner / essence</li>
+      <li><span class="checkbox-box"></span> Treatment serum (vitamin C, niacinamide, etc.)</li>
+      <li><span class="checkbox-box"></span> Eye cream</li>
+      <li><span class="checkbox-box"></span> Moisturizer</li>
+      <li><span class="checkbox-box"></span> SPF 30+ (non-negotiable)</li>
+      <li><span class="checkbox-box"></span> Lip balm with SPF</li>
+    </ul>
+
+    <hr />
+
+    <!-- Water Intake -->
+    <h3>Water Intake Tracker</h3>
+    <p class="text-muted">Goal: 8 glasses (64 oz) minimum. Check off each glass as you drink it.</p>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Glass 1 (morning, before anything else)</li>
+      <li><span class="checkbox-box"></span> Glass 2</li>
+      <li><span class="checkbox-box"></span> Glass 3</li>
+      <li><span class="checkbox-box"></span> Glass 4 (by lunchtime)</li>
+      <li><span class="checkbox-box"></span> Glass 5</li>
+      <li><span class="checkbox-box"></span> Glass 6</li>
+      <li><span class="checkbox-box"></span> Glass 7 (by dinner)</li>
+      <li><span class="checkbox-box"></span> Glass 8</li>
+      <li><span class="checkbox-box"></span> Bonus glass 9</li>
+      <li><span class="checkbox-box"></span> Bonus glass 10</li>
+    </ul>
+
+    <hr />
+
+    <!-- Workout Log -->
+    <h3>Today's Workout</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Detail</th>
+            <th>Fill In</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Workout Type</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Duration</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Intensity (1-10)</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>How I Felt After</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Rest day (and that is okay)</li>
+    </ul>
+
+    <hr />
+
+    <!-- Self-Care Activity -->
+    <h3>Self-Care Activity</h3>
+    <p class="text-muted">Pick at least one intentional self-care act today.</p>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Face mask or at-home treatment</li>
+      <li><span class="checkbox-box"></span> 10+ min walk outside</li>
+      <li><span class="checkbox-box"></span> Read for pleasure (not a screen)</li>
+      <li><span class="checkbox-box"></span> Hot bath or shower with intention</li>
+      <li><span class="checkbox-box"></span> Called or texted someone I care about</li>
+      <li><span class="checkbox-box"></span> Cooked a nourishing meal</li>
+      <li><span class="checkbox-box"></span> Stretched or did yoga</li>
+      <li><span class="checkbox-box"></span> Journaled or did a creative activity</li>
+      <li><span class="checkbox-box"></span> Said no to something that did not serve me</li>
+      <li><span class="checkbox-box"></span> Other: ___________________________</li>
+    </ul>
+
+    <hr />
+
+    <!-- PM Skincare -->
+    <h3>PM Skincare Routine</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> First cleanse (oil cleanser or micellar water to remove makeup/SPF)</li>
+      <li><span class="checkbox-box"></span> Second cleanse (gentle water-based cleanser)</li>
+      <li><span class="checkbox-box"></span> Toner / essence</li>
+      <li><span class="checkbox-box"></span> Treatment (retinol, AHA/BHA, or targeted serum)</li>
+      <li><span class="checkbox-box"></span> Eye cream</li>
+      <li><span class="checkbox-box"></span> Moisturizer (or sleeping mask)</li>
+      <li><span class="checkbox-box"></span> Lip treatment / overnight lip mask</li>
+    </ul>
+
+    <hr />
+
+    <!-- Mood & Reflection -->
+    <h3>Evening Mood Check</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Rating (1-5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Overall Mood</td>
+            <td>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td>
+          </tr>
+          <tr>
+            <td>Energy Level</td>
+            <td>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td>
+          </tr>
+          <tr>
+            <td>Skin Feeling</td>
+            <td>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td>
+          </tr>
+          <tr>
+            <td>Confidence</td>
+            <td>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td>
+          </tr>
+          <tr>
+            <td>Sleep Quality (last night)</td>
+            <td>1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Today's win (one thing, big or small):</h4>
+    <pre style="min-height:50px;">[ Write it here ]</pre>
+
+    <h4>One thing I am grateful for today:</h4>
+    <pre style="min-height:50px;">[ Write it here ]</pre>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 4: Skincare Routine Builder -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 4: Skincare Routine Builder</h1>
+    </div>
+
+    <p class="section-note">Use this section to design your personal AM and PM routines. Fill in specific products as you find what works for your skin.</p>
+
+    <h3>Know Your Skin Type First</h3>
+    <p class="text-muted">Check the one that fits best:</p>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> <strong>Oily</strong> -- Shiny by midday, visible pores, prone to blackheads. Use: gel cleansers, lightweight moisturizers, niacinamide, salicylic acid.</li>
+      <li><span class="checkbox-box"></span> <strong>Dry</strong> -- Tight, flaky, sometimes rough. Use: cream cleansers, rich moisturizers, hyaluronic acid, ceramides.</li>
+      <li><span class="checkbox-box"></span> <strong>Combination</strong> -- Oily T-zone, dry cheeks. Use: gentle cleansers, balanced moisturizers, zone-treat as needed.</li>
+      <li><span class="checkbox-box"></span> <strong>Sensitive</strong> -- Reacts easily, redness, stinging. Use: fragrance-free everything, minimal ingredients, centella/aloe-based.</li>
+      <li><span class="checkbox-box"></span> <strong>Normal</strong> -- Balanced, few concerns. Use: whatever feels good, focus on prevention and SPF.</li>
+    </ul>
+
+    <hr />
+
+    <h3>The Golden Rule of Layering</h3>
+    <blockquote>
+      <p><strong>Thinnest to thickest.</strong> Always apply products from the lightest/most watery consistency to the heaviest/most occlusive. This ensures each layer absorbs properly and nothing gets blocked.</p>
+    </blockquote>
+
+    <h3>AM Routine Builder</h3>
+    <p><em>Morning is about protection and glow. The goal: clean, hydrated, protected skin before you face the day.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Product Category</th>
+            <th>Why</th>
+            <th>My Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Gentle Cleanser (or water rinse)</td>
+            <td>Removes overnight oils without stripping. Dry/sensitive skin can skip and just rinse.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Toner / Essence</td>
+            <td>Balances pH, adds first layer of hydration. Look for hydrating, not astringent.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Vitamin C Serum</td>
+            <td>Antioxidant protection, brightens, fights dark spots and sun damage. Use AM only.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Eye Cream</td>
+            <td>Delicate eye area needs its own lightweight formula. Pat gently with ring finger.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Moisturizer</td>
+            <td>Seals in all previous layers, strengthens moisture barrier.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>SPF 30+ (Broad Spectrum)</td>
+            <td>THE most important anti-aging step. Apply generously. Reapply every 2 hours in sun.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Lip Balm with SPF</td>
+            <td>Lips burn and age too. Protect them.</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>PM Routine Builder</h3>
+    <p><em>Evening is about repair and treatment. This is when active ingredients do their best work while your skin regenerates overnight.</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Step</th>
+            <th>Product Category</th>
+            <th>Why</th>
+            <th>My Product</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Oil Cleanser / Micellar Water</td>
+            <td>First cleanse dissolves makeup, SPF, and oil-based grime. Essential even without makeup.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Water-Based Cleanser</td>
+            <td>Second cleanse removes remaining residue. Ensures truly clean skin for treatments.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Exfoliant (2-3x per week only)</td>
+            <td>AHA (glycolic, lactic) for dullness/texture. BHA (salicylic) for pores/acne. NOT daily.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Toner / Essence</td>
+            <td>Preps skin to absorb treatments. Adds hydration layer.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Treatment Serum</td>
+            <td>Retinol (anti-aging), niacinamide (pores/redness), or targeted concern serum.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Eye Cream</td>
+            <td>Richer formula okay at night. Target dark circles, fine lines, or puffiness.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Moisturizer / Night Cream</td>
+            <td>Richer than AM moisturizer. Locks in all treatments. Supports overnight repair.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Facial Oil (optional)</td>
+            <td>Goes LAST (over moisturizer). Seals everything in. Great for dry/dehydrated skin.</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Lip Treatment</td>
+            <td>Overnight lip mask or heavy balm. Heals and plumps while you sleep.</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box">
+      <h4>Ingredient Combinations to AVOID</h4>
+      <ul>
+        <li><strong>Retinol + AHA/BHA</strong> -- Do not use on the same night. Alternate nights to avoid irritation.</li>
+        <li><strong>Retinol + Vitamin C</strong> -- Can irritate together. Use vitamin C in AM, retinol in PM.</li>
+        <li><strong>AHA/BHA + Vitamin C</strong> -- Too much acid at once. Separate by AM/PM or alternate days.</li>
+        <li><strong>Niacinamide + Vitamin C</strong> -- Older advice said to avoid; newer research says it is fine together, but if you get flushing, separate them.</li>
+        <li><strong>Benzoyl Peroxide + Retinol</strong> -- They can deactivate each other. Use at different times.</li>
+      </ul>
+    </div>
+
+    <div class="callout">
+      <p><strong>New to retinol?</strong> Start with 0.25% or 0.3% concentration, 2 nights per week. Increase to every other night after 4 weeks if no irritation. Always use SPF the next morning. Your skin will purge for 2-6 weeks -- this is normal. Push through unless you have actual allergic reaction symptoms (hives, swelling, pain).</p>
+    </div>
+
+    <h3>Weekly Extras</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Treatment</th>
+            <th>Frequency</th>
+            <th>Best Day(s)</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chemical exfoliant</td>
+            <td>2-3x per week</td>
+            <td>&nbsp;</td>
+            <td>Skip on retinol nights</td>
+          </tr>
+          <tr>
+            <td>Clay/charcoal mask</td>
+            <td>1x per week</td>
+            <td>&nbsp;</td>
+            <td>Good for oily/combination skin, pore clearing</td>
+          </tr>
+          <tr>
+            <td>Hydrating sheet mask</td>
+            <td>1-2x per week</td>
+            <td>&nbsp;</td>
+            <td>Instant glow boost, great before events</td>
+          </tr>
+          <tr>
+            <td>Facial massage / gua sha</td>
+            <td>3-5x per week</td>
+            <td>&nbsp;</td>
+            <td>Use with facial oil, gentle upward strokes</td>
+          </tr>
+          <tr>
+            <td>Lip scrub</td>
+            <td>2x per week</td>
+            <td>&nbsp;</td>
+            <td>Follow with heavy balm or lip mask</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 5: Fitness Tracker -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 5: Fitness Tracker</h1>
+    </div>
+
+    <p class="section-note">This section gives you a complete weekly workout structure. Adjust weights, reps, and exercises to your fitness level. The best workout is the one you actually do.</p>
+
+    <h3>Weekly Workout Planner</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Focus</th>
+            <th>Type</th>
+            <th>Duration</th>
+            <th>Done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>Lower Body Strength</td>
+            <td>Strength</td>
+            <td>40 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>Upper Body + Core</td>
+            <td>Strength</td>
+            <td>35 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>Cardio + Flexibility</td>
+            <td>Cardio / Stretch</td>
+            <td>30 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>Glutes + Hamstrings</td>
+            <td>Strength</td>
+            <td>40 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>Full Body HIIT</td>
+            <td>HIIT</td>
+            <td>25 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>Active Recovery</td>
+            <td>Walk / Yoga / Stretch</td>
+            <td>30 min</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Sunday</td>
+            <td>Full Rest</td>
+            <td>Rest</td>
+            <td>--</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Lower Body Strength -- Sample Workout</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight/Notes</th>
+            <th>Done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Barbell or Goblet Squats</td>
+            <td>4</td>
+            <td>10-12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Romanian Deadlifts</td>
+            <td>3</td>
+            <td>10-12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Walking Lunges</td>
+            <td>3</td>
+            <td>12 each leg</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Leg Press or Wall Sit</td>
+            <td>3</td>
+            <td>12 or 45 sec</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Calf Raises</td>
+            <td>3</td>
+            <td>15-20</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Glute Bridges</td>
+            <td>3</td>
+            <td>15</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Upper Body + Core -- Sample Workout</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight/Notes</th>
+            <th>Done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Push-Ups (or knee push-ups)</td>
+            <td>3</td>
+            <td>10-15</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Dumbbell Rows</td>
+            <td>3</td>
+            <td>12 each arm</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Overhead Press</td>
+            <td>3</td>
+            <td>10-12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Bicep Curls</td>
+            <td>3</td>
+            <td>12-15</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Tricep Dips (chair or bench)</td>
+            <td>3</td>
+            <td>10-12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Plank Hold</td>
+            <td>3</td>
+            <td>30-60 sec</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Bicycle Crunches</td>
+            <td>3</td>
+            <td>20 total</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Dead Bugs</td>
+            <td>3</td>
+            <td>10 each side</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Glutes + Hamstrings -- Sample Workout</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight/Notes</th>
+            <th>Done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Hip Thrusts</td>
+            <td>4</td>
+            <td>12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Sumo Deadlifts</td>
+            <td>3</td>
+            <td>10-12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Bulgarian Split Squats</td>
+            <td>3</td>
+            <td>10 each leg</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Cable Kickbacks or Donkey Kicks</td>
+            <td>3</td>
+            <td>15 each leg</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Hamstring Curls or Swiss Ball Curls</td>
+            <td>3</td>
+            <td>12</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+          <tr>
+            <td>Fire Hydrants (banded)</td>
+            <td>3</td>
+            <td>15 each side</td>
+            <td>&nbsp;</td>
+            <td><span class="checkbox-box"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Full Body HIIT -- Sample Workout (25 min)</h3>
+    <blockquote>
+      <p><strong>Format:</strong> 40 seconds work / 20 seconds rest. Complete all 8 exercises, then rest 90 seconds. Repeat for 3 rounds total.</p>
+    </blockquote>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Exercise</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Jump Squats (or regular squats)</td>
+            <td>Land softly, chest up</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Push-Ups</td>
+            <td>Modify on knees as needed</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>High Knees</td>
+            <td>Drive knees to hip height</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Dumbbell Thrusters</td>
+            <td>Squat to overhead press in one motion</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Mountain Climbers</td>
+            <td>Keep hips level, drive knees to chest</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Alternating Reverse Lunges</td>
+            <td>Step back, not forward (easier on knees)</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Plank to Shoulder Tap</td>
+            <td>Minimize hip rocking</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Burpees (or squat + step back)</td>
+            <td>Modify by stepping instead of jumping</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Cardio Log</h3>
+    <p class="text-muted">Use this to track any cardio sessions -- running, cycling, swimming, dance, walking, anything that gets your heart rate up.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Activity</th>
+            <th>Duration</th>
+            <th>Distance / Intensity</th>
+            <th>How I Felt</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Flexibility &amp; Mobility</h3>
+    <p><em>Do this 3-5 times per week, especially on cardio days and active recovery days. Hold each stretch 30-45 seconds.</em></p>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 14px 0;">
+      <div class="info-box" style="margin:0;">
+        <h4>Lower Body Stretches</h4>
+        <ul class="checklist">
+          <li><span class="checkbox-box"></span> Standing quad stretch (each leg)</li>
+          <li><span class="checkbox-box"></span> Forward fold (hamstrings)</li>
+          <li><span class="checkbox-box"></span> Pigeon pose (each side)</li>
+          <li><span class="checkbox-box"></span> Butterfly stretch (inner thighs)</li>
+          <li><span class="checkbox-box"></span> Calf stretch against wall</li>
+          <li><span class="checkbox-box"></span> Hip flexor lunge stretch</li>
+        </ul>
+      </div>
+      <div class="info-box" style="margin:0;">
+        <h4>Upper Body + Spine</h4>
+        <ul class="checklist">
+          <li><span class="checkbox-box"></span> Cross-body shoulder stretch</li>
+          <li><span class="checkbox-box"></span> Tricep overhead stretch</li>
+          <li><span class="checkbox-box"></span> Cat-cow (10 reps)</li>
+          <li><span class="checkbox-box"></span> Child's pose (60 sec)</li>
+          <li><span class="checkbox-box"></span> Chest opener (doorway stretch)</li>
+          <li><span class="checkbox-box"></span> Neck rolls (gentle, each direction)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p><strong>Fitness benchmark tests</strong> -- Do these on Weeks 1, 4, 8, and 12 to track real progress:</p>
+      <ul>
+        <li>Max push-ups in 60 seconds: ___</li>
+        <li>Max bodyweight squats in 60 seconds: ___</li>
+        <li>Plank hold time: ___</li>
+        <li>1-mile walk/run time: ___</li>
+        <li>Sit-and-reach flexibility: ___</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 6: Mindset & Self-Care -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 6: Mindset &amp; Self-Care</h1>
+    </div>
+
+    <p class="section-note">A glow-up that is only external will not last. This section builds the internal foundation that makes everything else sustainable.</p>
+
+    <h3>Daily Affirmations</h3>
+    <p><em>Pick one each morning. Say it out loud or write it down. Yes, it feels strange at first. Do it anyway.</em></p>
+
+    <div class="info-box">
+      <h4>Week 1-4 Affirmations (Foundation)</h4>
+      <ul>
+        <li>I am worthy of the time and effort I invest in myself.</li>
+        <li>I do not need to be perfect to be making progress.</li>
+        <li>My body is capable of more than I give it credit for.</li>
+        <li>I am building habits that my future self will thank me for.</li>
+        <li>Taking care of myself is not selfish -- it is necessary.</li>
+        <li>I am allowed to start over as many times as I need.</li>
+        <li>Small steps still move me forward.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h4>Week 5-8 Affirmations (Elevation)</h4>
+      <ul>
+        <li>I am becoming the person I have always wanted to be.</li>
+        <li>I release the version of myself that played small.</li>
+        <li>I am strong, I am disciplined, and I am consistent.</li>
+        <li>My confidence comes from showing up, not from being flawless.</li>
+        <li>I trust the process even when I cannot see the results yet.</li>
+        <li>I do not compare my Day 30 to someone else's Day 300.</li>
+        <li>I am proud of the work I have put in so far.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h4>Week 9-13 Affirmations (Transformation)</h4>
+      <ul>
+        <li>I have proven to myself that I can commit and follow through.</li>
+        <li>I am not the same person who started this 90 days ago.</li>
+        <li>I glow because I chose myself, consistently, even on hard days.</li>
+        <li>I set the standard for how I am treated by how I treat myself.</li>
+        <li>My transformation is not just physical -- it is who I am becoming.</li>
+        <li>I am magnetic because I am aligned with my values.</li>
+        <li>I do not need external validation. I validate myself.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <h3>Journaling Prompts</h3>
+    <p><em>Use one prompt per day or per week. Write for at least 5 minutes without stopping. No editing, no judgment.</em></p>
+
+    <h4>Self-Discovery Prompts</h4>
+    <ol>
+      <li>What does my ideal day look like in 6 months? Describe it in detail.</li>
+      <li>What am I tolerating in my life right now that I should not be?</li>
+      <li>If I had zero fear of judgment, what would I change about my appearance or style?</li>
+      <li>What is one compliment I struggle to accept? Why?</li>
+      <li>Who do I admire and what specific qualities do they have that I want to develop?</li>
+    </ol>
+
+    <h4>Growth Prompts</h4>
+    <ol>
+      <li>What is a belief about myself that I have outgrown?</li>
+      <li>What would I attempt if I knew I could not fail?</li>
+      <li>Where am I being too hard on myself? Where am I not being hard enough?</li>
+      <li>What is the hardest boundary I need to set right now, and with whom?</li>
+      <li>Write a letter to the version of yourself 90 days from now. What do you want her to know?</li>
+    </ol>
+
+    <h4>Reflection Prompts</h4>
+    <ol>
+      <li>What has surprised me most about this process so far?</li>
+      <li>What have I learned about my own discipline and consistency?</li>
+      <li>When did I feel most confident this week? What was I doing?</li>
+      <li>What is one thing I would tell my younger self about self-care?</li>
+      <li>How has my relationship with my body or appearance changed since I started?</li>
+    </ol>
+
+    <hr />
+
+    <h3>Gratitude Practice</h3>
+    <p><em>Write 3 things you are grateful for each day. Be specific. "My health" is fine. "The way my legs carried me through that workout today" is better.</em></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Grateful For #1</th>
+            <th>Grateful For #2</th>
+            <th>Grateful For #3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Tuesday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Wednesday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Thursday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Friday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Saturday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Sunday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Boundary-Setting Exercises</h3>
+    <p><em>A glow-up is not just about adding good things -- it is also about removing what drains you.</em></p>
+
+    <div class="decision-item">
+      <h4>Exercise 1: The Energy Audit</h4>
+      <p>List 5 people, activities, or habits that drain your energy. For each one, write one action you will take to reduce its impact.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Energy Drain</th>
+            <th>How It Affects Me</th>
+            <th>One Action I Will Take</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 2: Boundary Scripts</h4>
+      <p>Practice saying these out loud until they feel natural:</p>
+      <ul>
+        <li>"I appreciate you thinking of me, but I cannot commit to that right now."</li>
+        <li>"I need some time to myself this evening. Let's connect tomorrow."</li>
+        <li>"That does not work for me, but thank you for understanding."</li>
+        <li>"I am focusing on my health right now, so I am going to pass."</li>
+        <li>"I love you, and I also need you to respect this boundary."</li>
+      </ul>
+    </div>
+
+    <div class="decision-item">
+      <h4>Exercise 3: The Social Media Reset</h4>
+      <ul>
+        <li>Unfollow 10 accounts that make you feel bad about yourself</li>
+        <li>Follow 10 accounts that inspire, educate, or genuinely make you smile</li>
+        <li>Set a daily screen time limit for social media (try 60 minutes)</li>
+        <li>No phone for the first 30 minutes after waking and last 30 minutes before bed</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 7: Style Evolution Tracker -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 7: Style Evolution Tracker</h1>
+    </div>
+
+    <p class="section-note">Your style is the packaging of your glow-up. This section helps you define and build a wardrobe that actually reflects who you are becoming.</p>
+
+    <h3>Closet Audit Checklist</h3>
+    <p><em>Go through every item in your closet. For each piece, ask yourself these questions. Be ruthless.</em></p>
+
+    <blockquote>
+      <p><strong>The 4-Question Test:</strong> Does it fit right now (not "someday")? Do I feel good wearing it? Have I worn it in the last 6 months? Does it match the person I am becoming?</p>
+      <p>If you answered "no" to 2+ questions, it goes in the donate/sell pile.</p>
+    </blockquote>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Keep</th>
+            <th>Donate/Sell</th>
+            <th>Need to Buy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tops (casual)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Tops (dressy)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Jeans / Pants</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Dresses / Skirts</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Activewear</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Outerwear / Jackets</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Shoes</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Bags / Accessories</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Loungewear / Sleepwear</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Undergarments</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Define Your Style Direction</h3>
+    <p><em>Before you shop, get clear on what you are going for.</em></p>
+
+    <h4>My style in 3 words:</h4>
+    <pre style="min-height:44px;">1. ____________  2. ____________  3. ____________</pre>
+
+    <h4>Style icons / accounts I am inspired by:</h4>
+    <pre style="min-height:60px;">1.
+2.
+3.</pre>
+
+    <h4>Colors that look best on me:</h4>
+    <pre style="min-height:44px;">[ List your best colors ]</pre>
+
+    <h4>Colors / patterns I am avoiding:</h4>
+    <pre style="min-height:44px;">[ List what does not work ]</pre>
+
+    <hr />
+
+    <h3>Capsule Wardrobe Builder</h3>
+    <p><em>A capsule wardrobe is 30-40 versatile pieces that all mix and match. Quality over quantity. Every item should work with at least 3 other pieces.</em></p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Target # of Pieces</th>
+            <th>Current #</th>
+            <th>Need</th>
+            <th>Priority Items to Buy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Basic tops (white tee, black tee, tank)</td>
+            <td>5-7</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Statement tops (blouses, interesting cuts)</td>
+            <td>3-5</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Bottoms (jeans, trousers, skirts)</td>
+            <td>4-6</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Dresses</td>
+            <td>2-4</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Outerwear (jacket, blazer, cardigan)</td>
+            <td>3-4</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Shoes (everyday, dressy, workout)</td>
+            <td>4-6</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Bags (everyday, going out)</td>
+            <td>2-3</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Accessories (jewelry, belts, scarves)</td>
+            <td>5-8</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr />
+
+    <h3>Weekly Outfit Planner</h3>
+    <p class="text-muted">Plan your outfits on Sunday evening. Eliminates morning decision fatigue and ensures you are intentional about your look.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Occasion / Vibe</th>
+            <th>Outfit</th>
+            <th>Accessories</th>
+            <th>Confidence Rating (1-5)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Monday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Tuesday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Wednesday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Thursday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Friday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Saturday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+          <tr><td>Sunday</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 8: Weekly Check-In -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 8: Weekly Check-In Template</h1>
+    </div>
+
+    <p class="section-note">Complete this every Sunday. It takes 10-15 minutes and it is the single most important page in this planner. This is how you stay on track.</p>
+
+    <h2>Weekly Check-In -- Week ___ of 13 &nbsp;|&nbsp; Dates: ___________ to ___________</h2>
+
+    <h3>Body Measurements</h3>
+    <p class="text-muted">Measure in the morning, before eating, same conditions each week. These are for YOUR data only.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Measurement</th>
+            <th>This Week</th>
+            <th>Last Week</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Weight (optional)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Waist (at navel)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Hips (widest point)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Bust / Chest</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Right Thigh</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Right Arm</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote>
+      <p><strong>Remember:</strong> The scale is ONE data point, not the whole story. Measurements, how your clothes fit, your energy levels, your skin clarity, and your confidence are all equally valid markers of progress.</p>
+    </blockquote>
+
+    <h3>Progress Photos Checklist</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> Front-facing photo (same lighting, same spot each week)</li>
+      <li><span class="checkbox-box"></span> Side profile photo</li>
+      <li><span class="checkbox-box"></span> Close-up face/skin photo (no makeup, natural light)</li>
+      <li><span class="checkbox-box"></span> Saved to progress photos folder</li>
+    </ul>
+
+    <hr />
+
+    <h3>This Week's Wins</h3>
+    <p><em>List everything that went well, no matter how small.</em></p>
+    <pre>1.
+2.
+3.
+4.
+5.</pre>
+
+    <h3>This Week's Challenges</h3>
+    <p><em>What was hard? What did you struggle with? Be honest, not harsh.</em></p>
+    <pre>[ Write freely ]</pre>
+
+    <h3>Habit Consistency Score</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Habit</th>
+            <th>Mon</th>
+            <th>Tue</th>
+            <th>Wed</th>
+            <th>Thu</th>
+            <th>Fri</th>
+            <th>Sat</th>
+            <th>Sun</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AM Skincare</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/7</td>
+          </tr>
+          <tr>
+            <td>PM Skincare</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/7</td>
+          </tr>
+          <tr>
+            <td>Water Goal</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/7</td>
+          </tr>
+          <tr>
+            <td>Workout</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/5</td>
+          </tr>
+          <tr>
+            <td>Mindset Practice</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/7</td>
+          </tr>
+          <tr>
+            <td>Self-Care Activity</td>
+            <td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>
+            <td>/7</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Adjustments for Next Week</h3>
+    <p><em>Based on this week, what will you change, add, or remove?</em></p>
+
+    <h4>Skincare adjustment:</h4>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <h4>Fitness adjustment:</h4>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <h4>Mindset / self-care adjustment:</h4>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <h4>One focus word for next week:</h4>
+    <pre style="min-height:44px;">&nbsp;</pre>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 9: Monthly Milestone Review -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 9: Monthly Milestone Review</h1>
+    </div>
+
+    <p class="section-note">Complete at the end of each 30-day block. This is your big-picture check-in.</p>
+
+    <h2>Month ___ Review (Days ___-___)</h2>
+
+    <h3>Side-by-Side Comparison</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Day 1 / Start of Month</th>
+            <th>End of Month</th>
+            <th>Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skin clarity (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Energy level (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Fitness level (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Confidence (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Style satisfaction (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Overall happiness (1-10)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Waist measurement</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Weight (optional)</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Biggest Wins This Month</h3>
+    <pre>1.
+2.
+3.</pre>
+
+    <h3>Biggest Lesson Learned</h3>
+    <pre>[ What did this month teach you about yourself? ]</pre>
+
+    <h3>What Worked Best</h3>
+    <p><em>Which products, workouts, habits, or mindset practices made the biggest difference?</em></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Pillar</th>
+            <th>What Worked</th>
+            <th>Keep / Change / Drop</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Skincare</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Fitness</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Mindset</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Style</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Self-Care</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Next Month's Intentions</h3>
+    <p><em>What are you focusing on, leveling up, or trying for the first time?</em></p>
+    <pre>Skincare:
+
+Fitness:
+
+Mindset:
+
+Style:
+
+Self-Care:</pre>
+
+    <h3>Monthly Motivation Check</h3>
+    <ul class="checklist">
+      <li><span class="checkbox-box"></span> I reviewed my Day 1 photos and compared to now</li>
+      <li><span class="checkbox-box"></span> I updated my vision board or goals list</li>
+      <li><span class="checkbox-box"></span> I rewarded myself for this month's effort (not just results)</li>
+      <li><span class="checkbox-box"></span> I told someone I trust about my progress</li>
+    </ul>
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- SECTION 10: Celebration Page -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header" style="background: linear-gradient(90deg, #1e293b 0%, #374151 100%);">
+      <h1>Section 10: Your 90-Day Celebration</h1>
+    </div>
+
+    <div class="celebration">
+      <h3>You Made It. 90 Days. Done.</h3>
+      <p><em>Whether you hit every single day or had weeks where you barely hung on -- you are here. You showed up enough times to reach this page. That is the whole point.</em></p>
+
+      <hr style="border-color: #bfdbfe;" />
+
+      <h4>My Day 1 vs Day 90 -- The Real Scorecard</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Day 1</th>
+              <th>Day 90</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Skin clarity (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Fitness level (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Confidence (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Style satisfaction (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Self-care consistency (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Overall happiness (1-10)</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Max push-ups in 60s</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Plank hold time</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Things I can do now that I could not do on Day 1:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe; min-height:100px;">1.
+2.
+3.
+4.
+5.</pre>
+
+      <h4>Habits that are now automatic:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">1.
+2.
+3.</pre>
+
+      <h4>The biggest surprise of this journey:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">[ Write it here ]</pre>
+
+      <h4>What I am most proud of:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">[ Write it here ]</pre>
+
+      <h4>A letter to Day-1 me:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe; min-height:120px;">[ Tell her what she needs to hear ]</pre>
+
+      <hr style="border-color: #bfdbfe;" />
+
+      <h4>What comes next?</h4>
+      <p>A glow-up is not a destination. It is a way of living. Now that you have the habits, the routine, and the mindset, keep going. Start a new 90-day cycle with new goals. Or just maintain what you have built. Either way, you have proven something to yourself that nobody can take away:</p>
+
+      <div class="quote-highlight">
+        <strong>"I am the kind of person who follows through. I chose myself for 90 days, and I will keep choosing myself."</strong>
+      </div>
+
+      <h4>My next 90-day focus:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">[ What is the next level? ]</pre>
+
+      <h4>How I will celebrate completing this journey:</h4>
+      <pre style="background:#fff; border-color:#bfdbfe;">[ You deserve something. Plan it. ]</pre>
+
+    </div>
+
+    <div class="callout" style="margin-top: 40px;">
+      <p><strong>You did the work. You showed up. You glowed up -- inside and out.</strong></p>
+      <p style="margin-top:8px;">-- Girl Gone AI</p>
+    </div>
+
+  </main>
+
+<!-- Event snippet for Purchase conversion page -->
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18123569132/gKkPCPid26McEOzv_sFD',
+    'value': 1.0,
+    'currency': 'USD',
+    'transaction_id': ''   // leave empty or populate dynamically if possible
+  });
+</script>
+</body>
+</html>
