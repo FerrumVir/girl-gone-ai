@@ -50,14 +50,32 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .section h2 { font-size:16px; font-weight:600; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
 
 .task-list { list-style:none; }
-.task-item { display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border); }
+.task-item { display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--border); }
 .task-item:last-child { border-bottom:none; }
-.task-check { width:22px; height:22px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:12px; }
-.task-check.done { background:var(--green); border-color:var(--green); color:white; }
+.task-check { width:28px; height:28px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; cursor:pointer; transition:all .2s; }
+.task-check:hover { border-color:var(--green); background:var(--green-bg); }
+.task-check.done { background:var(--green); border-color:var(--green); color:white; cursor:default; }
 .task-check.active { border-color:var(--accent); }
-.task-text { flex:1; font-size:14px; }
+.task-body { flex:1; min-width:0; }
+.task-text { font-size:14px; font-weight:500; }
 .task-text.done { text-decoration:line-through; color:var(--text-muted); }
-.task-time { font-size:12px; color:var(--text-muted); white-space:nowrap; }
+.task-desc { font-size:13px; color:var(--text-muted); margin-top:4px; }
+.task-actions { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
+.task-btn { font-size:12px; font-family:var(--font); padding:6px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:500; transition:all .15s; }
+.task-btn-done { background:var(--green-bg); color:#059669; }
+.task-btn-done:hover { background:var(--green); color:white; }
+.task-btn-note { background:var(--yellow-bg); color:#b45309; }
+.task-btn-note:hover { background:var(--yellow); color:white; }
+.task-btn-undo { background:var(--bg); color:var(--text-muted); border:1px solid var(--border); }
+.task-btn-undo:hover { background:var(--border); }
+.task-note-input { width:100%; margin-top:8px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-family:var(--font); font-size:13px; resize:none; outline:none; }
+.task-note-input:focus { border-color:var(--accent); }
+.task-note-display { margin-top:8px; padding:8px 12px; background:var(--yellow-bg); border-radius:8px; font-size:13px; color:#92400e; }
+.task-note-display strong { font-weight:600; }
+.task-status-badge { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:6px; margin-top:4px; }
+.badge-done { background:var(--green-bg); color:#059669; }
+.badge-skipped { background:var(--yellow-bg); color:#b45309; }
+.task-time { font-size:12px; color:var(--text-muted); white-space:nowrap; flex-shrink:0; margin-top:2px; }
 
 .content-grid { display:flex; flex-direction:column; gap:12px; }
 .content-item { display:flex; align-items:center; gap:12px; padding:12px; background:var(--bg); border-radius:12px; }
@@ -95,9 +113,6 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
 </style>
 </head>
 <body>
-<script>
-if (sessionStorage.getItem('dash-role') !== 'jaci') { window.location.href = 'index.html'; }
-</script>
 <header>
   <div class="header-top">
     <div>
@@ -127,8 +142,9 @@ if (sessionStorage.getItem('dash-role') !== 'jaci') { window.location.href = 'in
 
   <div class="section">
     <h2><span>&#128221;</span> Today's Tasks</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Tap the circle or "Mark Done" to complete a task. If you can't finish one today, tap "Add Note" to explain why.</p>
     <ul class="task-list" id="task-list"></ul>
-    <div class="empty-state" id="tasks-empty">No tasks assigned yet today. Check back soon!</div>
+    <div class="empty-state" id="tasks-empty" style="display:none">No tasks assigned yet today. Check back soon!</div>
   </div>
 
   <div class="section">
@@ -167,7 +183,7 @@ if (sessionStorage.getItem('dash-role') !== 'jaci') { window.location.href = 'in
 </footer>
 
 <script>
-const PRODUCTS = [
+var PRODUCTS = [
   { name:'Wedding Planning Dashboard', price:18, link:'https://girlgoneai.gumroad.com/l/hxntlz' },
   { name:'Midjourney & AI Art Prompt Pack', price:17, link:'https://girlgoneai.gumroad.com/l/rjfayx' },
   { name:'Podcast Launch Kit', price:14, link:'https://girlgoneai.gumroad.com/l/jfuzt' },
@@ -180,51 +196,139 @@ const PRODUCTS = [
   { name:'Professional Invoice Generator', price:8, link:'https://girlgoneai.gumroad.com/l/thtyoc' }
 ];
 
-function esc(s) { const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
+function esc(s) { var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
 function fmtNum(n) { if(n>=1e6) return (n/1e6).toFixed(1)+'M'; if(n>=1e3) return (n/1e3).toFixed(1)+'K'; return String(n); }
 
-const SEED_TASKS = [
-  { title:'Record 30-sec TikTok intro for new planner', status:'done', time:'1.5h' },
-  { title:'Review Instagram Story graphics', status:'done', time:'0.5h' },
-  { title:'Film product unboxing reel for habit tracker', status:'active', time:'' },
-  { title:'Respond to 5 Instagram DMs', status:'pending', time:'' }
+// Today's date key for localStorage scoping
+var TODAY_KEY = 'jaci-tasks-' + new Date().toISOString().slice(0,10);
+
+// Today's assigned tasks
+var TASKS = [
+  { id:'t1', title:'Record 2-3 TikTok videos', desc:'Short clips (30-60s) promoting Girl Gone AI digital products. Show the product, explain who it helps, and use trending sounds.', status:'pending' },
+  { id:'t2', title:'Record 2-3 Instagram Reels', desc:'Similar to TikTok but optimized for Instagram. Product demos, "day in my life using these tools", or quick tips.', status:'pending' },
+  { id:'t3', title:'Post 5+ Instagram Stories', desc:'Mix of: polls, product teasers, behind-the-scenes, link stickers to Gumroad store, Q&A with followers.', status:'pending' },
+  { id:'t4', title:'Share Gumroad store link in bio + stories', desc:'Make sure your link in bio points to https://girlgoneai.gumroad.com and mention it in stories.', status:'pending' },
+  { id:'t5', title:'Engage with followers (15-20 min)', desc:'Reply to DMs, respond to comments, like posts from similar accounts. Build community.', status:'pending' },
+  { id:'t6', title:'Review & approve product thumbnails', desc:'Check the latest product thumbnail designs and confirm if they look good or flag changes.', status:'pending' }
 ];
 
-const SEED_CONTENT = [
-  { platform:'tiktok', title:'Morning routine planner walkthrough', posted_at:'9:15 AM' },
-  { platform:'instagram', title:'Carousel: 5 habits that changed my life', posted_at:'11:30 AM' }
-];
+// Load saved state from localStorage
+function loadState() {
+  try {
+    var saved = localStorage.getItem(TODAY_KEY);
+    if (saved) {
+      var state = JSON.parse(saved);
+      TASKS.forEach(function(t) {
+        if (state[t.id]) {
+          t.status = state[t.id].status || t.status;
+          t.note = state[t.id].note || '';
+        }
+      });
+    }
+  } catch(e) {}
+}
+
+function saveState() {
+  var state = {};
+  TASKS.forEach(function(t) {
+    state[t.id] = { status: t.status, note: t.note || '' };
+  });
+  try { localStorage.setItem(TODAY_KEY, JSON.stringify(state)); } catch(e) {}
+}
+
+function markDone(id) {
+  TASKS.forEach(function(t) { if (t.id === id) t.status = 'done'; });
+  saveState();
+  renderAll();
+}
+
+function undoTask(id) {
+  TASKS.forEach(function(t) { if (t.id === id) { t.status = 'pending'; t.note = ''; } });
+  saveState();
+  renderAll();
+}
+
+function showNoteInput(id) {
+  var el = document.getElementById('note-area-' + id);
+  if (el) el.style.display = 'block';
+  var input = document.getElementById('note-input-' + id);
+  if (input) input.focus();
+}
+
+function saveNote(id) {
+  var input = document.getElementById('note-input-' + id);
+  var note = input ? input.value.trim() : '';
+  if (!note) return;
+  TASKS.forEach(function(t) { if (t.id === id) { t.note = note; t.status = 'skipped'; } });
+  saveState();
+  renderAll();
+}
 
 function renderDate() {
   document.getElementById('header-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 }
 
-function renderTasks(tasks) {
-  const list = document.getElementById('task-list');
-  const empty = document.getElementById('tasks-empty');
-  if (!tasks||!tasks.length) { list.innerHTML=''; empty.style.display='block'; return; }
+function renderTasks() {
+  var list = document.getElementById('task-list');
+  var empty = document.getElementById('tasks-empty');
+  if (!TASKS || !TASKS.length) { list.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
-  const done = tasks.filter(t=>t.status==='done').length;
+  var done = TASKS.filter(function(t){ return t.status==='done'; }).length;
+  var skipped = TASKS.filter(function(t){ return t.status==='skipped'; }).length;
   document.getElementById('stat-tasks-done').textContent = done;
-  document.getElementById('stat-tasks-total').textContent = tasks.length;
-  list.innerHTML = tasks.map(t => {
-    const ck = t.status==='done'?'done':t.status==='active'?'active':'';
-    const cm = t.status==='done'?'&#10003;':'';
-    const tc = t.status==='done'?'done':'';
-    return `<li class="task-item"><div class="task-check ${ck}">${cm}</div><span class="task-text ${tc}">${esc(t.title)}</span><span class="task-time">${esc(t.time||'')}</span></li>`;
+  document.getElementById('stat-tasks-total').textContent = TASKS.length;
+
+  list.innerHTML = TASKS.map(function(t) {
+    var isDone = t.status === 'done';
+    var isSkipped = t.status === 'skipped';
+    var checkClass = isDone ? 'done' : '';
+    var checkMark = isDone ? '&#10003;' : '';
+    var textClass = isDone ? 'done' : '';
+
+    var actions = '';
+    if (isDone) {
+      actions = '<div class="task-actions">' +
+        '<span class="task-status-badge badge-done">Completed</span>' +
+        '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
+        '</div>';
+    } else if (isSkipped) {
+      actions = '<div class="task-note-display"><strong>Your note:</strong> ' + esc(t.note) + '</div>' +
+        '<div class="task-actions">' +
+        '<span class="task-status-badge badge-skipped">Note Added</span>' +
+        '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
+        '</div>';
+    } else {
+      actions = '<div class="task-actions">' +
+        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Mark Done</button>' +
+        '<button class="task-btn task-btn-note" onclick="showNoteInput(\'' + t.id + '\')">Add Note</button>' +
+        '</div>' +
+        '<div id="note-area-' + t.id + '" style="display:none">' +
+        '<textarea class="task-note-input" id="note-input-' + t.id + '" rows="2" placeholder="Why can\'t you complete this today? (e.g. No time today, Need better lighting...)"></textarea>' +
+        '<div style="margin-top:6px"><button class="task-btn task-btn-note" onclick="saveNote(\'' + t.id + '\')">Save Note</button></div>' +
+        '</div>';
+    }
+
+    return '<li class="task-item">' +
+      '<div class="task-check ' + checkClass + '" onclick="' + (!isDone && !isSkipped ? 'markDone(\'' + t.id + '\')' : '') + '">' + checkMark + '</div>' +
+      '<div class="task-body">' +
+        '<div class="task-text ' + textClass + '">' + esc(t.title) + '</div>' +
+        (t.desc ? '<div class="task-desc">' + esc(t.desc) + '</div>' : '') +
+        actions +
+      '</div>' +
+      '</li>';
   }).join('');
 }
 
 function renderContent(posts) {
-  const grid = document.getElementById('content-grid');
-  const empty = document.getElementById('content-empty');
+  var grid = document.getElementById('content-grid');
+  var empty = document.getElementById('content-empty');
   if (!posts||!posts.length) { grid.innerHTML=''; empty.style.display='block'; document.getElementById('stat-posts-today').textContent='0'; return; }
   empty.style.display='none';
   document.getElementById('stat-posts-today').textContent = posts.length;
-  grid.innerHTML = posts.map(p => {
-    const cls = (p.platform||'').toLowerCase();
-    const icon = cls==='tiktok'?'&#9835;':'&#128247;';
-    return `<div class="content-item"><div class="content-platform ${cls}">${icon}</div><div class="content-info"><div class="content-title">${esc(p.title)}</div><div class="content-meta">Posted at ${esc(p.posted_at||'')}</div></div></div>`;
+  grid.innerHTML = posts.map(function(p) {
+    var cls = (p.platform||'').toLowerCase();
+    var icon = cls==='tiktok'?'&#9835;':'&#128247;';
+    return '<div class="content-item"><div class="content-platform ' + cls + '">' + icon + '</div><div class="content-info"><div class="content-title">' + esc(p.title) + '</div><div class="content-meta">Posted at ' + esc(p.posted_at||'') + '</div></div></div>';
   }).join('');
 }
 
@@ -242,33 +346,40 @@ function renderHours(h) {
 }
 
 function renderProducts() {
-  document.getElementById('product-grid').innerHTML = PRODUCTS.map(p =>
-    `<div class="product-item"><div class="product-price">$${p.price}</div><div class="product-info"><div class="product-name">${esc(p.name)}</div><div class="product-status">LIVE</div></div><a href="${esc(p.link)}" target="_blank" class="product-link">View</a></div>`
-  ).join('');
+  document.getElementById('product-grid').innerHTML = PRODUCTS.map(function(p) {
+    return '<div class="product-item"><div class="product-price">$' + p.price + '</div><div class="product-info"><div class="product-name">' + esc(p.name) + '</div><div class="product-status">LIVE</div></div><a href="' + esc(p.link) + '" target="_blank" class="product-link">View</a></div>';
+  }).join('');
 }
 
-function renderOverview(tasks) {
-  const done = tasks?tasks.filter(t=>t.status==='done').length:0;
-  const total = tasks?tasks.length:0;
-  let emoji, status, sub;
+function renderOverview() {
+  var done = TASKS.filter(function(t){ return t.status==='done'; }).length;
+  var total = TASKS.length;
+  var acted = TASKS.filter(function(t){ return t.status==='done' || t.status==='skipped'; }).length;
+  var emoji, status, sub;
   if (!total) { emoji='\u2615'; status='No tasks today yet'; sub='Check back soon for your daily brief!'; }
   else if (done===total) { emoji='\u2B50'; status='All done! Amazing work!'; sub='You crushed all '+total+' tasks today.'; }
+  else if (acted===total) { emoji='\uD83D\uDCAA'; status='All tasks addressed!'; sub=done+' completed, '+(total-done)+' noted. Great job staying on top of it!'; }
   else if (done>=total/2) { emoji='\uD83D\uDCAA'; status='Great progress!'; sub=done+' of '+total+' tasks complete. Keep going!'; }
-  else { emoji='\uD83C\uDF1F'; status="Let's get it!"; sub=done+' of '+total+' tasks done so far.'; }
+  else { emoji='\uD83C\uDF1F'; status="Let's get it!"; sub=done+' of '+total+' tasks done so far. You got this!'; }
   document.getElementById('overview-emoji').textContent = emoji;
   document.getElementById('overview-status').textContent = status;
   document.getElementById('overview-sub').textContent = sub;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function renderAll() {
+  renderTasks();
+  renderOverview();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  loadState();
   renderDate();
-  renderTasks(SEED_TASKS);
-  renderContent(SEED_CONTENT);
+  renderAll();
+  renderContent([]);
   renderEngagement({views:0,likes:0,comments:0,shares:0});
   renderHours(2);
   renderProducts();
-  renderOverview(SEED_TASKS);
-  document.getElementById('last-updated').textContent = 'Updated '+new Date().toLocaleTimeString();
+  document.getElementById('last-updated').textContent = 'Updated ' + new Date().toLocaleTimeString();
 });
 </script>
 </body>
