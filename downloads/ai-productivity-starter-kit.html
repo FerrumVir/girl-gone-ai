@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123569132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18123569132');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Productivity Starter Kit (FREE) &mdash; Girl Gone AI</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #1e1e2e;
+      background: #f5f6fa;
+    }
+    .brand-header {
+      background: #2563eb;
+      color: #fff;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(37,99,235,0.18);
+    }
+    .brand-header .logo { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.3px; }
+    .brand-header .logo span { opacity: 0.75; font-weight: 400; font-size: 0.9rem; margin-left: 12px; letter-spacing: 0; }
+    .brand-header .badge {
+      background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 20px; padding: 4px 14px; font-size: 0.78rem;
+      letter-spacing: 0.5px; text-transform: uppercase; font-weight: 600;
+    }
+    .page { max-width: 800px; margin: 0 auto; padding: 40px 32px 80px; }
+    .doc-title { margin-bottom: 40px; padding-bottom: 28px; border-bottom: 2px solid #e5e7eb; }
+    .doc-title h1 { font-size: 2rem; font-weight: 800; color: #111827; line-height: 1.2; letter-spacing: -0.5px; }
+    .doc-title .subtitle { margin-top: 6px; font-size: 1rem; color: #6b7280; font-weight: 500; }
+    h1 { font-size: 1.7rem; font-weight: 800; color: #111827; margin: 40px 0 16px; }
+    h2 { font-size: 1.3rem; font-weight: 700; color: #1e293b; margin: 36px 0 12px; }
+    h3 { font-size: 1rem; font-weight: 700; color: #2563eb; text-transform: uppercase; letter-spacing: 0.8px; margin: 28px 0 10px; }
+    h4 { font-size: 0.95rem; font-weight: 700; color: #374151; margin: 18px 0 6px; }
+    .section-header {
+      background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%);
+      color: #fff; padding: 14px 22px; border-radius: 8px; margin: 48px 0 24px;
+    }
+    .section-header h1 { font-size: 1.15rem; font-weight: 700; color: #fff; margin: 0; letter-spacing: 0.5px; }
+    p { margin-bottom: 12px; }
+    ul, ol { margin: 8px 0 14px 0; padding-left: 0; list-style: none; }
+    ul li, ol li { position: relative; padding-left: 22px; margin-bottom: 5px; }
+    ul li::before { content: "\2022"; position: absolute; left: 6px; color: #2563eb; font-weight: 700; }
+    ol { counter-reset: list-counter; }
+    ol li { counter-increment: list-counter; }
+    ol li::before { content: counter(list-counter) "."; position: absolute; left: 0; color: #2563eb; font-weight: 700; }
+    strong { font-weight: 700; color: #111827; }
+    em { font-style: italic; color: #4b5563; }
+    hr { border: none; border-top: 1.5px solid #e5e7eb; margin: 28px 0; }
+    blockquote {
+      background: #eff6ff; border-left: 4px solid #2563eb; border-radius: 0 8px 8px 0;
+      padding: 16px 20px; margin: 18px 0; color: #1e40af;
+    }
+    blockquote p { margin: 0 0 6px; }
+    blockquote p:last-child { margin: 0; }
+    blockquote strong { color: #1d4ed8; }
+    pre {
+      background: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 8px;
+      padding: 16px 18px; font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+      font-size: 0.85rem; color: #374151; white-space: pre-wrap; margin: 10px 0 16px; min-height: 80px;
+    }
+    code { background: #f3f4f6; padding: 1px 5px; border-radius: 3px; font-size: 0.85em; font-family: "SF Mono", "Fira Code", "Consolas", monospace; }
+    .table-wrap { overflow-x: auto; margin: 14px 0 20px; border-radius: 8px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: #fff; border-radius: 8px; overflow: hidden; }
+    thead tr { background: #2563eb; color: #fff; }
+    thead th { padding: 10px 12px; text-align: left; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.4px; text-transform: uppercase; }
+    tbody tr { border-bottom: 1px solid #f1f2f6; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:nth-child(even) { background: #f8f9ff; }
+    tbody tr:hover { background: #eff6ff; }
+    td { padding: 9px 12px; vertical-align: top; }
+    td:first-child { font-weight: 600; color: #374151; }
+    .info-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px 20px; margin: 16px 0; }
+    .info-box h4 { margin-top: 0; color: #1e293b; }
+    .callout { background: #f0fdf4; border: 1px solid #bbf7d0; border-left: 4px solid #16a34a; border-radius: 0 8px 8px 0; padding: 14px 18px; margin: 16px 0; color: #14532d; }
+    .callout strong { color: #166534; }
+    .prompt-box { background: #fff; border: 1px solid #e5e7eb; border-left: 4px solid #8b5cf6; border-radius: 0 8px 8px 0; padding: 14px 18px; margin-bottom: 16px; }
+    .prompt-box h4 { color: #7c3aed; margin-bottom: 6px; margin-top: 0; }
+    .prompt-box pre { background: #faf5ff; border-color: #e9d5ff; min-height: auto; margin-bottom: 0; }
+    .celebration { background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%); border: 1px solid #bfdbfe; border-radius: 12px; padding: 24px 26px; margin: 20px 0; }
+    .celebration h3 { color: #1d4ed8; }
+    .quote-highlight { text-align: center; padding: 24px 20px; color: #6b7280; font-style: italic; font-size: 1.05rem; }
+    .quote-highlight strong { color: #374151; font-style: normal; }
+    .text-muted { color: #6b7280; font-size: 0.87rem; }
+    .section-note { color: #6b7280; font-size: 0.87rem; font-style: italic; margin-bottom: 18px; }
+    @media print {
+      .brand-header { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .page { padding: 20px 0; max-width: 100%; }
+      .section-header { background: none !important; border: 2px solid #000; color: #000 !important; }
+      .section-header h1 { color: #000 !important; }
+      blockquote { background: none; border-left: 3px solid #000; color: #000; }
+      .prompt-box { border-left-color: #000; }
+      .callout { background: none; border-color: #000; color: #000; }
+      .celebration { background: none; border: 1px solid #ccc; }
+      .info-box { background: none; border: 1px solid #ccc; }
+      table { box-shadow: none; font-size: 9pt; }
+      thead tr { background: #e5e5e5 !important; color: #000 !important; }
+      .table-wrap { box-shadow: none; }
+      pre { background: #f5f5f5; border: 1px solid #ccc; }
+      @page { margin: 1.5cm 1.8cm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="brand-header">
+    <div class="logo">Girl Gone AI <span>Free Resource Library</span></div>
+    <div class="badge">FREE Download</div>
+  </header>
+
+  <main class="page">
+
+    <div class="doc-title">
+      <h1>AI Productivity Starter Kit</h1>
+      <div class="subtitle">50+ Ready-to-Use AI Prompts, Templates &amp; Workflows to 10x Your Day</div>
+    </div>
+
+    <blockquote>
+      <p><strong>WHAT YOU'RE GETTING</strong></p>
+      <p>This isn't a theory guide. It's a toolkit. Every prompt below is copy-paste ready for ChatGPT, Claude, or any AI assistant. Use them today, not "someday." Pick one section, try one prompt, and watch what happens.</p>
+    </blockquote>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 1: Morning Kickstart System</h1>
+    </div>
+
+    <p>Start every day with clarity instead of chaos. These prompts replace the 30-minute scroll session with a 5-minute planning session that actually works.</p>
+
+    <h3>Daily Planning Prompt</h3>
+    <div class="prompt-box">
+      <h4>The 5-Minute Day Designer</h4>
+      <pre>I have the following tasks today: [paste your to-do list]
+
+My energy level right now is [high / medium / low].
+I have [X] hours of deep work time available.
+My one must-win task today is: [describe it]
+
+Please:
+1. Prioritize these tasks by impact (not urgency)
+2. Group them into 90-minute focus blocks
+3. Put the hardest task in my peak energy window
+4. Identify 2 tasks I should delegate or delete
+5. Give me a realistic schedule with breaks built in</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Weekly Reset</h4>
+      <pre>It's [day]. Here's what happened this week:
+
+Wins: [list 3-5 things that went well]
+Misses: [list things that didn't happen]
+Surprises: [anything unexpected]
+Energy: I felt most productive on [days/times]
+
+Please:
+1. Identify patterns in my productivity
+2. Suggest 3 adjustments for next week
+3. Help me set my top 3 priorities for next week
+4. Flag anything I should stop doing</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Decision Unsticker</h4>
+      <pre>I'm stuck deciding between:
+Option A: [describe]
+Option B: [describe]
+
+Context: [relevant background]
+Timeline: [when I need to decide]
+What matters most to me: [your priorities]
+
+Please:
+1. List the top 3 pros and cons of each option
+2. Identify which option is more reversible
+3. Tell me what I'll regret more: choosing wrong or not choosing at all
+4. Give me your recommendation and why</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 2: Email &amp; Communication Templates</h1>
+    </div>
+
+    <p>Stop spending 20 minutes writing a 3-sentence email. These prompts generate professional, human-sounding messages in seconds.</p>
+
+    <h3>Professional Email Prompts</h3>
+
+    <div class="prompt-box">
+      <h4>The Follow-Up That Actually Gets Replies</h4>
+      <pre>Write a follow-up email for this situation:
+
+Original context: [what the first email/meeting was about]
+How long ago: [days since last contact]
+What I need from them: [specific ask]
+Relationship: [cold lead / warm contact / existing client / colleague]
+Tone: [friendly but direct / casual / formal]
+
+Make it:
+- Under 100 words
+- Include a specific question they can answer quickly
+- Add a subtle deadline or reason to reply now
+- Sound human, not templated</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The "Saying No" Template</h4>
+      <pre>I need to decline this request: [describe what was asked]
+From: [who asked, and our relationship]
+Why I'm saying no: [honest reason]
+
+Write a response that:
+- Is kind but clear (no "maybe later" hedging)
+- Acknowledges their request genuinely
+- Offers an alternative if appropriate
+- Keeps the relationship intact
+- Is under 80 words</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Cold Outreach Message</h4>
+      <pre>Write a cold outreach message for:
+
+Who I'm reaching out to: [their role/company]
+What I'm offering: [product/service/collaboration]
+Why them specifically: [what I noticed about them]
+Platform: [email / LinkedIn / DM]
+My credibility: [brief proof I'm legit]
+
+Rules:
+- First line must be about THEM, not me
+- Under 100 words
+- One clear CTA
+- No corporate jargon
+- Sound like a real person, not a sales bot</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 3: Content Creation Accelerator</h1>
+    </div>
+
+    <p>Whether you're writing social posts, blog articles, or video scripts, these prompts cut your creation time by 80%.</p>
+
+    <h3>Social Media Content</h3>
+
+    <div class="prompt-box">
+      <h4>The Viral Hook Generator</h4>
+      <pre>Generate 10 scroll-stopping hooks for a [platform] post about [topic].
+
+My audience: [who they are]
+Goal: [educate / entertain / sell / inspire]
+My brand voice: [describe in 3 words]
+
+Rules for each hook:
+- Under 15 words
+- Creates curiosity or tension
+- Feels personal, not corporate
+- Would make YOU stop scrolling
+
+Format: Number each hook. Star the top 3.</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The 7-Day Content Calendar</h4>
+      <pre>Create a 7-day content calendar for my [platform].
+
+My niche: [topic/industry]
+My audience: [demographics + pain points]
+My products/services: [what I sell]
+Content pillars: [3-4 themes I rotate through]
+Posting frequency: [X times per day/week]
+
+For each day, give me:
+1. Content type (carousel, reel, story, text post)
+2. Topic + angle
+3. Hook (first line)
+4. CTA
+5. Best posting time
+6. Hashtags (5-7, mix of niche and broad)</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Blog-to-Social Repurposer</h4>
+      <pre>Here's a blog post / article I wrote:
+
+[paste your content]
+
+Turn this into:
+1. Three Twitter/X threads (each with a different angle)
+2. One Instagram carousel script (8-10 slides)
+3. One LinkedIn post (storytelling format)
+4. Three Instagram story talking points
+5. One TikTok/Reel script (30-45 seconds)
+
+Keep my voice. Don't make it sound like a robot wrote it.</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 4: Research &amp; Learning Shortcuts</h1>
+    </div>
+
+    <p>Learn faster, research smarter, and actually retain what you read.</p>
+
+    <div class="prompt-box">
+      <h4>The Speed-Learn Framework</h4>
+      <pre>I want to learn [topic/skill] in [timeframe].
+
+My current level: [beginner / intermediate / advanced]
+How I learn best: [reading / watching / doing / discussing]
+Time I can commit daily: [X minutes/hours]
+Why I'm learning this: [specific goal]
+
+Create:
+1. A learning roadmap broken into weekly milestones
+2. The top 5 resources (free preferred) ranked by quality
+3. A daily 30-minute practice routine
+4. 3 mini-projects to test my knowledge
+5. Common mistakes beginners make (so I can skip them)</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Article Summarizer + Action Extractor</h4>
+      <pre>Here's an article/report I need to process:
+
+[paste the content]
+
+Give me:
+1. A 3-sentence summary (what, so what, now what)
+2. The 5 key takeaways
+3. What's actually new vs. what's common knowledge
+4. 2-3 specific actions I could take based on this
+5. One thing the author might be wrong about</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Meeting Prep Briefing</h4>
+      <pre>I have a meeting about [topic] with [who] in [timeframe].
+
+Context: [what the meeting is about]
+My role: [what I need to contribute]
+My goal: [what I want to walk away with]
+Concerns: [anything tricky or political]
+
+Prepare me with:
+1. Three smart questions to ask
+2. Key talking points (with data if relevant)
+3. Potential objections and my responses
+4. A 30-second opening statement
+5. The one thing I absolutely must communicate</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 5: Business &amp; Side Hustle Prompts</h1>
+    </div>
+
+    <p>Whether you're running a business or building one on the side, these prompts handle the thinking work so you can focus on execution.</p>
+
+    <div class="prompt-box">
+      <h4>The Product Idea Validator</h4>
+      <pre>I have a product/service idea:
+
+The idea: [describe it]
+Target customer: [who would buy this]
+Price point: [what I'd charge]
+How it's different: [vs. existing options]
+
+Be brutally honest:
+1. Rate this idea 1-10 on market demand, competition, and execution difficulty
+2. Who are the top 3 competitors and what do they charge?
+3. What's the #1 reason this could fail?
+4. What's the fastest way to validate demand before building?
+5. If you were launching this tomorrow, what would you do first?</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Pricing Strategy Builder</h4>
+      <pre>Help me price my [product/service]:
+
+What it is: [describe]
+Who buys it: [target customer]
+What they currently pay for alternatives: [competitor pricing]
+My costs: [time, materials, tools]
+My goal: [revenue target or positioning]
+
+Give me:
+1. Three pricing tiers (good / better / best) with what's included in each
+2. The psychology behind each price point
+3. Whether I should anchor high or start low
+4. A launch pricing strategy (discount, early bird, etc.)
+5. When and how to raise prices</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Customer Avatar Deep Dive</h4>
+      <pre>Help me build a detailed customer avatar for my [business/product]:
+
+What I sell: [describe]
+Current customers (if any): [who's buying now]
+Industry: [niche]
+
+Build a complete profile including:
+1. Demographics (age, income, location, job)
+2. Psychographics (values, fears, desires, frustrations)
+3. Where they spend time online (specific platforms and communities)
+4. What they Google at 2 AM (actual search queries)
+5. The exact words they use to describe their problem
+6. What they've already tried that didn't work
+7. What would make them buy instantly vs. think about it</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 6: Writing &amp; Editing Toolkit</h1>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Tone Matcher</h4>
+      <pre>Here's a sample of my writing style:
+
+[paste 2-3 paragraphs of YOUR writing]
+
+Now write [what you need] in this exact voice. Match:
+- Sentence length and rhythm
+- Level of formality
+- Use of humor or directness
+- Vocabulary level
+- Any quirks or patterns you notice
+
+Topic: [what to write about]
+Length: [word count]
+Purpose: [educate / sell / persuade / entertain]</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Ruthless Editor</h4>
+      <pre>Edit this text ruthlessly:
+
+[paste your draft]
+
+Rules:
+1. Cut word count by 30% without losing meaning
+2. Replace every passive voice sentence with active
+3. Kill all corporate jargon and buzzwords
+4. Make every sentence earn its place
+5. Strengthen the opening and closing
+6. Flag any claims that need evidence
+
+Show me the before/after for each major change so I can learn.</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Headline Tester</h4>
+      <pre>I'm writing about: [topic]
+For: [audience]
+Goal: [get clicks / get shares / get sign-ups / get purchases]
+
+Generate 15 headlines. For each one, rate it on:
+- Clarity (1-5): Is it immediately clear what this is about?
+- Curiosity (1-5): Does it create an itch to click?
+- Specificity (1-5): Does it promise something concrete?
+
+Star the top 3. Explain why they work best.</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 7: Life Admin Automation</h1>
+    </div>
+
+    <p>The boring stuff that eats your time. Let AI handle the thinking; you handle the doing.</p>
+
+    <div class="prompt-box">
+      <h4>The Meal Prep Planner</h4>
+      <pre>Plan my meals for the week:
+
+Dietary needs: [any restrictions or preferences]
+Cooking skill: [beginner / intermediate / advanced]
+Budget: [$X per week for groceries]
+Household size: [X people]
+Time for cooking: [X minutes per meal max]
+Kitchen equipment: [what I have]
+
+Give me:
+1. 7 dinners + 5 lunches (weekday lunches)
+2. A consolidated grocery list organized by store section
+3. A Sunday prep plan (what to batch cook)
+4. Estimated total cost
+5. Leftover strategy (what becomes tomorrow's lunch)</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Travel Planner</h4>
+      <pre>Plan a trip for me:
+
+Destination: [where]
+Dates: [when, how many days]
+Budget: [$X total]
+Travel style: [budget / mid-range / luxury]
+Interests: [what I enjoy]
+Must-dos: [anything non-negotiable]
+Avoid: [things I don't want]
+
+Create:
+1. Day-by-day itinerary with morning/afternoon/evening blocks
+2. Restaurant recommendations for each meal
+3. Transportation plan (how to get around)
+4. Budget breakdown by category
+5. Packing list based on activities and weather
+6. One "hidden gem" most tourists miss</pre>
+    </div>
+
+    <div class="prompt-box">
+      <h4>The Difficult Conversation Prep</h4>
+      <pre>I need to have a hard conversation about: [topic]
+With: [who, and our relationship]
+The core issue: [what needs to change]
+My concern: [what I'm afraid will happen]
+Best possible outcome: [what I want]
+
+Help me:
+1. Script an opening line that's honest but not aggressive
+2. Anticipate their likely response and prepare mine
+3. Identify the key points I must make (max 3)
+4. Give me a phrase to use if things get heated
+5. Script a closing that preserves the relationship</pre>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 8: Quick-Reference Prompt Formulas</h1>
+    </div>
+
+    <p>Master these formulas and you can create your own prompts for anything.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Formula</th>
+            <th>Structure</th>
+            <th>Best For</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>R-T-F</td>
+            <td><strong>Role</strong> + <strong>Task</strong> + <strong>Format</strong><br/>"Act as a [role]. Your task is to [task]. Format the output as [format]."</td>
+            <td>General-purpose prompts</td>
+          </tr>
+          <tr>
+            <td>C-R-E-A-T-E</td>
+            <td><strong>Context</strong> + <strong>Role</strong> + <strong>Examples</strong> + <strong>Adjustments</strong> + <strong>Type</strong> + <strong>Extras</strong></td>
+            <td>Complex, high-quality outputs</td>
+          </tr>
+          <tr>
+            <td>B-A-B</td>
+            <td><strong>Before</strong> (current state) + <strong>After</strong> (desired state) + <strong>Bridge</strong> (how to get there)</td>
+            <td>Problem-solving, strategy</td>
+          </tr>
+          <tr>
+            <td>S-T-A-R</td>
+            <td><strong>Situation</strong> + <strong>Task</strong> + <strong>Action</strong> + <strong>Result</strong></td>
+            <td>Case studies, resumes, storytelling</td>
+          </tr>
+          <tr>
+            <td>Chain of Thought</td>
+            <td>"Think step by step. First... then... finally..."</td>
+            <td>Analysis, reasoning, math, logic</td>
+          </tr>
+          <tr>
+            <td>Few-Shot</td>
+            <td>Give 2-3 examples of what you want, then ask for more</td>
+            <td>Matching a specific style or format</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <p><strong>Pro Tip:</strong> The single biggest improvement you can make to any prompt is adding <strong>specific context</strong>. "Write me a blog post" is weak. "Write a 500-word blog post for female entrepreneurs aged 25-35 who are launching their first Etsy shop, in a conversational tone with actionable tips" is strong. Context is everything.</p>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 9: AI Power User Cheat Sheet</h1>
+    </div>
+
+    <h3>Do's and Don'ts</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Do This</th>
+            <th>Not This</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Be specific: "Write 5 Instagram captions for a skincare brand targeting women 25-35"</td>
+            <td>Be vague: "Write some social media posts"</td>
+          </tr>
+          <tr>
+            <td>Give examples of what you want</td>
+            <td>Hope it reads your mind</td>
+          </tr>
+          <tr>
+            <td>Iterate: "Good, but make it shorter and more casual"</td>
+            <td>Accept the first output as final</td>
+          </tr>
+          <tr>
+            <td>Set constraints: "Under 100 words, no jargon"</td>
+            <td>Leave it open-ended</td>
+          </tr>
+          <tr>
+            <td>Assign a role: "Act as a marketing strategist"</td>
+            <td>Skip the context</td>
+          </tr>
+          <tr>
+            <td>Break complex tasks into steps</td>
+            <td>Ask for everything in one massive prompt</td>
+          </tr>
+          <tr>
+            <td>Ask it to explain its reasoning</td>
+            <td>Blindly trust every output</td>
+          </tr>
+          <tr>
+            <td>Use it as a thinking partner</td>
+            <td>Use it as a replacement for thinking</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Hidden Features Most People Miss</h3>
+
+    <div class="info-box">
+      <ul>
+        <li><strong>"Critique this like a [role]"</strong> — Ask AI to poke holes in your own work from a specific perspective (investor, customer, competitor)</li>
+        <li><strong>"Give me the contrarian view"</strong> — Forces AI to argue against your assumption. Great for stress-testing ideas.</li>
+        <li><strong>"Explain this to a [audience]"</strong> — Adjusts complexity. "Explain blockchain to a 10-year-old" vs. "to a CTO" gives wildly different (and useful) results.</li>
+        <li><strong>"What questions should I be asking?"</strong> — When you don't know what you don't know, this prompt surfaces blind spots.</li>
+        <li><strong>"Create a decision matrix"</strong> — AI builds weighted comparison tables. Perfect for tool selection, vendor evaluation, career decisions.</li>
+        <li><strong>Paste errors directly</strong> — Copy-paste error messages, screenshots descriptions, or broken code. AI is excellent at debugging when given the actual error.</li>
+      </ul>
+    </div>
+
+    <hr />
+
+    <!-- ══════════════════════════════════════════ -->
+    <div class="section-header">
+      <h1>Section 10: Your 7-Day AI Productivity Challenge</h1>
+    </div>
+
+    <p>Don't just save this kit. Use it. Here's a 7-day challenge to build the AI habit.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Challenge</th>
+            <th>Time</th>
+            <th>Done?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Day 1</td>
+            <td>Use the <strong>5-Minute Day Designer</strong> to plan tomorrow</td>
+            <td>5 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 2</td>
+            <td>Draft 3 emails using the <strong>Communication Templates</strong></td>
+            <td>10 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 3</td>
+            <td>Generate a week of content with the <strong>Content Calendar</strong> prompt</td>
+            <td>15 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 4</td>
+            <td>Use the <strong>Speed-Learn Framework</strong> on something you've been wanting to learn</td>
+            <td>10 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 5</td>
+            <td>Validate a business or product idea with the <strong>Product Idea Validator</strong></td>
+            <td>10 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 6</td>
+            <td>Edit something you've written with the <strong>Ruthless Editor</strong></td>
+            <td>10 min</td>
+            <td>[ ]</td>
+          </tr>
+          <tr>
+            <td>Day 7</td>
+            <td>Do the <strong>Weekly Reset</strong> prompt and plan next week</td>
+            <td>15 min</td>
+            <td>[ ]</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="celebration">
+      <h3>You Made It Through the Kit</h3>
+      <p>This is just the beginning. Every prompt here is a starting point you can customize for your specific life, business, and goals. The more context you give AI, the better it gets at helping you.</p>
+      <p style="margin-top:12px;"><strong>Want to go deeper?</strong> Check out our full product line at <a href="https://girlgoneai.gumroad.com" style="color:#2563eb; font-weight:600;">girlgoneai.gumroad.com</a> for specialized prompt packs, business templates, planners, and productivity systems built for real people — not tech bros.</p>
+      <div class="quote-highlight">
+        <strong>"The best productivity system is the one you actually use. Start with one prompt. Build from there."</strong>
+      </div>
+      <p style="text-align:center; margin-top: 8px;">— Girl Gone AI</p>
+    </div>
+
+  </main>
+
+<script>
+  gtag('event', 'conversion', {
+    'send_to': 'AW-18123569132/gKkPCPid26McEOzv_sFD',
+    'value': 0,
+    'currency': 'USD',
+    'transaction_id': ''
+  });
+</script>
+</body>
+</html>
