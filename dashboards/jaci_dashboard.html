@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jaci Dashboard | NovolinkAI</title>
+    <style>
+        :root {
+            --primary: #6c5ce7;
+            --secondary: #a29bfe;
+            --bg: #f9f9fb;
+            --text: #2d3436;
+            --white: #ffffff;
+            --accent: #fd79a8;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 0.85rem;
+            color: #636e72;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .card .value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            color: var(--primary);
+        }
+        .section-title {
+            margin: 2rem 0 1rem;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .task-list {
+            list-style: none;
+            padding: 0;
+        }
+        .task-item {
+            background: white;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .task-item input {
+            margin-right: 1rem;
+        }
+        .overview-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .overview-card h2 { margin: 0; }
+        .overview-card p { opacity: 0.9; }
+
+        @media (max-width: 600px) {
+            .container { padding: 1rem; }
+            header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jaci's Workspace</h1>
+        <a href="login.html" style="color: white; text-decoration: none;">Logout</a>
+    </header>
+
+    <div class="container">
+        <div class="overview-card">
+            <h2>How am I doing?</h2>
+            <p>You're crushing it! Content engagement is up 15% this week.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Today's Tasks</h3>
+                <div class="value">5</div>
+            </div>
+            <div class="card">
+                <h3>Content Posted</h3>
+                <div class="value">3</div>
+            </div>
+            <div class="card">
+                <h3>Engagement</h3>
+                <div class="value">4.8%</div>
+            </div>
+            <div class="card">
+                <h3>Weekly Hours</h3>
+                <div class="value">28h</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Priority Tasks</h2>
+        <ul class="task-list">
+            <li class="task-item"><input type="checkbox" checked> Finish TikTok script for AI tools</li>
+            <li class="task-item"><input type="checkbox"> Respond to Gumroad comments</li>
+            <li class="task-item"><input type="checkbox"> Update Instagram bio link</li>
+            <li class="task-item"><input type="checkbox"> Schedule newsletter</li>
+        </ul>
+    </div>
+</body>
+</html>
