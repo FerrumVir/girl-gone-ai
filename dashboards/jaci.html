@@ -14,7 +14,7 @@
   --green: #34d399; --green-bg: rgba(52,211,153,.1);
   --blue: #60a5fa; --blue-bg: rgba(96,165,250,.1);
   --yellow: #fbbf24; --yellow-bg: rgba(251,191,36,.1);
-  --red: #f87171;
+  --red: #f87171; --red-bg: rgba(248,113,113,.1);
   --radius: 16px;
   --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
@@ -52,30 +52,43 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .task-list { list-style:none; }
 .task-item { display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--border); }
 .task-item:last-child { border-bottom:none; }
+.task-item.deleted { opacity:.5; }
 .task-check { width:28px; height:28px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; cursor:pointer; transition:all .2s; }
 .task-check:hover { border-color:var(--green); background:var(--green-bg); }
 .task-check.done { background:var(--green); border-color:var(--green); color:white; cursor:default; }
+.task-check.deleted { background:var(--red); border-color:var(--red); color:white; cursor:default; }
 .task-check.active { border-color:var(--accent); }
 .task-body { flex:1; min-width:0; }
 .task-text { font-size:14px; font-weight:500; }
 .task-text.done { text-decoration:line-through; color:var(--text-muted); }
-.task-desc { font-size:13px; color:var(--text-muted); margin-top:4px; }
+.task-text.deleted { text-decoration:line-through; color:var(--text-muted); }
+.task-desc { font-size:13px; color:var(--text-muted); margin-top:4px; white-space:pre-line; }
 .task-actions { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
 .task-btn { font-size:12px; font-family:var(--font); padding:6px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:500; transition:all .15s; }
 .task-btn-done { background:var(--green-bg); color:#059669; }
 .task-btn-done:hover { background:var(--green); color:white; }
+.task-btn-reply { background:var(--blue-bg); color:#2563eb; }
+.task-btn-reply:hover { background:var(--blue); color:white; }
+.task-btn-delete { background:var(--red-bg); color:#dc2626; }
+.task-btn-delete:hover { background:var(--red); color:white; }
 .task-btn-note { background:var(--yellow-bg); color:#b45309; }
 .task-btn-note:hover { background:var(--yellow); color:white; }
 .task-btn-undo { background:var(--bg); color:var(--text-muted); border:1px solid var(--border); }
 .task-btn-undo:hover { background:var(--border); }
-.task-note-input { width:100%; margin-top:8px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-family:var(--font); font-size:13px; resize:none; outline:none; }
-.task-note-input:focus { border-color:var(--accent); }
+.task-input-area { width:100%; margin-top:8px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-family:var(--font); font-size:13px; resize:none; outline:none; }
+.task-input-area:focus { border-color:var(--accent); }
+.task-reply-display { margin-top:8px; padding:8px 12px; background:var(--blue-bg); border-radius:8px; font-size:13px; color:#1e40af; }
+.task-reply-display strong { font-weight:600; }
 .task-note-display { margin-top:8px; padding:8px 12px; background:var(--yellow-bg); border-radius:8px; font-size:13px; color:#92400e; }
 .task-note-display strong { font-weight:600; }
+.task-delete-display { margin-top:8px; padding:8px 12px; background:var(--red-bg); border-radius:8px; font-size:13px; color:#991b1b; }
+.task-delete-display strong { font-weight:600; }
 .task-status-badge { display:inline-block; font-size:11px; font-weight:600; padding:2px 8px; border-radius:6px; margin-top:4px; }
 .badge-done { background:var(--green-bg); color:#059669; }
+.badge-replied { background:var(--blue-bg); color:#2563eb; }
+.badge-deleted { background:var(--red-bg); color:#dc2626; }
 .badge-skipped { background:var(--yellow-bg); color:#b45309; }
-.task-time { font-size:12px; color:var(--text-muted); white-space:nowrap; flex-shrink:0; margin-top:2px; }
+.task-time { font-size:11px; color:var(--text-muted); margin-top:4px; }
 
 .content-grid { display:flex; flex-direction:column; gap:12px; }
 .content-item { display:flex; align-items:center; gap:12px; padding:12px; background:var(--bg); border-radius:12px; }
@@ -103,6 +116,16 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .product-status { font-size:12px; color:var(--text-muted); margin-top:2px; }
 .product-link { font-size:12px; color:var(--accent-dark); text-decoration:none; font-weight:500; }
 .product-link:hover { text-decoration:underline; }
+
+.response-log { max-height:300px; overflow-y:auto; }
+.response-entry { padding:10px 12px; border-bottom:1px solid var(--border); font-size:13px; }
+.response-entry:last-child { border-bottom:none; }
+.response-type { font-weight:600; font-size:11px; text-transform:uppercase; letter-spacing:.3px; }
+.response-type.completed { color:#059669; }
+.response-type.replied { color:#2563eb; }
+.response-type.declined { color:#dc2626; }
+.response-time { font-size:11px; color:var(--text-muted); }
+.response-text { margin-top:4px; }
 
 .empty-state { text-align:center; padding:20px; color:var(--text-muted); font-size:14px; font-style:italic; }
 
@@ -136,15 +159,22 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
   <div class="stat-row">
     <div class="stat-card"><div class="stat-icon">&#9989;</div><div class="stat-value" id="stat-tasks-done">0</div><div class="stat-label">Tasks Done</div></div>
     <div class="stat-card"><div class="stat-icon">&#128203;</div><div class="stat-value" id="stat-tasks-total">0</div><div class="stat-label">Assigned</div></div>
-    <div class="stat-card"><div class="stat-icon">&#128247;</div><div class="stat-value" id="stat-posts-today">0</div><div class="stat-label">Posts Today</div></div>
+    <div class="stat-card"><div class="stat-icon">&#128172;</div><div class="stat-value" id="stat-replies">0</div><div class="stat-label">Replies</div></div>
     <div class="stat-card"><div class="stat-icon">&#9200;</div><div class="stat-value" id="stat-hours-week">0h</div><div class="stat-label">This Week</div></div>
   </div>
 
   <div class="section">
     <h2><span>&#128221;</span> Today's Tasks</h2>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Tap the circle or "Mark Done" to complete a task. If you can't finish one today, tap "Add Note" to explain why.</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">For each task: <strong>Mark Done</strong> when finished, <strong>Reply</strong> to send G2 a message, or <strong>Can't Do This</strong> to decline with a reason.</p>
     <ul class="task-list" id="task-list"></ul>
     <div class="empty-state" id="tasks-empty" style="display:none">No tasks assigned yet today. Check back soon!</div>
+  </div>
+
+  <div class="section">
+    <h2><span>&#128172;</span> Your Response Log</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Everything you've done today — G2 sees this in real time.</p>
+    <div class="response-log" id="response-log"></div>
+    <div class="empty-state" id="responses-empty">No responses yet today.</div>
   </div>
 
   <div class="section">
@@ -201,20 +231,31 @@ var PRODUCTS = [
 
 function esc(s) { var d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
 function fmtNum(n) { if(n>=1e6) return (n/1e6).toFixed(1)+'M'; if(n>=1e3) return (n/1e3).toFixed(1)+'K'; return String(n); }
+function timeStr() { return new Date().toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'}); }
 
-// Today's date key for localStorage scoping
 var TODAY_KEY = 'jaci-tasks-' + new Date().toISOString().slice(0,10);
+var RESPONSES_KEY = 'jaci-responses-' + new Date().toISOString().slice(0,10);
 
-// Today's assigned tasks — Apr 29 fresh content push
+// 5 NEW high-engagement tasks for Apr 29 launch day
 var TASKS = [
-  { id:'day2_1', title:'TASK 1 — TikTok: ADHD Planner "digital unboxing" (Post by 10 AM)', desc:'PRODUCT: ADHD Daily Planner & Focus System ($14)\nVIDEO STYLE: Screen recording digital unboxing + voiceover, 40 seconds\nSCRIPT: [Hook - 3 sec] "If your brain has 47 tabs open, I made something for you." [Show - 27 sec] Screen record opening the ADHD planner. Show the daily focus page — ONE priority, brain dump section, energy tracker. Scroll to the habit streak page. Show the "dopamine wins" section. Say: "Every section is designed for how ADHD brains actually work. No overwhelm. Just structure that sticks." [Close - 10 sec] "Comment FOCUS and I\'ll send you the link. $14 and your future self will thank you."\nCAPTION: i built this for every girl whose brain won\'t shut up. ADHD-friendly daily planner with focus blocks, brain dump space, and a dopamine wins tracker. comment FOCUS for the link\nHASHTAGS: #adhd #adhdtiktok #adhdplanner #digitalplanner #productivity #girlgoneai #neurodivergent #focushacks\nCTA: "Comment FOCUS for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' },
-  { id:'day2_2', title:'TASK 2 — Instagram Reel: Esthetician Client System "Before vs After" (Post by 12 PM)', desc:'PRODUCT: Esthetician Client Management System ($18)\nVIDEO STYLE: Split-screen before/after + screen recording, 35 seconds, trending audio\nSCRIPT: [Hook - 3 sec] "Estheticians — stop tracking clients in your Notes app." [Before - 10 sec] Show messy screenshots: texts, scattered notes, missed follow-ups. Text overlay: "Before." [After - 15 sec] Screen record opening the system. Show client profiles with skin type, treatment history, product preferences. Show the automated follow-up reminders. Show the revenue tracker. [Close - 7 sec] "Everything in one place. Comment CLIENTS and I\'ll DM you."\nCAPTION: your clients deserve better than a Notes app. client profiles, treatment history, follow-up reminders, revenue tracking — all in one system. built by an esti for estis. comment CLIENTS\nHASHTAGS: #esthetician #estilife #skincare #beautybusiness #clientmanagement #girlgoneai #beautyentrepreneur #spalife\nCTA: "Comment CLIENTS for the link!"\nPLATFORM: Instagram Reels first, then TikTok', status:'pending' },
-  { id:'day2_3', title:'TASK 3 — TikTok: Side Hustle Tracker "Do you even know what you make?" (Post by 2 PM)', desc:'PRODUCT: Side Hustle Income Tracker ($9)\nVIDEO STYLE: Face-to-camera real talk + quick screen demo, 35 seconds\nSCRIPT: [Hook - 3 sec] "Quick question — do you actually know how much your side hustle made last month? Like the real number?" [Talk - 12 sec] "Most people guess and most people are wrong. I was tracking mine in random spreadsheets and Venmo screenshots. So I built this." [Show - 15 sec] Screen record: income by source, expense categories, profit calculation auto-updating, monthly comparison chart. [Close - 5 sec] "$9. That\'s it. Comment HUSTLE for the link."\nCAPTION: if you have a side hustle and you\'re not tracking your actual profit... we need to talk. income, expenses, profit — all auto-calculated. $9. comment HUSTLE\nHASHTAGS: #sidehustle #incometracker #moneytok #budgeting #girlgoneai #entrepreneur #passiveincome #financialliteracy\nCTA: "Comment HUSTLE for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' },
-  { id:'day2_4', title:'TASK 4 — Instagram Stories: "Which one should I unbox next?" poll series (Post by 4 PM)', desc:'PRODUCT: Multiple products — engagement driver\nFORMAT: Instagram Stories series, 4 slides\nSLIDE 1: Selfie with text overlay: "You all went crazy for the store yesterday. Which product should I unbox next?" Add POLL: "Meal Prep Planner vs Podcast Launch Kit"\nSLIDE 2: Screenshot of Meal Prep & Recipe Planner with text: "For the girls who meal prep on Sunday but give up by Wednesday. $10." LINK sticker to gumroad.\nSLIDE 3: Screenshot of Podcast Launch Kit with text: "For the girl who keeps saying she\'s gonna start a podcast. This is your sign. $14." LINK sticker to gumroad.\nSLIDE 4: Text card: "Drop a product name in my DMs and I\'ll unbox it tomorrow! Also — free AI prompt kit still available." LINK sticker to https://girlgone.ai/downloads/ai-productivity-starter-kit.html\nHASHTAGS: #digitalproducts #girlgoneai #mealprepplanner #podcasttips\nPLATFORM: Instagram Stories only', status:'pending' },
-  { id:'day2_5', title:'TASK 5 — TikTok: Med Spa Blueprint "From esti to owner" aspirational hook (Post by 6 PM)', desc:'PRODUCT: Med Spa & Aesthetics Business Launch Blueprint ($24) — highest price product\nVIDEO STYLE: Aspirational storytelling + screen recording, 45 seconds, motivational trending sound\nSCRIPT: [Hook - 5 sec] "Every esthetician thinks about opening their own med spa. Here\'s what nobody tells you about actually doing it." [Show - 30 sec] Screen record opening the blueprint. Show the 12-month launch timeline. Show the startup cost calculator — equipment, licensing, insurance, build-out. Show the service menu builder with pricing formulas. Show the marketing launch plan. Say: "This covers everything — licensing, location, hiring, pricing, marketing. The whole roadmap." [Close - 10 sec] "If you\'ve been dreaming about your own space, comment MEDSPA. $24 for the complete blueprint."\nCAPTION: every esti dreams about it. this is the actual roadmap — licensing, buildout costs, hiring, marketing, pricing. 12-month plan from idea to open doors. comment MEDSPA\nHASHTAGS: #medspa #esthetician #beautybusiness #entrepreneur #medspabusiness #girlgoneai #beautyindustry #bossbabe\nCTA: "Comment MEDSPA for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' }
+  { id:'launch_1', title:'TASK 1 — TikTok: Wedding Planning Dashboard "Engaged? You need this." (Post by 11 AM)', desc:'PRODUCT: Wedding Planning Dashboard ($18)\nVIDEO STYLE: Excited face-to-camera + screen recording walkthrough, 40 seconds\nSCRIPT: [Hook - 3 sec] "If you just got engaged and you\'re already overwhelmed — I built this for you." [Show - 27 sec] Screen record opening the dashboard. Show the master timeline — every task from venue booking to day-of. Show the budget tracker with auto-calculations. Show the guest list manager with RSVP tracking. Show the vendor contact page. Say: "One dashboard. Every detail. No more 14 spreadsheets and a Pinterest board that makes you cry." [Close - 10 sec] "Comment BRIDE and I\'ll send you the link. $18 — cheaper than one centerpiece."\nCAPTION: engaged and already stressed? this wedding planning dashboard has your timeline, budget, guest list, vendors — everything in one place. no more chaos. comment BRIDE\nHASHTAGS: #wedding #weddingplanning #bridetobe #engaged #weddingbudget #girlgoneai #bridetok #weddingplanner\nCTA: "Comment BRIDE for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' },
+  { id:'launch_2', title:'TASK 2 — Instagram Reel: Midjourney Prompt Pack "I made $500 of art in 10 minutes" (Post by 1 PM)', desc:'PRODUCT: Midjourney & AI Art Prompt Pack ($17)\nVIDEO STYLE: Screen recording speed demo + reaction, 35 seconds, upbeat trending audio\nSCRIPT: [Hook - 3 sec] "I just generated what would cost $500 from a graphic designer in 10 minutes. Watch." [Demo - 22 sec] Screen record pasting prompts into Midjourney. Show 4-5 stunning outputs appearing. Show the prompt pack document — organized by category: product mockups, social media graphics, brand photos, abstract art. Say: "200+ tested prompts. Copy, paste, generate. Every single one gives you results like this." [Close - 10 sec] "Stop paying designers for basic graphics. Comment PROMPTS and I\'ll DM you. $17."\nCAPTION: 200+ midjourney prompts that actually work. product mockups, social graphics, brand photos — all copy-paste ready. i use these every single day. comment PROMPTS\nHASHTAGS: #midjourney #aiart #digitalart #graphicdesign #aiprompts #girlgoneai #designhacks #contentcreator\nCTA: "Comment PROMPTS for the link!"\nPLATFORM: Instagram Reels first, then TikTok', status:'pending' },
+  { id:'launch_3', title:'TASK 3 — TikTok: Podcast Launch Kit "Stop saying you\'ll start a podcast" (Post by 3 PM)', desc:'PRODUCT: Podcast Launch Kit ($14)\nVIDEO STYLE: Relatable face-to-camera real talk + screen recording, 40 seconds\nSCRIPT: [Hook - 3 sec] "You\'ve been saying you\'re gonna start a podcast for how long now? A year? Two?" [Talk - 12 sec] "I know because I was the same way. The problem isn\'t ideas — it\'s not knowing where to start. Equipment, hosting, editing, episode structure — it\'s a lot. So I built the entire roadmap." [Show - 18 sec] Screen record: equipment checklist with exact budget options, episode planning template, launch timeline, monetization guide, guest outreach scripts. [Close - 7 sec] "Everything from episode 1 to your first sponsor. Comment PODCAST. $14."\nCAPTION: if "start a podcast" has been on your goal list for more than 6 months... this is your sign. complete launch kit — equipment, episodes, monetization, guest outreach. comment PODCAST\nHASHTAGS: #podcast #podcasttips #podcasting #contentcreator #sidehustle #girlgoneai #podcastlaunch #newpodcast\nCTA: "Comment PODCAST for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' },
+  { id:'launch_4', title:'TASK 4 — IG Carousel: "5 Digital Products Every Girl Boss Needs" (Post by 5 PM)', desc:'PRODUCT: Multiple products — awareness + engagement driver\nFORMAT: Instagram Carousel, 7 slides (cover + 5 products + CTA)\nSLIDE 1 (COVER): Bold text on brand-colored background: "5 Digital Products Every Girl Boss Needs in 2026" — subtitle: "I built all of these."\nSLIDE 2: Med Spa Blueprint ($24) — "Planning to open your own space? This is the complete 12-month roadmap." Screenshot of the blueprint.\nSLIDE 3: Esthetician Client System ($18) — "Stop tracking clients in your Notes app. Profiles, follow-ups, revenue — one system." Screenshot.\nSLIDE 4: ADHD Planner ($14) — "For brains with 47 tabs open. Focus blocks, brain dumps, dopamine wins." Screenshot.\nSLIDE 5: Side Hustle Tracker ($9) — "Do you actually know your profit? This spreadsheet does the math for you." Screenshot.\nSLIDE 6: Meal Prep Planner ($10) — "Sunday meal prep that you actually stick to. Grocery lists, macros, recipes." Screenshot.\nSLIDE 7 (CTA): "All available now at girlgoneai.gumroad.com. Comment which one you need and I\'ll send the link directly!"\nCAPTION: every product i built came from a real problem i had. which one do you need? comment below and i\'ll DM you the link\nHASHTAGS: #digitalproducts #girlboss #entrepreneur #productivitytools #girlgoneai #sidehustletools #notiontemplate #planner2026\nPLATFORM: Instagram feed (carousel) only', status:'pending' },
+  { id:'launch_5', title:'TASK 5 — TikTok: Teacher Lesson Planner "Teachers, I didn\'t forget about you" (Post by 7 PM)', desc:'PRODUCT: Teacher Lesson Planner ($12)\nVIDEO STYLE: Warm, appreciative tone + screen recording, 35 seconds\nSCRIPT: [Hook - 3 sec] "Teachers — I didn\'t forget about you." [Talk - 10 sec] "I know you spend your own money on supplies, stay up late grading, and somehow still have to plan lessons from scratch. So I made this." [Show - 17 sec] Screen record: weekly lesson planner with subject blocks, standard alignment tracker, student notes section, printable weekly view, parent communication log. [Close - 5 sec] "Comment TEACHER. $12. You deserve tools that work as hard as you do."\nCAPTION: teachers spend their own money, stay late, and plan from scratch every week. this lesson planner has weekly templates, standard tracking, student notes, parent logs — everything. comment TEACHER\nHASHTAGS: #teacher #teachertok #teacherlife #lessonplanning #education #girlgoneai #teachertools #backtoschool\nCTA: "Comment TEACHER for the link!"\nPLATFORM: TikTok first, then Instagram Reels', status:'pending' }
 ];
 
-// Load saved state from localStorage
+// Response log — tracks every action Jaci takes
+function getResponses() {
+  try { return JSON.parse(localStorage.getItem(RESPONSES_KEY) || '[]'); } catch(e) { return []; }
+}
+function addResponse(type, taskId, taskTitle, message) {
+  var responses = getResponses();
+  responses.push({ type:type, taskId:taskId, taskTitle:taskTitle, message:message, time:new Date().toISOString() });
+  try { localStorage.setItem(RESPONSES_KEY, JSON.stringify(responses)); } catch(e) {}
+  renderResponses();
+}
+
 function loadState() {
   try {
     var saved = localStorage.getItem(TODAY_KEY);
@@ -223,7 +264,9 @@ function loadState() {
       TASKS.forEach(function(t) {
         if (state[t.id]) {
           t.status = state[t.id].status || t.status;
-          t.note = state[t.id].note || '';
+          t.reply = state[t.id].reply || '';
+          t.deleteReason = state[t.id].deleteReason || '';
+          t.actionTime = state[t.id].actionTime || '';
         }
       });
     }
@@ -233,37 +276,71 @@ function loadState() {
 function saveState() {
   var state = {};
   TASKS.forEach(function(t) {
-    state[t.id] = { status: t.status, note: t.note || '' };
+    state[t.id] = { status:t.status, reply:t.reply||'', deleteReason:t.deleteReason||'', actionTime:t.actionTime||'' };
   });
   try { localStorage.setItem(TODAY_KEY, JSON.stringify(state)); } catch(e) {}
 }
 
 function markDone(id) {
-  TASKS.forEach(function(t) { if (t.id === id) t.status = 'done'; });
-  saveState();
-  renderAll();
+  TASKS.forEach(function(t) {
+    if (t.id === id) {
+      t.status = 'done';
+      t.actionTime = timeStr();
+      addResponse('completed', t.id, t.title, 'Marked as done');
+    }
+  });
+  saveState(); renderAll();
 }
 
 function undoTask(id) {
-  TASKS.forEach(function(t) { if (t.id === id) { t.status = 'pending'; t.note = ''; } });
-  saveState();
-  renderAll();
+  TASKS.forEach(function(t) {
+    if (t.id === id) { t.status = 'pending'; t.reply = ''; t.deleteReason = ''; t.actionTime = ''; }
+  });
+  saveState(); renderAll();
 }
 
-function showNoteInput(id) {
-  var el = document.getElementById('note-area-' + id);
-  if (el) el.style.display = 'block';
-  var input = document.getElementById('note-input-' + id);
+function showReplyInput(id) {
+  var el = document.getElementById('reply-area-' + id);
+  if (el) { el.style.display = 'block'; }
+  var input = document.getElementById('reply-input-' + id);
   if (input) input.focus();
 }
 
-function saveNote(id) {
-  var input = document.getElementById('note-input-' + id);
-  var note = input ? input.value.trim() : '';
-  if (!note) return;
-  TASKS.forEach(function(t) { if (t.id === id) { t.note = note; t.status = 'skipped'; } });
-  saveState();
-  renderAll();
+function sendReply(id) {
+  var input = document.getElementById('reply-input-' + id);
+  var reply = input ? input.value.trim() : '';
+  if (!reply) return;
+  TASKS.forEach(function(t) {
+    if (t.id === id) {
+      t.reply = reply;
+      t.status = 'replied';
+      t.actionTime = timeStr();
+      addResponse('replied', t.id, t.title, reply);
+    }
+  });
+  saveState(); renderAll();
+}
+
+function showDeleteInput(id) {
+  var el = document.getElementById('delete-area-' + id);
+  if (el) { el.style.display = 'block'; }
+  var input = document.getElementById('delete-input-' + id);
+  if (input) input.focus();
+}
+
+function confirmDelete(id) {
+  var input = document.getElementById('delete-input-' + id);
+  var reason = input ? input.value.trim() : '';
+  if (!reason) { alert('Please explain why you can\'t do this task.'); return; }
+  TASKS.forEach(function(t) {
+    if (t.id === id) {
+      t.deleteReason = reason;
+      t.status = 'deleted';
+      t.actionTime = timeStr();
+      addResponse('declined', t.id, t.title, reason);
+    }
+  });
+  saveState(); renderAll();
 }
 
 function renderDate() {
@@ -273,60 +350,100 @@ function renderDate() {
 function renderTasks() {
   var list = document.getElementById('task-list');
   var empty = document.getElementById('tasks-empty');
-  if (!TASKS || !TASKS.length) { list.innerHTML=''; empty.style.display='block'; return; }
+  var activeTasks = TASKS.filter(function(t){ return t.status !== 'deleted'; });
+  var allTasks = TASKS;
+  if (!allTasks.length) { list.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
-  var done = TASKS.filter(function(t){ return t.status==='done'; }).length;
-  var skipped = TASKS.filter(function(t){ return t.status==='skipped'; }).length;
+  var done = allTasks.filter(function(t){ return t.status==='done'; }).length;
+  var replied = allTasks.filter(function(t){ return t.status==='replied'; }).length;
   document.getElementById('stat-tasks-done').textContent = done;
-  document.getElementById('stat-tasks-total').textContent = TASKS.length;
+  document.getElementById('stat-tasks-total').textContent = allTasks.length;
+  document.getElementById('stat-replies').textContent = replied;
 
-  list.innerHTML = TASKS.map(function(t) {
+  list.innerHTML = allTasks.map(function(t) {
     var isDone = t.status === 'done';
-    var isSkipped = t.status === 'skipped';
-    var checkClass = isDone ? 'done' : '';
-    var checkMark = isDone ? '&#10003;' : '';
-    var textClass = isDone ? 'done' : '';
+    var isReplied = t.status === 'replied';
+    var isDeleted = t.status === 'deleted';
+    var itemClass = isDeleted ? 'task-item deleted' : 'task-item';
+    var checkClass = isDone ? 'done' : (isDeleted ? 'deleted' : '');
+    var checkMark = isDone ? '&#10003;' : (isDeleted ? '&#10005;' : '');
+    var textClass = isDone ? 'done' : (isDeleted ? 'deleted' : '');
 
     var actions = '';
     if (isDone) {
       actions = '<div class="task-actions">' +
         '<span class="task-status-badge badge-done">Completed</span>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
-        '</div>';
-    } else if (isSkipped) {
-      actions = '<div class="task-note-display"><strong>Your note:</strong> ' + esc(t.note) + '</div>' +
+        '</div>' +
+        (t.actionTime ? '<div class="task-time">Done at ' + esc(t.actionTime) + '</div>' : '');
+    } else if (isReplied) {
+      actions = '<div class="task-reply-display"><strong>Your reply:</strong> ' + esc(t.reply) + '</div>' +
         '<div class="task-actions">' +
-        '<span class="task-status-badge badge-skipped">Note Added</span>' +
+        '<span class="task-status-badge badge-replied">Replied to G2</span>' +
+        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Mark Done</button>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
-        '</div>';
+        '</div>' +
+        (t.actionTime ? '<div class="task-time">Replied at ' + esc(t.actionTime) + '</div>' : '');
+    } else if (isDeleted) {
+      actions = '<div class="task-delete-display"><strong>Reason:</strong> ' + esc(t.deleteReason) + '</div>' +
+        '<div class="task-actions">' +
+        '<span class="task-status-badge badge-deleted">Declined</span>' +
+        '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
+        '</div>' +
+        (t.actionTime ? '<div class="task-time">Declined at ' + esc(t.actionTime) + '</div>' : '');
     } else {
       actions = '<div class="task-actions">' +
         '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Mark Done</button>' +
-        '<button class="task-btn task-btn-note" onclick="showNoteInput(\'' + t.id + '\')">Add Note</button>' +
+        '<button class="task-btn task-btn-reply" onclick="showReplyInput(\'' + t.id + '\')">Reply to G2</button>' +
+        '<button class="task-btn task-btn-delete" onclick="showDeleteInput(\'' + t.id + '\')">Can\'t Do This</button>' +
         '</div>' +
-        '<div id="note-area-' + t.id + '" style="display:none">' +
-        '<textarea class="task-note-input" id="note-input-' + t.id + '" rows="2" placeholder="Why can\'t you complete this today? (e.g. No time today, Need better lighting...)"></textarea>' +
-        '<div style="margin-top:6px"><button class="task-btn task-btn-note" onclick="saveNote(\'' + t.id + '\')">Save Note</button></div>' +
+        '<div id="reply-area-' + t.id + '" style="display:none">' +
+        '<textarea class="task-input-area" id="reply-input-' + t.id + '" rows="2" placeholder="Type your reply to G2... (e.g. This is a digital product so I can\'t do a physical unboxing — what else would you like?)"></textarea>' +
+        '<div style="margin-top:6px"><button class="task-btn task-btn-reply" onclick="sendReply(\'' + t.id + '\')">Send Reply</button></div>' +
+        '</div>' +
+        '<div id="delete-area-' + t.id + '" style="display:none">' +
+        '<textarea class="task-input-area" id="delete-input-' + t.id + '" rows="2" placeholder="Why can\'t you do this task? (e.g. It\'s a digital product, not a physical one — can\'t do a real unboxing)"></textarea>' +
+        '<div style="margin-top:6px"><button class="task-btn task-btn-delete" onclick="confirmDelete(\'' + t.id + '\')">Confirm Decline</button></div>' +
         '</div>';
     }
 
-    return '<li class="task-item">' +
-      '<div class="task-check ' + checkClass + '" onclick="' + (!isDone && !isSkipped ? 'markDone(\'' + t.id + '\')' : '') + '">' + checkMark + '</div>' +
+    return '<li class="' + itemClass + '">' +
+      '<div class="task-check ' + checkClass + '"' + (!isDone && !isReplied && !isDeleted ? ' onclick="markDone(\'' + t.id + '\')"' : '') + '>' + checkMark + '</div>' +
       '<div class="task-body">' +
         '<div class="task-text ' + textClass + '">' + esc(t.title) + '</div>' +
-        (t.desc ? '<div class="task-desc">' + esc(t.desc) + '</div>' : '') +
+        (t.desc && !isDeleted ? '<div class="task-desc">' + esc(t.desc) + '</div>' : '') +
         actions +
       '</div>' +
       '</li>';
   }).join('');
 }
 
+function renderResponses() {
+  var responses = getResponses();
+  var log = document.getElementById('response-log');
+  var empty = document.getElementById('responses-empty');
+  if (!responses.length) { log.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+  log.innerHTML = responses.slice().reverse().map(function(r) {
+    var typeClass = r.type;
+    var typeLabel = r.type === 'completed' ? 'COMPLETED' : (r.type === 'replied' ? 'REPLIED' : 'DECLINED');
+    var time = new Date(r.time).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+    return '<div class="response-entry">' +
+      '<div style="display:flex;justify-content:space-between;align-items:center">' +
+      '<span class="response-type ' + typeClass + '">' + typeLabel + '</span>' +
+      '<span class="response-time">' + esc(time) + '</span>' +
+      '</div>' +
+      '<div style="font-weight:500;font-size:12px;margin-top:2px;">' + esc(r.taskTitle.substring(0,60)) + '</div>' +
+      (r.message !== 'Marked as done' ? '<div class="response-text">' + esc(r.message) + '</div>' : '') +
+      '</div>';
+  }).join('');
+}
+
 function renderContent(posts) {
   var grid = document.getElementById('content-grid');
   var empty = document.getElementById('content-empty');
-  if (!posts||!posts.length) { grid.innerHTML=''; empty.style.display='block'; document.getElementById('stat-posts-today').textContent='0'; return; }
+  if (!posts||!posts.length) { grid.innerHTML=''; empty.style.display='block'; return; }
   empty.style.display='none';
-  document.getElementById('stat-posts-today').textContent = posts.length;
   grid.innerHTML = posts.map(function(p) {
     var cls = (p.platform||'').toLowerCase();
     var icon = cls==='tiktok'?'&#9835;':'&#128247;';
@@ -356,11 +473,11 @@ function renderProducts() {
 function renderOverview() {
   var done = TASKS.filter(function(t){ return t.status==='done'; }).length;
   var total = TASKS.length;
-  var acted = TASKS.filter(function(t){ return t.status==='done' || t.status==='skipped'; }).length;
+  var acted = TASKS.filter(function(t){ return t.status!=='pending'; }).length;
   var emoji, status, sub;
   if (!total) { emoji='\u2615'; status='No tasks today yet'; sub='Check back soon for your daily brief!'; }
   else if (done===total) { emoji='\u2B50'; status='All done! Amazing work!'; sub='You crushed all '+total+' tasks today.'; }
-  else if (acted===total) { emoji='\uD83D\uDCAA'; status='All tasks addressed!'; sub=done+' completed, '+(total-done)+' noted. Great job staying on top of it!'; }
+  else if (acted===total) { emoji='\uD83D\uDCAA'; status='All tasks addressed!'; sub=done+' completed, '+(acted-done)+' replied/declined. Great job staying on top of it!'; }
   else if (done>=total/2) { emoji='\uD83D\uDCAA'; status='Great progress!'; sub=done+' of '+total+' tasks complete. Keep going!'; }
   else { emoji='\uD83C\uDF1F'; status="Let's get it!"; sub=done+' of '+total+' tasks done so far. You got this!'; }
   document.getElementById('overview-emoji').textContent = emoji;
@@ -371,6 +488,7 @@ function renderOverview() {
 function renderAll() {
   renderTasks();
   renderOverview();
+  renderResponses();
 }
 
 document.addEventListener('DOMContentLoaded', function() {
