@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girl Gone AI — Jaci Avatar Test</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5; --surface: #ffffff; --border: #e8e4df;
+  --text: #2d2a26; --text-muted: #8a857e;
+  --accent: #c084fc; --accent-dark: #a855f7;
+  --pink: #f472b6; --radius: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; }
+header {
+  background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+  padding: 28px 24px; color: white; text-align: center;
+}
+header h1 { font-size: 22px; font-weight: 700; }
+header p { font-size: 14px; opacity: .85; margin-top: 6px; }
+main { max-width: 480px; margin: 0 auto; padding: 24px 16px; display: flex; flex-direction: column; gap: 20px; }
+.video-container {
+  background: #000; border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.15);
+}
+.video-container video { width: 100%; display: block; }
+.card {
+  background: var(--surface); border-radius: var(--radius); padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.card h2 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+.card p { font-size: 14px; line-height: 1.6; color: var(--text-muted); }
+.badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 8px; margin-right: 6px; margin-bottom: 6px; }
+.badge-product { background: rgba(192,132,252,.12); color: #7c3aed; }
+.badge-platform { background: rgba(96,165,250,.12); color: #2563eb; }
+.badge-duration { background: rgba(52,211,153,.12); color: #059669; }
+.badge-status { background: rgba(244,114,182,.12); color: #db2777; }
+.meta { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 12px; }
+footer { text-align: center; padding: 24px; font-size: 12px; color: var(--text-muted); }
+</style>
+</head>
+<body>
+<header>
+  <h1>AJ Video Demo #2</h1>
+  <p>Jaci Avatar Test — Girl Gone AI Intro</p>
+</header>
+
+<main>
+  <div class="video-container">
+    <video controls playsinline preload="metadata">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support video playback.
+    </video>
+  </div>
+
+  <div class="card">
+    <div class="meta">
+      <span class="badge badge-product">Jaci Avatar</span>
+      <span class="badge badge-platform">Test</span>
+      <span class="badge badge-duration">~7s</span>
+      <span class="badge badge-status">Demo</span>
+    </div>
+    <h2>Jaci Avatar — Intro Test</h2>
+    <p>Test video using Jaci's personal HeyGen avatar (talking photo). Short intro clip to verify the avatar renders correctly before producing full product demos.</p>
+  </div>
+
+  <div class="card">
+    <h2>Generation Details</h2>
+    <p><strong>Avatar:</strong> Jaci (Talking Photo, Personal)<br>
+    <strong>Avatar ID:</strong> b51af9fbe35f4c6fba6028d1fd581b1f<br>
+    <strong>Voice:</strong> English Female<br>
+    <strong>Platform:</strong> HeyGen API v2<br>
+    <strong>Video ID:</strong> 57d762276c7f4b62a3feffe54d74bec1<br>
+    <strong>Duration:</strong> 6.5s<br>
+    <strong>Generated:</strong> 2026-04-30</p>
+  </div>
+</main>
+
+<footer>Girl Gone AI — HeyGen Demo Videos</footer>
+</body>
+</html>
