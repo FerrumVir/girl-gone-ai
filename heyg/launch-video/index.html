@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Girl Gone AI Launch Video</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5; --surface: #ffffff; --border: #e8e4df;
+  --text: #2d2a26; --text-muted: #8a857e;
+  --accent: #c084fc; --accent-dark: #a855f7;
+  --pink: #f472b6;
+  --radius: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; }
+header {
+  background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+  padding: 28px 32px; color: white; text-align:center;
+}
+header h1 { font-size:22px; font-weight:700; }
+header p { font-size:14px; opacity:.85; margin-top:6px; }
+main { padding:24px; max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:20px; align-items:center; }
+.video-wrap { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; width:100%; max-width:360px; }
+.video-wrap video { width:100%; display:block; }
+.info { background:var(--surface); border-radius:var(--radius); padding:20px 24px; box-shadow:var(--shadow); width:100%; }
+.info h2 { font-size:16px; font-weight:600; margin-bottom:8px; }
+.info p { font-size:14px; color:var(--text-muted); line-height:1.6; }
+.cta { display:inline-block; background:linear-gradient(135deg, var(--accent) 0%, var(--pink) 100%); color:white; padding:12px 28px; border-radius:99px; text-decoration:none; font-weight:600; font-size:15px; margin-top:12px; transition:opacity .2s; }
+.cta:hover { opacity:.9; }
+.badge { display:inline-block; background:var(--accent); color:white; padding:4px 10px; border-radius:99px; font-size:11px; font-weight:600; letter-spacing:.5px; text-transform:uppercase; margin-bottom:8px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Girl Gone AI Launch</h1>
+  <p>Meet Jaci Ellis — AI insider turned digital entrepreneur</p>
+</header>
+<main>
+  <div class="video-wrap">
+    <video controls playsinline poster="">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+  <div class="info">
+    <span class="badge">Launch Video</span>
+    <h2>Welcome to Girl Gone AI</h2>
+    <p>Jaci introduces Girl Gone AI — 12 digital products available now, with 128+ more launching soon. Planners, trackers, prompt packs, and business tools crafted with real AI expertise.</p>
+    <a href="https://girlgone.ai" class="cta">Visit girlgone.ai</a>
+  </div>
+</main>
+</body>
+</html>
