@@ -13,22 +13,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Girl Gone AI — Where Smart Girl Energy Meets Artificial Intelligence</title>
-  <meta name="description" content="Meet Jaci Ellis — she left her AI company job to build her own digital empire. 140+ premium digital products. Smart girl energy, real AI expertise.">
+  <meta name="description" content="Meet Jaci Ellis — she left her AI company job to build her own digital empire. 12 available digital products, 128+ launching soon. Smart girl energy, real AI expertise.">
   <meta name="keywords" content="Girl Gone AI, Jaci Ellis, AI entrepreneur, digital products, AI insider, smart girl energy, templates, planners, prompt packs">
   <meta property="og:title" content="Girl Gone AI — Smart Girl Energy Meets AI">
-  <meta property="og:description" content="Meet Jaci Ellis — AI insider turned digital entrepreneur. 140+ premium digital products.">
+  <meta property="og:description" content="Meet Jaci Ellis — AI insider turned digital entrepreneur. 12 available digital products, 128+ launching soon.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="./og-image.svg">
   <meta property="og:url" content="https://ferrumvir.github.io/girl-gone-ai/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Girl Gone AI">
-  <meta name="twitter:description" content="Smart girl energy meets artificial intelligence. 140+ digital products.">
+  <meta name="twitter:description" content="Smart girl energy meets artificial intelligence. 12 available digital products.">
   <link rel="canonical" href="https://ferrumvir.github.io/girl-gone-ai/">
   <link rel="icon" type="image/svg+xml" href="./favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./styles.css">
+
+<style>
+/* Available Now & Launching Soon styles */
+.available-now .section-header .section-tag {
+  background: linear-gradient(135deg, #10B981, #34D399);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.available-now .section-title {
+  color: #10B981;
+}
+.published-card {
+  border: 2px solid rgba(16, 185, 129, 0.3) !important;
+  position: relative;
+}
+.published-card::before {
+  content: "LIVE";
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #10B981, #34D399);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  z-index: 2;
+}
+.gumroad-link {
+  background: linear-gradient(135deg, #FF3B8B, #A855F7) !important;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+.gumroad-link:hover {
+  opacity: 0.9;
+}
+.free-badge {
+  background: linear-gradient(135deg, #10B981, #34D399);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+}
+.launching-soon-header {
+  padding: 60px 0 20px;
+}
+.launching-soon-header .section-tag {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.launching-soon-header .section-title {
+  color: #F59E0B;
+}
+.coming-soon-badge {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+  color: #1a1a2e;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.5px;
+  margin-left: 8px;
+}
+.coming-soon-text {
+  color: #F59E0B;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-style: italic;
+}
+</style>
 </head>
 <body>
 
@@ -126,7 +205,7 @@
         powered by real AI expertise — not just buzzwords.
       </p>
       <div class="hero-stats">
-        <div class="hero-stat"><span class="hero-stat-num">140+</span><span class="hero-stat-label">Products</span></div>
+        <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-label">Available Products</span></div>
         <div class="hero-stat"><span class="hero-stat-num">9</span><span class="hero-stat-label">Categories</span></div>
         <div class="hero-stat"><span class="hero-stat-num">22</span><span class="hero-stat-label">Bundles</span></div>
       </div>
@@ -164,8 +243,8 @@
               <span class="stat-label">years old</span>
             </div>
             <div class="about-stat">
-              <span class="stat-num">140+</span>
-              <span class="stat-label">products</span>
+              <span class="stat-num">12</span>
+              <span class="stat-label">available</span>
             </div>
           </div>
         </div>
@@ -255,7 +334,7 @@
     <div class="container">
       <div class="section-header">
         <span class="section-tag">Shop by Category</span>
-        <h2 class="section-title">9 Categories. 140+ Products.</h2>
+        <h2 class="section-title">12 Available Now. 128+ Launching Soon.</h2>
         <p class="section-desc">Premium digital tools crafted with real AI expertise. Click a category to explore.</p>
       </div>
       <div class="categories-grid">
@@ -292,7 +371,117 @@
 
   <!-- ========== Product Catalog ========== -->
   <div class="catalog" id="catalog">
-  <!-- Bundles Section -->
+
+  <!-- Available Now - Published on Gumroad -->
+  <section class="section available-now" id="available-now">
+    <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Shop Now</span>
+      <h2 class="section-title">Available Now</h2>
+      <p class="section-desc">These products are live and ready to download. Get instant access on Gumroad.</p>
+    </div>
+    <div class="products-grid">
+      <div class="product-card published-card">
+        <h3>AI Productivity Starter Kit</h3>
+        <span class="price">FREE</span>
+        <span class="free-badge">FREE</span>
+        <p class="desc">Your free entry point into the Girl Gone AI ecosystem. Essential AI productivity tools, templates, and quick-start guides to help you work smarter from day one.</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/free-starter-kit" target="_blank" rel="noopener" class="gumroad-link">Get Free on Gumroad</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Free Morning Glow Checklist</h3>
+        <span class="price">FREE</span>
+        <span class="free-badge">FREE</span>
+        <p class="desc">Start every morning with intention. A simple, beautiful checklist to build your perfect morning routine — skincare, mindset, and productivity in one flow.</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/wgnvf" target="_blank" rel="noopener" class="gumroad-link">Get Free on Gumroad</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Teacher Lesson Planner &amp; Classroom Manager</h3>
+        <span class="price">$12</span>
+        <span class="category-tag">Notion Templates</span>
+        <p class="desc">Sunday night, 9pm. You&#039;re three browser tabs deep trying to find that reading comprehension worksheet you used last Octo...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/gkdlq" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/21-teacher-lesson-planner.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Wedding Planning Dashboard</h3>
+        <span class="price">$18</span>
+        <span class="category-tag">Notion Templates</span>
+        <p class="desc">The moment you got engaged, the to-do list started growing. Venue tours, catering tastings, dress shopping, photographer...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/hxntlz" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/22-wedding-planning-dashboard.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Meal Prep &amp; Recipe Planner</h3>
+        <span class="price">$10</span>
+        <span class="category-tag">Notion Templates</span>
+        <p class="desc">You know meal prepping saves money. You know it saves time. You know it&#039;s healthier. You&#039;ve probably tried it — pinned 3...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/btxunu" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/25-meal-prep-planner.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Student Study System</h3>
+        <span class="price">$8</span>
+        <span class="category-tag">Notion Templates</span>
+        <p class="desc">You know the feeling. It&#039;s Sunday night. You open your laptop to &quot;get organized&quot; and spend an hour building a to-do list...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/rypqg" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/26-student-study-system.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Midjourney &amp; AI Art Prompt Pack</h3>
+        <span class="price">$17</span>
+        <span class="category-tag">AI Prompt Packs</span>
+        <p class="desc">You&#039;ve seen the stunning AI art on social media. The photorealistic portraits that look like they came from a $10,000 ca...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/rjfayx" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/24-midjourney-prompts.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Professional Invoice Generator</h3>
+        <span class="price">$8</span>
+        <span class="category-tag">Spreadsheet Tools</span>
+        <p class="desc">---</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/thtyoc" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/19-invoice-generator.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Side Hustle Income &amp; Expense Tracker</h3>
+        <span class="price">$9</span>
+        <span class="category-tag">Spreadsheet Tools</span>
+        <p class="desc">Side hustles don&#039;t fail because people don&#039;t work hard enough. They fail because people don&#039;t know their numbers. You&#039;re...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/xrlbjs" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/23-side-hustle-tracker.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Client Proposal Template Kit</h3>
+        <span class="price">$10</span>
+        <span class="category-tag">Workflow Kits</span>
+        <p class="desc">---</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/baqfdx" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/20-proposal-template.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Podcast Launch Kit</h3>
+        <span class="price">$14</span>
+        <span class="category-tag">Workflow Kits</span>
+        <p class="desc">Everyone tells you to &quot;just start.&quot; But when you sit down to actually do it, &quot;just start&quot; turns into twenty browser tabs...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/27-podcast-launch-kit" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/27-podcast-launch-kit.html">View Product</a></div>
+      </div>
+
+      <div class="product-card published-card">
+        <h3>Product Launch Playbook</h3>
+        <span class="price">$12</span>
+        <span class="category-tag">Digital Products</span>
+        <p class="desc">You have a product ready. You have an audience — or you&#039;re building one. What you don&#039;t have is a clear picture of every...</p>
+        <div class="links"><a href="https://girlgoneai.gumroad.com/l/apbls" target="_blank" rel="noopener" class="gumroad-link">Buy on Gumroad</a> <a href="products/18-product-launch-checklist.html">View Product</a></div>
+      </div>
+
+    </div>
+    </div>
+  </section>
+
+<!-- Bundles Section -->
   <section class="bundles-showcase" id="bundles">
     <h2>Save More with Bundles</h2>
     <p class="subtitle">Curated product collections at up to 48% off individual prices.</p>
@@ -359,7 +548,18 @@
     </div>
   </section>
 
-  <!-- Beauty & Wellness Business -->
+  <!-- Launching Soon -->
+  <section class="launching-soon-header" id="launching-soon">
+    <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Preview</span>
+      <h2 class="section-title">Launching Soon</h2>
+      <p class="section-desc">These products are in the works and will be available for purchase soon. Browse what's coming next.</p>
+    </div>
+    </div>
+  </section>
+
+<!-- Beauty & Wellness Business -->
   <section class="section" id="beauty-wellness">
     <div class="product-category-banner"><img src="./images/categories/beauty-wellness-business.svg" alt="Beauty &amp; Wellness Business" loading="lazy"></div>
     <h2>Beauty &amp; Wellness Business</h2>
@@ -368,94 +568,106 @@
       <div class="product-card">
         <h3>Lash Tech Business Planner &amp; Client Tracker</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You learned lashes because you love making people feel beautiful. But between booking clients, tracking supplies, and fi...</p>
-        <div class="links"><a href="products/141-lash-tech-business-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Esthetician Client Management System</h3>
         <span class="price">$18</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">Your clients trust you with their skin. The least you can do is remember their allergies, their last facial protocol, an...</p>
-        <div class="links"><a href="products/142-esthetician-client-management.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Skincare Routine Builder &amp; Product Tracker</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You&#039;ve got 14 products on your bathroom shelf and no idea which ones are actually doing anything. Or worse, which ones a...</p>
-        <div class="links"><a href="products/143-skincare-routine-builder.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Business Booking &amp; Revenue Dashboard</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You&#039;re good at what you do. But if you can&#039;t see your numbers — what you made this month, your no-show rate, which servi...</p>
-        <div class="links"><a href="products/144-beauty-business-booking-crm.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Pro to Brand Owner Launch Kit</h3>
         <span class="price">$22</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You&#039;ve been doing lashes, facials, or nails for years. You know what works, what sells, and what your clients actually w...</p>
-        <div class="links"><a href="products/145-beauty-to-brand-launch-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Influencer Content Calendar &amp; Strategy Planner</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">Posting randomly whenever inspiration hits isn&#039;t a strategy. It&#039;s why your engagement flatlined.</p>
-        <div class="links"><a href="products/147-beauty-influencer-content-calendar.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Facial Treatment Menu &amp; Service Pricing Guide</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">If you&#039;re pricing your facials based on what the spa down the street charges, you&#039;re leaving money on the table.</p>
-        <div class="links"><a href="products/148-facial-treatment-menu-pricing.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Side Hustle Starter Kit</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You&#039;re doing lashes or facials on the side and it&#039;s going well. But you don&#039;t have a business — you have a side gig held...</p>
-        <div class="links"><a href="products/150-beauty-side-hustle-starter.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Med Spa &amp; Aesthetics Business Launch Blueprint</h3>
         <span class="price">$24</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">Opening a med spa is a six-figure decision. This blueprint helps you make it with your eyes open.</p>
-        <div class="links"><a href="products/152-med-spa-business-launch.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Skincare Product Line Development Kit</h3>
         <span class="price">$21</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You know skin better than anyone in your friend group. You&#039;ve been mixing serums and recommending products for years. No...</p>
-        <div class="links"><a href="products/155-skincare-brand-builder.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Esthetician to CEO: Business Growth Roadmap</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Beauty &amp; Wellness Business</span>
         <p class="desc">You&#039;re fully booked three weeks out and still barely making enough. Because fully booked doesn&#039;t mean profitable, and be...</p>
-        <div class="links"><a href="products/157-esthetician-to-ceo-growth.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Notion Templates -->
+<!-- Notion Templates -->
   <section class="section" id="notion-templates">
     <div class="product-category-banner"><img src="./images/categories/notion-templates.svg" alt="Notion Templates" loading="lazy"></div>
     <h2>Notion Templates</h2>
@@ -464,305 +676,307 @@
       <div class="product-card">
         <h3>Freelance Invoicing &amp; Client Tracker</h3>
         <span class="price">Free</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="free-badge">FREE</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">You started freelancing to do great work, not to spend Sunday nights hunting through email threads trying to figure out ...</p>
-        <div class="links"><a href="products/01-freelance-invoicing-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Content Creator Editorial Calendar</h3>
         <span class="price">Free</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="free-badge">FREE</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Every creator knows the feeling: you meant to post three times this week, but Tuesday came and went because you couldn&#039;t...</p>
-        <div class="links"><a href="products/02-content-calendar-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Job Search Command Center</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Job searching is a full-time project. Most people manage it like it isn&#039;t.</p>
-        <div class="links"><a href="products/03-job-search-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>ADHD Daily Planner &amp; Focus System</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/04-adhd-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Wellness &amp; Habit Tracker</h3>
         <span class="price">Free</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="free-badge">FREE</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/05-wellness-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Client CRM &amp; Pipeline Tracker</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">You met someone at a conference six weeks ago who seemed genuinely interested. You said you&#039;d follow up. You meant to. B...</p>
-        <div class="links"><a href="products/11-crm-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Project Manager Pro</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">You know the feeling: a project is technically &quot;on track&quot; until someone asks you exactly where it stands and you realize...</p>
-        <div class="links"><a href="products/12-project-manager-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Social Media Content Planner</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/13-social-media-planner-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Real Estate Agent Command Center</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/14-real-estate-agent-planner.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Teacher Lesson Planner &amp; Classroom Manager</h3>
-        <span class="price">$12</span>
-        <span class="category-tag">Notion Templates</span>
-        <p class="desc">Sunday night, 9pm. You&#039;re three browser tabs deep trying to find that reading comprehension worksheet you used last Octo...</p>
-        <div class="links"><a href="products/21-teacher-lesson-planner.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Wedding Planning Dashboard</h3>
-        <span class="price">$18</span>
-        <span class="category-tag">Notion Templates</span>
-        <p class="desc">The moment you got engaged, the to-do list started growing. Venue tours, catering tastings, dress shopping, photographer...</p>
-        <div class="links"><a href="products/22-wedding-planning-dashboard.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Meal Prep &amp; Recipe Planner</h3>
-        <span class="price">$10</span>
-        <span class="category-tag">Notion Templates</span>
-        <p class="desc">You know meal prepping saves money. You know it saves time. You know it&#039;s healthier. You&#039;ve probably tried it — pinned 3...</p>
-        <div class="links"><a href="products/25-meal-prep-planner.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Student Study System</h3>
-        <span class="price">$8</span>
-        <span class="category-tag">Notion Templates</span>
-        <p class="desc">You know the feeling. It&#039;s Sunday night. You open your laptop to &quot;get organized&quot; and spend an hour building a to-do list...</p>
-        <div class="links"><a href="products/26-student-study-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Remote Team Meeting System</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Remote meetings have a problem that no video platform can fix. People show up, talk for 30-60 minutes, and leave without...</p>
-        <div class="links"><a href="products/30-remote-team-meetings.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Pet Business Planner</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/31-pet-business-planner-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>YouTube Channel Growth System</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/32-youtube-channel-growth-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Airbnb Host Management Dashboard</h3>
         <span class="price">$18</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">You remember the exact moment hosting stopped being simple. One property was manageable — you could keep everything in y...</p>
-        <div class="links"><a href="products/33-airbnb-host-management-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Digital Marketing Agency Client Tracker</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">You know the feeling. A client asks for a status update and you spend 20 minutes digging through Slack threads, Google D...</p>
-        <div class="links"><a href="products/37-agency-client-tracker-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Digital Declutter &amp; Organization System</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Most &quot;digital organization&quot; advice boils down to &quot;just delete stuff.&quot; That&#039;s like telling someone with a messy house to ...</p>
-        <div class="links"><a href="products/41-digital-declutter-system-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Rental Property Manager</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Property management software exists, but most of it is designed for large-scale operators and costs $20-100+/month per u...</p>
-        <div class="links"><a href="products/43-rental-property-manager-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>SaaS Metrics Dashboard</h3>
         <span class="price">$18</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Track MRR, churn, CAC, LTV, runway, and 20+ SaaS KPIs in one Notion workspace. Includes automated calculations, investor...</p>
-        <div class="links"><a href="products/52-saas-metrics-dashboard-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Interior Design Client Manager</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Manage clients, mood boards, vendor contacts, project timelines, budgets, and material sourcing in one system. Built by ...</p>
-        <div class="links"><a href="products/53-interior-design-client-manager-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Travel Planning Dashboard</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Plan trips with itinerary builder, packing lists, budget tracker, booking manager, and travel journal. Supports multi-de...</p>
-        <div class="links"><a href="products/57-travel-planning-dashboard-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Podcast Guest Outreach System</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">A complete Notion-based system for booking high-quality podcast guests consistently. Manage your entire outreach pipelin...</p>
-        <div class="links"><a href="products/61-podcast-guest-outreach-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion Life OS Dashboard</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">An all-in-one Notion workspace that connects your goals, projects, habits, finances, health, and personal knowledge into...</p>
-        <div class="links"><a href="products/72-notion-life-os-dashboard.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion Second Brain System</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">A ready-to-use Notion workspace implementing the PARA method (Projects, Areas, Resources, Archives) with connected datab...</p>
-        <div class="links"><a href="products/80-notion-second-brain-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>ADHD Productivity System for Notion</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">The ADHD Productivity System for Notion is a fully built Notion workspace engineered around how ADHD brains actually wor...</p>
-        <div class="links"><a href="products/86-adhd-productivity-system-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion CRM for Solopreneurs</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">The Notion CRM for Solopreneurs is a lightweight, fully-built client relationship management system inside Notion — no S...</p>
-        <div class="links"><a href="products/92-notion-crm-solopreneurs.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion Habit Tracker &amp; Streak System</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">A visual habit tracking system built in Notion that makes building consistency feel like a game rather than a chore. Dai...</p>
-        <div class="links"><a href="products/97-notion-habit-tracker-streak.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion Reading List &amp; Book Notes System</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">A complete Notion workspace for managing your reading life from first page to lasting memory. Track every book across to...</p>
-        <div class="links"><a href="products/99-notion-reading-list-book-notes.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Study Planner Pro</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Notion template for students with class schedule management, assignment tracker, study session timer, GPA calculator, an...</p>
-        <div class="links"><a href="products/104-study-planner-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Online Course Notes System</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Notion template to organize notes from Udemy, Coursera, and other platforms with course progress tracker, key takeaways,...</p>
-        <div class="links"><a href="products/108-online-course-notes-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Networking CRM</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Professional networking database with contact management, follow-up reminders, event tracker, relationship strength scor...</p>
-        <div class="links"><a href="products/110-networking-crm-notion.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Home Organization System</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Complete room-by-room decluttering tracker with maintenance schedules, storage solutions planner, and seasonal deep-clea...</p>
-        <div class="links"><a href="products/111-home-organization-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Photography Client Management</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">All-in-one client management system for photographers with session booking, contract tracking, gallery delivery workflow...</p>
-        <div class="links"><a href="products/112-photography-client-crm.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Notion Vacation Rental Manager</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">Complete vacation rental management system with booking calendar, guest communication templates, cleaning checklists, re...</p>
-        <div class="links"><a href="products/118-vacation-rental-manager.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Pet Care &amp; Vet Visit Tracker</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Notion Templates</span>
         <p class="desc">A comprehensive Notion template for managing all aspects of pet care including multi-pet profiles, vet appointment sched...</p>
-        <div class="links"><a href="products/122-pet-care-vet-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Digital Planners -->
+<!-- Digital Planners -->
   <section class="section" id="digital-planners">
     <div class="product-category-banner"><img src="./images/categories/digital-planners.svg" alt="Digital Planners" loading="lazy"></div>
     <h2>Digital Planners</h2>
@@ -771,142 +985,160 @@
       <div class="product-card">
         <h3>Fitness Coach Business Planner</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">You became a fitness coach because you love helping people transform. But somewhere between writing new workout programs...</p>
-        <div class="links"><a href="products/16-fitness-coach-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Gratitude &amp; Mindfulness Journal</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">90-day guided gratitude journal with morning/evening prompts, mood tracking, weekly reflection pages, and mindfulness ex...</p>
-        <div class="links"><a href="products/51-gratitude-mindfulness-journal.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Daily Stoic Journal</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">365-day guided journaling system based on Stoic philosophy. Daily prompts from Marcus Aurelius, Seneca, and Epictetus. I...</p>
-        <div class="links"><a href="products/59-daily-stoic-journal.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>ADHD Focus Timer &amp; Task Manager</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A digital planner designed specifically for ADHD brains that combines Pomodoro-style focus blocks with an intuitive task...</p>
-        <div class="links"><a href="products/62-adhd-focus-timer-task-manager.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Pregnancy &amp; Baby Milestone Tracker</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A week-by-week pregnancy journal and first-year baby milestone tracker in one organized system. Covers every stage from ...</p>
-        <div class="links"><a href="products/71-pregnancy-baby-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Homeschool Curriculum Planner</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A full-year homeschool planning system that organizes curriculum by subject, tracks lesson completion, logs attendance a...</p>
-        <div class="links"><a href="products/75-homeschool-curriculum-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>30-Day Fitness Challenge Planner</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">The 30-Day Fitness Challenge Planner is a printable and digital planning system that takes you from zero to consistent i...</p>
-        <div class="links"><a href="products/88-30-day-fitness-challenge-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Meal Prep Master Planner</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">The Meal Prep Master Planner is a comprehensive weekly meal planning system designed for busy professionals who want to ...</p>
-        <div class="links"><a href="products/91-meal-prep-master-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Language Learning Tracker</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">Track vocabulary, grammar progress, study streaks, and fluency milestones for any language with a built-in spaced repeti...</p>
-        <div class="links"><a href="products/105-language-learning-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Thesis &amp; Research Writing Planner</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">For grad students: chapter outline tracker, citation manager, advisor meeting log, deadline countdown, and writing sprin...</p>
-        <div class="links"><a href="products/106-thesis-writing-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Certification Exam Tracker</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">Track study progress for professional certifications like PMP, AWS, and CPA with a study plan, practice test scores, wea...</p>
-        <div class="links"><a href="products/109-certification-exam-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Mental Health Check-In Journal</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">Daily mental health companion with mood tracking, CBT thought records, gratitude prompts, therapist session notes, and a...</p>
-        <div class="links"><a href="products/113-mental-health-journal.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Teacher Lesson Planner &amp; Classroom Tracker</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">All-in-one digital planner designed for teachers to organize weekly and monthly lesson plans, track student grades, mana...</p>
-        <div class="links"><a href="products/121-teacher-lesson-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Plant Care &amp; Garden Planner</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A digital planner for plant lovers and home gardeners to track indoor and outdoor plant care with detailed profiles, wat...</p>
-        <div class="links"><a href="products/125-plant-garden-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>TikTok Content Strategy Planner</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A digital planner designed specifically for TikTok creators who want to grow strategically, not just post randomly. Plan...</p>
-        <div class="links"><a href="products/133-tiktok-content-strategy-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Glow-Up Transformation Tracker &amp; Self-Care Planner</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">A glow-up isn&#039;t just skincare. It&#039;s sleep, water, movement, stress management, and showing up for yourself every day.</p>
-        <div class="links"><a href="products/149-glow-up-transformation-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Self-Care &amp; Beauty Retreat Planner</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Planners</span>
         <p class="desc">An at-home spa day shouldn&#039;t require a Pinterest board and three hours of prep.</p>
-        <div class="links"><a href="products/159-beauty-retreat-wellness-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- AI Prompt Packs -->
+<!-- AI Prompt Packs -->
   <section class="section" id="ai-prompt-packs">
     <div class="product-category-banner"><img src="./images/categories/ai-prompt-packs.svg" alt="AI Prompt Packs" loading="lazy"></div>
     <h2>AI Prompt Packs</h2>
@@ -915,118 +1147,124 @@
       <div class="product-card">
         <h3>Content Creator AI Prompt Pack</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/07-content-creator-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Coding Assistant AI Prompt Pack</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/08-coding-assistant-prompts.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Midjourney &amp; AI Art Prompt Pack</h3>
-        <span class="price">$17</span>
-        <span class="category-tag">AI Prompt Packs</span>
-        <p class="desc">You&#039;ve seen the stunning AI art on social media. The photorealistic portraits that look like they came from a $10,000 ca...</p>
-        <div class="links"><a href="products/24-midjourney-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Business Prompts Pack</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/34-ai-business-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Art Prompt Engineering Bible</h3>
         <span class="price">$22</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">There&#039;s a reason some people get stunning, consistent results from AI image generators while you&#039;re on your fifteenth re...</p>
-        <div class="links"><a href="products/39-ai-art-prompt-bible.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>ChatGPT Power Prompts for Business</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">You already know AI can save you hours every week. The problem? Most people type vague prompts and get vague garbage bac...</p>
-        <div class="links"><a href="products/44-chatgpt-business-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Midjourney V7 Prompt Encyclopedia</h3>
         <span class="price">$21</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">The most comprehensive Midjourney V7 prompt collection available — 500+ battle-tested prompts organized across photoreal...</p>
-        <div class="links"><a href="products/64-midjourney-v7-prompt-encyclopedia.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Stable Diffusion &amp; Flux Prompt Vault — 200+ Tested Prompts</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">A curated library of 200+ production-tested prompts for Stable Diffusion XL, Stable Diffusion 3, and Flux models organiz...</p>
-        <div class="links"><a href="products/73-stable-diffusion-prompt-vault.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>ChatGPT Business Automation Prompts</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">ChatGPT Business Automation Prompts is a library of 200+ production-ready prompts organized by business function, design...</p>
-        <div class="links"><a href="products/83-chatgpt-business-automation-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Copywriting Prompt Pack</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">120+ battle-tested AI prompts for sales pages, email sequences, ad copy, product descriptions, landing pages, and social...</p>
-        <div class="links"><a href="products/117-ai-copywriting-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Image Generation Prompt Vault</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">A curated library of 200+ AI image generation prompts organized by style and category for Midjourney, DALL-E, and Stable...</p>
-        <div class="links"><a href="products/127-ai-image-prompt-vault.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Midjourney Prompt Engineering Masterclass</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">A comprehensive prompt engineering system for Midjourney with 500+ tested and curated prompts organized by visual style,...</p>
-        <div class="links"><a href="products/140-midjourney-prompt-engineering-masterclass.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Skincare &amp; Beauty AI Prompt Pack</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">AI can help you write better product descriptions, create skincare content, analyze ingredient lists, and build client c...</p>
-        <div class="links"><a href="products/146-skincare-ai-prompt-pack.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Beauty Business Automation Toolkit</h3>
         <span class="price">$18</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">AI Prompt Packs</span>
         <p class="desc">You didn&#039;t get into beauty to spend 3 hours a night answering DMs and writing appointment reminders.</p>
-        <div class="links"><a href="products/156-ai-beauty-business-automation.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Spreadsheet Tools -->
+<!-- Spreadsheet Tools -->
   <section class="section" id="spreadsheet-tools">
     <div class="product-category-banner"><img src="./images/categories/spreadsheet-tools.svg" alt="Spreadsheet Tools" loading="lazy"></div>
     <h2>Spreadsheet Tools</h2>
@@ -1035,206 +1273,214 @@
       <div class="product-card">
         <h3>Personal Budget Tracker</h3>
         <span class="price">$7</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/09-budget-tracker-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Habit Streak Tracker</h3>
         <span class="price">$6</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/10-habit-streak-tracker-sheets.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Professional Invoice Generator</h3>
-        <span class="price">$8</span>
-        <span class="category-tag">Spreadsheet Tools</span>
-        <p class="desc">---</p>
-        <div class="links"><a href="products/19-invoice-generator.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Side Hustle Income &amp; Expense Tracker</h3>
-        <span class="price">$9</span>
-        <span class="category-tag">Spreadsheet Tools</span>
-        <p class="desc">Side hustles don&#039;t fail because people don&#039;t work hard enough. They fail because people don&#039;t know their numbers. You&#039;re...</p>
-        <div class="links"><a href="products/23-side-hustle-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Etsy Seller Toolkit</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">You opened your Etsy shop because you love making things. But now your days are split between fulfilling orders, trackin...</p>
-        <div class="links"><a href="products/28-etsy-seller-toolkit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Personal Finance Dashboard</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Here&#039;s what happens to most people who try to get their finances organized. They download an app, connect their bank acc...</p>
-        <div class="links"><a href="products/29-personal-finance-dashboard.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Home Renovation Budget Tracker</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/35-home-renovation-budget-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Small Business Bookkeeping System</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">You know how much money is in your bank account. You do not know how much of it is yours.</p>
-        <div class="links"><a href="products/40-small-business-bookkeeping-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Social Media Analytics Dashboard</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Here&#039;s the thing about social media analytics: the built-in tools on each platform are fine for checking individual post...</p>
-        <div class="links"><a href="products/42-social-media-analytics-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Wedding Budget &amp; Planning Tracker</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Wedding planning is exciting for about two weeks. Then it becomes a full-time project management job on top of your actu...</p>
-        <div class="links"><a href="products/46-wedding-budget-planner-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Debt Payoff Calculator</h3>
         <span class="price">$7</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Avalanche and snowball debt payoff strategies with visual timeline, interest savings calculator, payment scheduler, and ...</p>
-        <div class="links"><a href="products/55-debt-payoff-calculator-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>SEO Keyword Research Toolkit</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Organize keyword research with search volume tracking, difficulty scoring, content gap analysis, competitor mapping, and...</p>
-        <div class="links"><a href="products/58-seo-keyword-research-toolkit-sheets.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Etsy SEO Keyword Research Spreadsheet</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A powerful Google Sheets-based keyword research framework built specifically for Etsy sellers. Stop guessing which tags ...</p>
-        <div class="links"><a href="products/63-etsy-seo-keyword-research-spreadsheet.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Airbnb Pricing Strategy Spreadsheet</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A data-driven Google Sheets pricing system for Airbnb hosts who want to maximize revenue without leaving money on the ta...</p>
-        <div class="links"><a href="products/68-airbnb-pricing-strategy-spreadsheet.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Rental Property ROI Calculator</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A Google Sheets calculator that analyzes any rental property deal in under 10 minutes. Input purchase price, financing t...</p>
-        <div class="links"><a href="products/74-rental-property-roi-calculator.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Personal Finance Budget Planner</h3>
         <span class="price">$9</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">The Personal Finance Budget Planner is a fully automated Google Sheets system that transforms your raw financial data in...</p>
-        <div class="links"><a href="products/84-personal-finance-budget-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Freelance Rate Calculator &amp; Pricing Guide</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A Google Sheets calculator that takes the guesswork out of freelance pricing by working backward from your desired incom...</p>
-        <div class="links"><a href="products/94-freelance-rate-calculator.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Small Business Tax Deduction Tracker</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A Google Sheets tracker built for small business owners and self-employed professionals who want to stop scrambling for ...</p>
-        <div class="links"><a href="products/98-small-business-tax-deduction-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Amazon FBA Product Research Toolkit</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Data-driven product research system for Amazon FBA sellers with product scoring matrix, profit calculator, keyword track...</p>
-        <div class="links"><a href="products/115-amazon-fba-research-toolkit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Social Media Analytics Dashboard</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Multi-platform social media analytics tracker for Instagram, TikTok, YouTube, and X with engagement rate calculators, co...</p>
-        <div class="links"><a href="products/116-social-media-analytics-dashboard.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Monthly Budget Dashboard for Couples</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Joint budgeting system designed for couples with shared expense tracking, individual spending allowances, savings goals,...</p>
-        <div class="links"><a href="products/119-couples-budget-dashboard.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Small Business Inventory Tracker</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A spreadsheet-based inventory management system for small businesses to track stock levels, manage SKUs, set reorder ale...</p>
-        <div class="links"><a href="products/126-small-business-inventory-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Contractor &amp; Freelancer Tax Planner</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">A spreadsheet-based tax planning system for independent contractors and freelancers to estimate quarterly taxes, track d...</p>
-        <div class="links"><a href="products/130-contractor-tax-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Lash &amp; Beauty Supply Inventory Tracker</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Nothing kills a fully booked day faster than realizing you&#039;re out of .07 C-curl lashes mid-appointment.</p>
-        <div class="links"><a href="products/154-lash-supply-inventory-tracker.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Business Financial Planner &amp; Tax Prep</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Spreadsheet Tools</span>
         <p class="desc">Tax season shouldn&#039;t make you cry. But it will if you&#039;ve been tracking income on sticky notes.</p>
-        <div class="links"><a href="products/160-beauty-business-financial-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Workflow Kits -->
+<!-- Workflow Kits -->
   <section class="section" id="workflow-kits">
     <div class="product-category-banner"><img src="./images/categories/workflow-kits.svg" alt="Workflow Kits" loading="lazy"></div>
     <h2>Workflow Kits</h2>
@@ -1243,118 +1489,115 @@
       <div class="product-card">
         <h3>Email Marketing Workflow Kit</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">---</p>
-        <div class="links"><a href="products/17-email-marketing-workflow.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Client Proposal Template Kit</h3>
-        <span class="price">$10</span>
-        <span class="category-tag">Workflow Kits</span>
-        <p class="desc">---</p>
-        <div class="links"><a href="products/20-proposal-template.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Podcast Launch Kit</h3>
-        <span class="price">$14</span>
-        <span class="category-tag">Workflow Kits</span>
-        <p class="desc">Everyone tells you to &quot;just start.&quot; But when you sit down to actually do it, &quot;just start&quot; turns into twenty browser tabs...</p>
-        <div class="links"><a href="products/27-podcast-launch-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Freelance Contract &amp; Scope Template Kit</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">You finished the project two weeks ago. The client asked for &quot;a few small changes&quot; — which turned into a full redesign. ...</p>
-        <div class="links"><a href="products/36-freelance-contract-templates.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Newsletter Growth &amp; Monetization Toolkit</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">You&#039;ve been putting out solid content. Your open rates are decent. A few hundred — maybe a few thousand — subscribers wh...</p>
-        <div class="links"><a href="products/49-newsletter-growth-toolkit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Instagram Growth Playbook</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">90-day Instagram growth system with daily content prompts, hashtag research templates, Reels scripts, engagement strateg...</p>
-        <div class="links"><a href="products/54-instagram-growth-playbook.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>LinkedIn Personal Brand Playbook</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">A complete system for building a LinkedIn presence that attracts opportunities instead of crickets. Includes a 30-day co...</p>
-        <div class="links"><a href="products/69-linkedin-personal-brand-playbook.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Content Repurposing Workflow Kit</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">A system for turning one piece of content into 10+ assets across platforms without starting from scratch each time. Incl...</p>
-        <div class="links"><a href="products/76-content-repurposing-workflow-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Client Onboarding Workflow Kit</h3>
         <span class="price">$13</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">The Client Onboarding Workflow Kit is a complete, plug-and-play onboarding system for freelancers and small agencies who...</p>
-        <div class="links"><a href="products/87-client-onboarding-workflow-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Podcast Launch Checklist &amp; Planner</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">The Podcast Launch Checklist &amp; Planner is a comprehensive workflow kit that takes you from &quot;I want to start a podcast&quot; t...</p>
-        <div class="links"><a href="products/89-podcast-launch-checklist-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Career Pivot Roadmap</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">90-day career change framework with skills gap analysis, learning plan, networking strategy, portfolio builder, and tran...</p>
-        <div class="links"><a href="products/107-career-pivot-roadmap.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Digital Product Launch Playbook</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">Step-by-step launch framework with pre-launch checklist, launch day timeline, email sequence templates, social media swi...</p>
-        <div class="links"><a href="products/120-digital-product-launch-playbook.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Remote Team Meeting Agenda Kit</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">A complete set of meeting agenda templates and frameworks designed for remote teams — including 1:1 meeting guides, stan...</p>
-        <div class="links"><a href="products/124-remote-meeting-agenda-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Shopify Store Launch Blueprint</h3>
         <span class="price">$17</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Workflow Kits</span>
         <p class="desc">A complete step-by-step workflow kit for launching a Shopify store from zero to first sale. Covers every phase of setup ...</p>
-        <div class="links"><a href="products/137-shopify-store-launch-blueprint.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Business Templates -->
+<!-- Business Templates -->
   <section class="section" id="business-templates">
     <div class="product-category-banner"><img src="./images/categories/business-templates.svg" alt="Business Templates" loading="lazy"></div>
     <h2>Business Templates</h2>
@@ -1363,62 +1606,70 @@
       <div class="product-card">
         <h3>Course Creator Launch Kit</h3>
         <span class="price">$16</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">Everything you need to plan, create, and launch an online course. Includes curriculum planner, pricing calculator, launc...</p>
-        <div class="links"><a href="products/56-course-creator-launch-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Therapist Session Notes &amp; Practice Management Template</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">A HIPAA-mindful documentation system for therapists and counselors in private practice. Includes SOAP and DAP note templ...</p>
-        <div class="links"><a href="products/77-therapist-session-notes-template.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Etsy Shop Launch Blueprint</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">The Etsy Shop Launch Blueprint is a comprehensive step-by-step guide and toolkit for anyone ready to turn their digital ...</p>
-        <div class="links"><a href="products/85-etsy-shop-launch-blueprint.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Ultimate Side Hustle Launch Kit</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">The most complete toolkit in the Girl Gone AI catalog — everything you need to take a side hustle from raw idea to first pay...</p>
-        <div class="links"><a href="products/100-ultimate-side-hustle-launch-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>YouTube Script Writing Templates</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">A collection of 8 proven YouTube script templates covering the most popular video formats — tutorials, reviews, listicle...</p>
-        <div class="links"><a href="products/128-youtube-script-templates.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Professional Speaker Toolkit</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">A complete set of templates and tools for professional speakers at every stage of their career. Includes a speaker one-s...</p>
-        <div class="links"><a href="products/138-professional-speaker-toolkit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Client Intake &amp; Consent Form Bundle</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Business Templates</span>
         <p class="desc">If a client has an allergic reaction and you don&#039;t have a signed intake form, you have a lawsuit.</p>
-        <div class="links"><a href="products/153-beauty-client-intake-forms.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Digital Products -->
+<!-- Digital Products -->
   <section class="section" id="digital-products">
     <div class="product-category-banner"><img src="./images/categories/digital-products.svg" alt="Digital Products" loading="lazy"></div>
     <h2>Digital Products</h2>
@@ -1427,102 +1678,106 @@
       <div class="product-card">
         <h3>Therapist Practice Manager</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">You went into private practice to do meaningful clinical work — not to chase down insurance reimbursements, manually rec...</p>
-        <div class="links"><a href="products/15-therapist-client-planner.html">View Product</a></div>
-      </div>
-
-      <div class="product-card">
-        <h3>Product Launch Playbook</h3>
-        <span class="price">$12</span>
-        <span class="category-tag">Digital Products</span>
-        <p class="desc">You have a product ready. You have an audience — or you&#039;re building one. What you don&#039;t have is a clear picture of every...</p>
-        <div class="links"><a href="products/18-product-launch-checklist.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Weekly Meal Planning &amp; Grocery System</h3>
         <span class="price">$8</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">Every week it&#039;s the same cycle. You stare into the fridge, order takeout again, throw away the vegetables you swore you&#039;...</p>
-        <div class="links"><a href="products/45-weekly-meal-planner.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Startup Pitch Deck Builder</h3>
         <span class="price">$19</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">You&#039;ve got the vision, the product, and the hustle — but when it comes to putting together a pitch deck that actually ge...</p>
-        <div class="links"><a href="products/47-startup-pitch-deck-builder.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Habit Loop Designer &amp; Tracker</h3>
         <span class="price">$10</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">You&#039;ve downloaded the habit tracker apps. You&#039;ve read Atomic Habits. You&#039;ve started strong on January 1st and fizzled ou...</p>
-        <div class="links"><a href="products/48-habit-loop-designer.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Digital Product Launch System</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">You&#039;ve built something — a course, a template kit, an ebook, a toolkit. It&#039;s good. Maybe even great. But now comes the p...</p>
-        <div class="links"><a href="products/50-digital-product-launch-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Social Media Canva Template Collection</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">200+ customizable Canva templates for Instagram, TikTok, Pinterest, and LinkedIn. Includes posts, stories, carousels, Re...</p>
-        <div class="links"><a href="products/60-social-media-canva-templates.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Pinterest Marketing Strategy Playbook</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">A complete Pinterest marketing system for driving organic traffic to your blog, store, or digital products. Covers profi...</p>
-        <div class="links"><a href="products/79-pinterest-marketing-playbook.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>YouTube Channel Growth Toolkit</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">The YouTube Channel Growth Toolkit is a comprehensive, step-by-step system for taking a brand-new channel from zero to 1...</p>
-        <div class="links"><a href="products/82-youtube-channel-growth-toolkit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>AI Art Business Starter Pack</h3>
         <span class="price">$15</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">The AI Art Business Starter Pack is a complete guide and toolkit for turning AI-generated art into a real, sustainable b...</p>
-        <div class="links"><a href="products/90-ai-art-business-starter-pack.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty Brand Social Media Template Pack</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">Your before/afters are incredible but your Instagram grid looks like it was made in 2019.</p>
-        <div class="links"><a href="products/151-beauty-brand-social-templates.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Beauty TikTok &amp; Reels Content Idea Generator</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Digital Products</span>
         <p class="desc">You stare at your phone for 20 minutes trying to think of what to post, then film a half-hearted get-ready-with-me that ...</p>
-        <div class="links"><a href="products/158-beauty-tiktok-content-prompts.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
 
-  <!-- Career Templates -->
+<!-- Career Templates -->
   <section class="section" id="career-templates">
     <div class="product-category-banner"><img src="./images/categories/career-templates.svg" alt="Career Templates" loading="lazy"></div>
     <h2>Career Templates</h2>
@@ -1531,29 +1786,36 @@
       <div class="product-card">
         <h3>Resume Builder Kit</h3>
         <span class="price">$14</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Career Templates</span>
         <p class="desc">ATS-optimized resume templates in multiple styles, cover letter templates, and a resume audit checklist to help you land...</p>
-        <div class="links"><a href="products/101-resume-builder-kit.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Interview Prep System</h3>
         <span class="price">$12</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Career Templates</span>
         <p class="desc">Notion-based interview preparation system with STAR method answer frameworks, company research templates, and 200+ commo...</p>
-        <div class="links"><a href="products/102-interview-prep-system.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
 
       <div class="product-card">
         <h3>Salary Negotiation Playbook</h3>
         <span class="price">$11</span>
+        <span class="coming-soon-badge">Coming Soon</span>
         <span class="category-tag">Career Templates</span>
         <p class="desc">Step-by-step negotiation scripts, market rate research framework, counter-offer templates, and confidence-building exerc...</p>
-        <div class="links"><a href="products/103-salary-negotiation-playbook.html">View Product</a></div>
+        <div class="links"><span class="coming-soon-text">Coming Soon</span></div>
       </div>
+
     </div>
   </section>
-  </div>
+
+</div>
+
+
 
   <!-- ========== Social ========== -->
   <section class="social" id="social">
