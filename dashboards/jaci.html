@@ -131,6 +131,25 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 
 .empty-state { text-align:center; padding:20px; color:var(--text-muted); font-size:14px; font-style:italic; }
 
+.archive-day { border-bottom:1px solid var(--border); padding:12px 0; }
+.archive-day:last-child { border-bottom:none; }
+.archive-day-header { display:flex; justify-content:space-between; align-items:center; cursor:pointer; user-select:none; }
+.archive-day-date { font-weight:600; font-size:14px; }
+.archive-day-summary { font-size:13px; color:var(--text-muted); display:flex; gap:12px; align-items:center; }
+.archive-day-toggle { font-size:14px; color:var(--text-muted); transition:transform .2s; }
+.archive-day.open .archive-day-toggle { transform:rotate(90deg); }
+.archive-day-tasks { padding-top:10px; display:none; }
+.archive-day.open .archive-day-tasks { display:block; }
+.archive-task { display:flex; align-items:flex-start; gap:8px; padding:6px 0; font-size:13px; }
+.archive-task-dot { flex-shrink:0; width:8px; height:8px; border-radius:50%; margin-top:5px; }
+.archive-task-dot.s-done { background:var(--green); }
+.archive-task-dot.s-replied { background:var(--blue); }
+.archive-task-dot.s-deleted { background:var(--red); }
+.archive-task-dot.s-pending { background:var(--border); }
+.archive-task-info { flex:1; }
+.archive-task-title { font-size:13px; }
+.archive-task-reason { font-size:12px; color:var(--text-muted); margin-top:2px; font-style:italic; }
+
 footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted); }
 
 @media (max-width:700px) { main { padding:16px; } header { padding:20px 16px; } .stat-row { grid-template-columns:repeat(2,1fr); } .engagement-row { grid-template-columns:repeat(2,1fr); } }
@@ -177,6 +196,13 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
     <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Everything you've done today — G2 sees this in real time.</p>
     <div class="response-log" id="response-log"></div>
     <div class="empty-state" id="responses-empty">No responses yet today.</div>
+  </div>
+
+  <div class="section">
+    <h2><span aria-label="archive">&#128451;</span> Task Archive</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Previous days' tasks and their outcomes. Click a day to expand.</p>
+    <div id="archive-list"></div>
+    <div class="empty-state" id="archive-empty">No archived tasks yet. Previous days' tasks will appear here.</div>
   </div>
 
   <div class="section">
@@ -494,10 +520,100 @@ function renderAll() {
   renderResponses();
 }
 
+var ARCHIVE_KEY = 'jaci-archive';
+
+function getArchive() {
+  try { return JSON.parse(localStorage.getItem(ARCHIVE_KEY) || '[]'); } catch(e) { return []; }
+}
+
+function archivePastDays() {
+  var todayStr = new Date().toISOString().slice(0,10);
+  var archive = getArchive();
+  var archivedDates = {};
+  archive.forEach(function(entry) { archivedDates[entry.date] = true; });
+
+  // Scan localStorage for past jaci-tasks-* keys
+  for (var i = 0; i < localStorage.length; i++) {
+    var key = localStorage.key(i);
+    if (!key || key.indexOf('jaci-tasks-') !== 0) continue;
+    var dateStr = key.replace('jaci-tasks-', '');
+    if (dateStr === todayStr || archivedDates[dateStr]) continue;
+
+    // Archive this day's tasks
+    try {
+      var dayState = JSON.parse(localStorage.getItem(key));
+      var dayTasks = TASKS.map(function(t) {
+        var s = dayState[t.id] || {};
+        return {
+          title: t.title.substring(0, 80),
+          status: s.status || 'pending',
+          reply: s.reply || '',
+          deleteReason: s.deleteReason || '',
+          actionTime: s.actionTime || ''
+        };
+      });
+      archive.push({ date: dateStr, tasks: dayTasks });
+      archivedDates[dateStr] = true;
+    } catch(e) {}
+    localStorage.removeItem(key);
+    // Also remove the matching responses key
+    localStorage.removeItem('jaci-responses-' + dateStr);
+    i--; // adjust index after removal
+  }
+
+  archive.sort(function(a,b) { return b.date.localeCompare(a.date); });
+  try { localStorage.setItem(ARCHIVE_KEY, JSON.stringify(archive)); } catch(e) {}
+}
+
+function formatArchiveDate(dateStr) {
+  var parts = dateStr.split('-');
+  var d = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
+  return d.toLocaleDateString('en-US', { weekday:'short', month:'short', day:'numeric', year:'numeric' });
+}
+
+function toggleArchiveDay(dateStr) {
+  var el = document.getElementById('archive-day-' + dateStr);
+  if (el) el.classList.toggle('open');
+}
+
+function renderArchive() {
+  var archive = getArchive();
+  var container = document.getElementById('archive-list');
+  var empty = document.getElementById('archive-empty');
+  if (!archive.length) { container.innerHTML = ''; empty.style.display = 'block'; return; }
+  empty.style.display = 'none';
+
+  container.innerHTML = archive.map(function(entry) {
+    var done = entry.tasks.filter(function(t){ return t.status==='done'; }).length;
+    var total = entry.tasks.length;
+    var notDone = total - done;
+
+    var tasksHtml = entry.tasks.map(function(t) {
+      var dotClass = 's-' + t.status;
+      var statusLabel = t.status === 'done' ? 'Done' : (t.status === 'replied' ? 'Replied' : (t.status === 'deleted' ? 'Declined' : 'Not completed'));
+      var reason = '';
+      if (t.status === 'deleted' && t.deleteReason) reason = '<div class="archive-task-reason">Reason: ' + esc(t.deleteReason) + '</div>';
+      if (t.status === 'replied' && t.reply) reason = '<div class="archive-task-reason">Reply: ' + esc(t.reply) + '</div>';
+      if (t.status === 'pending') reason = '<div class="archive-task-reason">Task was not addressed</div>';
+      return '<div class="archive-task"><div class="archive-task-dot ' + dotClass + '"></div><div class="archive-task-info"><div class="archive-task-title">' + esc(t.title) + ' &mdash; <strong>' + statusLabel + '</strong>' + (t.actionTime ? ' at ' + esc(t.actionTime) : '') + '</div>' + reason + '</div></div>';
+    }).join('');
+
+    return '<div class="archive-day" id="archive-day-' + entry.date + '">' +
+      '<div class="archive-day-header" onclick="toggleArchiveDay(\'' + entry.date + '\')">' +
+      '<span class="archive-day-date">' + formatArchiveDate(entry.date) + '</span>' +
+      '<span class="archive-day-summary"><span style="color:var(--green)">' + done + ' done</span>' + (notDone > 0 ? '<span style="color:var(--red)">' + notDone + ' not done</span>' : '') + '<span class="archive-day-toggle">&#9654;</span></span>' +
+      '</div>' +
+      '<div class="archive-day-tasks">' + tasksHtml + '</div>' +
+      '</div>';
+  }).join('');
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   loadState();
+  archivePastDays();
   renderDate();
   renderAll();
+  renderArchive();
   renderContent([]);
   renderEngagement({views:0,likes:0,comments:0,shares:0});
   renderHours(2);
