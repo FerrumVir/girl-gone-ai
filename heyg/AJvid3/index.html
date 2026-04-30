@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADHD Planner Demo — Girl Gone AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #faf8f5; --surface: #ffffff; --border: #e8e4df;
+  --text: #2d2a26; --text-muted: #8a857e;
+  --accent: #c084fc; --accent-dark: #a855f7;
+  --pink: #f472b6;
+  --radius: 16px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:var(--font); background:var(--bg); color:var(--text); min-height:100vh; }
+header {
+  background: linear-gradient(135deg, #c084fc 0%, #f472b6 100%);
+  padding: 28px 32px; color: white; text-align:center;
+}
+header h1 { font-size:22px; font-weight:700; }
+header p { font-size:14px; opacity:.85; margin-top:6px; }
+main { padding:24px; max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:20px; align-items:center; }
+.video-wrap { background:var(--surface); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden; width:100%; max-width:360px; }
+.video-wrap video { width:100%; display:block; }
+.info { background:var(--surface); border-radius:var(--radius); padding:20px 24px; box-shadow:var(--shadow); width:100%; }
+.info h2 { font-size:16px; font-weight:600; margin-bottom:8px; }
+.info p { font-size:14px; color:var(--text-muted); line-height:1.6; }
+.meta { font-size:12px; color:var(--text-muted); display:flex; gap:16px; margin-top:12px; }
+.meta span { background:rgba(192,132,252,.1); color:#7c3aed; padding:3px 10px; border-radius:6px; font-weight:500; }
+footer { text-align:center; padding:24px; font-size:12px; color:var(--text-muted); }
+a { color:var(--accent-dark); }
+</style>
+</head>
+<body>
+<header>
+  <h1>ADHD Planner — Demo Clip</h1>
+  <p>Jaci's Avatar | Girl Gone AI</p>
+</header>
+<main>
+  <div class="video-wrap">
+    <video controls playsinline preload="metadata">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support video.
+    </video>
+  </div>
+  <div class="info">
+    <h2>ADHD Daily Planner & Focus System</h2>
+    <p>"My brain has forty-seven tabs open and none of them are the one I need. If that's you every single day — you're not broken, your planning system is."</p>
+    <div class="meta">
+      <span>~7 sec</span>
+      <span>Jaci Avatar</span>
+      <span>9:16 Vertical</span>
+    </div>
+  </div>
+</main>
+<footer>
+  Girl Gone AI — HeyGen Demo | <a href="../">All Scripts</a> | Generated 2026-04-30
+</footer>
+</body>
+</html>
