@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Video Scripts — Girl Gone AI</title>
+<style>
+:root { --bg:#0f1117; --surface:#1a1d27; --border:#2a2e3a; --text:#e4e6eb; --muted:#8b8fa3; --accent:#c084fc; --pink:#f472b6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; padding:24px; }
+h1 { text-align:center; font-size:24px; margin-bottom:8px; }
+h1 span { color:var(--accent); }
+.subtitle { text-align:center; color:var(--muted); font-size:14px; margin-bottom:32px; }
+.grid { max-width:800px; margin:0 auto; display:flex; flex-direction:column; gap:20px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:24px; }
+.card-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; }
+.card-title { font-size:16px; font-weight:600; }
+.card-badge { background:linear-gradient(135deg,var(--accent),var(--pink)); color:white; font-size:12px; font-weight:600; padding:4px 12px; border-radius:8px; }
+.card-meta { font-size:13px; color:var(--muted); margin-bottom:12px; display:flex; gap:16px; }
+.script-text { background:var(--bg); border:1px solid var(--border); border-radius:12px; padding:16px; font-size:14px; line-height:1.6; white-space:pre-wrap; }
+.cta-tag { display:inline-block; margin-top:12px; background:rgba(192,132,252,.15); color:var(--accent); font-size:13px; font-weight:600; padding:4px 12px; border-radius:8px; }
+.status { text-align:center; margin-top:32px; padding:20px; background:var(--surface); border:1px solid var(--border); border-radius:16px; max-width:800px; margin-left:auto; margin-right:auto; }
+.status-title { font-size:16px; font-weight:600; color:#f87171; margin-bottom:8px; }
+.status-text { font-size:14px; color:var(--muted); }
+</style>
+</head>
+<body>
+<h1>Girl Gone <span>AI</span> — Dashboard Videos</h1>
+<p class="subtitle">5 product promo scripts condensed to 15-20 seconds for HeyGen generation</p>
+
+<div class="grid" id="grid"></div>
+
+<div class="status">
+  <div class="status-title">Awaiting HeyGen API Key</div>
+  <div class="status-text">All 5 scripts and API payloads are ready. Videos will be generated automatically once a working HeyGen API key is provided.<br>Run: <code>python3 generate_dashboard_videos.py YOUR_API_KEY</code></div>
+</div>
+
+<script>
+var scripts = [
+  { task:"TASK 1", title:"ADHD Daily Planner & Focus System", price:"$14", duration:"20s", cta:"FOCUS", script:"My brain has 47 tabs open and none of them are loading. So I built a planner for our kind of brain. Focus blocks, brain dump pages, and dopamine wins that actually keep you going. It works WITH your brain, not against it. Comment FOCUS. Fourteen dollars." },
+  { task:"TASK 2", title:"Med Spa & Aesthetics Business Launch Blueprint", price:"$24", duration:"20s", cta:"MEDSPA", script:"I planned my entire dream med spa business in one weekend. This blueprint walks you through every single step. Launch timeline, pricing templates, licensing by state, client pipeline. Everything from idea to opening day. Comment MEDSPA. Twenty-four dollars." },
+  { task:"TASK 3", title:"Side Hustle Income Tracker", price:"$9", duration:"18s", cta:"HUSTLE", script:"You're making money from your side hustle but do you actually know your profit? I was making two K a month then realized I was only keeping eight hundred. This tracker shows you your real numbers. Comment HUSTLE. Nine dollars." },
+  { task:"TASK 4", title:"Meal Prep & Recipe Planner", price:"$10", duration:"18s", cta:"MEALPREP", script:"It's Sunday and you're actually going to meal prep this week. This planner picks your meals, builds your grocery list automatically, and tracks your macros. No more wandering the store wondering what to buy. DM me MEALPREP. Ten dollars." },
+  { task:"TASK 5", title:"Esthetician Client Management System", price:"$18", duration:"20s", cta:"CLIENTS", script:"If you're still tracking your esti clients in your Notes app, baby what are we doing. Full client profiles, treatment history, follow-ups, revenue tracking. One system for everything your business needs. Comment CLIENTS. Eighteen dollars." }
+];
+var grid = document.getElementById('grid');
+scripts.forEach(function(s) {
+  grid.innerHTML += '<div class="card"><div class="card-header"><div class="card-title">' + s.task + ' — ' + s.title + '</div><div class="card-badge">' + s.price + '</div></div><div class="card-meta"><span>Target: ' + s.duration + '</span><span>CTA: ' + s.cta + '</span></div><div class="script-text">' + s.script + '</div><div class="cta-tag">Comment ' + s.cta + '</div></div>';
+});
+</script>
+</body>
+</html>

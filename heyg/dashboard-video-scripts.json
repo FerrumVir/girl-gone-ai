@@ -1,0 +1,117 @@
+[
+  {
+    "id": "dash1-adhd-planner",
+    "dashboard_task": "TASK 1",
+    "title": "ADHD Daily Planner & Focus System",
+    "product_price": "$14",
+    "duration_target": "20s",
+    "cta_keyword": "FOCUS",
+    "script": "My brain has 47 tabs open and none of them are loading. So I built a planner for our kind of brain. Focus blocks, brain dump pages, and dopamine wins that actually keep you going. It works WITH your brain, not against it. Comment FOCUS. Fourteen dollars.",
+    "heygen_payload": {
+      "video_inputs": [{
+        "character": {
+          "type": "talking_photo",
+          "talking_photo_id": "b51af9fbe35f4c6fba6028d1fd581b1f"
+        },
+        "voice": {
+          "type": "text",
+          "input_text": "My brain has 47 tabs open and none of them are loading. So I built a planner for our kind of brain. Focus blocks, brain dump pages, and dopamine wins that actually keep you going. It works WITH your brain, not against it. Comment FOCUS. Fourteen dollars.",
+          "voice_id": "9f1d2c6943bc4dedb7792fa963fb2dd8"
+        }
+      }],
+      "dimension": { "width": 1080, "height": 1920 }
+    }
+  },
+  {
+    "id": "dash2-med-spa",
+    "dashboard_task": "TASK 2",
+    "title": "Med Spa & Aesthetics Business Launch Blueprint",
+    "product_price": "$24",
+    "duration_target": "20s",
+    "cta_keyword": "MEDSPA",
+    "script": "I planned my entire dream med spa business in one weekend. This blueprint walks you through every single step. Launch timeline, pricing templates, licensing by state, client pipeline. Everything from idea to opening day. Comment MEDSPA. Twenty-four dollars.",
+    "heygen_payload": {
+      "video_inputs": [{
+        "character": {
+          "type": "talking_photo",
+          "talking_photo_id": "b51af9fbe35f4c6fba6028d1fd581b1f"
+        },
+        "voice": {
+          "type": "text",
+          "input_text": "I planned my entire dream med spa business in one weekend. This blueprint walks you through every single step. Launch timeline, pricing templates, licensing by state, client pipeline. Everything from idea to opening day. Comment MEDSPA. Twenty-four dollars.",
+          "voice_id": "9f1d2c6943bc4dedb7792fa963fb2dd8"
+        }
+      }],
+      "dimension": { "width": 1080, "height": 1920 }
+    }
+  },
+  {
+    "id": "dash3-side-hustle",
+    "dashboard_task": "TASK 3",
+    "title": "Side Hustle Income Tracker",
+    "product_price": "$9",
+    "duration_target": "18s",
+    "cta_keyword": "HUSTLE",
+    "script": "You're making money from your side hustle but do you actually know your profit? I was making two K a month then realized I was only keeping eight hundred. This tracker shows you your real numbers. Comment HUSTLE. Nine dollars.",
+    "heygen_payload": {
+      "video_inputs": [{
+        "character": {
+          "type": "talking_photo",
+          "talking_photo_id": "b51af9fbe35f4c6fba6028d1fd581b1f"
+        },
+        "voice": {
+          "type": "text",
+          "input_text": "You're making money from your side hustle but do you actually know your profit? I was making two K a month then realized I was only keeping eight hundred. This tracker shows you your real numbers. Comment HUSTLE. Nine dollars.",
+          "voice_id": "9f1d2c6943bc4dedb7792fa963fb2dd8"
+        }
+      }],
+      "dimension": { "width": 1080, "height": 1920 }
+    }
+  },
+  {
+    "id": "dash4-meal-prep",
+    "dashboard_task": "TASK 4",
+    "title": "Meal Prep & Recipe Planner",
+    "product_price": "$10",
+    "duration_target": "18s",
+    "cta_keyword": "MEALPREP",
+    "script": "It's Sunday and you're actually going to meal prep this week. This planner picks your meals, builds your grocery list automatically, and tracks your macros. No more wandering the store wondering what to buy. DM me MEALPREP. Ten dollars.",
+    "heygen_payload": {
+      "video_inputs": [{
+        "character": {
+          "type": "talking_photo",
+          "talking_photo_id": "b51af9fbe35f4c6fba6028d1fd581b1f"
+        },
+        "voice": {
+          "type": "text",
+          "input_text": "It's Sunday and you're actually going to meal prep this week. This planner picks your meals, builds your grocery list automatically, and tracks your macros. No more wandering the store wondering what to buy. DM me MEALPREP. Ten dollars.",
+          "voice_id": "9f1d2c6943bc4dedb7792fa963fb2dd8"
+        }
+      }],
+      "dimension": { "width": 1080, "height": 1920 }
+    }
+  },
+  {
+    "id": "dash5-esthetician",
+    "dashboard_task": "TASK 5",
+    "title": "Esthetician Client Management System",
+    "product_price": "$18",
+    "duration_target": "20s",
+    "cta_keyword": "CLIENTS",
+    "script": "If you're still tracking your esti clients in your Notes app, baby what are we doing. Full client profiles, treatment history, follow-ups, revenue tracking. One system for everything your business needs. Comment CLIENTS. Eighteen dollars.",
+    "heygen_payload": {
+      "video_inputs": [{
+        "character": {
+          "type": "talking_photo",
+          "talking_photo_id": "b51af9fbe35f4c6fba6028d1fd581b1f"
+        },
+        "voice": {
+          "type": "text",
+          "input_text": "If you're still tracking your esti clients in your Notes app, baby what are we doing. Full client profiles, treatment history, follow-ups, revenue tracking. One system for everything your business needs. Comment CLIENTS. Eighteen dollars.",
+          "voice_id": "9f1d2c6943bc4dedb7792fa963fb2dd8"
+        }
+      }],
+      "dimension": { "width": 1080, "height": 1920 }
+    }
+  }
+]
