@@ -123,7 +123,7 @@ if (sessionStorage.getItem('dash-role') !== 'owner') { window.location.href = 'i
     <span class="subtitle">Owner / Investor Dashboard</span>
   </div>
   <div class="header-right">
-    <span class="status-badge">LIVE</span>
+    <span class="status-badge" style="background:var(--yellow);color:#000">DRAFT</span>
     <span class="last-updated" id="last-updated">&mdash;</span>
     <button class="logout-btn" onclick="sessionStorage.clear();location.href='index.html'">Sign Out</button>
   </div>
@@ -143,7 +143,7 @@ if (sessionStorage.getItem('dash-role') !== 'owner') { window.location.href = 'i
     <div class="panel">
       <h2>Revenue Trend</h2>
       <div class="chart-container"><canvas id="revenue-chart"></canvas></div>
-      <p class="panel-empty-msg">Store is LIVE. Revenue tracking begins when first sale is recorded.</p>
+      <p class="panel-empty-msg">Products are in DRAFT. Revenue tracking begins when products are published and first sale is recorded.</p>
     </div>
     <div class="panel">
       <h2>Ad ROAS by Platform</h2>
@@ -236,16 +236,16 @@ if (sessionStorage.getItem('dash-role') !== 'owner') { window.location.href = 'i
 
 <script>
 const PRODUCTS = [
-  { name:'Wedding Planning Dashboard', price:18, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/hxntlz' },
-  { name:'Midjourney & AI Art Prompt Pack', price:17, sales:0, revenue:0, category:'AI Prompt Packs', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/rjfayx' },
-  { name:'Podcast Launch Kit', price:14, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/jfuzt' },
-  { name:'Teacher Lesson Planner', price:12, sales:0, revenue:0, category:'Education', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/gkdlq' },
-  { name:'Product Launch Playbook', price:12, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/apbls' },
-  { name:'Meal Prep & Recipe Planner', price:10, sales:0, revenue:0, category:'Lifestyle', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/btxunu' },
-  { name:'Client Proposal Template Kit', price:10, sales:0, revenue:0, category:'Business Templates', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/baqfdx' },
-  { name:'Side Hustle Income Tracker', price:9, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/xrlbjs' },
-  { name:'Student Study System', price:8, sales:0, revenue:0, category:'Education', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/rypqg' },
-  { name:'Professional Invoice Generator', price:8, sales:0, revenue:0, category:'Productivity & Planning', status:'LIVE', link:'https://girlgoneai.gumroad.com/l/thtyoc' }
+  { name:'Ultimate Side Hustle Launch Kit', price:19, sales:0, revenue:0, category:'Business Templates', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/100-ultimate-side-hustle-launch-kit' },
+  { name:'Coding Assistant AI Prompt Pack', price:19, sales:0, revenue:0, category:'AI Prompt Packs', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/08-coding-assistant-prompts' },
+  { name:'Content Creator AI Prompt Pack', price:15, sales:0, revenue:0, category:'AI Prompt Packs', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/07-content-creator-prompts' },
+  { name:'ADHD Daily Planner & Focus System', price:14, sales:0, revenue:0, category:'Productivity & Planning', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/04-adhd-planner' },
+  { name:'Resume Builder Kit', price:14, sales:0, revenue:0, category:'Career', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/101-resume-builder-kit' },
+  { name:'Interview Prep System', price:12, sales:0, revenue:0, category:'Career', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/102-interview-prep-system' },
+  { name:'Salary Negotiation Playbook', price:11, sales:0, revenue:0, category:'Career', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/103-salary-negotiation-playbook' },
+  { name:'Job Search Command Center', price:8, sales:0, revenue:0, category:'Career', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/03-job-search-notion' },
+  { name:'Personal Budget Tracker', price:7, sales:0, revenue:0, category:'Finance', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/09-budget-tracker-sheets' },
+  { name:'Habit Streak Tracker', price:6, sales:0, revenue:0, category:'Productivity & Planning', status:'DRAFT', link:'https://girlgoneai.gumroad.com/l/10-habit-streak-tracker-sheets' }
 ];
 
 function esc(s) { const d=document.createElement('div'); d.textContent=s||''; return d.innerHTML; }
