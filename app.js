@@ -152,6 +152,110 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
   });
 });
 
+// Launching Soon popup (replaces broken Gumroad links)
+(function() {
+  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn');
+  if (!fallbackBtns.length) return;
+
+  // Create modal overlay
+  var overlay = document.createElement('div');
+  overlay.className = 'launching-soon-overlay';
+  overlay.innerHTML =
+    '<div class="launching-soon-modal">' +
+      '<button class="modal-close-btn" aria-label="Close">&times;</button>' +
+      '<h2>Launching Soon</h2>' +
+      '<p>This product is launching soon! Leave your email and a message below, and Jaci will happily move it to the next release for you.</p>' +
+      '<form id="launching-soon-form">' +
+        '<input type="email" name="email" placeholder="Your email..." required>' +
+        '<textarea name="message" placeholder="Your message (optional)..." rows="3"></textarea>' +
+        '<input type="hidden" name="product" value="">' +
+        '<button type="submit">Notify Me</button>' +
+      '</form>' +
+    '</div>';
+  document.body.appendChild(overlay);
+
+  var form = document.getElementById('launching-soon-form');
+  var productInput = form.querySelector('input[name="product"]');
+
+  // Replace all fallback Gumroad links with launching-soon buttons
+  fallbackBtns.forEach(function(btn) {
+    btn.textContent = 'Launching Soon';
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      // Extract product slug from href or parent data
+      var slug = '';
+      var href = btn.getAttribute('href') || '';
+      var match = href.match(/\/l\/(.+)$/);
+      if (match) slug = match[1];
+      productInput.value = slug;
+      // Reset form state
+      form.reset();
+      productInput.value = slug;
+      var successMsg = overlay.querySelector('.modal-success');
+      if (successMsg) successMsg.remove();
+      form.style.display = '';
+      overlay.classList.add('active');
+    });
+  });
+
+  // Close modal
+  overlay.querySelector('.modal-close-btn').addEventListener('click', function() {
+    overlay.classList.remove('active');
+  });
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) overlay.classList.remove('active');
+  });
+
+  // Form submit
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var emailInput = form.querySelector('input[type="email"]');
+    var messageInput = form.querySelector('textarea');
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (!emailInput || !emailInput.value) return;
+    submitBtn.disabled = true;
+
+    // Post to subscribe endpoint (best-effort on static hosting)
+    try {
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: emailInput.value,
+          message: messageInput ? messageInput.value : '',
+          source: 'launching-soon',
+          productSlug: productInput.value,
+        }),
+      }).catch(function() {});
+    } catch (err) {}
+
+    // Also submit via Formsubmit as backup for static hosting
+    var cfg = window.NOVOCLAW_CONFIG || {};
+    if (cfg.formsubmitEmail) {
+      try {
+        fetch('https://formsubmit.co/ajax/' + cfg.formsubmitEmail, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: emailInput.value,
+            message: messageInput ? messageInput.value : '',
+            product: productInput.value,
+            _subject: 'Launching Soon Request: ' + productInput.value,
+          }),
+        }).catch(function() {});
+      } catch (err) {}
+    }
+
+    // Show success
+    form.style.display = 'none';
+    var msg = document.createElement('p');
+    msg.className = 'modal-success';
+    msg.textContent = "You're on the list! We'll let you know when it drops.";
+    form.parentNode.appendChild(msg);
+    submitBtn.disabled = false;
+  });
+})();
+
 // Fade-in on scroll
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
