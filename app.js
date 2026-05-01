@@ -154,7 +154,7 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
 
 // Launching Soon popup (replaces broken Gumroad links)
 (function() {
-  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn');
+  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn, a.buy-btn[href*="gumroad.com/l/"]');
   if (!fallbackBtns.length) return;
 
   // Create modal overlay
