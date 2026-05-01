@@ -1,0 +1,54 @@
+{
+  "generated": "2026-05-01T17:10:00Z",
+  "purpose": "Launch day prelaunch videos for Girl Gone AI",
+  "avatar": "b51af9fbe35f4c6fba6028d1fd581b1f",
+  "voice": "9f1d2c6943bc4dedb7792fa963fb2dd8",
+  "dimension": "1080x1920",
+  "videos": [
+    {
+      "id": 1,
+      "name": "Launch Announcement",
+      "video_id": "486e58faf7f84114889e7641ea1dfd3c",
+      "script": "Girl Gone AI is officially live! I'm Jaci, and I built a collection of digital tools to help you crush your goals — planners, templates, business kits, all ready to download right now. Link in bio!",
+      "target_duration": "12s",
+      "post_to": ["TikTok", "Instagram Reels", "Facebook"],
+      "post_time": "Immediately on launch"
+    },
+    {
+      "id": 2,
+      "name": "Med Spa Blueprint",
+      "video_id": "1b75b24f0f82455181d02da9bc968a10",
+      "script": "Dreaming of opening your own med spa? I created the complete launch blueprint — timeline, pricing, licensing, everything. Twenty-four dollars. Girl Gone AI dot com.",
+      "target_duration": "12s",
+      "post_to": ["TikTok", "Instagram Reels"],
+      "post_time": "1 hour after launch"
+    },
+    {
+      "id": 3,
+      "name": "ADHD Planner",
+      "video_id": "60d826370d1e4e4b9ea8098c56c8d2e1",
+      "script": "Your brain has fifty tabs open? Same. That's why I built the ADHD focus planner. Brain dumps, focus blocks, dopamine wins. Fourteen dollars, link in bio.",
+      "target_duration": "10s",
+      "post_to": ["TikTok", "Instagram Reels"],
+      "post_time": "3 hours after launch"
+    },
+    {
+      "id": 4,
+      "name": "Wedding Dashboard",
+      "video_id": "395d899bcfb54a95be255a8c66f04021",
+      "script": "Planning a wedding without losing your mind? The Wedding Planning Dashboard keeps every detail organized. Eighteen dollars at Girl Gone AI.",
+      "target_duration": "10s",
+      "post_to": ["TikTok", "Instagram Reels"],
+      "post_time": "5 hours after launch"
+    },
+    {
+      "id": 5,
+      "name": "Call To Action",
+      "video_id": "7ff5ce018978443daae685d6dd253fb9",
+      "script": "We just launched thirteen digital products — planners, templates, business tools. Everything under twenty-five dollars. Check out Girl Gone AI before they sell out!",
+      "target_duration": "12s",
+      "post_to": ["TikTok", "Instagram Reels", "Facebook", "X"],
+      "post_time": "Evening push / end of launch day"
+    }
+  ]
+}
