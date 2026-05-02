@@ -152,9 +152,9 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
   });
 });
 
-// Launching Soon popup (replaces broken Gumroad links)
+// Launching Soon popup (for products not yet available on Gumroad)
 (function() {
-  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn, a.buy-btn[href*="gumroad.com/l/"]');
+  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn');
   if (!fallbackBtns.length) return;
 
   // Create modal overlay
