@@ -154,8 +154,37 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
 
 // Launching Soon popup (for products not yet available on Gumroad)
 (function() {
+  // Known working Gumroad slugs — all others get the Launching Soon popup
+  var liveGumroadSlugs = [
+    'apbls','baqfdx','btxunu','free-starter-kit','gkdlq','hxntlz',
+    'rjfayx','rypqg','thtyoc','wgnvf','xrlbjs',
+    '03-job-search-notion','04-adhd-planner','07-content-creator-prompts',
+    '08-coding-assistant-prompts','09-budget-tracker-sheets',
+    '100-ultimate-side-hustle-launch-kit','101-resume-builder-kit',
+    '102-interview-prep-system','103-salary-negotiation-playbook',
+    '10-habit-streak-tracker-sheets','27-podcast-launch-kit',
+    '28-etsy-seller-toolkit','29-personal-finance-dashboard',
+    '30-remote-team-meetings','31-pet-business-planner-notion',
+    '32-youtube-channel-growth-notion','33-airbnb-host-management-notion',
+    '34-ai-business-prompts','35-home-renovation-budget-sheets',
+    '36-freelance-contract-templates'
+  ];
+
+  // Select explicit fallback buttons + Gumroad links with non-live slugs
   var fallbackBtns = document.querySelectorAll('.fallback-buy-btn');
-  if (!fallbackBtns.length) return;
+  var gumroadBtns = document.querySelectorAll('a.buy-btn[href*="gumroad.com/l/"], a.gumroad-buy-btn[href*="gumroad.com/l/"], .gumroad-link[href*="gumroad.com/l/"]');
+  var intercepted = [];
+
+  fallbackBtns.forEach(function(btn) { intercepted.push(btn); });
+  gumroadBtns.forEach(function(btn) {
+    var href = btn.getAttribute('href') || '';
+    var m = href.match(/\/l\/([^/?#]+)/);
+    if (m && liveGumroadSlugs.indexOf(m[1]) === -1) {
+      intercepted.push(btn);
+    }
+  });
+
+  if (!intercepted.length) return;
 
   // Create modal overlay
   var overlay = document.createElement('div');
@@ -177,8 +206,8 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
   var form = document.getElementById('launching-soon-form');
   var productInput = form.querySelector('input[name="product"]');
 
-  // Replace all fallback Gumroad links with launching-soon buttons
-  fallbackBtns.forEach(function(btn) {
+  // Replace all intercepted links with launching-soon buttons
+  intercepted.forEach(function(btn) {
     btn.textContent = 'Launching Soon';
     btn.addEventListener('click', function(e) {
       e.preventDefault();
