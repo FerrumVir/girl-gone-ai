@@ -109,6 +109,23 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .badge-skipped { background:var(--yellow-bg); color:#b45309; }
 .task-time { font-size:11px; color:var(--text-muted); margin-top:4px; }
 
+.video-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; }
+.video-card { background:var(--bg); border-radius:12px; overflow:hidden; border:1px solid var(--border); }
+.video-card video { width:100%; aspect-ratio:9/16; object-fit:cover; background:#000; display:block; max-height:320px; }
+.video-card-body { padding:14px; }
+.video-card-title { font-size:14px; font-weight:600; margin-bottom:4px; }
+.video-card-price { font-size:12px; color:var(--accent-dark); font-weight:600; }
+.video-card-script { font-size:12px; color:var(--text-muted); margin-top:8px; line-height:1.5; max-height:60px; overflow:hidden; }
+.video-card-actions { display:flex; gap:8px; margin-top:10px; flex-wrap:wrap; }
+.video-btn { font-size:11px; font-family:var(--font); padding:6px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:4px; }
+.video-btn-download { background:var(--accent); color:white; }
+.video-btn-download:hover { background:var(--accent-dark); }
+.video-btn-copy { background:var(--bg); color:var(--text); border:1px solid var(--border); }
+.video-btn-copy:hover { background:var(--border); }
+.video-btn-link { background:var(--pink-bg); color:#be185d; }
+.video-btn-link:hover { background:var(--pink); color:white; }
+.video-date-badge { display:inline-block; font-size:11px; font-weight:600; padding:3px 10px; border-radius:6px; background:var(--accent); color:white; margin-bottom:12px; }
+
 .content-grid { display:flex; flex-direction:column; gap:12px; }
 .content-item { display:flex; align-items:center; gap:12px; padding:12px; background:var(--bg); border-radius:12px; }
 .content-platform { width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
@@ -206,6 +223,14 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
     <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">For each task: <strong>Mark Done</strong> when finished, <strong>Reply</strong> to send G2 a message, or <strong>Can't Do This</strong> to decline with a reason.</p>
     <ul class="task-list" id="task-list"></ul>
     <div class="empty-state" id="tasks-empty" style="display:none">No tasks assigned yet today. Check back soon!</div>
+  </div>
+
+  <div class="section" id="videos-section">
+    <h2><span>&#127916;</span> Today's Videos — Post to Social Media</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">AI-generated promo videos ready to post. Download the video, copy the caption, and post to TikTok + Instagram Reels.</p>
+    <div id="video-date-tag"></div>
+    <div class="video-grid" id="video-grid"></div>
+    <div class="empty-state" id="videos-empty">No videos generated yet today. Check back soon!</div>
   </div>
 
   <div class="section">
@@ -643,12 +668,61 @@ function renderArchive() {
   }).join('');
 }
 
+function renderVideos() {
+  var grid = document.getElementById('video-grid');
+  var empty = document.getElementById('videos-empty');
+  var dateTag = document.getElementById('video-date-tag');
+  var baseUrl = window.location.hostname === 'localhost' ? '..' : 'https://girlgone.ai';
+  var manifestUrl = baseUrl + '/heyg/daily-videos.json';
+
+  fetch(manifestUrl).then(function(r) { return r.json(); }).then(function(data) {
+    var today = new Date().toISOString().slice(0,10);
+    if (!data.videos || data.videos.length === 0) {
+      grid.innerHTML = '';
+      empty.style.display = 'block';
+      return;
+    }
+    empty.style.display = 'none';
+    dateTag.innerHTML = '<span class="video-date-badge">' + (data.date || today) + ' &mdash; ' + data.video_count + ' videos</span>';
+
+    grid.innerHTML = data.videos.map(function(v, idx) {
+      var videoUrl = baseUrl + '/' + v.video_path;
+      var caption = v.script + '\n\n' + v.link + '\n\n#girlgoneai #digitalproducts #templates #ai #productivity';
+      var captionEsc = esc(caption);
+      var copyId = 'copy-btn-' + idx;
+      return '<div class="video-card">' +
+        '<video controls playsinline preload="metadata"><source src="' + esc(videoUrl) + '" type="video/mp4"></video>' +
+        '<div class="video-card-body">' +
+          '<div class="video-card-title">' + esc(v.product) + '</div>' +
+          '<div class="video-card-price">' + esc(v.price) + (v.duration ? ' &bull; ' + Math.round(v.duration) + 's' : '') + '</div>' +
+          '<div class="video-card-script">' + esc(v.script) + '</div>' +
+          '<div class="video-card-actions">' +
+            '<a href="' + esc(videoUrl) + '" download class="video-btn video-btn-download">Download Video</a>' +
+            '<button class="video-btn video-btn-copy" id="' + copyId + '" onclick="copyCaption(this, ' + JSON.stringify(caption).replace(/"/g,'&quot;') + ')">Copy Caption</button>' +
+            '<a href="' + esc(v.link) + '" target="_blank" class="video-btn video-btn-link">Product Link</a>' +
+          '</div>' +
+        '</div></div>';
+    }).join('');
+  }).catch(function() {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+  });
+}
+
+function copyCaption(btn, text) {
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    setTimeout(function() { btn.textContent = 'Copy Caption'; }, 2000);
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   loadState();
   archivePastDays();
   renderDate();
   renderAll();
   renderArchive();
+  renderVideos();
   renderContent([]);
   renderEngagement({views:0,likes:0,comments:0,shares:0});
   renderHours(2);
