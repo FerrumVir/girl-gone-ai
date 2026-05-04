@@ -5,5 +5,6 @@ window.NOVOCLAW_CONFIG = {
   apiUrl: "",
   subscriberCount: 200,
   formspreeFormId: "",
-  formsubmitEmail: "kenny@novolinkai.com"
+  formsubmitEmail: "kenny@novolinkai.com",
+  demoMode: true
 };

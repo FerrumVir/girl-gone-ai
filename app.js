@@ -154,6 +154,10 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
 
 // Launching Soon popup (for products not yet available on Gumroad)
 (function() {
+  // Demo mode: skip all interception, let every link pass through to Gumroad
+  var cfg = window.NOVOCLAW_CONFIG || {};
+  if (cfg.demoMode) return;
+
   // Known working Gumroad slugs — all others get the Launching Soon popup
   var liveGumroadSlugs = [
     'apbls','baqfdx','btxunu','free-starter-kit','gkdlq','hxntlz',
@@ -272,6 +276,34 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
     msg.textContent = "You're on the list! We'll let you know when it drops.";
     form.parentNode.appendChild(msg);
     submitBtn.disabled = false;
+  });
+})();
+
+// Demo mode: hide "Coming Soon" badges, add product page links
+(function() {
+  var cfg = window.NOVOCLAW_CONFIG || {};
+  if (!cfg.demoMode) return;
+
+  // Hide Coming Soon badges
+  document.querySelectorAll('.coming-soon-badge').forEach(function(el) {
+    el.style.display = 'none';
+  });
+
+  // Hide the Launching Soon section header
+  var lsHeader = document.querySelector('.launching-soon-header');
+  if (lsHeader) lsHeader.style.display = 'none';
+
+  // Replace "Coming Soon" text with View Product links
+  document.querySelectorAll('.coming-soon-text').forEach(function(el) {
+    var card = el.closest('.product-card');
+    if (!card) return;
+    var h3 = card.querySelector('h3');
+    if (!h3) return;
+    var link = document.createElement('a');
+    link.href = 'catalog-landing.html';
+    link.textContent = 'View Product';
+    link.className = 'gumroad-link';
+    el.replaceWith(link);
   });
 })();
 
