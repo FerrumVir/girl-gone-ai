@@ -160,8 +160,11 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
 
   // Known working Gumroad slugs — all others get the Launching Soon popup
   var liveGumroadSlugs = [
-    'apbls','baqfdx','btxunu','free-starter-kit','gkdlq','hxntlz',
-    'rjfayx','rypqg','thtyoc','wgnvf','xrlbjs','27-podcast-launch-kit'
+    'free-starter-kit','wgnvf','teacher-lesson-planner','27-podcast-launch-kit',
+    '103-salary-negotiation-playbook','104-study-planner-notion','105-language-learning-tracker',
+    '106-thesis-writing-planner','107-career-pivot-roadmap','108-online-course-notes-system',
+    '109-certification-exam-tracker','110-networking-crm-notion','111-home-organization-system',
+    '11-crm-notion'
   ];
 
   // Select explicit fallback buttons + Gumroad links with non-live slugs
