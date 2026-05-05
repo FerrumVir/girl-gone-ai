@@ -226,8 +226,8 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
   </div>
 
   <div class="section" id="videos-section">
-    <h2><span>&#127916;</span> Today's Videos — Post to Social Media</h2>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">AI-generated promo videos ready to post. Download the video, copy the caption, and post to TikTok + Instagram Reels.</p>
+    <h2><span>&#127916;</span> Videos — Download &amp; Post to Social Media</h2>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Download each video, copy the caption, and post to TikTok + Instagram Reels. <strong>Launch Day videos are top priority!</strong></p>
     <div id="video-date-tag"></div>
     <div class="video-grid" id="video-grid"></div>
     <div class="empty-state" id="videos-empty">No videos generated yet today. Check back soon!</div>
@@ -322,16 +322,32 @@ function timeStr() { return new Date().toLocaleTimeString('en-US',{hour:'numeric
 var TODAY_KEY = 'jaci-tasks-' + new Date().toISOString().slice(0,10);
 var RESPONSES_KEY = 'jaci-responses-' + new Date().toISOString().slice(0,10);
 
-// May 5 2026 — Day 2: Cover remaining 5 products + refresh free lead magnets
-var TASKS = [
-  { id:'may5_1', title:'TASK 1 — FREE: AI Productivity Starter Kit — New Angle (Post ASAP)', desc:'FORMAT: TikTok + Instagram Reel (screen recording showing what\'s inside the kit)\n\nHOOK: "This free kit replaced 5 apps I was paying for..."\n\nSCRIPT: "Okay so yesterday I dropped a free AI productivity starter kit and people are actually downloading it. Let me show you what\'s inside — you get templates, AI prompts, and a full workflow system. This would easily be $20 but I\'m keeping it free because I want everyone to try Girl Gone AI. Grab it before I change my mind."\n\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: this free kit replaced 5 apps i was paying for. templates, prompts, workflows. $0. still free. still cant believe i did that. link in bio.\nHASHTAGS: #free #freebie #productivity #ai #aitools #templates #girlgoneai #digitalproducts #worksmart #productivityhacks\nCTA: Link in bio! girlgone.ai\nLINK: girlgone.ai (link in bio)\nDEADLINE: Post first thing today', status:'pending' },
-  { id:'may5_2', title:'TASK 2 — Meal Prep & Recipe Planner $10 (Post 1hr after Task 1)', desc:'FORMAT: TikTok + Instagram Reel (kitchen/food prep vibe, or screen recording showing the planner)\n\nHOOK: "I used to spend $200/week on takeout until I made this..."\n\nSCRIPT: "I built a meal prep and recipe planner that changed how I eat. Weekly meal plans, grocery lists that auto-generate, recipe storage, and a budget tracker so you can see how much you\'re actually saving. Ten dollars. You\'ll save that on your first grocery run."\n\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: $200/week on doordash was my villain era. built a meal prep planner that does weekly plans, grocery lists, recipe storage, and budget tracking. $10. comment MEALPREP\nHASHTAGS: #mealprep #mealprepideas #healthyeating #budgetmeals #groceryhaul #girlgoneai #mealplanning #foodtiktok #cooking\nCTA: Comment MEALPREP for the link!\nLINK: girlgone.ai/downloads/files/meal-prep-planner.html\nDEADLINE: 1 hour after Task 1', status:'pending' },
-  { id:'may5_3', title:'TASK 3 — Client Proposal Template Kit $10 (Post 2hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\n\nHOOK: "Freelancers, stop sending proposals that look like emails..."\n\nSCRIPT: "I made a client proposal template kit for freelancers and small business owners. Professional layouts, pricing tables, scope of work sections, and follow-up templates. You look 10x more professional and close more clients. Ten dollars to stop leaving money on the table."\n\nPOST TO: TikTok, Instagram Reels\nCAPTION: your proposals look like emails and youre wondering why clients ghost you. professional templates, pricing tables, scope of work, follow-ups. $10. comment PROPOSAL\nHASHTAGS: #freelancer #freelancetips #clientwork #proposals #smallbusiness #girlgoneai #entrepreneur #freelancelife #businesstips\nCTA: Comment PROPOSAL for the link!\nLINK: girlgone.ai/downloads/files/proposal-template.html\nDEADLINE: 2 hours after Task 1', status:'pending' },
-  { id:'may5_4', title:'TASK 4 — Side Hustle Income & Expense Tracker $9 (Post 3hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel (screen recording or talking to camera)\n\nHOOK: "If you have a side hustle and you\'re not tracking this, you\'re losing money..."\n\nSCRIPT: "Built a side hustle income and expense tracker because I was tired of guessing how much I was actually making. It tracks every dollar in and out, shows your real profit margin, and even helps with taxes. Nine dollars. Know your numbers or your side hustle is just an expensive hobby."\n\nPOST TO: TikTok, Instagram Reels\nCAPTION: your side hustle isnt profitable if you dont know your numbers. income, expenses, profit margins, tax prep — all in one tracker. $9. comment HUSTLE\nHASHTAGS: #sidehustle #sidehustletips #entrepreneur #smallbusiness #incometracker #budgeting #girlgoneai #makemoney #finances\nCTA: Comment HUSTLE for the link!\nLINK: girlgone.ai/downloads/files/side-hustle-tracker.html\nDEADLINE: 3 hours after Task 1', status:'pending' },
-  { id:'may5_5', title:'TASK 5 — Student Study System $8 (Post 4hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel (study desk aesthetic, or screen recording)\n\nHOOK: "The study system I wish I had in college..."\n\nSCRIPT: "I built a student study system that organizes everything — your class schedule, assignments, exam prep, notes, and GPA tracking. No more forgetting deadlines or cramming at 2am. Eight dollars for the system that gets you A\'s."\n\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: built the study system i wish i had. schedule, assignments, exam prep, notes, GPA tracker. no more 2am cramming. $8. comment STUDY\nHASHTAGS: #studytok #studywithme #college #university #studytips #studentlife #girlgoneai #studyplanner #backtoschool\nCTA: Comment STUDY for the link!\nLINK: girlgone.ai/downloads/files/student-study-system.html\nDEADLINE: 4 hours after Task 1', status:'pending' },
-  { id:'may5_6', title:'TASK 6 — Professional Invoice Generator $8 (Post 5hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\n\nHOOK: "Freelancers, if you\'re using Word docs for invoices in 2026..."\n\nSCRIPT: "Made a professional invoice generator for freelancers and small businesses. Clean layouts, automatic calculations, payment tracking, and a client database. Stop chasing payments with messy spreadsheets. Eight dollars."\n\nPOST TO: TikTok, Instagram Reels\nCAPTION: using word docs for invoices is giving 2019. professional templates, auto calculations, payment tracking. get paid faster. $8. comment INVOICE\nHASHTAGS: #freelancer #invoice #smallbusiness #freelancetips #getpaid #girlgoneai #entrepreneur #businesstools #billing\nCTA: Comment INVOICE for the link!\nLINK: girlgone.ai/downloads/files/invoice-generator.html\nDEADLINE: 5 hours after Task 1', status:'pending' },
-  { id:'may5_7', title:'TASK 7 — FREE: Morning Glow Checklist — Carousel + Story (Post evening)', desc:'FORMAT: IG Carousel (3-5 slides) + IG Story + TikTok\n\nHOOK: "The free checklist that fixed my mornings..."\n\nSCRIPT: "Slide 1: The free checklist that changed my mornings. Slide 2: Skincare steps that actually work. Slide 3: Mindset reset in 5 minutes. Slide 4: Productivity power hour. Slide 5: Get it free at girlgone.ai"\n\nFor TikTok: film yourself going through your morning routine with the checklist visible.\n\nPOST TO: Instagram Carousel, IG Stories, TikTok\nCAPTION: my morning glow checklist is still free. skincare + mindset + productivity. one page. print it. your mornings will never be the same. link in bio.\nHASHTAGS: #morningroutine #glowup #skincare #productivity #freebie #girlgoneai #selfcare #wellness #thatgirl #morningmotivation\nCTA: Comment GLOW or link in bio!\nLINK: girlgone.ai\nDEADLINE: Evening post', status:'pending' }
+// Webhook relay for task status updates (ntfy.sh pub/sub)
+var CALLBACK_TOPIC = 'girlgoneai-jaci-tasks-9f3a7b2e';
+var CALLBACK_URL = 'https://ntfy.sh/' + CALLBACK_TOPIC;
+
+// Launch-day videos (JAC-457) — these are the priority tasks Kenny is waiting on
+var LAUNCH_TASKS = [
+  { id:'launch_1', title:'POST VIDEO: Launch Announcement (TikTok + Reels + Facebook)', desc:'Download the video below and post IMMEDIATELY.\n\nCAPTION: girl gone ai is LIVE. planners, templates, business kits — all under $25. link in bio.\nHASHTAGS: #girlgoneai #launchday #digitalproducts #planners #templates #sidehustle #entrepreneur\n\nVideo: girlgone.ai/heyg/launch-day/vid1-launch-announcement.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid1-launch-announcement.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_2', title:'POST VIDEO: Med Spa Blueprint (TikTok + Reels) — 1hr after launch', desc:'Download and post 1 hour after the launch announcement.\n\nCAPTION: dreaming of your own med spa? the complete launch blueprint is here. comment MEDSPA\nHASHTAGS: #medspa #aesthetics #esthetician #businessowner #entrepreneur #girlgoneai #beautybusiness\n\nVideo: girlgone.ai/heyg/launch-day/vid2-medspa-blueprint.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid2-medspa-blueprint.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_3', title:'POST VIDEO: ADHD Planner (TikTok + Reels) — 3hrs after launch', desc:'Download and post 3 hours after launch.\n\nCAPTION: my adhd brain needed a planner that doesnt make me feel like a failure. comment FOCUS\nHASHTAGS: #adhd #adhdtiktok #adhdplanner #productivity #focushacks #girlgoneai #neurodivergent\n\nVideo: girlgone.ai/heyg/launch-day/vid3-adhd-planner.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid3-adhd-planner.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_4', title:'POST VIDEO: Wedding Dashboard (TikTok + Reels) — 5hrs after launch', desc:'Download and post 5 hours after launch.\n\nCAPTION: planning a wedding without the chaos. every detail organized in one dashboard. comment WEDDING\nHASHTAGS: #weddingplanning #bridetobe #weddingdashboard #girlgoneai #engaged #weddingorganization\n\nVideo: girlgone.ai/heyg/launch-day/vid4-wedding-dashboard.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid4-wedding-dashboard.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_5', title:'POST VIDEO: Call To Action (TikTok + Reels + Facebook + X) — evening', desc:'Download and post end of day / evening.\n\nCAPTION: 13 digital products just dropped. all under $25. girlgoneai.gumroad.com. dont miss it.\nHASHTAGS: #girlgoneai #digitalproducts #launchday #templates #planners #entrepreneur #sidehustle\n\nVideo: girlgone.ai/heyg/launch-day/vid5-call-to-action.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid5-call-to-action.mp4', status:'pending', issueRef:'JAC-457' }
 ];
+
+// Daily content tasks
+var DAILY_TASKS = [
+  { id:'may5_1', title:'TASK: FREE AI Productivity Starter Kit — New Angle (Post ASAP)', desc:'FORMAT: TikTok + Instagram Reel (screen recording showing what\'s inside the kit)\n\nHOOK: "This free kit replaced 5 apps I was paying for..."\n\nSCRIPT: "Okay so yesterday I dropped a free AI productivity starter kit and people are actually downloading it. Let me show you what\'s inside — you get templates, AI prompts, and a full workflow system. This would easily be $20 but I\'m keeping it free because I want everyone to try Girl Gone AI. Grab it before I change my mind."\n\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: this free kit replaced 5 apps i was paying for. templates, prompts, workflows. $0. still free. still cant believe i did that. link in bio.\nHASHTAGS: #free #freebie #productivity #ai #aitools #templates #girlgoneai #digitalproducts #worksmart #productivityhacks\nCTA: Link in bio! girlgone.ai\nDEADLINE: Post first thing today', status:'pending' },
+  { id:'may5_2', title:'TASK: Meal Prep & Recipe Planner $10 (Post 1hr after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "I used to spend $200/week on takeout until I made this..."\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: $200/week on doordash was my villain era. built a meal prep planner. $10. comment MEALPREP\nLINK: girlgone.ai/downloads/files/meal-prep-planner.html', status:'pending' },
+  { id:'may5_3', title:'TASK: Client Proposal Template Kit $10 (Post 2hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "Freelancers, stop sending proposals that look like emails..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: professional templates, pricing tables, scope of work, follow-ups. $10. comment PROPOSAL\nLINK: girlgone.ai/downloads/files/proposal-template.html', status:'pending' },
+  { id:'may5_4', title:'TASK: Side Hustle Income & Expense Tracker $9 (Post 3hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "If you have a side hustle and you\'re not tracking this, you\'re losing money..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: income, expenses, profit margins, tax prep — all in one tracker. $9. comment HUSTLE\nLINK: girlgone.ai/downloads/files/side-hustle-tracker.html', status:'pending' },
+  { id:'may5_5', title:'TASK: Student Study System $8 (Post 4hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "The study system I wish I had in college..."\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: schedule, assignments, exam prep, notes, GPA tracker. $8. comment STUDY\nLINK: girlgone.ai/downloads/files/student-study-system.html', status:'pending' },
+  { id:'may5_6', title:'TASK: Professional Invoice Generator $8 (Post 5hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "Freelancers, if you\'re using Word docs for invoices in 2026..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: professional templates, auto calculations, payment tracking. $8. comment INVOICE\nLINK: girlgone.ai/downloads/files/invoice-generator.html', status:'pending' },
+  { id:'may5_7', title:'TASK: FREE Morning Glow Checklist — Carousel + Story (Post evening)', desc:'FORMAT: IG Carousel + IG Story + TikTok\nHOOK: "The free checklist that fixed my mornings..."\nPOST TO: Instagram Carousel, IG Stories, TikTok\nCAPTION: my morning glow checklist is still free. skincare + mindset + productivity. link in bio.\nLINK: girlgone.ai', status:'pending' }
+];
+
+// Combine: launch videos first (priority), then daily tasks
+var TASKS = LAUNCH_TASKS.concat(DAILY_TASKS);
 
 // Response log — tracks every action Jaci takes
 function getResponses() {
@@ -369,12 +385,29 @@ function saveState() {
   try { localStorage.setItem(TODAY_KEY, JSON.stringify(state)); } catch(e) {}
 }
 
+function notifyBackend(action, task, message) {
+  var payload = JSON.stringify({
+    taskId: task.id,
+    title: task.title,
+    action: action,
+    message: message || '',
+    issueRef: task.issueRef || '',
+    timestamp: new Date().toISOString()
+  });
+  fetch(CALLBACK_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Title': 'Jaci: ' + action + ' - ' + task.title.substring(0,40), 'Tags': action },
+    body: payload
+  }).catch(function(e) { console.log('Webhook notify failed:', e); });
+}
+
 function markDone(id) {
   TASKS.forEach(function(t) {
     if (t.id === id) {
       t.status = 'done';
       t.actionTime = timeStr();
       addResponse('completed', t.id, t.title, 'Marked as done');
+      notifyBackend('done', t, 'Marked as done');
     }
   });
   saveState(); renderAll();
@@ -404,6 +437,7 @@ function sendReply(id) {
       t.status = 'replied';
       t.actionTime = timeStr();
       addResponse('replied', t.id, t.title, reply);
+      notifyBackend('replied', t, reply);
     }
   });
   saveState(); renderAll();
@@ -426,6 +460,7 @@ function confirmDelete(id) {
       t.status = 'deleted';
       t.actionTime = timeStr();
       addResponse('declined', t.id, t.title, reason);
+      notifyBackend('ignored', t, reason);
     }
   });
   saveState(); renderAll();
@@ -673,23 +708,48 @@ function renderVideos() {
   var empty = document.getElementById('videos-empty');
   var dateTag = document.getElementById('video-date-tag');
   var baseUrl = window.location.hostname === 'localhost' ? '..' : 'https://girlgone.ai';
+
+  // Always show launch-day videos first
+  var launchVideos = [
+    { product:'Launch Announcement', price:'FREE', script:'girl gone ai is LIVE. planners, templates, business kits — all under $25. link in bio.', video_path:'heyg/launch-day/vid1-launch-announcement.mp4', link:'https://girlgone.ai', duration:11 },
+    { product:'Med Spa Blueprint', price:'Featured', script:'dreaming of your own med spa? the complete launch blueprint is here. comment MEDSPA', video_path:'heyg/launch-day/vid2-medspa-blueprint.mp4', link:'https://girlgoneai.gumroad.com', duration:10 },
+    { product:'ADHD Planner', price:'$14', script:'my adhd brain needed a planner that doesnt make me feel like a failure. comment FOCUS', video_path:'heyg/launch-day/vid3-adhd-planner.mp4', link:'https://girlgoneai.gumroad.com/l/04-adhd-planner', duration:10 },
+    { product:'Wedding Dashboard', price:'$18', script:'planning a wedding without the chaos. every detail organized in one dashboard. comment WEDDING', video_path:'heyg/launch-day/vid4-wedding-dashboard.mp4', link:'https://girlgone.ai/downloads/files/wedding-planning-dashboard.html', duration:7 },
+    { product:'Call To Action', price:'FREE', script:'13 digital products just dropped. all under $25. girlgoneai.gumroad.com. dont miss it.', video_path:'heyg/launch-day/vid5-call-to-action.mp4', link:'https://girlgoneai.gumroad.com', duration:8 }
+  ];
+
+  empty.style.display = 'none';
+  dateTag.innerHTML = '<span class="video-date-badge">Launch Day Videos &mdash; 5 videos (POST THESE FIRST)</span>';
+
+  var html = launchVideos.map(function(v, idx) {
+    var videoUrl = baseUrl + '/' + v.video_path;
+    var caption = v.script + '\n\n' + (v.link || '') + '\n\n#girlgoneai #digitalproducts #launchday';
+    var copyId = 'copy-launch-' + idx;
+    return '<div class="video-card">' +
+      '<video controls playsinline preload="metadata"><source src="' + esc(videoUrl) + '" type="video/mp4"></video>' +
+      '<div class="video-card-body">' +
+        '<div class="video-card-title">' + esc(v.product) + '</div>' +
+        '<div class="video-card-price">' + esc(v.price) + ' &bull; ' + v.duration + 's</div>' +
+        '<div class="video-card-script">' + esc(v.script) + '</div>' +
+        '<div class="video-card-actions">' +
+          '<a href="' + esc(videoUrl) + '" download class="video-btn video-btn-download">Download Video</a>' +
+          '<button class="video-btn video-btn-copy" id="' + copyId + '" onclick="copyCaption(this, ' + JSON.stringify(caption).replace(/"/g,'&quot;') + ')">Copy Caption</button>' +
+          (v.link ? '<a href="' + esc(v.link) + '" target="_blank" class="video-btn video-btn-link">Product Link</a>' : '') +
+        '</div>' +
+      '</div></div>';
+  }).join('');
+
+  grid.innerHTML = html;
+
+  // Also fetch daily promo videos if available
   var manifestUrl = baseUrl + '/heyg/daily-videos.json';
-
   fetch(manifestUrl).then(function(r) { return r.json(); }).then(function(data) {
-    var today = new Date().toISOString().slice(0,10);
-    if (!data.videos || data.videos.length === 0) {
-      grid.innerHTML = '';
-      empty.style.display = 'block';
-      return;
-    }
-    empty.style.display = 'none';
-    dateTag.innerHTML = '<span class="video-date-badge">' + (data.date || today) + ' &mdash; ' + data.video_count + ' videos</span>';
-
-    grid.innerHTML = data.videos.map(function(v, idx) {
+    if (!data.videos || data.videos.length === 0) return;
+    var dailyHtml = '<div style="grid-column:1/-1;margin-top:16px;padding-top:16px;border-top:2px solid var(--border)"><span class="video-date-badge" style="background:var(--pink)">' + (data.date || 'Today') + ' &mdash; ' + data.video_count + ' daily promo videos</span></div>';
+    dailyHtml += data.videos.map(function(v, idx) {
       var videoUrl = baseUrl + '/' + v.video_path;
-      var caption = v.script + '\n\n' + v.link + '\n\n#girlgoneai #digitalproducts #templates #ai #productivity';
-      var captionEsc = esc(caption);
-      var copyId = 'copy-btn-' + idx;
+      var caption = v.script + '\n\n' + v.link + '\n\n#girlgoneai #digitalproducts';
+      var copyId = 'copy-daily-' + idx;
       return '<div class="video-card">' +
         '<video controls playsinline preload="metadata"><source src="' + esc(videoUrl) + '" type="video/mp4"></video>' +
         '<div class="video-card-body">' +
@@ -703,10 +763,8 @@ function renderVideos() {
           '</div>' +
         '</div></div>';
     }).join('');
-  }).catch(function() {
-    grid.innerHTML = '';
-    empty.style.display = 'block';
-  });
+    grid.innerHTML += dailyHtml;
+  }).catch(function() {});
 }
 
 function copyCaption(btn, text) {
