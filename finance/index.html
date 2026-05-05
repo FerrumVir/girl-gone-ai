@@ -281,7 +281,7 @@ a:hover { text-decoration: underline; }
       <span>Seed Capital: <span class="val">$25,000</span></span>
       <span>Y1 Revenue Target: <span class="val warn">$1.613M</span> (assumption)</span>
       <span>Net Margin Target: <span class="val warn">87%</span> (assumption)</span>
-      <span>Ad Budget: <span class="val">$100,000</span></span>
+      <span>Ad Budget: <span class="val">$25K (Tier 1)</span> / <span class="val warn">$250K (Tier 2, contingent)</span></span>
       <span>Updated: <span class="val">2026-05-05</span></span>
     </div>
   </div>
@@ -334,7 +334,7 @@ flowchart TD
   end
 
   subgraph COSTS["Cost Deductions"]
-    CO1["Variable: Ad Spend<br/>(Meta + Google)"]
+    CO1["Variable: Ad Spend<br/>(Meta + Google)<br/>Tier 1: $25K / Tier 2: $250K"]
     CO2["Fixed: Platform Subs<br/>(Bubble, HeyGen, Dropbox)"]
     CO3["Fixed: Agent Costs<br/>(Paperclip token spend)"]
     CO4["Variable: Human Comp<br/>(Jaci, contractors)"]
@@ -501,7 +501,7 @@ flowchart LR
 flowchart TD
   subgraph VARIABLE["Variable Costs (scale with revenue)"]
     V1["Gumroad Fees<br/>10% of gross revenue"]
-    V2["Ad Spend<br/>(Meta + Google)<br/>Discretionary, budget-capped"]
+    V2["Ad Spend<br/>(Meta + Google)<br/>Tiered: $25K committed + $250K contingent"]
     V3["Chargebacks &amp; Refunds<br/>~1-2% of revenue"]
   end
 
@@ -557,7 +557,7 @@ flowchart TD
         </tbody>
       </table>
 
-      <div class="assumption">ASSUMPTION: Ad spend budget of $100K total allocated ~$8.3K/mo average over 12 months. Actual allocation will be front-loaded in months 1-3 and scale based on ROAS. Gumroad Discover plan (10% fee) assumed.</div>
+      <div class="assumption">ASSUMPTION: Ad spend is tiered. Tier 1: $25K committed (test phase). Tier 2: up to $250K additional, contingent on Tier 1 proving positive sales attribution and meeting ROAS/payback criteria. Tier 2 is NOT committed capital. Gumroad Discover plan (10% fee) assumed.</div>
       <div class="needs-data">NEEDS DATA: Jaci's compensation structure, contractor fees, exact Bubble.io plan tier, exact HeyGen plan tier.</div>
 
       <h3 style="margin-top: 16px">Agent Cost Breakdown (Actual)</h3>
@@ -639,7 +639,8 @@ flowchart TD
           <tr><td>Gumroad Fees (10%)</td><td class="num-cell">-10.0%</td><td class="num-cell">-$161,300</td></tr>
           <tr><td>COGS (digital = ~0)</td><td class="num-cell">-0.0%</td><td class="num-cell">~$0</td></tr>
           <tr><td><strong>Gross Profit</strong></td><td class="num-cell"><strong>90.0%</strong></td><td class="num-cell"><strong>$1,451,700</strong></td></tr>
-          <tr><td>Ad Spend</td><td class="num-cell">-6.2%</td><td class="num-cell">-$100,000</td></tr>
+          <tr><td>Ad Spend (Tier 1 committed)</td><td class="num-cell">-1.5%</td><td class="num-cell">-$25,000</td></tr>
+          <tr><td>Ad Spend (Tier 2 contingent)</td><td class="num-cell warn">-15.5%</td><td class="num-cell warn">-$250,000 (if unlocked)</td></tr>
           <tr><td>Platform Subs</td><td class="num-cell">-0.2%</td><td class="num-cell">-$2,400</td></tr>
           <tr><td>Agent Costs</td><td class="num-cell">-0.6%</td><td class="num-cell">-$9,500</td></tr>
           <tr><td>Refunds/Chargebacks (~1%)</td><td class="num-cell">-1.0%</td><td class="num-cell">-$16,130</td></tr>
@@ -676,79 +677,112 @@ flowchart TD
 <section class="map-section" id="map-5">
   <div class="container">
     <h2><span class="num">05</span> Ad Budget Allocation &amp; ROAS Map</h2>
-    <p class="desc">How the $100K ad budget is allocated, ROAS measurement, kill/scale criteria, and the Month-2 payback model.</p>
+    <p class="desc">Tiered ad budget: $25K committed test (Tier 1), up to $250K scale-up (Tier 2, contingent on proven ROAS). Kill/scale criteria and the Tier 1 &rarr; Tier 2 gate.</p>
 
     <div class="diagram-wrap">
       <pre class="mermaid">
 flowchart TD
-  subgraph BUDGET["$100K Ad Budget Allocation"]
-    B1["Meta (Facebook/Instagram)<br/>$60,000 (60%)<br/>Visual products, lifestyle audience"]
-    B2["Google (Search + Shopping)<br/>$30,000 (30%)<br/>Intent-based, template seekers"]
-    B3["TikTok (Reserve)<br/>$10,000 (10%)<br/>Viral potential, Gen-Z reach"]
+  subgraph TIER1["TIER 1 — $25K Test (Committed)"]
+    T1A["Meta (Facebook/Instagram)<br/>$15,000 (60%)<br/>Visual products, lifestyle audience"]
+    T1B["Google (Search + Shopping)<br/>$10,000 (40%)<br/>Intent-based, template seekers"]
   end
 
   subgraph ROAS_MEASURE["ROAS Measurement"]
-    R1["Per-Channel ROAS<br/>= Revenue / Ad Spend<br/>Target: 4x+ (Month 2+)"]
-    R2["Blended ROAS<br/>= Total Revenue / Total Ad Spend<br/>Target: 10x+ (Month 6+)"]
+    R1["Per-Channel ROAS<br/>= Revenue / Ad Spend<br/>Target: 2x+ (Tier 1)"]
+    R2["Blended ROAS<br/>= Total Revenue / Total Ad Spend"]
     R3["Attribution Window<br/>7-day click, 1-day view"]
   end
 
-  subgraph CRITERIA["Decision Criteria"]
+  subgraph CRITERIA["Decision Criteria (per ad set)"]
     KILL["KILL if:<br/>ROAS &lt; 2x after $500 test<br/>CPA &gt; $15 sustained<br/>CTR &lt; 0.5% after optimization"]
     SCALE["SCALE if:<br/>ROAS &gt; 4x sustained 7d<br/>CPA &lt; $5 &amp; stable<br/>Positive unit economics"]
     HOLD["HOLD if:<br/>ROAS 2-4x<br/>Optimize creative/targeting<br/>Test for 7 more days"]
   end
 
-  subgraph PAYBACK["Month-2 Payback Model"]
-    P1["Month 1: Spend $25K<br/>Revenue target: $50K+<br/>ROAS target: 2x"]
-    P2["Month 2: Spend $25K<br/>Revenue target: $100K+<br/>Cumulative: $150K+ rev<br/>$50K spend = 3x ROAS"]
-    P3["Months 3-12: Spend $50K<br/>Revenue: $1.4M+<br/>Payback achieved Month 2"]
+  subgraph GATE["TIER 1 → TIER 2 GATE"]
+    G1{"Tier 1 proves<br/>positive sales attribution?"}
+    G2["ROAS >= 2x on $25K<br/>+ CPA sustainable<br/>+ Kenny approves"]
+    G3["TIER 2 UNLOCKED<br/>Up to $250K additional"]
+    G4["TIER 2 DENIED<br/>Organic-only strategy"]
   end
 
-  B1 & B2 & B3 --> R1
-  R1 --> R2
-  R2 --> KILL & SCALE & HOLD
-  SCALE --> P1 --> P2 --> P3
+  subgraph TIER2["TIER 2 — Up to $250K Scale (Contingent)"]
+    T2A["Meta scale-up<br/>$150,000 (60%)"]
+    T2B["Google scale-up<br/>$75,000 (30%)"]
+    T2C["TikTok test<br/>$25,000 (10%)"]
+  end
 
-  style BUDGET fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
+  T1A &amp; T1B --> R1
+  R1 --> R2
+  R2 --> KILL &amp; SCALE &amp; HOLD
+  SCALE --> G1
+  G1 -->|"Yes"| G2 --> G3
+  G1 -->|"No"| G4
+  G3 --> T2A &amp; T2B &amp; T2C
+
+  style TIER1 fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
   style ROAS_MEASURE fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
   style CRITERIA fill:#1a1a2e,stroke:#F59E0B,color:#E8E8F0
-  style PAYBACK fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
+  style GATE fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
+  style TIER2 fill:#1a1a2e,stroke:#3B82F6,color:#E8E8F0
       </pre>
     </div>
 
     <div class="explainer">
-      <h3>Budget Allocation Strategy</h3>
+      <h3>Tiered Budget Allocation</h3>
+      <table class="fin-table">
+        <thead>
+          <tr><th>Tier</th><th>Amount</th><th>Status</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Tier 1</strong></td><td class="num-cell">$25,000</td><td style="color: var(--green)">COMMITTED</td><td>Test whether paid traffic generates attributable sales on this catalog</td></tr>
+          <tr><td><strong>Tier 2</strong></td><td class="num-cell">up to $250,000</td><td class="warn-cell">CONTINGENT</td><td>Scale-up. Earned, not assumed. Unlocked only after Tier 1 gate clears.</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 16px">Tier 1 Channel Allocation ($25K)</h3>
       <table class="fin-table">
         <thead>
           <tr><th>Channel</th><th>Budget</th><th>%</th><th>Strategy</th><th>Target ROAS</th></tr>
         </thead>
         <tbody>
-          <tr><td>Meta (FB/IG)</td><td class="num-cell">$60,000</td><td class="num-cell">60%</td><td>Visual product ads, lifestyle targeting, lookalike audiences</td><td class="num-cell">4x+</td></tr>
-          <tr><td>Google (Search/Shopping)</td><td class="num-cell">$30,000</td><td class="num-cell">30%</td><td>High-intent keywords: "notion templates", "digital planners"</td><td class="num-cell">5x+</td></tr>
-          <tr><td>TikTok (Reserve)</td><td class="num-cell">$10,000</td><td class="num-cell">10%</td><td>Short-form video, organic amplification, test budget</td><td class="num-cell">3x+</td></tr>
+          <tr><td>Meta (FB/IG)</td><td class="num-cell">$15,000</td><td class="num-cell">60%</td><td>Visual product ads, lifestyle targeting, lookalike audiences</td><td class="num-cell">2x+</td></tr>
+          <tr><td>Google (Search/Shopping)</td><td class="num-cell">$10,000</td><td class="num-cell">40%</td><td>High-intent keywords: "notion templates", "digital planners"</td><td class="num-cell">3x+</td></tr>
         </tbody>
       </table>
 
-      <h3 style="margin-top: 16px">Month-2 Payback Model</h3>
-      <div class="assumption">ASSUMPTION: Ad spend payback by end of Month 2 requires cumulative revenue of at least $50K against $50K cumulative ad spend (1:1 payback). The 87% margin means ad-attributed revenue of ~$57.5K covers the $50K spend at the net profit level.</div>
+      <h3 style="margin-top: 16px">Tier 1 &rarr; Tier 2 Gate Conditions</h3>
+      <div class="assumption">ASSUMPTION: Tier 1 is a TEST designed to learn whether paid traffic works at all on this catalog. $250K is the PRIZE — earned, not assumed. Treat $250K as contingent upside, never committed capital.</div>
       <table class="fin-table">
         <thead>
-          <tr><th>Month</th><th>Ad Spend</th><th>Revenue (Target)</th><th>Cumulative Spend</th><th>Cumulative Revenue</th><th>ROAS</th></tr>
+          <tr><th>Gate Criterion</th><th>Threshold</th><th>Who Decides</th></tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td class="num-cell">$25,000</td><td class="num-cell">$50,000</td><td class="num-cell">$25,000</td><td class="num-cell">$50,000</td><td class="num-cell">2.0x</td></tr>
-          <tr><td>2</td><td class="num-cell">$25,000</td><td class="num-cell">$100,000</td><td class="num-cell">$50,000</td><td class="num-cell">$150,000</td><td class="num-cell">3.0x</td></tr>
-          <tr><td>3-6</td><td class="num-cell">$6,250/mo</td><td class="num-cell">$130,000/mo</td><td class="num-cell">$75,000</td><td class="num-cell">$670,000</td><td class="num-cell">8.9x</td></tr>
-          <tr><td>7-12</td><td class="num-cell">$4,167/mo</td><td class="num-cell">$157,000/mo</td><td class="num-cell">$100,000</td><td class="num-cell">$1,613,000</td><td class="num-cell">16.1x</td></tr>
+          <tr><td>Positive sales attribution</td><td>Ad spend directly traceable to completed purchases</td><td>Banker (measurement) + CEO (validation)</td></tr>
+          <tr><td>Minimum ROAS</td><td>>= 2x blended across Tier 1 spend</td><td>Banker (automatic)</td></tr>
+          <tr><td>Sustainable CPA</td><td>&lt; $10 blended (profitable at unit economics level)</td><td>Banker (automatic)</td></tr>
+          <tr><td>Kenny approval</td><td>Final go/no-go on Tier 2 unlock</td><td>Kenny (owner poll)</td></tr>
         </tbody>
       </table>
+
+      <h3 style="margin-top: 16px">Tier 1 Payback Model ($25K)</h3>
+      <table class="fin-table">
+        <thead>
+          <tr><th>Month</th><th>Ad Spend</th><th>Revenue Target</th><th>Cumulative Spend</th><th>Cumulative Revenue</th><th>ROAS</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td class="num-cell">$12,500</td><td class="num-cell">$25,000</td><td class="num-cell">$12,500</td><td class="num-cell">$25,000</td><td class="num-cell">2.0x</td></tr>
+          <tr><td>2</td><td class="num-cell">$12,500</td><td class="num-cell">$37,500</td><td class="num-cell">$25,000</td><td class="num-cell">$62,500</td><td class="num-cell">2.5x</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 8px; font-size: 0.85rem"><strong>If Tier 2 unlocks (Month 3+):</strong> Scale to ~$25K/mo ad spend. Projected payback on total $275K ad budget by Month 5-6 (vs Month 2 under original $100K model).</p>
 
       <h3 style="margin-top: 16px">Kill / Scale Criteria</h3>
       <ul>
         <li><strong>Kill:</strong> ROAS &lt; 2x after $500 test spend per ad set; CPA &gt; $15 sustained 7 days; CTR &lt; 0.5% after creative optimization round</li>
         <li><strong>Scale:</strong> ROAS &gt; 4x sustained 7 consecutive days; CPA &lt; $5 and stable; positive unit economics verified</li>
         <li><strong>Hold &amp; Optimize:</strong> ROAS between 2-4x — test new creatives, adjust targeting, run for 7 more days before kill/scale decision</li>
+        <li><strong>Tier 2 Shutdown:</strong> If after deploying first $50K of Tier 2, blended ROAS drops below 2x, pause Tier 2 and reassess</li>
       </ul>
 
       <div class="needs-data">NEEDS DATA: Meta and Google Ads accounts not yet activated. No real ROAS data available. All figures are projections based on digital product industry benchmarks.</div>
@@ -761,65 +795,78 @@ flowchart TD
 <section class="map-section" id="map-6">
   <div class="container">
     <h2><span class="num">06</span> Recursion / Reinvestment Engine</h2>
-    <p class="desc">Month-by-month: revenue to net profit, trigger checks, 85/15 split, and reinvestment into Project N+1.</p>
+    <p class="desc">Month-by-month projections under the corrected tiered ad budget ($25K Tier 1 / $250K Tier 2 contingent). Two scenarios: Tier 1 only and Tier 1 + Tier 2.</p>
 
     <div class="diagram-wrap">
       <pre class="mermaid">
 flowchart TD
-  subgraph M1_3["Months 1-3: Project 1 Ramp"]
-    A1["Month 1: Rev $50K<br/>Net ~$35K<br/>Seed $25K not yet repaid"]
-    A2["Month 2: Rev $100K<br/>Net ~$72K<br/>Cumulative net: $107K<br/>Seed REPAID ✓"]
-    A3["Month 3: Rev $130K<br/>Net ~$100K<br/>ROI = ($207K-$25K)/$25K = 728%<br/>ROI GATE PASSED ✓"]
+  subgraph TIER1_TEST["Months 1-2: Tier 1 Test ($25K)"]
+    A1["Month 1: Spend $12.5K<br/>Rev $25K (ads) + organic<br/>Net ~$15K"]
+    A2["Month 2: Spend $12.5K<br/>Rev $40K (ads) + organic<br/>Cumulative net: ~$37K<br/>Seed REPAID"]
   end
 
-  subgraph SPLIT_ACTIVATE["15/85 Split Activates"]
-    S1["Month 3+:<br/>15% to Kenny = ~$15K/mo<br/>85% to reinvestment = ~$85K/mo"]
+  subgraph GATE_CHECK["Tier 1 Gate (end Month 2)"]
+    G1{"Paid traffic works?<br/>ROAS >= 2x?"}
   end
 
-  subgraph M4_6["Months 4-6: Scaling + Seeding"]
-    B1["Month 4: Net ~$115K<br/>Kenny: $17.3K<br/>Pool: $97.8K"]
-    B2["Month 5: Net ~$125K<br/>Kenny: $18.8K<br/>Pool: $106.3K"]
-    B3["Month 6: Net ~$130K<br/>Kenny: $19.5K<br/>Pool accumulates"]
-    B4["Project 2 Seed Event<br/>(Month 3-4)<br/>Investor Agent proposes"]
+  subgraph TIER2_PATH["Path A: Tier 2 Unlocked"]
+    T2A["Month 3+: Scale to ~$25K/mo ads<br/>Revenue ramps to $130K+/mo<br/>ROI GATE passes Month 3"]
+    T2B["Month 4-6: $150K+/mo revenue<br/>Kenny 15% active<br/>85% pool accumulates"]
+    T2C["Project 2 seed: Month 4-5"]
   end
 
-  subgraph M7_12["Months 7-12: Dual Projects"]
-    C1["Project 1 continues<br/>~$135K/mo net"]
-    C2["Project 2 launches<br/>(Agent Skill Packs)<br/>Separate P&amp;L"]
-    C3["Combined flywheel<br/>accelerates recursion"]
+  subgraph ORGANIC_PATH["Path B: Tier 1 Only (Organic Focus)"]
+    O1["Month 3+: No paid ads<br/>Organic + content only<br/>Rev ~$10-20K/mo"]
+    O2["Seed repaid Month 2<br/>ROI gate Month 3-4<br/>Split active but small amounts"]
+    O3["Project 2 seed: Month 8-12<br/>(slow pool accumulation)"]
   end
 
-  A1 --> A2 --> A3
-  A3 --> S1
-  S1 --> B1 --> B2 --> B3
-  B1 --> B4
-  B3 --> C1
-  B4 --> C2
-  C1 & C2 --> C3
+  A1 --> A2
+  A2 --> G1
+  G1 -->|"Yes"| T2A --> T2B --> T2C
+  G1 -->|"No"| O1 --> O2 --> O3
 
-  style M1_3 fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
-  style SPLIT_ACTIVATE fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
-  style M4_6 fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
-  style M7_12 fill:#1a1a2e,stroke:#3B82F6,color:#E8E8F0
+  style TIER1_TEST fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
+  style GATE_CHECK fill:#1a1a2e,stroke:#F59E0B,color:#E8E8F0
+  style TIER2_PATH fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
+  style ORGANIC_PATH fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
       </pre>
     </div>
 
     <div class="explainer">
-      <h3>Recursion Flywheel (Month-by-Month Projection)</h3>
-      <div class="assumption">ASSUMPTION: All revenue figures based on $1.613M Y1 projection with ramp curve. Net margin ~87%. Tolerant of 30-50% variance — at 50% downside, seed still repaid by Month 3-4.</div>
+      <h3>Scenario A: Tier 1 + Tier 2 (Paid Traffic Proven)</h3>
+      <div class="assumption">ASSUMPTION: If Tier 1 proves ROAS >= 2x, Tier 2 ($250K) unlocks. Revenue projections assume gradual Tier 2 deploy starting Month 3. Y1 total ad spend ~$200K (not all $275K may be deployed). Net margin ~85% (slightly lower due to higher ad:revenue ratio during ramp).</div>
 
       <table class="fin-table">
         <thead>
-          <tr><th>Month</th><th>Revenue</th><th>Net Profit</th><th>Cumulative Net</th><th>Seed Repaid?</th><th>ROI >= 25%?</th><th>Kenny 15%</th><th>85% Pool</th></tr>
+          <tr><th>Month</th><th>Ad Spend</th><th>Revenue</th><th>Net Profit</th><th>Cumulative Net</th><th>Seed Repaid?</th><th>ROI >= 25%?</th><th>Kenny 15%</th><th>85% Pool</th></tr>
         </thead>
         <tbody>
-          <tr><td>1</td><td class="num-cell">$50,000</td><td class="num-cell">$35,000</td><td class="num-cell">$35,000</td><td>Yes ($35K > $25K)</td><td>Yes (40%)</td><td class="num-cell">$5,250</td><td class="num-cell">$29,750</td></tr>
-          <tr><td>2</td><td class="num-cell">$100,000</td><td class="num-cell">$72,000</td><td class="num-cell">$107,000</td><td>Yes</td><td>Yes (328%)</td><td class="num-cell">$10,800</td><td class="num-cell">$61,200</td></tr>
-          <tr><td>3</td><td class="num-cell">$130,000</td><td class="num-cell">$100,000</td><td class="num-cell">$207,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$15,000</td><td class="num-cell">$85,000</td></tr>
-          <tr><td>4</td><td class="num-cell">$150,000</td><td class="num-cell">$115,000</td><td class="num-cell">$322,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$17,250</td><td class="num-cell">$97,750</td></tr>
-          <tr><td>5</td><td class="num-cell">$155,000</td><td class="num-cell">$120,000</td><td class="num-cell">$442,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$18,000</td><td class="num-cell">$102,000</td></tr>
-          <tr><td>6</td><td class="num-cell">$160,000</td><td class="num-cell">$125,000</td><td class="num-cell">$567,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$18,750</td><td class="num-cell">$106,250</td></tr>
-          <tr><td>7-12</td><td class="num-cell">~$170K/mo</td><td class="num-cell">~$135K/mo</td><td class="num-cell">$1,377,000</td><td>Yes</td><td>Yes</td><td class="num-cell">~$20K/mo</td><td class="num-cell">~$115K/mo</td></tr>
+          <tr><td>1</td><td class="num-cell">$12,500</td><td class="num-cell">$30,000</td><td class="num-cell">$15,000</td><td class="num-cell">$15,000</td><td>No</td><td>No</td><td class="num-cell">$0</td><td class="num-cell">$0</td></tr>
+          <tr><td>2</td><td class="num-cell">$12,500</td><td class="num-cell">$45,000</td><td class="num-cell">$27,000</td><td class="num-cell">$42,000</td><td>Yes</td><td>Yes (68%)</td><td class="num-cell">$4,050</td><td class="num-cell">$22,950</td></tr>
+          <tr><td>3</td><td class="num-cell">$25,000</td><td class="num-cell">$100,000</td><td class="num-cell">$65,000</td><td class="num-cell">$107,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$9,750</td><td class="num-cell">$55,250</td></tr>
+          <tr><td>4</td><td class="num-cell">$25,000</td><td class="num-cell">$130,000</td><td class="num-cell">$88,000</td><td class="num-cell">$195,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$13,200</td><td class="num-cell">$74,800</td></tr>
+          <tr><td>5</td><td class="num-cell">$25,000</td><td class="num-cell">$150,000</td><td class="num-cell">$103,000</td><td class="num-cell">$298,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$15,450</td><td class="num-cell">$87,550</td></tr>
+          <tr><td>6</td><td class="num-cell">$25,000</td><td class="num-cell">$160,000</td><td class="num-cell">$110,000</td><td class="num-cell">$408,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$16,500</td><td class="num-cell">$93,500</td></tr>
+          <tr><td>7-12</td><td class="num-cell">~$12K/mo</td><td class="num-cell">~$170K/mo</td><td class="num-cell">~$135K/mo</td><td class="num-cell">$1,218,000</td><td>Yes</td><td>Yes</td><td class="num-cell">~$20K/mo</td><td class="num-cell">~$115K/mo</td></tr>
+        </tbody>
+      </table>
+
+      <h3 style="margin-top: 16px">Scenario B: Tier 1 Only (Organic Focus)</h3>
+      <div class="assumption">ASSUMPTION: If Tier 1 fails to prove ROAS, no Tier 2. Revenue relies on organic traffic, content marketing, social media. Growth much slower. Net margin higher (~90%) due to zero ad spend after Tier 1.</div>
+
+      <table class="fin-table">
+        <thead>
+          <tr><th>Month</th><th>Ad Spend</th><th>Revenue</th><th>Net Profit</th><th>Cumulative Net</th><th>Seed Repaid?</th><th>ROI >= 25%?</th><th>Kenny 15%</th><th>85% Pool</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td class="num-cell">$12,500</td><td class="num-cell">$15,000</td><td class="num-cell">$1,000</td><td class="num-cell">$1,000</td><td>No</td><td>No</td><td class="num-cell">$0</td><td class="num-cell">$0</td></tr>
+          <tr><td>2</td><td class="num-cell">$12,500</td><td class="num-cell">$20,000</td><td class="num-cell">$5,000</td><td class="num-cell">$6,000</td><td>No</td><td>No</td><td class="num-cell">$0</td><td class="num-cell">$0</td></tr>
+          <tr><td>3</td><td class="num-cell">$0</td><td class="num-cell">$12,000</td><td class="num-cell">$10,000</td><td class="num-cell">$16,000</td><td>No</td><td>No</td><td class="num-cell">$0</td><td class="num-cell">$0</td></tr>
+          <tr><td>4</td><td class="num-cell">$0</td><td class="num-cell">$15,000</td><td class="num-cell">$13,000</td><td class="num-cell">$29,000</td><td>Yes</td><td>Yes (16%)</td><td class="num-cell">$1,950</td><td class="num-cell">$11,050</td></tr>
+          <tr><td>5</td><td class="num-cell">$0</td><td class="num-cell">$18,000</td><td class="num-cell">$16,000</td><td class="num-cell">$45,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$2,400</td><td class="num-cell">$13,600</td></tr>
+          <tr><td>6</td><td class="num-cell">$0</td><td class="num-cell">$20,000</td><td class="num-cell">$18,000</td><td class="num-cell">$63,000</td><td>Yes</td><td>Yes</td><td class="num-cell">$2,700</td><td class="num-cell">$15,300</td></tr>
+          <tr><td>7-12</td><td class="num-cell">$0</td><td class="num-cell">~$25K/mo</td><td class="num-cell">~$23K/mo</td><td class="num-cell">$201,000</td><td>Yes</td><td>Yes</td><td class="num-cell">~$3.5K/mo</td><td class="num-cell">~$19.5K/mo</td></tr>
         </tbody>
       </table>
 
@@ -830,7 +877,19 @@ flowchart TD
         <li><strong>Both gates must pass simultaneously</strong> for the 15/85 split to activate. Before that, 100% of net profit is reinvested in the current project.</li>
       </ol>
 
-      <p style="margin-top: 12px"><strong>50% Downside Scenario:</strong> At half projected revenue (~$807K Y1), seed repaid by Month 3-4, gates still pass by Month 4. Split activation delayed ~1 month. Flywheel still works.</p>
+      <h3 style="margin-top: 16px">Scenario Comparison</h3>
+      <table class="fin-table">
+        <thead>
+          <tr><th>Metric</th><th>Tier 1+2 (ads work)</th><th>Tier 1 only (organic)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Y1 Revenue</td><td class="num-cell">~$1.4M</td><td class="num-cell">~$230K</td></tr>
+          <tr><td>Split Active</td><td>Month 2</td><td>Month 4</td></tr>
+          <tr><td>Kenny Y1 Draw</td><td class="num-cell">~$155K</td><td class="num-cell">~$20K</td></tr>
+          <tr><td>P2 Seed Possible</td><td>Month 4-5</td><td>Month 8-12</td></tr>
+          <tr><td>Total Ad Spend</td><td class="num-cell">~$200K</td><td class="num-cell">$25K</td></tr>
+        </tbody>
+      </table>
     </div>
     <a href="#" class="back-top">Back to top</a>
   </div>
@@ -962,6 +1021,18 @@ flowchart TD
     L2 -->|"No"| L4["Review costs<br/>Reduce discretionary<br/>Continue operations"]
   end
 
+  subgraph TIER_GATE["Tier 1 → Tier 2 Ad Budget Gate"]
+    TG1{"Tier 1 $25K deployed?"}
+    TG2{"ROAS >= 2x?<br/>Positive attribution?"}
+    TG3["Kenny approval poll"]
+    TG4["TIER 2 UNLOCKED<br/>Up to $250K"]
+    TG5["TIER 2 DENIED<br/>Organic strategy only"]
+    TG1 -->|"Yes"| TG2
+    TG2 -->|"Yes"| TG3 -->|"Approved"| TG4
+    TG2 -->|"No"| TG5
+    TG3 -->|"Denied"| TG5
+  end
+
   subgraph SPEND_GATES["Spend Approval Gates"]
     SG1["< $100: Auto-approved<br/>(agent discretion)"]
     SG2["$100 - $999: CEO approval"]
@@ -977,6 +1048,7 @@ flowchart TD
   end
 
   style LOSS_PATH fill:#1a1a2e,stroke:#EF4444,color:#E8E8F0
+  style TIER_GATE fill:#1a1a2e,stroke:#3B82F6,color:#E8E8F0
   style SPEND_GATES fill:#1a1a2e,stroke:#F59E0B,color:#E8E8F0
   style FRAUD_DETECT fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
       </pre>
@@ -989,6 +1061,7 @@ flowchart TD
           <tr><th>Gate</th><th>Trigger</th><th>Action</th><th>Who Decides</th></tr>
         </thead>
         <tbody>
+          <tr><td><strong>Tier 1 &rarr; Tier 2 Gate</strong></td><td>Tier 1 $25K deployed, ROAS >= 2x, positive attribution</td><td>Unlocks up to $250K additional ad spend</td><td>Banker (measurement) + Kenny (approval)</td></tr>
           <tr><td>Seed Repayment</td><td>Cumulative net profit >= $25K</td><td>Unlocks 15/85 split eligibility</td><td>Automatic (Banker)</td></tr>
           <tr><td>ROI Threshold</td><td>ROI >= 25% (cum net >= $31,250)</td><td>Activates 15/85 split + recursion</td><td>Automatic (Banker)</td></tr>
           <tr><td>Margin Warning</td><td>Gross margin 85-92%</td><td>Alert CEO, review cost structure</td><td>CEO + Banker</td></tr>
@@ -1015,66 +1088,67 @@ flowchart TD
 <section class="map-section" id="map-9">
   <div class="container">
     <h2><span class="num">09</span> Runway &amp; Scenario Model</h2>
-    <p class="desc">Base case, downside, and upside scenarios. Cash position over time, self-funding point, and external capital needs.</p>
+    <p class="desc">Scenarios re-modeled under the corrected tiered ad budget ($25K Tier 1 committed / $250K Tier 2 contingent). Four scenarios based on ad performance and revenue outcomes.</p>
 
     <div class="diagram-wrap">
       <pre class="mermaid">
 flowchart LR
-  subgraph BASE["Base Case (100%)"]
-    BA1["Y1 Revenue: $1.613M<br/>Net Margin: 87%<br/>Net Profit: $1.403M"]
-    BA2["Self-funding: Month 1<br/>(net positive immediately)"]
-    BA3["Seed repaid: Month 1<br/>Split active: Month 1-2"]
-    BA4["Cash EOY: ~$1.2M+<br/>(after owner draw + reinvest)"]
+  subgraph BASE["Base: Tier 2 Unlocked"]
+    BA1["Y1 Revenue: ~$1.4M<br/>Ad Spend: ~$200K<br/>Net Profit: ~$1.0M"]
+    BA2["Self-funding: Month 2"]
+    BA3["Seed repaid: Month 2<br/>Split active: Month 2"]
+    BA4["Cash EOY: ~$800K+"]
   end
 
-  subgraph DOWN["Downside (-50%)"]
-    D1["Y1 Revenue: $807K<br/>Net Margin: ~80%<br/>Net Profit: $645K"]
-    D2["Self-funding: Month 2<br/>(after ramp covers burn)"]
-    D3["Seed repaid: Month 2-3<br/>Split active: Month 3-4"]
-    D4["Cash EOY: ~$500K+"]
+  subgraph DOWN["Downside: Tier 2 at -50%"]
+    D1["Y1 Revenue: ~$700K<br/>Ad Spend: ~$125K<br/>Net Profit: ~$480K"]
+    D2["Self-funding: Month 3"]
+    D3["Seed repaid: Month 3<br/>Split active: Month 3"]
+    D4["Cash EOY: ~$370K+"]
   end
 
-  subgraph UP["Upside (+30%)"]
-    U1["Y1 Revenue: $2.097M<br/>Net Margin: ~89%<br/>Net Profit: $1.866M"]
-    U2["Self-funding: Month 1"]
-    U3["Seed repaid: Month 1<br/>Split active: Month 1"]
-    U4["Cash EOY: ~$1.6M+"]
+  subgraph ORGANIC["Tier 1 Only (No Scale-Up)"]
+    O1["Y1 Revenue: ~$230K<br/>Ad Spend: $25K<br/>Net Profit: ~$180K"]
+    O2["Self-funding: Month 3"]
+    O3["Seed repaid: Month 4<br/>Split active: Month 4-5"]
+    O4["Cash EOY: ~$150K+"]
   end
 
-  subgraph WORST["Worst Case (-70%)"]
-    W1["Y1 Revenue: $484K<br/>Net Margin: ~70%<br/>Net Profit: $339K"]
-    W2["Self-funding: Month 3"]
-    W3["Seed repaid: Month 4<br/>Split active: Month 5"]
+  subgraph WORST["Worst: Tier 1 Fails + Weak Organic"]
+    W1["Y1 Revenue: ~$80K<br/>Ad Spend: $25K (sunk)<br/>Net Profit: ~$40K"]
+    W2["Self-funding: Month 6"]
+    W3["Seed repaid: Month 8+<br/>Split active: Month 9+"]
     W4["No external capital needed<br/>Burn covered by seed"]
   end
 
   style BASE fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
   style DOWN fill:#1a1a2e,stroke:#F59E0B,color:#E8E8F0
-  style UP fill:#1a1a2e,stroke:#3B82F6,color:#E8E8F0
+  style ORGANIC fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
   style WORST fill:#1a1a2e,stroke:#EF4444,color:#E8E8F0
       </pre>
     </div>
 
     <div class="explainer">
-      <h3>Scenario Analysis</h3>
+      <h3>Scenario Analysis (Corrected for Tiered Ad Budget)</h3>
       <table class="fin-table">
         <thead>
-          <tr><th>Metric</th><th>Worst (-70%)</th><th>Downside (-50%)</th><th>Base (100%)</th><th>Upside (+30%)</th></tr>
+          <tr><th>Metric</th><th>Worst (Tier 1 fails, weak organic)</th><th>Tier 1 Only (organic focus)</th><th>Base (Tier 2 unlocked)</th><th>Upside (Tier 2 + strong ROAS)</th></tr>
         </thead>
         <tbody>
-          <tr><td>Y1 Gross Revenue</td><td class="num-cell">$484,000</td><td class="num-cell">$807,000</td><td class="num-cell">$1,613,000</td><td class="num-cell">$2,097,000</td></tr>
-          <tr><td>Effective Net Margin</td><td class="num-cell">~70%</td><td class="num-cell">~80%</td><td class="num-cell">~87%</td><td class="num-cell">~89%</td></tr>
-          <tr><td>Y1 Net Profit</td><td class="num-cell">$339,000</td><td class="num-cell">$645,000</td><td class="num-cell">$1,403,000</td><td class="num-cell">$1,866,000</td></tr>
-          <tr><td>Self-Funding Month</td><td class="num-cell">3</td><td class="num-cell">2</td><td class="num-cell">1</td><td class="num-cell">1</td></tr>
-          <tr><td>Seed Repaid (Month)</td><td class="num-cell">4</td><td class="num-cell">2-3</td><td class="num-cell">1</td><td class="num-cell">1</td></tr>
-          <tr><td>Split Active (Month)</td><td class="num-cell">5</td><td class="num-cell">3-4</td><td class="num-cell">1-2</td><td class="num-cell">1</td></tr>
-          <tr><td>Kenny Y1 Draw (15%)</td><td class="num-cell">~$40K</td><td class="num-cell">~$81K</td><td class="num-cell">~$175K</td><td class="num-cell">~$233K</td></tr>
-          <tr><td>Reinvestment Pool Y1 (85%)</td><td class="num-cell">~$227K</td><td class="num-cell">~$460K</td><td class="num-cell">~$993K</td><td class="num-cell">~$1.32M</td></tr>
+          <tr><td>Y1 Gross Revenue</td><td class="num-cell">$80,000</td><td class="num-cell">$230,000</td><td class="num-cell">$1,400,000</td><td class="num-cell">$1,800,000</td></tr>
+          <tr><td>Total Ad Spend</td><td class="num-cell">$25,000</td><td class="num-cell">$25,000</td><td class="num-cell">~$200,000</td><td class="num-cell">~$250,000</td></tr>
+          <tr><td>Effective Net Margin</td><td class="num-cell">~50%</td><td class="num-cell">~78%</td><td class="num-cell">~72%</td><td class="num-cell">~78%</td></tr>
+          <tr><td>Y1 Net Profit</td><td class="num-cell">$40,000</td><td class="num-cell">$180,000</td><td class="num-cell">$1,008,000</td><td class="num-cell">$1,404,000</td></tr>
+          <tr><td>Self-Funding Month</td><td class="num-cell">6</td><td class="num-cell">3</td><td class="num-cell">2</td><td class="num-cell">2</td></tr>
+          <tr><td>Seed Repaid (Month)</td><td class="num-cell">8+</td><td class="num-cell">4</td><td class="num-cell">2</td><td class="num-cell">2</td></tr>
+          <tr><td>Split Active (Month)</td><td class="num-cell">9+</td><td class="num-cell">4-5</td><td class="num-cell">2</td><td class="num-cell">2</td></tr>
+          <tr><td>Kenny Y1 Draw (15%)</td><td class="num-cell">~$3K</td><td class="num-cell">~$20K</td><td class="num-cell">~$130K</td><td class="num-cell">~$180K</td></tr>
+          <tr><td>Reinvestment Pool Y1 (85%)</td><td class="num-cell">~$17K</td><td class="num-cell">~$113K</td><td class="num-cell">~$738K</td><td class="num-cell">~$1.02M</td></tr>
           <tr><td>External Capital Needed?</td><td><strong>No</strong></td><td><strong>No</strong></td><td><strong>No</strong></td><td><strong>No</strong></td></tr>
         </tbody>
       </table>
 
-      <div class="assumption">ASSUMPTION: Net margin decreases in downside scenarios because fixed costs (platform subs, agent spend) become a larger percentage of revenue, while ad spend is assumed to scale down proportionally.</div>
+      <div class="assumption">ASSUMPTION: Net margins vary significantly across scenarios. The $25K Tier 1 spend is SUNK in all scenarios. Tier 2 spend only occurs in Base and Upside. Fixed costs (~$2K/mo platforms + ~$800-1,400/mo agents) become a larger share of revenue in lower scenarios. Original $1.613M Y1 and 87% margin assumptions now apply only when Tier 2 unlocks with strong performance.</div>
 
       <h3 style="margin-top: 16px">Current Pre-Revenue Runway</h3>
       <table class="fin-table">
@@ -1101,86 +1175,90 @@ flowchart LR
 <section class="map-section" id="map-10">
   <div class="container">
     <h2><span class="num">10</span> Project 1 → Project 2 Funding Bridge</h2>
-    <p class="desc">Concrete: what Project 2's seeding event looks like in dollars, minimum seed floor, max cap, and contingency if Project 1 under-delivers.</p>
+    <p class="desc">Concrete: what Project 2's seeding event looks like under the tiered ad budget. P2 launch month depends heavily on whether Tier 2 unlocks.</p>
 
     <div class="diagram-wrap">
       <pre class="mermaid">
 flowchart TD
-  subgraph TRIGGER["Seeding Trigger (Month 3-4)"]
-    T1["Project 1 gates passed:<br/>Seed repaid ✓<br/>ROI >= 25% ✓"]
-    T2["85% pool accumulating<br/>~$90K+ available"]
-    T3["Investor Agent<br/>proposes Project 2"]
+  subgraph TRIGGER["Seeding Prerequisites"]
+    T1["Project 1 gates passed:<br/>Seed repaid + ROI >= 25%"]
+    T2{"Which ad tier path?"}
   end
 
-  subgraph PROPOSAL["Seed Proposal"]
-    P1["Project 2: Agent Skill Packs<br/>Subscription SaaS"]
-    P2["Proposed Seed: $25,000<br/>(matches Factory 1 seed)"]
-    P3["CEO reviews proposal"]
-    P4["Kenny approves<br/>(>$1K threshold)"]
+  subgraph FAST_PATH["Path A: Tier 2 Unlocked (Month 4-5)"]
+    FA1["85% pool ~$55-78K by Month 3-4"]
+    FA2["Investor Agent proposes P2"]
+    FA3["Seed $25K from pool"]
   end
 
-  subgraph FUNDING["Funding Mechanics"]
-    F1["Draw $25K from 85% pool"]
+  subgraph SLOW_PATH["Path B: Tier 1 Only (Month 8-12)"]
+    SB1["85% pool ~$11-15K by Month 5-6"]
+    SB2["Wait for pool >= $15K floor"]
+    SB3["Seed $15-25K when available"]
+  end
+
+  subgraph CANCEL_PATH["Path C: Weak Organic (Defer)"]
+    CA1["85% pool < $15K at Month 9"]
+    CA2["Defer Project 2 indefinitely"]
+    CA3["Focus all resources on P1"]
+  end
+
+  subgraph FUNDING["Funding Mechanics (all paths)"]
+    F1["Draw from 85% pool"]
     F2["Earmark in operating account<br/>(Project 2 sub-ledger)"]
     F3["Project 2 Banker Agent<br/>tracks separately"]
-    F4["Same 15/85 rules apply<br/>to Project 2"]
+    F4["Same 15/85 rules apply"]
   end
 
-  subgraph CONTINGENCY["If Project 1 Under-Delivers"]
-    C1{"85% pool < $15K<br/>at Month 3?"}
-    C2["DELAY: Wait until pool<br/>reaches $15K minimum"]
-    C3["SCALE DOWN: Seed at<br/>$15K (proposed floor)"]
-    C4["CANCEL: If pool < $15K<br/>by Month 6, defer P2"]
-  end
+  T1 --> T2
+  T2 -->|"Tier 2 unlocked"| FA1 --> FA2 --> FA3 --> F1
+  T2 -->|"Tier 1 only"| SB1 --> SB2 --> SB3 --> F1
+  SB2 -->|"Pool still < $15K at Month 9"| CA1 --> CA2 --> CA3
+  F1 --> F2 --> F3 --> F4
 
-  T1 --> T2 --> T3
-  T3 --> P1 --> P2 --> P3 --> P4
-  P4 --> F1 --> F2 --> F3 --> F4
-  T2 --> C1
-  C1 -->|"Yes"| C2
-  C2 --> C3
-  C3 --> C4
-
-  style TRIGGER fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
-  style PROPOSAL fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
+  style TRIGGER fill:#1a1a2e,stroke:#FF3B8B,color:#E8E8F0
+  style FAST_PATH fill:#1a1a2e,stroke:#22C55E,color:#E8E8F0
+  style SLOW_PATH fill:#1a1a2e,stroke:#A855F7,color:#E8E8F0
+  style CANCEL_PATH fill:#1a1a2e,stroke:#EF4444,color:#E8E8F0
   style FUNDING fill:#1a1a2e,stroke:#3B82F6,color:#E8E8F0
-  style CONTINGENCY fill:#1a1a2e,stroke:#F59E0B,color:#E8E8F0
       </pre>
     </div>
 
     <div class="explainer">
-      <h3>Project 2 Seeding Event</h3>
+      <h3>Project 2 Seeding Event (by Scenario)</h3>
       <table class="fin-table">
         <thead>
-          <tr><th>Parameter</th><th>Value</th><th>Rationale</th></tr>
+          <tr><th>Parameter</th><th>Tier 2 Unlocked</th><th>Tier 1 Only</th></tr>
         </thead>
         <tbody>
-          <tr><td><strong>Target Seed Amount</strong></td><td class="num-cell">$25,000</td><td>Mirrors Factory 1 seed; sufficient for SaaS MVP + initial marketing</td></tr>
-          <tr><td><strong>Minimum Seed Floor</strong></td><td class="num-cell">$15,000</td><td>Minimum viable: covers 6 months of agent costs + basic infrastructure for a lean SaaS launch</td></tr>
-          <tr><td><strong>Maximum Seed Cap</strong></td><td class="num-cell">$50,000</td><td>Upper bound prevents over-allocation; excess stays in P1 scaling budget</td></tr>
-          <tr><td><strong>Earliest Seed Date</strong></td><td>Month 3</td><td>After P1 gates pass and pool has accumulated</td></tr>
-          <tr><td><strong>Latest Seed Date</strong></td><td>Month 6</td><td>If not funded by Month 6, reassess Project 2 viability</td></tr>
+          <tr><td><strong>Earliest Seed Date</strong></td><td>Month 4</td><td>Month 8</td></tr>
+          <tr><td><strong>Latest Seed Date</strong></td><td>Month 6</td><td>Month 12 (defer if pool insufficient)</td></tr>
+          <tr><td><strong>85% Pool at Seed Date</strong></td><td class="num-cell">~$55-78K</td><td class="num-cell">~$15-40K</td></tr>
+          <tr><td><strong>Target Seed</strong></td><td class="num-cell">$25,000</td><td class="num-cell">$15,000 - $25,000</td></tr>
+          <tr><td><strong>Min Floor</strong></td><td class="num-cell">$15,000</td><td class="num-cell">$15,000</td></tr>
+          <tr><td><strong>Max Cap</strong></td><td class="num-cell">$50,000</td><td class="num-cell">$25,000</td></tr>
         </tbody>
       </table>
 
       <h3 style="margin-top: 16px">Contingency Matrix</h3>
       <table class="fin-table">
         <thead>
-          <tr><th>85% Pool at Month 3</th><th>Action</th></tr>
+          <tr><th>85% Pool at Decision Point</th><th>Action</th></tr>
         </thead>
         <tbody>
           <tr><td>>= $25K</td><td>Fund Project 2 at full $25K seed</td></tr>
           <tr><td>$15K - $24K</td><td>Fund at available amount (above floor). Top up to $25K when pool allows.</td></tr>
-          <tr><td>&lt; $15K</td><td>Delay seeding. Reassess monthly. If still &lt; $15K at Month 6, defer Project 2 indefinitely.</td></tr>
+          <tr><td>&lt; $15K</td><td>Delay seeding. Reassess monthly.</td></tr>
+          <tr><td>&lt; $15K at Month 9 (Tier 1 only) or Month 6 (Tier 2)</td><td>Defer Project 2 indefinitely. Focus on P1.</td></tr>
           <tr><td>Pool negative (P1 loss)</td><td>Project 2 cancelled. Focus all resources on P1 recovery.</td></tr>
         </tbody>
       </table>
 
-      <h3 style="margin-top: 16px">Under-Delivery Scenarios</h3>
+      <h3 style="margin-top: 16px">Key Insight: Ad Tier Determines P2 Timeline</h3>
       <ul>
-        <li><strong>P1 at 50% of target:</strong> 85% pool ~$46K by Month 3. Full $25K seed easily available.</li>
-        <li><strong>P1 at 30% of target:</strong> 85% pool ~$27K by Month 3. Fund at $25K (tight). Monitor closely.</li>
-        <li><strong>P1 at 10% of target:</strong> 85% pool ~$9K by Month 3. Below floor. Delay Project 2.</li>
+        <li><strong>Tier 2 unlocked:</strong> P2 seeding is on the original Month 3-5 timeline. Pool accumulates fast ($55K+ by Month 3). This path preserves the original Agent Skill Packs Subscription launch target.</li>
+        <li><strong>Tier 1 only:</strong> P2 launch slips to Month 8-12. Pool grows slowly (~$11-20K/mo). May only reach minimum floor by Month 6-8. Acceptable — slower recursion, but the flywheel still turns.</li>
+        <li><strong>Worst case:</strong> If P1 organic revenue stays under ~$10K/mo, the 85% pool may never reach $15K floor. P2 deferred until P1 finds product-market fit.</li>
       </ul>
     </div>
     <a href="#" class="back-top">Back to top</a>
