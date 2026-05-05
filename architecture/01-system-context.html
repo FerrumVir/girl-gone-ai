@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01 — System Context Map — Girl Gone AI / NovoLink</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="arch-styles.css">
+</head>
+<body>
+
+  <div class="arch-header">
+    <p class="breadcrumb"><a href="/">girlgone.ai</a> / <a href="./">architecture</a></p>
+    <h1>01 — System Context Map</h1>
+    <p class="subtitle">The recursive factory at the highest level</p>
+  </div>
+
+  <div class="diagram-container">
+    <div class="diagram-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 750" font-family="'Poppins', sans-serif">
+
+        <!-- Background -->
+        <rect width="1100" height="750" fill="#0E0E1C" rx="4"/>
+
+        <!-- Arrowhead markers -->
+        <defs>
+          <marker id="arrow-pink" viewBox="0 0 10 10" refX="10" refY="5"
+                  markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF3B8B"/>
+          </marker>
+          <marker id="arrow-purple" viewBox="0 0 10 10" refX="10" refY="5"
+                  markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#A855F7"/>
+          </marker>
+          <marker id="arrow-blue" viewBox="0 0 10 10" refX="10" refY="5"
+                  markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#3B82F6"/>
+          </marker>
+          <marker id="arrow-muted" viewBox="0 0 10 10" refX="10" refY="5"
+                  markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(232,232,240,0.4)"/>
+          </marker>
+        </defs>
+
+        <!-- ============================== -->
+        <!-- PAPERCLIP AGENT PLATFORM BOX   -->
+        <!-- ============================== -->
+        <rect x="130" y="155" width="840" height="310" rx="12"
+              fill="none" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="8 4" opacity="0.5"/>
+        <text x="550" y="180" text-anchor="middle" fill="#A855F7" font-size="11"
+              font-weight="600" letter-spacing="2" opacity="0.6">PAPERCLIP AGENT PLATFORM</text>
+
+        <!-- ============================== -->
+        <!-- HUMANS — top row (pink)        -->
+        <!-- ============================== -->
+
+        <!-- Kenny Novotny -->
+        <rect x="65" y="40" width="160" height="50" rx="8" fill="#FF3B8B"/>
+        <text x="145" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Kenny Novotny</text>
+        <text x="145" y="77" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Owner / Board</text>
+
+        <!-- Jaci Ellis -->
+        <rect x="470" y="40" width="160" height="50" rx="8" fill="#FF3B8B"/>
+        <text x="550" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Jaci Ellis</text>
+        <text x="550" y="77" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Influencer / COO Asst</text>
+
+        <!-- TJ -->
+        <rect x="875" y="40" width="160" height="50" rx="8" fill="#FF3B8B"/>
+        <text x="955" y="61" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">TJ</text>
+        <text x="955" y="77" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">CTO - Human</text>
+
+        <!-- ============================== -->
+        <!-- AGENTS — middle area (purple)  -->
+        <!-- ============================== -->
+
+        <!-- CEO Agent (center) -->
+        <rect x="340" y="200" width="160" height="50" rx="8" fill="#A855F7"/>
+        <text x="420" y="221" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">CEO Agent</text>
+        <text x="420" y="237" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Orchestrator</text>
+
+        <!-- CMO Agent -->
+        <rect x="155" y="310" width="160" height="50" rx="8" fill="#A855F7"/>
+        <text x="235" y="331" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">CMO Agent</text>
+        <text x="235" y="347" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Marketing</text>
+
+        <!-- Founding Engineer (CTO) -->
+        <rect x="525" y="310" width="160" height="50" rx="8" fill="#A855F7"/>
+        <text x="605" y="331" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Founding Engineer</text>
+        <text x="605" y="347" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">CTO Agent</text>
+
+        <!-- Banker Agent (planned) -->
+        <rect x="155" y="400" width="160" height="50" rx="8"
+              fill="none" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3"/>
+        <text x="235" y="421" text-anchor="middle" fill="#A855F7" font-size="12" font-weight="600">Banker Agent</text>
+        <text x="235" y="437" text-anchor="middle" fill="rgba(168,85,247,0.6)" font-size="9">Finance (planned)</text>
+
+        <!-- Investor Agent (planned) -->
+        <rect x="525" y="400" width="160" height="50" rx="8"
+              fill="none" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3"/>
+        <text x="605" y="421" text-anchor="middle" fill="#A855F7" font-size="12" font-weight="600">Investor Agent</text>
+        <text x="605" y="437" text-anchor="middle" fill="rgba(168,85,247,0.6)" font-size="9">Investment (planned)</text>
+
+        <!-- G2 Per-Project Agent (planned) -->
+        <rect x="780" y="400" width="160" height="50" rx="8"
+              fill="none" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3"/>
+        <text x="860" y="421" text-anchor="middle" fill="#A855F7" font-size="12" font-weight="600">G2</text>
+        <text x="860" y="437" text-anchor="middle" fill="rgba(168,85,247,0.6)" font-size="9">Per-Project Agent (planned)</text>
+
+        <!-- Paperclip cloud/box (center-bottom of agents area) -->
+        <rect x="350" y="400" width="140" height="44" rx="22" fill="#141428"
+              stroke="#A855F7" stroke-width="1.5"/>
+        <text x="420" y="427" text-anchor="middle" fill="#A855F7" font-size="11" font-weight="600">Paperclip</text>
+
+        <!-- ============================== -->
+        <!-- EXTERNAL SERVICES — bottom row -->
+        <!-- ============================== -->
+
+        <!-- Gumroad -->
+        <rect x="30" y="540" width="140" height="50" rx="8" fill="#3B82F6"/>
+        <text x="100" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Gumroad</text>
+        <text x="100" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Payments / Store</text>
+
+        <!-- Bubble.io -->
+        <rect x="200" y="540" width="140" height="50" rx="8" fill="#3B82F6"/>
+        <text x="270" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Bubble.io</text>
+        <text x="270" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Dashboards</text>
+
+        <!-- HeyGen -->
+        <rect x="370" y="540" width="140" height="50" rx="8" fill="#3B82F6"/>
+        <text x="440" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">HeyGen</text>
+        <text x="440" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Avatar Videos</text>
+
+        <!-- Dropbox -->
+        <rect x="540" y="540" width="140" height="50" rx="8" fill="#3B82F6"/>
+        <text x="610" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Dropbox</text>
+        <text x="610" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Storage</text>
+
+        <!-- GitHub Pages -->
+        <rect x="710" y="540" width="140" height="50" rx="8" fill="#3B82F6"/>
+        <text x="780" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">GitHub Pages</text>
+        <text x="780" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Hosting</text>
+
+        <!-- Meta/Google Ads -->
+        <rect x="880" y="540" width="150" height="50" rx="8" fill="#3B82F6"/>
+        <text x="955" y="561" text-anchor="middle" fill="#fff" font-size="12" font-weight="600">Meta / Google Ads</text>
+        <text x="955" y="577" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-size="9">Traffic</text>
+
+        <!-- Project N+1 (recursion target) -->
+        <rect x="880" y="490" width="140" height="36" rx="8"
+              fill="none" stroke="rgba(232,232,240,0.3)" stroke-width="1" stroke-dasharray="4 3"/>
+        <text x="950" y="513" text-anchor="middle" fill="rgba(232,232,240,0.4)" font-size="10" font-style="italic">Project N+1</text>
+
+        <!-- ============================== -->
+        <!-- CONNECTIONS — arrows & labels  -->
+        <!-- ============================== -->
+
+        <!-- Kenny -> CEO Agent: "directs, approves" -->
+        <line x1="145" y1="90" x2="380" y2="200"
+              stroke="#FF3B8B" stroke-width="2" marker-end="url(#arrow-pink)"/>
+        <text x="230" y="145" fill="#FF3B8B" font-size="9" font-weight="500"
+              transform="rotate(-24, 230, 145)">directs, approves</text>
+
+        <!-- CEO Agent -> CMO Agent: "delegates marketing" -->
+        <line x1="370" y1="250" x2="280" y2="310"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="295" y="278" fill="#A855F7" font-size="9" font-weight="500">delegates marketing</text>
+
+        <!-- CEO Agent -> Founding Engineer: "delegates engineering" -->
+        <line x1="470" y1="250" x2="565" y2="310"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="490" y="278" fill="#A855F7" font-size="9" font-weight="500">delegates engineering</text>
+
+        <!-- CEO Agent -> Banker Agent: "delegates finance" (dashed) -->
+        <line x1="370" y1="250" x2="260" y2="400"
+              stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrow-purple)"/>
+        <text x="270" y="340" fill="rgba(168,85,247,0.6)" font-size="9" font-weight="500"
+              transform="rotate(-63, 270, 340)">delegates finance</text>
+
+        <!-- CEO Agent -> Investor Agent: "delegates investment" (dashed) -->
+        <line x1="470" y1="250" x2="580" y2="400"
+              stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrow-purple)"/>
+        <text x="542" y="338" fill="rgba(168,85,247,0.6)" font-size="9" font-weight="500"
+              transform="rotate(63, 542, 338)">delegates investment</text>
+
+        <!-- Investor Agent -> G2: "seeds new project" (dashed) -->
+        <line x1="685" y1="425" x2="780" y2="425"
+              stroke="#A855F7" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrow-purple)"/>
+        <text x="732" y="418" text-anchor="middle" fill="rgba(168,85,247,0.6)" font-size="9" font-weight="500">seeds new project</text>
+
+        <!-- G2 -> Project N+1: dotted recursion arrow -->
+        <line x1="900" y1="450" x2="930" y2="490"
+              stroke="rgba(232,232,240,0.4)" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-muted)"/>
+        <text x="945" y="475" fill="rgba(232,232,240,0.4)" font-size="8" font-style="italic">recursion</text>
+
+        <!-- CMO Agent -> Jaci: "tasks, content briefs" -->
+        <line x1="235" y1="310" x2="510" y2="90"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="400" y="185" fill="#A855F7" font-size="9" font-weight="500"
+              transform="rotate(-45, 400, 185)">tasks, content briefs</text>
+
+        <!-- Jaci -> Gumroad: "publishes, fulfills" -->
+        <path d="M 510 90 Q 280 300 120 540"
+              fill="none" stroke="#FF3B8B" stroke-width="1.5" marker-end="url(#arrow-pink)"/>
+        <text x="250" y="350" fill="#FF3B8B" font-size="9" font-weight="500"
+              transform="rotate(60, 250, 350)">publishes, fulfills</text>
+
+        <!-- Jaci -> Social content (Meta/Google Ads) -->
+        <path d="M 630 65 Q 770 65 920 540"
+              fill="none" stroke="#FF3B8B" stroke-width="1.5" marker-end="url(#arrow-pink)"/>
+        <text x="810" y="250" fill="#FF3B8B" font-size="9" font-weight="500"
+              transform="rotate(68, 810, 250)">social content</text>
+
+        <!-- Founding Engineer -> GitHub Pages: "deploys" -->
+        <line x1="650" y1="360" x2="770" y2="540"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="730" y="455" fill="#A855F7" font-size="9" font-weight="500"
+              transform="rotate(63, 730, 455)">deploys</text>
+
+        <!-- Founding Engineer -> Gumroad: "API integration" -->
+        <path d="M 545 360 Q 300 480 120 540"
+              fill="none" stroke="#A855F7" stroke-width="1.5" marker-end="url(#arrow-purple)"/>
+        <text x="290" y="475" fill="#A855F7" font-size="9" font-weight="500">API integration</text>
+
+        <!-- Founding Engineer -> Bubble.io: "dashboard builds" -->
+        <line x1="575" y1="360" x2="310" y2="540"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="405" y="460" fill="#A855F7" font-size="9" font-weight="500"
+              transform="rotate(34, 405, 460)">dashboard builds</text>
+
+        <!-- Founding Engineer -> HeyGen: "video generation" -->
+        <line x1="605" y1="360" x2="470" y2="540"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="510" y="460" fill="#A855F7" font-size="9" font-weight="500"
+              transform="rotate(53, 510, 460)">video generation</text>
+
+        <!-- CEO Agent -> Paperclip: "orchestrates" -->
+        <line x1="420" y1="250" x2="420" y2="400"
+              stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="428" y="370" fill="#A855F7" font-size="9" font-weight="500">orchestrates</text>
+
+        <!-- TJ connection (advisory line to Founding Engineer) -->
+        <line x1="910" y1="90" x2="665" y2="310"
+              stroke="#FF3B8B" stroke-width="1.5" stroke-dasharray="6 3" marker-end="url(#arrow-pink)"/>
+        <text x="810" y="195" fill="#FF3B8B" font-size="9" font-weight="500"
+              transform="rotate(40, 810, 195)">technical guidance</text>
+
+        <!-- ============================== -->
+        <!-- LEGEND                         -->
+        <!-- ============================== -->
+        <rect x="30" y="640" width="1040" height="80" rx="8" fill="#141428" stroke="rgba(168,85,247,0.12)" stroke-width="1"/>
+        <text x="55" y="665" fill="#E8E8F0" font-size="11" font-weight="600">Legend</text>
+
+        <!-- Human -->
+        <rect x="55" y="680" width="28" height="16" rx="4" fill="#FF3B8B"/>
+        <text x="92" y="693" fill="rgba(232,232,240,0.7)" font-size="10">Human</text>
+
+        <!-- Agent (active) -->
+        <rect x="200" y="680" width="28" height="16" rx="4" fill="#A855F7"/>
+        <text x="237" y="693" fill="rgba(232,232,240,0.7)" font-size="10">Agent (active)</text>
+
+        <!-- Agent (planned) -->
+        <rect x="400" y="680" width="28" height="16" rx="4" fill="none" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="4 2"/>
+        <text x="437" y="693" fill="rgba(232,232,240,0.7)" font-size="10">Agent (planned)</text>
+
+        <!-- External Service -->
+        <rect x="620" y="680" width="28" height="16" rx="4" fill="#3B82F6"/>
+        <text x="657" y="693" fill="rgba(232,232,240,0.7)" font-size="10">External Service</text>
+
+        <!-- Solid arrow -->
+        <line x1="820" y1="688" x2="860" y2="688" stroke="#A855F7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+        <text x="872" y="693" fill="rgba(232,232,240,0.7)" font-size="10">Active link</text>
+
+        <!-- Dashed arrow -->
+        <line x1="960" y1="688" x2="1000" y2="688" stroke="#A855F7" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow-purple)"/>
+        <text x="1012" y="693" fill="rgba(232,232,240,0.7)" font-size="10">Planned</text>
+
+      </svg>
+    </div>
+  </div>
+
+  <div class="explainer">
+    <h2>About this diagram</h2>
+    <p>
+      This System Context Map shows the NovoLink / Girl Gone AI recursive agent factory at its highest level of abstraction.
+      Three layers are visible: the humans who govern and create content, the AI agents that operate within the
+      Paperclip Agent Platform, and the external services that handle payments, hosting, video generation, and distribution.
+    </p>
+    <ul>
+      <li><strong>Kenny Novotny</strong> sits at the top of the chain as Owner/Board. He directs and approves all major decisions through the CEO Agent.</li>
+      <li><strong>CEO Agent</strong> is the central orchestrator, delegating to specialized agents: CMO (marketing), Founding Engineer (CTO, engineering), and planned Banker and Investor agents.</li>
+      <li><strong>Jaci Ellis</strong> is the human influencer and COO assistant. She receives content briefs and tasks from the CMO Agent, then publishes and fulfills through Gumroad and social channels.</li>
+      <li><strong>TJ</strong> provides technical guidance to the Founding Engineer agent as the human CTO.</li>
+      <li><strong>Founding Engineer</strong> manages all technical integrations: deploying to GitHub Pages, building dashboards on Bubble.io, generating avatar videos with HeyGen, and connecting to Gumroad via API.</li>
+      <li><strong>Planned agents</strong> (dashed borders) include the Banker Agent for finance, the Investor Agent for investment allocation, and G2 -- a per-project agent that enables recursion by seeding Project N+1.</li>
+      <li>The entire agent layer runs inside the <strong>Paperclip Agent Platform</strong>, shown as the dashed purple boundary.</li>
+    </ul>
+    <div class="warning">
+      Banker Agent, Investor Agent, and G2 are planned but not yet active. Their connections represent intended architecture, not current state.
+    </div>
+  </div>
+
+  <div class="arch-nav">
+    <span></span>
+    <a href="02-money-flow.html">Next: Money Flow &rarr;</a>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>04 — Agent Org Chart + RACI | Girl Gone AI</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="arch-styles.css">
+</head>
+<body>
+
+<div class="arch-header">
+  <p class="breadcrumb"><a href="/">girlgone.ai</a> / <a href="./">architecture</a></p>
+  <h1>04 — Agent Org Chart + RACI</h1>
+  <p class="subtitle">Ownership, reporting lines, and decision rights</p>
+</div>
+
+<div class="diagram-container">
+  <div class="diagram-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 600" width="100%">
+      <!-- Background -->
+      <rect width="1100" height="600" fill="#0E0E1C" rx="8"/>
+
+      <!-- Arrowhead markers -->
+      <defs>
+        <marker id="arrow-solid" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+        </marker>
+        <marker id="arrow-dashed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#666"/>
+        </marker>
+        <marker id="arrow-dotted" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+          <polygon points="0 0, 10 3.5, 0 7" fill="#555"/>
+        </marker>
+      </defs>
+
+      <!-- ======================== -->
+      <!-- TIER 1: Board / Owner   -->
+      <!-- ======================== -->
+      <!-- Kenny (Owner/Board) — Human pink -->
+      <rect x="440" y="25" width="220" height="60" rx="8" fill="none" stroke="#FF3B8B" stroke-width="2"/>
+      <circle cx="462" cy="46" r="5" fill="#22C55E"/>
+      <text x="550" y="48" fill="#FF3B8B" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">Kenny</text>
+      <text x="550" y="66" fill="#FF3B8B" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Owner / Board</text>
+      <text x="640" y="48" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- ======================== -->
+      <!-- TIER 2: CEO Agent       -->
+      <!-- ======================== -->
+      <!-- CEO Agent — Active purple -->
+      <rect x="440" y="135" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2"/>
+      <circle cx="462" cy="156" r="5" fill="#22C55E"/>
+      <text x="550" y="158" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">CEO Agent</text>
+      <text x="550" y="176" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Recursive Orchestrator</text>
+      <text x="640" y="158" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- Line: Kenny → CEO Agent -->
+      <line x1="550" y1="85" x2="550" y2="133" stroke="#888" stroke-width="1.5" marker-end="url(#arrow-solid)"/>
+      <text x="558" y="113" fill="#888" font-family="monospace" font-size="9">reports to</text>
+
+      <!-- ======================== -->
+      <!-- TIER 3: Direct Reports  -->
+      <!-- ======================== -->
+
+      <!-- CMO Agent — Active purple -->
+      <rect x="60" y="265" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2"/>
+      <circle cx="82" cy="286" r="5" fill="#22C55E"/>
+      <text x="170" y="288" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">CMO Agent</text>
+      <text x="170" y="306" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Marketing & Content</text>
+      <text x="260" y="288" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- Founding Engineer / CTO — Active purple -->
+      <rect x="330" y="265" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2"/>
+      <circle cx="352" cy="286" r="5" fill="#22C55E"/>
+      <text x="440" y="288" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">Founding Engineer</text>
+      <text x="440" y="306" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">CTO / Builder</text>
+      <text x="530" y="288" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- Banker Agent — Planned purple dashed -->
+      <rect x="600" y="265" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="6,3"/>
+      <circle cx="622" cy="286" r="5" fill="#F59E0B"/>
+      <text x="710" y="288" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">Banker Agent</text>
+      <text x="710" y="306" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Treasury & Payments</text>
+      <text x="800" y="288" fill="#F59E0B" font-family="monospace" font-size="9" text-anchor="start">PLANNED</text>
+
+      <!-- Investor Agent — Planned purple dashed -->
+      <rect x="870" y="265" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="6,3"/>
+      <circle cx="892" cy="286" r="5" fill="#F59E0B"/>
+      <text x="980" y="288" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">Investor Agent</text>
+      <text x="980" y="306" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Deal Flow & Seeding</text>
+      <text x="1070" y="288" fill="#F59E0B" font-family="monospace" font-size="9" text-anchor="start">PLANNED</text>
+
+      <!-- Lines: CEO → Tier 3 -->
+      <line x1="480" y1="195" x2="170" y2="263" stroke="#888" stroke-width="1.5" marker-end="url(#arrow-solid)"/>
+      <line x1="530" y1="195" x2="440" y2="263" stroke="#888" stroke-width="1.5" marker-end="url(#arrow-solid)"/>
+      <line x1="590" y1="195" x2="710" y2="263" stroke="#666" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-dashed)"/>
+      <line x1="620" y1="195" x2="980" y2="263" stroke="#666" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-dashed)"/>
+
+      <!-- ======================== -->
+      <!-- TIER 4: Further nodes   -->
+      <!-- ======================== -->
+
+      <!-- Jaci Ellis — Human pink, below CMO -->
+      <rect x="60" y="405" width="220" height="60" rx="8" fill="none" stroke="#FF3B8B" stroke-width="2"/>
+      <circle cx="82" cy="426" r="5" fill="#22C55E"/>
+      <text x="170" y="428" fill="#FF3B8B" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">Jaci Ellis</text>
+      <text x="170" y="446" fill="#FF3B8B" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Content Creator (Human)</text>
+      <text x="260" y="428" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- Line: CMO → Jaci -->
+      <line x1="170" y1="325" x2="170" y2="403" stroke="#888" stroke-width="1.5" marker-end="url(#arrow-solid)"/>
+      <text x="178" y="370" fill="#888" font-family="monospace" font-size="9">tasks content</text>
+
+      <!-- G2 Per-Project Agent — Planned purple dashed, below Founding Engineer -->
+      <rect x="330" y="405" width="220" height="60" rx="8" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="6,3"/>
+      <circle cx="352" cy="426" r="5" fill="#F59E0B"/>
+      <text x="440" y="428" fill="#A855F7" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">G2 Per-Project</text>
+      <text x="440" y="446" fill="#A855F7" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Spawned Build Agent</text>
+      <text x="530" y="428" fill="#F59E0B" font-family="monospace" font-size="9" text-anchor="start">PLANNED</text>
+
+      <!-- Line: Founding Engineer → G2 -->
+      <line x1="440" y1="325" x2="440" y2="403" stroke="#666" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-dashed)"/>
+      <text x="448" y="370" fill="#888" font-family="monospace" font-size="9">builds/deploys</text>
+
+      <!-- Line: Investor Agent → G2 (dashed, diagonal) -->
+      <line x1="920" y1="325" x2="540" y2="403" stroke="#666" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arrow-dashed)"/>
+      <text x="730" y="370" fill="#888" font-family="monospace" font-size="9">seeds projects</text>
+
+      <!-- TJ (Human CTO) — Human pink, side connection to Founding Engineer -->
+      <rect x="600" y="405" width="220" height="60" rx="8" fill="none" stroke="#FF3B8B" stroke-width="2"/>
+      <circle cx="622" cy="426" r="5" fill="#22C55E"/>
+      <text x="710" y="428" fill="#FF3B8B" font-family="monospace" font-size="14" text-anchor="middle" font-weight="bold">TJ</text>
+      <text x="710" y="446" fill="#FF3B8B" font-family="monospace" font-size="10" text-anchor="middle" opacity="0.7">Human CTO / Infra</text>
+      <text x="800" y="428" fill="#22C55E" font-family="monospace" font-size="9" text-anchor="start">ACTIVE</text>
+
+      <!-- Line: TJ → Founding Engineer (dotted) -->
+      <line x1="640" y1="405" x2="500" y2="327" stroke="#555" stroke-width="1.5" stroke-dasharray="2,4" marker-end="url(#arrow-dotted)"/>
+      <text x="580" y="358" fill="#555" font-family="monospace" font-size="9">provides infra access</text>
+
+      <!-- ======================== -->
+      <!-- Legend                   -->
+      <!-- ======================== -->
+      <rect x="20" y="530" width="1060" height="50" rx="6" fill="#16162A"/>
+      <circle cx="50" cy="555" r="6" fill="none" stroke="#FF3B8B" stroke-width="2"/>
+      <text x="62" y="559" fill="#ccc" font-family="monospace" font-size="11">Human</text>
+      <circle cx="160" cy="555" r="6" fill="none" stroke="#A855F7" stroke-width="2"/>
+      <text x="172" y="559" fill="#ccc" font-family="monospace" font-size="11">Active Agent</text>
+      <circle cx="310" cy="555" r="6" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="3,2"/>
+      <text x="322" y="559" fill="#ccc" font-family="monospace" font-size="11">Planned Agent</text>
+      <circle cx="480" cy="555" r="6" fill="none" stroke="#3B82F6" stroke-width="2"/>
+      <text x="492" y="559" fill="#ccc" font-family="monospace" font-size="11">External</text>
+      <line x1="580" y1="555" x2="610" y2="555" stroke="#888" stroke-width="1.5"/>
+      <text x="618" y="559" fill="#ccc" font-family="monospace" font-size="11">Solid = active link</text>
+      <line x1="750" y1="555" x2="780" y2="555" stroke="#666" stroke-width="1.5" stroke-dasharray="6,3"/>
+      <text x="788" y="559" fill="#ccc" font-family="monospace" font-size="11">Dashed = planned</text>
+      <line x1="920" y1="555" x2="950" y2="555" stroke="#555" stroke-width="1.5" stroke-dasharray="2,4"/>
+      <text x="958" y="559" fill="#ccc" font-family="monospace" font-size="11">Dotted = advisory</text>
+    </svg>
+  </div>
+</div>
+
+<div class="explainer">
+  <h2>Responsibility Matrix (RACI)</h2>
+  <p>R = Responsible, A = Accountable, C = Consulted, I = Informed</p>
+
+  <table class="raci-table">
+    <thead>
+      <tr>
+        <th>Flow</th>
+        <th>Kenny</th>
+        <th>CEO</th>
+        <th>CMO</th>
+        <th>Engineer</th>
+        <th>Banker</th>
+        <th>Investor</th>
+        <th>Jaci</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Revenue Capture</td>
+        <td><span class="i">I</span></td>
+        <td><span class="a">A</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="c">C</span></td>
+      </tr>
+      <tr>
+        <td>Ad Spend</td>
+        <td><span class="a">A</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="i">I</span></td>
+      </tr>
+      <tr>
+        <td>Content Production</td>
+        <td><span class="i">I</span></td>
+        <td><span class="a">A</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="r">R</span></td>
+      </tr>
+      <tr>
+        <td>Asset Publishing</td>
+        <td><span class="i">I</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="a">A</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="c">C</span></td>
+      </tr>
+      <tr>
+        <td>Financial Reporting</td>
+        <td><span class="a">A</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="i">I</span></td>
+      </tr>
+      <tr>
+        <td>Project N+1 Launch</td>
+        <td><span class="a">A</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="i">I</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="c">C</span></td>
+        <td><span class="r">R</span></td>
+        <td><span class="i">I</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning">&#x26A0; Banker and Investor agents are planned but not yet hired — blocked on board approval (JAC-7, JAC-8)</div>
+</div>
+
+<div class="arch-nav">
+  <a href="03-recursion-lifecycle.html">&larr; Prev: Recursion Lifecycle</a>
+  <a href="05-project1-ops.html">Next: Project 1 Ops &rarr;</a>
+</div>
+
+</body>
+</html>
