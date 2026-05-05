@@ -66,21 +66,34 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .section { background:var(--surface); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
 .section h2 { font-size:16px; font-weight:600; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
 
-.task-list { list-style:none; }
-.task-item { display:flex; align-items:flex-start; gap:12px; padding:14px 0; border-bottom:1px solid var(--border); }
-.task-item:last-child { border-bottom:none; }
-.task-item.deleted { opacity:.5; }
-.task-check { width:28px; height:28px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:14px; cursor:pointer; transition:all .2s; }
-.task-check:hover { border-color:var(--green); background:var(--green-bg); }
-.task-check.done { background:var(--green); border-color:var(--green); color:white; cursor:default; }
-.task-check.deleted { background:var(--red); border-color:var(--red); color:white; cursor:default; }
-.task-check.active { border-color:var(--accent); }
-.task-body { flex:1; min-width:0; }
-.task-text { font-size:14px; font-weight:500; }
-.task-text.done { text-decoration:line-through; color:var(--text-muted); }
-.task-text.deleted { text-decoration:line-through; color:var(--text-muted); }
-.task-desc { font-size:13px; color:var(--text-muted); margin-top:4px; white-space:pre-line; }
-.task-actions { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.task-list { list-style:none; display:flex; flex-direction:column; gap:16px; }
+
+/* Unified task card */
+.ucard { background:var(--bg); border-radius:16px; border:1px solid var(--border); overflow:hidden; }
+.ucard-dimmed { opacity:.5; }
+.ucard-video { width:100%; background:#000; }
+.ucard-video video { width:100%; display:block; max-height:420px; object-fit:contain; }
+.ucard-body { padding:18px 20px; }
+.ucard-title { font-size:15px; font-weight:600; line-height:1.4; }
+.ucard-meta { display:flex; align-items:center; gap:8px; margin-top:4px; }
+.ucard-product { font-size:13px; font-weight:500; color:var(--text-muted); }
+.ucard-price { font-size:13px; font-weight:700; color:var(--accent-dark); }
+.ucard-caption-block { margin-top:14px; padding:14px 16px; background:rgba(192,132,252,.06); border:1px solid rgba(192,132,252,.18); border-radius:12px; }
+.ucard-caption-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--accent-dark); margin-bottom:6px; }
+.ucard-caption-text { font-size:14px; line-height:1.6; color:var(--text); font-style:italic; }
+.ucard-hashtags { font-size:12px; color:var(--accent-dark); margin-top:8px; line-height:1.5; word-break:break-word; }
+.ucard-link { font-size:12px; color:var(--pink); margin-top:4px; word-break:break-all; }
+.ucard-utils { display:flex; gap:8px; margin-top:14px; flex-wrap:wrap; }
+.ubtn { font-size:13px; font-family:var(--font); padding:10px 16px; border-radius:10px; border:none; cursor:pointer; font-weight:600; text-decoration:none; display:inline-flex; align-items:center; gap:6px; min-height:44px; transition:all .15s; }
+.ubtn-download { background:var(--accent); color:white; }
+.ubtn-download:hover { background:var(--accent-dark); }
+.ubtn-copy { background:var(--surface); color:var(--text); border:1px solid var(--border); }
+.ubtn-copy:hover { background:var(--border); }
+.ubtn-link { background:var(--pink-bg); color:#be185d; }
+.ubtn-link:hover { background:var(--pink); color:white; }
+.ucard-divider { height:1px; background:var(--border); margin:14px 0; }
+.ucard-actions { display:flex; gap:10px; flex-wrap:wrap; }
+.task-desc { font-size:13px; color:var(--text-muted); margin-top:10px; white-space:pre-line; line-height:1.5; }
 .task-btn { font-size:14px; font-family:var(--font); padding:12px 20px; border-radius:12px; border:none; cursor:pointer; font-weight:600; transition:all .15s; min-height:44px; }
 .task-btn-done { background:var(--green-bg); color:#059669; }
 .task-btn-done:hover { background:var(--green); color:white; }
@@ -92,8 +105,6 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .task-btn-note:hover { background:var(--yellow); color:white; }
 .task-btn-undo { background:var(--bg); color:var(--text-muted); border:1px solid var(--border); font-size:12px; padding:8px 14px; min-height:auto; }
 .task-btn-undo:hover { background:var(--border); }
-.task-video { width:100%; max-width:400px; border-radius:12px; margin-top:10px; background:#000; }
-.task-video video { width:100%; border-radius:12px; display:block; max-height:360px; }
 .tasks-collapsed-section { margin-top:20px; border-top:1px solid var(--border); padding-top:16px; }
 .tasks-collapsed-header { display:flex; justify-content:space-between; align-items:center; cursor:pointer; user-select:none; padding:8px 0; }
 .tasks-collapsed-header h3 { font-size:14px; font-weight:600; color:var(--text-muted); }
@@ -229,18 +240,12 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
 
   <div class="section">
     <h2><span>&#128221;</span> Today's Tasks</h2>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Watch the video, then: <strong>Complete</strong> when done, <strong>Comment</strong> to send the team a message, or <strong>Ignore</strong> to dismiss.</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Each card = one task. Watch the video, download it, copy the caption, post it, then hit <strong>Complete</strong>. Use <strong>Comment</strong> to ask a question or <strong>Ignore</strong> to dismiss.</p>
     <ul class="task-list" id="task-list"></ul>
     <div class="empty-state" id="tasks-empty" style="display:none">No tasks assigned yet today. Check back soon!</div>
   </div>
 
-  <div class="section" id="videos-section">
-    <h2><span>&#127916;</span> Videos — Download &amp; Post to Social Media</h2>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px;">Download each video, copy the caption, and post to TikTok + Instagram Reels. <strong>Launch Day videos are top priority!</strong></p>
-    <div id="video-date-tag"></div>
-    <div class="video-grid" id="video-grid"></div>
-    <div class="empty-state" id="videos-empty">No videos generated yet today. Check back soon!</div>
-  </div>
+  <!-- Videos section removed: all videos are now unified inside task cards above -->
 
   <div class="section">
     <h2><span>&#128172;</span> Your Response Log</h2>
@@ -335,24 +340,24 @@ var RESPONSES_KEY = 'jaci-responses-' + new Date().toISOString().slice(0,10);
 var CALLBACK_TOPIC = 'girlgoneai-jaci-tasks-9f3a7b2e';
 var CALLBACK_URL = 'https://ntfy.sh/' + CALLBACK_TOPIC;
 
-// Launch-day videos (JAC-457) — these are the priority tasks Kenny is waiting on
+// Launch-day videos (JAC-457) — unified task cards per Kenny's final spec
 var LAUNCH_TASKS = [
-  { id:'launch_1', title:'POST VIDEO: Launch Announcement (TikTok + Reels + Facebook)', desc:'Download the video below and post IMMEDIATELY.\n\nCAPTION: girl gone ai is LIVE. planners, templates, business kits — all under $25. link in bio.\nHASHTAGS: #girlgoneai #launchday #digitalproducts #planners #templates #sidehustle #entrepreneur\n\nVideo: girlgone.ai/heyg/launch-day/vid1-launch-announcement.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid1-launch-announcement.mp4', status:'pending', issueRef:'JAC-457' },
-  { id:'launch_2', title:'POST VIDEO: Med Spa Blueprint (TikTok + Reels) — 1hr after launch', desc:'Download and post 1 hour after the launch announcement.\n\nCAPTION: dreaming of your own med spa? the complete launch blueprint is here. comment MEDSPA\nHASHTAGS: #medspa #aesthetics #esthetician #businessowner #entrepreneur #girlgoneai #beautybusiness\n\nVideo: girlgone.ai/heyg/launch-day/vid2-medspa-blueprint.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid2-medspa-blueprint.mp4', status:'pending', issueRef:'JAC-457' },
-  { id:'launch_3', title:'POST VIDEO: ADHD Planner (TikTok + Reels) — 3hrs after launch', desc:'Download and post 3 hours after launch.\n\nCAPTION: my adhd brain needed a planner that doesnt make me feel like a failure. comment FOCUS\nHASHTAGS: #adhd #adhdtiktok #adhdplanner #productivity #focushacks #girlgoneai #neurodivergent\n\nVideo: girlgone.ai/heyg/launch-day/vid3-adhd-planner.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid3-adhd-planner.mp4', status:'pending', issueRef:'JAC-457' },
-  { id:'launch_4', title:'POST VIDEO: Wedding Dashboard (TikTok + Reels) — 5hrs after launch', desc:'Download and post 5 hours after launch.\n\nCAPTION: planning a wedding without the chaos. every detail organized in one dashboard. comment WEDDING\nHASHTAGS: #weddingplanning #bridetobe #weddingdashboard #girlgoneai #engaged #weddingorganization\n\nVideo: girlgone.ai/heyg/launch-day/vid4-wedding-dashboard.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid4-wedding-dashboard.mp4', status:'pending', issueRef:'JAC-457' },
-  { id:'launch_5', title:'POST VIDEO: Call To Action (TikTok + Reels + Facebook + X) — evening', desc:'Download and post end of day / evening.\n\nCAPTION: 13 digital products just dropped. all under $25. girlgoneai.gumroad.com. dont miss it.\nHASHTAGS: #girlgoneai #digitalproducts #launchday #templates #planners #entrepreneur #sidehustle\n\nVideo: girlgone.ai/heyg/launch-day/vid5-call-to-action.mp4', videoUrl:'https://girlgone.ai/heyg/launch-day/vid5-call-to-action.mp4', status:'pending', issueRef:'JAC-457' }
+  { id:'launch_1', title:'Post Launch Announcement to TikTok + Reels + Facebook', product:'Launch Announcement', price:'FREE', script:'girl gone ai is LIVE. planners, templates, business kits — all under $25. link in bio.', hashtags:'#girlgoneai #launchday #digitalproducts #planners #templates #sidehustle #entrepreneur', productLink:'https://girlgone.ai', videoUrl:'https://girlgone.ai/heyg/launch-day/vid1-launch-announcement.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_2', title:'Post Med Spa Blueprint to TikTok + Reels', product:'Med Spa Blueprint', price:'Featured', script:'dreaming of your own med spa? the complete launch blueprint is here. comment MEDSPA', hashtags:'#medspa #aesthetics #esthetician #businessowner #entrepreneur #girlgoneai #beautybusiness', productLink:'https://girlgoneai.gumroad.com', videoUrl:'https://girlgone.ai/heyg/launch-day/vid2-medspa-blueprint.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_3', title:'Post ADHD Planner to TikTok + Reels', product:'ADHD Planner', price:'$14', script:'my adhd brain needed a planner that doesnt make me feel like a failure. comment FOCUS', hashtags:'#adhd #adhdtiktok #adhdplanner #productivity #focushacks #girlgoneai #neurodivergent', productLink:'https://girlgoneai.gumroad.com/l/04-adhd-planner', videoUrl:'https://girlgone.ai/heyg/launch-day/vid3-adhd-planner.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_4', title:'Post Wedding Dashboard to TikTok + Reels', product:'Wedding Dashboard', price:'$18', script:'planning a wedding without the chaos. every detail organized in one dashboard. comment WEDDING', hashtags:'#weddingplanning #bridetobe #weddingdashboard #girlgoneai #engaged #weddingorganization', productLink:'https://girlgone.ai/downloads/files/wedding-planning-dashboard.html', videoUrl:'https://girlgone.ai/heyg/launch-day/vid4-wedding-dashboard.mp4', status:'pending', issueRef:'JAC-457' },
+  { id:'launch_5', title:'Post Call To Action to TikTok + Reels + Facebook + X', product:'Call To Action', price:'FREE', script:'13 digital products just dropped. all under $25. girlgoneai.gumroad.com. dont miss it.', hashtags:'#girlgoneai #digitalproducts #launchday #templates #planners #entrepreneur #sidehustle', productLink:'https://girlgoneai.gumroad.com', videoUrl:'https://girlgone.ai/heyg/launch-day/vid5-call-to-action.mp4', status:'pending', issueRef:'JAC-457' }
 ];
 
-// Daily content tasks
+// Daily content tasks — structured with caption/hashtags for unified cards
 var DAILY_TASKS = [
-  { id:'may5_1', title:'TASK: FREE AI Productivity Starter Kit — New Angle (Post ASAP)', desc:'FORMAT: TikTok + Instagram Reel (screen recording showing what\'s inside the kit)\n\nHOOK: "This free kit replaced 5 apps I was paying for..."\n\nSCRIPT: "Okay so yesterday I dropped a free AI productivity starter kit and people are actually downloading it. Let me show you what\'s inside — you get templates, AI prompts, and a full workflow system. This would easily be $20 but I\'m keeping it free because I want everyone to try Girl Gone AI. Grab it before I change my mind."\n\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: this free kit replaced 5 apps i was paying for. templates, prompts, workflows. $0. still free. still cant believe i did that. link in bio.\nHASHTAGS: #free #freebie #productivity #ai #aitools #templates #girlgoneai #digitalproducts #worksmart #productivityhacks\nCTA: Link in bio! girlgone.ai\nDEADLINE: Post first thing today', status:'pending' },
-  { id:'may5_2', title:'TASK: Meal Prep & Recipe Planner $10 (Post 1hr after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "I used to spend $200/week on takeout until I made this..."\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: $200/week on doordash was my villain era. built a meal prep planner. $10. comment MEALPREP\nLINK: girlgone.ai/downloads/files/meal-prep-planner.html', status:'pending' },
-  { id:'may5_3', title:'TASK: Client Proposal Template Kit $10 (Post 2hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "Freelancers, stop sending proposals that look like emails..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: professional templates, pricing tables, scope of work, follow-ups. $10. comment PROPOSAL\nLINK: girlgone.ai/downloads/files/proposal-template.html', status:'pending' },
-  { id:'may5_4', title:'TASK: Side Hustle Income & Expense Tracker $9 (Post 3hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "If you have a side hustle and you\'re not tracking this, you\'re losing money..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: income, expenses, profit margins, tax prep — all in one tracker. $9. comment HUSTLE\nLINK: girlgone.ai/downloads/files/side-hustle-tracker.html', status:'pending' },
-  { id:'may5_5', title:'TASK: Student Study System $8 (Post 4hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "The study system I wish I had in college..."\nPOST TO: TikTok, Instagram Reels, IG Stories\nCAPTION: schedule, assignments, exam prep, notes, GPA tracker. $8. comment STUDY\nLINK: girlgone.ai/downloads/files/student-study-system.html', status:'pending' },
-  { id:'may5_6', title:'TASK: Professional Invoice Generator $8 (Post 5hrs after Task 1)', desc:'FORMAT: TikTok + Instagram Reel\nHOOK: "Freelancers, if you\'re using Word docs for invoices in 2026..."\nPOST TO: TikTok, Instagram Reels\nCAPTION: professional templates, auto calculations, payment tracking. $8. comment INVOICE\nLINK: girlgone.ai/downloads/files/invoice-generator.html', status:'pending' },
-  { id:'may5_7', title:'TASK: FREE Morning Glow Checklist — Carousel + Story (Post evening)', desc:'FORMAT: IG Carousel + IG Story + TikTok\nHOOK: "The free checklist that fixed my mornings..."\nPOST TO: Instagram Carousel, IG Stories, TikTok\nCAPTION: my morning glow checklist is still free. skincare + mindset + productivity. link in bio.\nLINK: girlgone.ai', status:'pending' }
+  { id:'may5_1', title:'FREE AI Productivity Starter Kit — New Angle', product:'AI Productivity Starter Kit', price:'FREE', script:'this free kit replaced 5 apps i was paying for. templates, prompts, workflows. $0. still free. still cant believe i did that. link in bio.', hashtags:'#free #freebie #productivity #ai #aitools #templates #girlgoneai #digitalproducts #worksmart #productivityhacks', productLink:'https://girlgone.ai', desc:'Post ASAP. Format: TikTok + Instagram Reel (screen recording showing what\'s inside the kit)\nHook: "This free kit replaced 5 apps I was paying for..."', status:'pending' },
+  { id:'may5_2', title:'Meal Prep & Recipe Planner — Post 1hr after Task 1', product:'Meal Prep & Recipe Planner', price:'$10', script:'$200/week on doordash was my villain era. built a meal prep planner. $10. comment MEALPREP', hashtags:'#mealprep #recipes #healthyeating #budgetmeals #girlgoneai #digitalproducts', productLink:'https://girlgone.ai/downloads/files/meal-prep-planner.html', desc:'Format: TikTok + Instagram Reel\nHook: "I used to spend $200/week on takeout until I made this..."', status:'pending' },
+  { id:'may5_3', title:'Client Proposal Template Kit — Post 2hrs after Task 1', product:'Client Proposal Template Kit', price:'$10', script:'professional templates, pricing tables, scope of work, follow-ups. $10. comment PROPOSAL', hashtags:'#freelancer #proposals #templates #girlgoneai #digitalproducts', productLink:'https://girlgone.ai/downloads/files/proposal-template.html', desc:'Format: TikTok + Instagram Reel\nHook: "Freelancers, stop sending proposals that look like emails..."', status:'pending' },
+  { id:'may5_4', title:'Side Hustle Income & Expense Tracker — Post 3hrs after Task 1', product:'Side Hustle Income & Expense Tracker', price:'$9', script:'income, expenses, profit margins, tax prep — all in one tracker. $9. comment HUSTLE', hashtags:'#sidehustle #incometracker #entrepreneur #girlgoneai #digitalproducts', productLink:'https://girlgone.ai/downloads/files/side-hustle-tracker.html', desc:'Format: TikTok + Instagram Reel\nHook: "If you have a side hustle and you\'re not tracking this, you\'re losing money..."', status:'pending' },
+  { id:'may5_5', title:'Student Study System — Post 4hrs after Task 1', product:'Student Study System', price:'$8', script:'schedule, assignments, exam prep, notes, GPA tracker. $8. comment STUDY', hashtags:'#student #studygram #studytips #girlgoneai #digitalproducts', productLink:'https://girlgone.ai/downloads/files/student-study-system.html', desc:'Format: TikTok + Instagram Reel + IG Stories\nHook: "The study system I wish I had in college..."', status:'pending' },
+  { id:'may5_6', title:'Professional Invoice Generator — Post 5hrs after Task 1', product:'Professional Invoice Generator', price:'$8', script:'professional templates, auto calculations, payment tracking. $8. comment INVOICE', hashtags:'#freelancer #invoicing #templates #girlgoneai #digitalproducts', productLink:'https://girlgone.ai/downloads/files/invoice-generator.html', desc:'Format: TikTok + Instagram Reel\nHook: "Freelancers, if you\'re using Word docs for invoices in 2026..."', status:'pending' },
+  { id:'may5_7', title:'FREE Morning Glow Checklist — Carousel + Story (evening)', product:'Morning Glow Checklist', price:'FREE', script:'my morning glow checklist is still free. skincare + mindset + productivity. link in bio.', hashtags:'#morningroutine #skincare #productivity #girlgoneai #freebie', productLink:'https://girlgone.ai', desc:'Format: IG Carousel + IG Story + TikTok\nHook: "The free checklist that fixed my mornings..."', status:'pending' }
 ];
 
 // Combine: launch videos first (priority), then daily tasks
@@ -482,41 +487,83 @@ function renderTaskCard(t) {
     var isDone = t.status === 'done';
     var isReplied = t.status === 'replied';
     var isDeleted = t.status === 'deleted';
-    var itemClass = isDeleted ? 'task-item deleted' : 'task-item';
-    var checkClass = isDone ? 'done' : (isDeleted ? 'deleted' : '');
-    var checkMark = isDone ? '&#10003;' : (isDeleted ? '&#10005;' : '');
-    var textClass = isDone ? 'done' : (isDeleted ? 'deleted' : '');
+    var isActed = isDone || isDeleted;
 
-    // Inline video embed if task has a videoUrl
-    var videoHtml = '';
-    if (t.videoUrl && !isDeleted) {
-      videoHtml = '<div class="task-video"><video controls playsinline preload="metadata"><source src="' + esc(t.videoUrl) + '" type="video/mp4"></video></div>';
+    // Build the full caption text for copying
+    var fullCaption = '';
+    if (t.script) {
+      fullCaption = t.script;
+      if (t.hashtags) fullCaption += '\n' + t.hashtags;
+      if (t.productLink) fullCaption += '\n' + t.productLink;
     }
 
-    var actions = '';
+    // Video player
+    var videoHtml = '';
+    if (t.videoUrl && !isDeleted) {
+      videoHtml = '<div class="ucard-video"><video controls playsinline preload="metadata" muted><source src="' + esc(t.videoUrl) + '" type="video/mp4"></video></div>';
+    }
+
+    // Title + product + price header
+    var headerHtml = '<div class="ucard-title">' + esc(t.title) + '</div>';
+    if (t.product) {
+      headerHtml += '<div class="ucard-meta"><span class="ucard-product">' + esc(t.product) + '</span>';
+      if (t.price) headerHtml += '<span class="ucard-price">' + esc(t.price) + '</span>';
+      headerHtml += '</div>';
+    }
+
+    // Script/caption block
+    var captionHtml = '';
+    if (t.script && !isDeleted) {
+      captionHtml = '<div class="ucard-caption-block">' +
+        '<div class="ucard-caption-label">SCRIPT / CAPTION:</div>' +
+        '<div class="ucard-caption-text">"' + esc(t.script) + '"</div>';
+      if (t.hashtags) captionHtml += '<div class="ucard-hashtags">' + esc(t.hashtags) + '</div>';
+      if (t.productLink) captionHtml += '<div class="ucard-link">' + esc(t.productLink) + '</div>';
+      captionHtml += '</div>';
+    }
+
+    // Brief description (posting instructions) if present
+    var descHtml = '';
+    if (t.desc && !isDeleted) {
+      descHtml = '<div class="task-desc">' + esc(t.desc) + '</div>';
+    }
+
+    // Utility buttons: Download Video + Copy Caption
+    var utilHtml = '';
+    if (!isDeleted && (t.videoUrl || fullCaption)) {
+      utilHtml = '<div class="ucard-utils">';
+      if (t.videoUrl) utilHtml += '<a href="' + esc(t.videoUrl) + '" download class="ubtn ubtn-download">Download Video</a>';
+      if (fullCaption) utilHtml += '<button class="ubtn ubtn-copy" onclick="copyCaption(this, ' + JSON.stringify(fullCaption).replace(/"/g,'&quot;') + ')">Copy Caption</button>';
+      if (t.productLink) utilHtml += '<a href="' + esc(t.productLink) + '" target="_blank" class="ubtn ubtn-link">Product Link</a>';
+      utilHtml += '</div>';
+    }
+
+    // Action buttons
+    var actionsHtml = '';
     if (isDone) {
-      actions = '<div class="task-actions">' +
+      actionsHtml = '<div class="ucard-actions">' +
         '<span class="task-status-badge badge-done">Completed</span>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
         (t.actionTime ? '<div class="task-time">Completed at ' + esc(t.actionTime) + '</div>' : '');
     } else if (isReplied) {
-      actions = '<div class="task-reply-display"><strong>Your comment:</strong> ' + esc(t.reply) + '</div>' +
-        '<div class="task-actions">' +
+      actionsHtml = '<div class="task-reply-display"><strong>Your comment:</strong> ' + esc(t.reply) + '</div>' +
+        '<div class="ucard-actions">' +
         '<span class="task-status-badge badge-replied">Commented</span>' +
         '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Complete</button>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
         (t.actionTime ? '<div class="task-time">Commented at ' + esc(t.actionTime) + '</div>' : '');
     } else if (isDeleted) {
-      actions = '<div class="task-delete-display"><strong>Reason:</strong> ' + esc(t.deleteReason) + '</div>' +
-        '<div class="task-actions">' +
+      actionsHtml = '<div class="task-delete-display"><strong>Reason:</strong> ' + esc(t.deleteReason) + '</div>' +
+        '<div class="ucard-actions">' +
         '<span class="task-status-badge badge-deleted">Ignored</span>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
         (t.actionTime ? '<div class="task-time">Ignored at ' + esc(t.actionTime) + '</div>' : '');
     } else {
-      actions = '<div class="task-actions">' +
+      actionsHtml = '<div class="ucard-divider"></div>' +
+        '<div class="ucard-actions">' +
         '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Complete</button>' +
         '<button class="task-btn task-btn-reply" onclick="showReplyInput(\'' + t.id + '\')">Comment</button>' +
         '<button class="task-btn task-btn-delete" onclick="showDeleteInput(\'' + t.id + '\')">Ignore</button>' +
@@ -531,14 +578,18 @@ function renderTaskCard(t) {
         '</div>';
     }
 
-    return '<li class="' + itemClass + '">' +
-      '<div class="task-check ' + checkClass + '"' + (!isDone && !isReplied && !isDeleted ? ' onclick="markDone(\'' + t.id + '\')"' : '') + '>' + checkMark + '</div>' +
-      '<div class="task-body">' +
-        '<div class="task-text ' + textClass + '">' + esc(t.title) + '</div>' +
-        videoHtml +
-        (t.desc && !isDeleted ? '<div class="task-desc">' + esc(t.desc) + '</div>' : '') +
-        (t.g2Reply ? '<div class="task-g2reply"><strong>Reply from team:</strong>\n' + esc(t.g2Reply) + '</div>' : '') +
-        actions +
+    // Team reply if any
+    var g2Html = t.g2Reply ? '<div class="task-g2reply"><strong>Reply from team:</strong>\n' + esc(t.g2Reply) + '</div>' : '';
+
+    return '<li class="ucard' + (isDeleted ? ' ucard-dimmed' : '') + '">' +
+      videoHtml +
+      '<div class="ucard-body">' +
+        headerHtml +
+        captionHtml +
+        descHtml +
+        utilHtml +
+        g2Html +
+        actionsHtml +
       '</div>' +
       '</li>';
 }
@@ -562,13 +613,13 @@ function renderTasks() {
   var html = pending.map(renderTaskCard).join('');
 
   if (acted.length > 0) {
-    html += '<div class="tasks-collapsed-section" id="tasks-acted">' +
+    html += '<li class="tasks-collapsed-section" id="tasks-acted">' +
       '<div class="tasks-collapsed-header" onclick="document.getElementById(\'tasks-acted\').classList.toggle(\'open\')">' +
       '<h3>Completed / Ignored (' + acted.length + ')</h3>' +
       '<span class="toggle">&#9654;</span>' +
       '</div>' +
       '<div class="collapsed-tasks"><ul class="task-list">' + acted.map(renderTaskCard).join('') + '</ul></div>' +
-      '</div>';
+      '</li>';
   }
 
   list.innerHTML = html;
@@ -812,7 +863,6 @@ document.addEventListener('DOMContentLoaded', function() {
   renderDate();
   renderAll();
   renderArchive();
-  renderVideos();
   renderContent([]);
   renderEngagement({views:0,likes:0,comments:0,shares:0});
   renderHours(2);
