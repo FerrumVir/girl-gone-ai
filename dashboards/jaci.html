@@ -80,8 +80,8 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .task-text.done { text-decoration:line-through; color:var(--text-muted); }
 .task-text.deleted { text-decoration:line-through; color:var(--text-muted); }
 .task-desc { font-size:13px; color:var(--text-muted); margin-top:4px; white-space:pre-line; }
-.task-actions { display:flex; gap:8px; margin-top:8px; flex-wrap:wrap; }
-.task-btn { font-size:12px; font-family:var(--font); padding:6px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:500; transition:all .15s; }
+.task-actions { display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+.task-btn { font-size:14px; font-family:var(--font); padding:12px 20px; border-radius:12px; border:none; cursor:pointer; font-weight:600; transition:all .15s; min-height:44px; }
 .task-btn-done { background:var(--green-bg); color:#059669; }
 .task-btn-done:hover { background:var(--green); color:white; }
 .task-btn-reply { background:var(--blue-bg); color:#2563eb; }
@@ -90,8 +90,17 @@ main { padding:24px 32px; display:flex; flex-direction:column; gap:20px; max-wid
 .task-btn-delete:hover { background:var(--red); color:white; }
 .task-btn-note { background:var(--yellow-bg); color:#b45309; }
 .task-btn-note:hover { background:var(--yellow); color:white; }
-.task-btn-undo { background:var(--bg); color:var(--text-muted); border:1px solid var(--border); }
+.task-btn-undo { background:var(--bg); color:var(--text-muted); border:1px solid var(--border); font-size:12px; padding:8px 14px; min-height:auto; }
 .task-btn-undo:hover { background:var(--border); }
+.task-video { width:100%; max-width:400px; border-radius:12px; margin-top:10px; background:#000; }
+.task-video video { width:100%; border-radius:12px; display:block; max-height:360px; }
+.tasks-collapsed-section { margin-top:20px; border-top:1px solid var(--border); padding-top:16px; }
+.tasks-collapsed-header { display:flex; justify-content:space-between; align-items:center; cursor:pointer; user-select:none; padding:8px 0; }
+.tasks-collapsed-header h3 { font-size:14px; font-weight:600; color:var(--text-muted); }
+.tasks-collapsed-header .toggle { font-size:14px; color:var(--text-muted); transition:transform .2s; }
+.tasks-collapsed-section.open .toggle { transform:rotate(90deg); }
+.tasks-collapsed-section .collapsed-tasks { display:none; }
+.tasks-collapsed-section.open .collapsed-tasks { display:block; }
 .task-input-area { width:100%; margin-top:8px; padding:8px 12px; border:1px solid var(--border); border-radius:8px; font-family:var(--font); font-size:13px; resize:none; outline:none; }
 .task-input-area:focus { border-color:var(--accent); }
 .task-reply-display { margin-top:8px; padding:8px 12px; background:var(--blue-bg); border-radius:8px; font-size:13px; color:#1e40af; }
@@ -220,7 +229,7 @@ footer { text-align:center; padding:20px; font-size:12px; color:var(--text-muted
 
   <div class="section">
     <h2><span>&#128221;</span> Today's Tasks</h2>
-    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">For each task: <strong>Mark Done</strong> when finished, <strong>Reply</strong> to send G2 a message, or <strong>Can't Do This</strong> to decline with a reason.</p>
+    <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px;">Watch the video, then: <strong>Complete</strong> when done, <strong>Comment</strong> to send the team a message, or <strong>Ignore</strong> to dismiss.</p>
     <ul class="task-list" id="task-list"></ul>
     <div class="empty-state" id="tasks-empty" style="display:none">No tasks assigned yet today. Check back soon!</div>
   </div>
@@ -453,14 +462,13 @@ function showDeleteInput(id) {
 function confirmDelete(id) {
   var input = document.getElementById('delete-input-' + id);
   var reason = input ? input.value.trim() : '';
-  if (!reason) { alert('Please explain why you can\'t do this task.'); return; }
   TASKS.forEach(function(t) {
     if (t.id === id) {
-      t.deleteReason = reason;
+      t.deleteReason = reason || 'Dismissed';
       t.status = 'deleted';
       t.actionTime = timeStr();
-      addResponse('declined', t.id, t.title, reason);
-      notifyBackend('ignored', t, reason);
+      addResponse('declined', t.id, t.title, reason || 'Dismissed');
+      notifyBackend('ignored', t, reason || 'Dismissed');
     }
   });
   saveState(); renderAll();
@@ -470,20 +478,7 @@ function renderDate() {
   document.getElementById('header-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
 }
 
-function renderTasks() {
-  var list = document.getElementById('task-list');
-  var empty = document.getElementById('tasks-empty');
-  var activeTasks = TASKS.filter(function(t){ return t.status !== 'deleted'; });
-  var allTasks = TASKS;
-  if (!allTasks.length) { list.innerHTML=''; empty.style.display='block'; return; }
-  empty.style.display='none';
-  var done = allTasks.filter(function(t){ return t.status==='done'; }).length;
-  var replied = allTasks.filter(function(t){ return t.status==='replied'; }).length;
-  document.getElementById('stat-tasks-done').textContent = done;
-  document.getElementById('stat-tasks-total').textContent = allTasks.length;
-  document.getElementById('stat-replies').textContent = replied;
-
-  list.innerHTML = allTasks.map(function(t) {
+function renderTaskCard(t) {
     var isDone = t.status === 'done';
     var isReplied = t.status === 'replied';
     var isDeleted = t.status === 'deleted';
@@ -492,41 +487,47 @@ function renderTasks() {
     var checkMark = isDone ? '&#10003;' : (isDeleted ? '&#10005;' : '');
     var textClass = isDone ? 'done' : (isDeleted ? 'deleted' : '');
 
+    // Inline video embed if task has a videoUrl
+    var videoHtml = '';
+    if (t.videoUrl && !isDeleted) {
+      videoHtml = '<div class="task-video"><video controls playsinline preload="metadata"><source src="' + esc(t.videoUrl) + '" type="video/mp4"></video></div>';
+    }
+
     var actions = '';
     if (isDone) {
       actions = '<div class="task-actions">' +
         '<span class="task-status-badge badge-done">Completed</span>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
-        (t.actionTime ? '<div class="task-time">Done at ' + esc(t.actionTime) + '</div>' : '');
+        (t.actionTime ? '<div class="task-time">Completed at ' + esc(t.actionTime) + '</div>' : '');
     } else if (isReplied) {
-      actions = '<div class="task-reply-display"><strong>Your reply:</strong> ' + esc(t.reply) + '</div>' +
+      actions = '<div class="task-reply-display"><strong>Your comment:</strong> ' + esc(t.reply) + '</div>' +
         '<div class="task-actions">' +
-        '<span class="task-status-badge badge-replied">Replied to G2</span>' +
-        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Mark Done</button>' +
+        '<span class="task-status-badge badge-replied">Commented</span>' +
+        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Complete</button>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
-        (t.actionTime ? '<div class="task-time">Replied at ' + esc(t.actionTime) + '</div>' : '');
+        (t.actionTime ? '<div class="task-time">Commented at ' + esc(t.actionTime) + '</div>' : '');
     } else if (isDeleted) {
       actions = '<div class="task-delete-display"><strong>Reason:</strong> ' + esc(t.deleteReason) + '</div>' +
         '<div class="task-actions">' +
-        '<span class="task-status-badge badge-deleted">Declined</span>' +
+        '<span class="task-status-badge badge-deleted">Ignored</span>' +
         '<button class="task-btn task-btn-undo" onclick="undoTask(\'' + t.id + '\')">Undo</button>' +
         '</div>' +
-        (t.actionTime ? '<div class="task-time">Declined at ' + esc(t.actionTime) + '</div>' : '');
+        (t.actionTime ? '<div class="task-time">Ignored at ' + esc(t.actionTime) + '</div>' : '');
     } else {
       actions = '<div class="task-actions">' +
-        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Mark Done</button>' +
-        '<button class="task-btn task-btn-reply" onclick="showReplyInput(\'' + t.id + '\')">Reply to G2</button>' +
-        '<button class="task-btn task-btn-delete" onclick="showDeleteInput(\'' + t.id + '\')">Can\'t Do This</button>' +
+        '<button class="task-btn task-btn-done" onclick="markDone(\'' + t.id + '\')">Complete</button>' +
+        '<button class="task-btn task-btn-reply" onclick="showReplyInput(\'' + t.id + '\')">Comment</button>' +
+        '<button class="task-btn task-btn-delete" onclick="showDeleteInput(\'' + t.id + '\')">Ignore</button>' +
         '</div>' +
         '<div id="reply-area-' + t.id + '" style="display:none">' +
-        '<textarea class="task-input-area" id="reply-input-' + t.id + '" rows="2" placeholder="Type your reply to G2... (e.g. This is a digital product so I can\'t do a physical unboxing — what else would you like?)"></textarea>' +
-        '<div style="margin-top:6px"><button class="task-btn task-btn-reply" onclick="sendReply(\'' + t.id + '\')">Send Reply</button></div>' +
+        '<textarea class="task-input-area" id="reply-input-' + t.id + '" rows="2" placeholder="Type your comment... (question, blocker, or note about this task)"></textarea>' +
+        '<div style="margin-top:6px"><button class="task-btn task-btn-reply" onclick="sendReply(\'' + t.id + '\')">Send Comment</button></div>' +
         '</div>' +
         '<div id="delete-area-' + t.id + '" style="display:none">' +
-        '<textarea class="task-input-area" id="delete-input-' + t.id + '" rows="2" placeholder="Why can\'t you do this task? (e.g. It\'s a digital product, not a physical one — can\'t do a real unboxing)"></textarea>' +
-        '<div style="margin-top:6px"><button class="task-btn task-btn-delete" onclick="confirmDelete(\'' + t.id + '\')">Confirm Decline</button></div>' +
+        '<textarea class="task-input-area" id="delete-input-' + t.id + '" rows="2" placeholder="Why are you ignoring this? (optional but helpful)"></textarea>' +
+        '<div style="margin-top:6px"><button class="task-btn task-btn-delete" onclick="confirmDelete(\'' + t.id + '\')">Confirm Ignore</button></div>' +
         '</div>';
     }
 
@@ -534,12 +535,43 @@ function renderTasks() {
       '<div class="task-check ' + checkClass + '"' + (!isDone && !isReplied && !isDeleted ? ' onclick="markDone(\'' + t.id + '\')"' : '') + '>' + checkMark + '</div>' +
       '<div class="task-body">' +
         '<div class="task-text ' + textClass + '">' + esc(t.title) + '</div>' +
+        videoHtml +
         (t.desc && !isDeleted ? '<div class="task-desc">' + esc(t.desc) + '</div>' : '') +
-        (t.g2Reply ? '<div class="task-g2reply"><strong>Reply from G2:</strong>\n' + esc(t.g2Reply) + '</div>' : '') +
+        (t.g2Reply ? '<div class="task-g2reply"><strong>Reply from team:</strong>\n' + esc(t.g2Reply) + '</div>' : '') +
         actions +
       '</div>' +
       '</li>';
-  }).join('');
+}
+
+function renderTasks() {
+  var list = document.getElementById('task-list');
+  var empty = document.getElementById('tasks-empty');
+  if (!TASKS.length) { list.innerHTML=''; empty.style.display='block'; return; }
+  empty.style.display='none';
+
+  var done = TASKS.filter(function(t){ return t.status==='done'; }).length;
+  var replied = TASKS.filter(function(t){ return t.status==='replied'; }).length;
+  document.getElementById('stat-tasks-done').textContent = done;
+  document.getElementById('stat-tasks-total').textContent = TASKS.length;
+  document.getElementById('stat-replies').textContent = replied;
+
+  // Auto-sort: pending tasks at top, completed/ignored collapsed below
+  var pending = TASKS.filter(function(t){ return t.status==='pending'; });
+  var acted = TASKS.filter(function(t){ return t.status!=='pending'; });
+
+  var html = pending.map(renderTaskCard).join('');
+
+  if (acted.length > 0) {
+    html += '<div class="tasks-collapsed-section" id="tasks-acted">' +
+      '<div class="tasks-collapsed-header" onclick="document.getElementById(\'tasks-acted\').classList.toggle(\'open\')">' +
+      '<h3>Completed / Ignored (' + acted.length + ')</h3>' +
+      '<span class="toggle">&#9654;</span>' +
+      '</div>' +
+      '<div class="collapsed-tasks"><ul class="task-list">' + acted.map(renderTaskCard).join('') + '</ul></div>' +
+      '</div>';
+  }
+
+  list.innerHTML = html;
 }
 
 function renderResponses() {
