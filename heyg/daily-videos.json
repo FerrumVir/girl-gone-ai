@@ -1,57 +1,57 @@
 {
-  "date": "2026-05-04",
-  "generated_at": "2026-05-04T16:01:10.518326",
+  "date": "2026-05-05",
+  "generated_at": "2026-05-05T05:16:48.995942",
   "video_count": 5,
   "videos": [
     {
       "index": 1,
-      "product": "Home Organization System",
-      "price": "$12",
-      "link": "https://girlgoneai.gumroad.com/l/111-home-organization-system",
-      "script": "Your house is a mess and you keep buying storage bins that don't help. This system gives you room-by-room checklists, declutter workflows, and maintenance schedules. Twelve dollars. Comment HOME.",
-      "video_path": "heyg/daily/2026-05-04/video-1.mp4",
-      "duration": 10.5273,
-      "video_id": "c575b7411d10496d909a5726352a22af"
-    },
-    {
-      "index": 2,
-      "product": "AI Productivity Starter Kit",
-      "price": "FREE",
-      "link": "https://girlgoneai.gumroad.com/l/free-starter-kit",
-      "script": "Stop scrolling and grab this before I take it down. A free AI starter kit with prompts, templates, and workflows that actually work. Link in bio.",
-      "video_path": "heyg/daily/2026-05-04/video-2.mp4",
-      "duration": 7.78449,
-      "video_id": "33447919603240d1a31cad4a2a151d83"
-    },
-    {
-      "index": 3,
-      "product": "Networking CRM",
-      "price": "$13",
-      "link": "https://girlgoneai.gumroad.com/l/110-networking-crm-notion",
-      "script": "You meet amazing people and then forget to follow up. This CRM tracks every connection, reminds you to reach out, and builds your network on autopilot. Thirteen dollars. Comment NETWORK.",
-      "video_path": "heyg/daily/2026-05-04/video-3.mp4",
-      "duration": 10.2661,
-      "video_id": "4fb40162017949e7b713f503fcccc2e4"
-    },
-    {
-      "index": 4,
-      "product": "Ultimate Side Hustle Launch Kit",
-      "price": "$19",
-      "link": "https://girlgoneai.gumroad.com/l/100-ultimate-side-hustle-launch-kit",
-      "script": "I spent three months planning my first side hustle. You can do it in one weekend with this kit. Templates, checklists, the whole playbook. Nineteen dollars. Link in bio.",
-      "video_path": "heyg/daily/2026-05-04/video-4.mp4",
-      "duration": 8.43755,
-      "video_id": "7754f3fe201e487f92b27f4dbc0a8cf5"
-    },
-    {
-      "index": 5,
       "product": "Salary Negotiation Playbook",
       "price": "$11",
       "link": "https://girlgoneai.gumroad.com/l/103-salary-negotiation-playbook",
       "script": "You left money on the table at your last job offer. This playbook has the exact scripts and frameworks to negotiate like a pro. Eleven dollars could be worth thousands. Comment SALARY.",
-      "video_path": "heyg/daily/2026-05-04/video-5.mp4",
-      "duration": 11.5984,
-      "video_id": "b5caf89312f94d749bbca4b8b91475a3"
+      "video_path": "heyg/daily/2026-05-05/video-1.mp4",
+      "duration": 9.22122,
+      "video_id": "993bc356355e407ca6fcd8fa62bd5c4b"
+    },
+    {
+      "index": 2,
+      "product": "Language Learning Tracker",
+      "price": "$9",
+      "link": "https://girlgoneai.gumroad.com/l/105-language-learning-tracker",
+      "script": "You downloaded Duolingo six months ago and gave up after two weeks. This tracker actually keeps you going with streak tracking, vocab logs, and weekly goals. Nine dollars. Comment LANGUAGE.",
+      "video_path": "heyg/daily/2026-05-05/video-2.mp4",
+      "duration": 9.79592,
+      "video_id": "86237605a3c94855b2351127c860ba61"
+    },
+    {
+      "index": 3,
+      "product": "Resume Builder Kit",
+      "price": "$14",
+      "link": "https://girlgoneai.gumroad.com/l/101-resume-builder-kit",
+      "script": "Your resume is getting ignored and I know why. It looks like everyone else's. This kit has templates that actually stand out plus the exact words recruiters search for. Fourteen dollars. Comment RESUME.",
+      "video_path": "heyg/daily/2026-05-05/video-3.mp4",
+      "duration": 12.4343,
+      "video_id": "e8f2913447554116b2c181daa63c1992"
+    },
+    {
+      "index": 4,
+      "product": "Thesis & Research Writing Planner",
+      "price": "$13",
+      "link": "https://girlgoneai.gumroad.com/l/106-thesis-writing-planner",
+      "script": "Writing a thesis feels impossible until you break it down. This planner turns your giant scary paper into daily manageable tasks. Literature review tracker, citation manager, deadline system. Thirteen dollars. Comment THESIS.",
+      "video_path": "heyg/daily/2026-05-05/video-4.mp4",
+      "duration": 13.1396,
+      "video_id": "601761455a914da7abe9a491fb92ab78"
+    },
+    {
+      "index": 5,
+      "product": "Career Pivot Roadmap",
+      "price": "$15",
+      "link": "https://girlgoneai.gumroad.com/l/107-career-pivot-roadmap",
+      "script": "You hate your job but changing careers feels too risky. This roadmap breaks it into steps so small they don't feel scary. Skills gap analysis, timeline, action plan. Fifteen dollars. Comment PIVOT.",
+      "video_path": "heyg/daily/2026-05-05/video-5.mp4",
+      "duration": 12.3559,
+      "video_id": "9ae8754df0b94cbc8e2dd14cde1e07f5"
     }
   ]
 }
