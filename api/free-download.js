@@ -33,7 +33,7 @@ module.exports = async function handler(req, res) {
 
   return res.status(200).json({
     message: 'Success! Your download is ready.',
-    downloadUrl: `/downloads/${encodeURIComponent(slug)}.md`,
+    downloadUrl: `/downloads/files/${encodeURIComponent(slug)}.html`,
     productTitle: slug.replace(/^\d+-/, '').replace(/-/g, ' '),
   });
 };

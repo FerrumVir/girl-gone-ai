@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_141_lash_tech_business_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#DB2777" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_141_lash_tech_business_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#EC4899" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#DB2777" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#EC4899" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_141_lash_tech_business_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_141_lash_tech_business_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(0 132 306)"/>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(60 132 306)"/>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(120 132 306)"/>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(180 132 306)"/>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(240 132 306)"/>
+    <ellipse cx="132" cy="306" rx="14" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.07159569371710336" transform="rotate(300 132 306)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(0 500 129)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(60 500 129)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(120 500 129)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(180 500 129)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(240 500 129)"/>
+    <ellipse cx="500" cy="129" rx="17" ry="13" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.0910362982046258" transform="rotate(300 500 129)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(0 88 261)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(60 88 261)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(120 88 261)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(180 88 261)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(240 88 261)"/>
+    <ellipse cx="88" cy="261" rx="22" ry="6" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.10234814309151624" transform="rotate(300 88 261)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(0 348 100)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(60 348 100)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(120 348 100)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(180 348 100)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(240 348 100)"/>
+    <ellipse cx="348" cy="100" rx="21" ry="7" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.09505968569996592" transform="rotate(300 348 100)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(0 350 159)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(60 350 159)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(120 350 159)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(180 350 159)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(240 350 159)"/>
+    <ellipse cx="350" cy="159" rx="24" ry="11" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.06885050515929639" transform="rotate(300 350 159)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#EC4899" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="262" height="28" rx="6" fill="#EC4899" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#EC4899" letter-spacing="1.5" text-transform="uppercase">Beauty &amp; Wellness Business</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#EC4899" opacity="0.4">❤</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Lash Tech Business Planner &amp;</tspan>
+      <tspan x="300" dy="34">Client Tracker</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#EC4899" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

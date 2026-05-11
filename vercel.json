@@ -1,8 +1,10 @@
 {
   "version": 2,
+  "framework": null,
   "buildCommand": null,
   "outputDirectory": ".",
   "rewrites": [
+    { "source": "/downloads/files/:path*", "destination": "/api/download-gate?file=:path*" },
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ],
   "headers": [

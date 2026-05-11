@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_125_plant_garden_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_125_plant_garden_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#FF3B8B" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_125_plant_garden_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_125_plant_garden_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <circle cx="148" cy="146" r="9" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.04287074927415182"/>
+    <circle cx="219" cy="318" r="32" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09430384502788298"/>
+    <circle cx="185" cy="123" r="35" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09207773336271718"/>
+    <circle cx="444" cy="154" r="8" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.07458649830354433"/>
+    <circle cx="224" cy="73" r="9" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.11483666646743673"/>
+    <circle cx="387" cy="124" r="16" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.107729060476001"/>
+    <circle cx="379" cy="132" r="20" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.11306471427734116"/>
+    <circle cx="496" cy="327" r="30" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09320053109897328"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#FF3B8B" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#FF3B8B" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#FF3B8B" letter-spacing="1.5" text-transform="uppercase">Digital Planners</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#FF3B8B" opacity="0.4">☆</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Plant Care &amp; Garden Planner</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#FF3B8B" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

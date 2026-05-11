@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_25_meal_prep_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_25_meal_prep_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#A855F7" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_25_meal_prep_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_25_meal_prep_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="345" y="218" width="23" height="50" rx="6" fill="#A855F7" opacity="0.078764669959999" transform="rotate(-26 356 243)"/>
+    <rect x="268" y="302" width="35" height="21" rx="6" fill="#A855F7" opacity="0.10638293531297577" transform="rotate(-22 285 312)"/>
+    <rect x="296" y="135" width="41" height="37" rx="6" fill="#A855F7" opacity="0.07075923652763005" transform="rotate(-21 316 153)"/>
+    <rect x="417" y="98" width="49" height="43" rx="6" fill="#A855F7" opacity="0.058199296469056805" transform="rotate(-24 441 119)"/>
+    <rect x="103" y="86" width="47" height="40" rx="6" fill="#A855F7" opacity="0.050512355760601625" transform="rotate(30 126 106)"/>
+    <rect x="270" y="114" width="44" height="46" rx="6" fill="#A855F7" opacity="0.05908418421575147" transform="rotate(25 292 137)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#A855F7" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#A855F7" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#A855F7" letter-spacing="1.5" text-transform="uppercase">Notion Templates</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#A855F7" opacity="0.4">⬛</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Meal Prep &amp; Recipe Planner</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#A855F7" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

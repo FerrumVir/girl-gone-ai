@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_105_language_learning_tracker" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_105_language_learning_tracker" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#FF3B8B" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_105_language_learning_tracker)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_105_language_learning_tracker)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <circle cx="425" cy="288" r="20" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.06665184865081367"/>
+    <circle cx="113" cy="264" r="32" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.08463494439778385"/>
+    <circle cx="506" cy="156" r="25" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05303052965773146"/>
+    <circle cx="63" cy="275" r="33" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.08389051796299196"/>
+    <circle cx="363" cy="119" r="26" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.11587257869850762"/>
+    <circle cx="506" cy="74" r="25" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.054722374060325395"/>
+    <circle cx="225" cy="166" r="22" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09808791495491506"/>
+    <circle cx="139" cy="188" r="12" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05107181190016538"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#FF3B8B" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#FF3B8B" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#FF3B8B" letter-spacing="1.5" text-transform="uppercase">Digital Planners</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#FF3B8B" opacity="0.4">☆</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Language Learning Tracker</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#FF3B8B" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

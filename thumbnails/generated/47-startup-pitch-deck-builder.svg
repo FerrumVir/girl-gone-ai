@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_47_startup_pitch_deck_builder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_47_startup_pitch_deck_builder" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#8B5CF6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_47_startup_pitch_deck_builder)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_47_startup_pitch_deck_builder)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="253" y="180" width="23" height="23" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.054007167356624045" transform="rotate(57 264 191)"/>
+    <rect x="455" y="183" width="15" height="15" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.14306148204157335" transform="rotate(56 462 190)"/>
+    <rect x="433" y="311" width="20" height="20" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.05886084922196967" transform="rotate(85 443 321)"/>
+    <rect x="191" y="286" width="17" height="17" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.14355370804593826" transform="rotate(51 199 294)"/>
+    <rect x="414" y="133" width="12" height="12" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.05627216730034904" transform="rotate(69 420 139)"/>
+    <rect x="337" y="213" width="25" height="25" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.061427811445082775" transform="rotate(78 349 225)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#8B5CF6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#8B5CF6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#8B5CF6" letter-spacing="1.5" text-transform="uppercase">Digital Products</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#8B5CF6" opacity="0.4">◆</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Startup Pitch Deck Builder</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#8B5CF6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

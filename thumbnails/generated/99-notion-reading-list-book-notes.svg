@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_99_notion_reading_list_book_notes" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_99_notion_reading_list_book_notes" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#A855F7" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_99_notion_reading_list_book_notes)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_99_notion_reading_list_book_notes)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="274" y="208" width="29" height="48" rx="6" fill="#A855F7" opacity="0.14450244558316916" transform="rotate(26 288 232)"/>
+    <rect x="319" y="89" width="33" height="28" rx="6" fill="#A855F7" opacity="0.10528599456217236" transform="rotate(15 335 103)"/>
+    <rect x="302" y="86" width="32" height="34" rx="6" fill="#A855F7" opacity="0.11643185657288979" transform="rotate(6 318 103)"/>
+    <rect x="55" y="276" width="27" height="29" rx="6" fill="#A855F7" opacity="0.14596099893397835" transform="rotate(-15 68 290)"/>
+    <rect x="114" y="100" width="23" height="34" rx="6" fill="#A855F7" opacity="0.0814618966054003" transform="rotate(10 125 117)"/>
+    <rect x="374" y="137" width="49" height="50" rx="6" fill="#A855F7" opacity="0.1427035591111288" transform="rotate(-12 398 162)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#A855F7" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#A855F7" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#A855F7" letter-spacing="1.5" text-transform="uppercase">Notion Templates</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#A855F7" opacity="0.4">⬛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Notion Reading List &amp; Book</tspan>
+      <tspan x="300" dy="34">Notes System</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#A855F7" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

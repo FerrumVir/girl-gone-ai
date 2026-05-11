@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_04_adhd_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_04_adhd_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#A855F7" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_04_adhd_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_04_adhd_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="295" y="228" width="26" height="33" rx="6" fill="#A855F7" opacity="0.12863344664160575" transform="rotate(23 308 244)"/>
+    <rect x="388" y="132" width="24" height="24" rx="6" fill="#A855F7" opacity="0.08812495109292129" transform="rotate(-4 400 144)"/>
+    <rect x="294" y="204" width="34" height="50" rx="6" fill="#A855F7" opacity="0.06703219526543239" transform="rotate(-11 311 229)"/>
+    <rect x="97" y="78" width="26" height="41" rx="6" fill="#A855F7" opacity="0.05091031259192239" transform="rotate(2 110 98)"/>
+    <rect x="419" y="199" width="24" height="34" rx="6" fill="#A855F7" opacity="0.0790815258222513" transform="rotate(-23 431 216)"/>
+    <rect x="214" y="140" width="42" height="24" rx="6" fill="#A855F7" opacity="0.0587580524553073" transform="rotate(20 235 152)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#A855F7" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#A855F7" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#A855F7" letter-spacing="1.5" text-transform="uppercase">Notion Templates</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#A855F7" opacity="0.4">⬛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">ADHD Daily Planner &amp; Focus</tspan>
+      <tspan x="300" dy="34">System</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#A855F7" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

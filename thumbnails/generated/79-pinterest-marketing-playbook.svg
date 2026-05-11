@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_79_pinterest_marketing_playbook" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_79_pinterest_marketing_playbook" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#8B5CF6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_79_pinterest_marketing_playbook)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_79_pinterest_marketing_playbook)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="501" y="92" width="17" height="17" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.06600240643004313" transform="rotate(45 509 100)"/>
+    <rect x="201" y="214" width="17" height="17" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.05048731283290112" transform="rotate(75 209 222)"/>
+    <rect x="201" y="139" width="10" height="10" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.05843265143754126" transform="rotate(51 206 144)"/>
+    <rect x="520" y="214" width="16" height="16" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.10467117339370834" transform="rotate(67 528 222)"/>
+    <rect x="274" y="326" width="22" height="22" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.0982011577887825" transform="rotate(66 285 337)"/>
+    <rect x="216" y="166" width="18" height="18" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.12430844622869613" transform="rotate(62 225 175)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#8B5CF6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#8B5CF6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#8B5CF6" letter-spacing="1.5" text-transform="uppercase">Digital Products</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#8B5CF6" opacity="0.4">◆</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Pinterest Marketing Strategy</tspan>
+      <tspan x="300" dy="34">Playbook</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#8B5CF6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

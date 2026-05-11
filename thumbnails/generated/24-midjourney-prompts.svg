@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_24_midjourney_prompts" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_24_midjourney_prompts" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_24_midjourney_prompts)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_24_midjourney_prompts)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="225" y1="345" x2="550" y2="192" stroke="#3B82F6" stroke-width="0.8" opacity="0.05440509143110513"/>
+    <line x1="225" y1="345" x2="147" y2="327" stroke="#3B82F6" stroke-width="0.8" opacity="0.08188517409033108"/>
+    <line x1="225" y1="345" x2="255" y2="95" stroke="#3B82F6" stroke-width="0.8" opacity="0.06397857025452645"/>
+    <line x1="225" y1="345" x2="456" y2="258" stroke="#3B82F6" stroke-width="0.8" opacity="0.09912522256377315"/>
+    <line x1="225" y1="345" x2="43" y2="303" stroke="#3B82F6" stroke-width="0.8" opacity="0.0706395164857361"/>
+    <line x1="550" y1="192" x2="147" y2="327" stroke="#3B82F6" stroke-width="0.8" opacity="0.0644266686610255"/>
+    <line x1="550" y1="192" x2="255" y2="95" stroke="#3B82F6" stroke-width="0.8" opacity="0.08200435293727489"/>
+    <line x1="147" y1="327" x2="43" y2="303" stroke="#3B82F6" stroke-width="0.8" opacity="0.0719218847181977"/>
+    <line x1="182" y1="276" x2="456" y2="258" stroke="#3B82F6" stroke-width="0.8" opacity="0.07097996711690563"/>
+    <circle cx="225" cy="345" r="3" fill="#2563EB" opacity="0.13526660334706786"/>
+    <circle cx="550" cy="192" r="3" fill="#2563EB" opacity="0.13755892504060901"/>
+    <circle cx="147" cy="327" r="3" fill="#2563EB" opacity="0.09162355084178647"/>
+    <circle cx="182" cy="276" r="3" fill="#2563EB" opacity="0.14922827341753164"/>
+    <circle cx="255" cy="95" r="3" fill="#2563EB" opacity="0.17112598225551642"/>
+    <circle cx="456" cy="258" r="3" fill="#2563EB" opacity="0.13905930753162024"/>
+    <circle cx="43" cy="303" r="3" fill="#2563EB" opacity="0.11896587045640604"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Midjourney &amp; AI Art Prompt</tspan>
+      <tspan x="300" dy="34">Pack</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

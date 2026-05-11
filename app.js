@@ -1,24 +1,61 @@
+// Stripe checkout
+(function() {
+  document.addEventListener('click', function(e) {
+    var btn = e.target.closest('.stripe-buy-btn');
+    if (!btn) return;
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Loading...';
+
+    var slug = btn.getAttribute('data-slug');
+    fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ slug: slug })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert(data.error || 'Checkout failed. Please try again.');
+        btn.disabled = false;
+        btn.textContent = 'Buy Now';
+      }
+    })
+    .catch(function() {
+      alert('Checkout failed. Please try again.');
+      btn.disabled = false;
+      btn.textContent = 'Buy Now';
+    });
+  });
+})();
+
 // Header scroll effect
 const header = document.getElementById('header');
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 20);
-}, { passive: true });
+if (header) {
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+}
 
 // Mobile menu toggle
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
-menuBtn.addEventListener('click', () => {
-  menuBtn.classList.toggle('active');
-  nav.classList.toggle('active');
-});
-
-// Close mobile menu on nav link click
-nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('active');
-    menuBtn.classList.remove('active');
+if (menuBtn && nav) {
+  menuBtn.addEventListener('click', () => {
+    menuBtn.classList.toggle('active');
+    nav.classList.toggle('active');
   });
-});
+
+  // Close mobile menu on nav link click
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('active');
+      menuBtn.classList.remove('active');
+    });
+  });
+}
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -26,7 +63,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     const target = document.querySelector(anchor.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      const offset = header.offsetHeight + 16;
+      const h = document.getElementById('header');
+      const offset = h ? h.offsetHeight + 16 : 80;
       const top = target.getBoundingClientRect().top + window.scrollY - offset;
       window.scrollTo({ top, behavior: 'smooth' });
     }
@@ -48,79 +86,20 @@ if (form) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: emailInput.value, source: 'newsletter' }),
         });
-      } catch (err) {
-        // Still show success — form capture is best-effort
-      }
+      } catch (err) {}
       form.innerHTML = '<p style="color: var(--pink); font-weight: 600; font-size: 1.1rem; padding: 16px 0;">You\'re in! Welcome to the Girl Gone AI community.</p>';
     }
   });
 }
 
-// Free download modal
-const freeModal = document.getElementById('free-download-modal');
-const modalClose = document.getElementById('modal-close');
-const freeForm = document.getElementById('free-download-form');
-
+// Free download — redirect directly to the product file via download gate
 document.querySelectorAll('.free-download-btn').forEach(btn => {
   btn.addEventListener('click', () => {
-    if (freeModal) freeModal.style.display = 'flex';
+    const slug = btn.dataset.slug || '';
+    const name = slug.replace(/^\d+-/, '');
+    window.location.href = '/downloads/files/' + encodeURIComponent(name) + '.html';
   });
 });
-
-if (modalClose) {
-  modalClose.addEventListener('click', () => {
-    if (freeModal) freeModal.style.display = 'none';
-  });
-}
-
-if (freeModal) {
-  freeModal.addEventListener('click', (e) => {
-    if (e.target === freeModal) freeModal.style.display = 'none';
-  });
-}
-
-if (freeForm) {
-  freeForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const slug = freeForm.dataset.slug;
-    const emailInput = freeForm.querySelector('input[type="email"]');
-    const nameInput = freeForm.querySelector('input[name="name"]');
-    const msgEl = document.getElementById('modal-msg');
-    const btn = freeForm.querySelector('button');
-
-    if (!emailInput || !emailInput.value) return;
-    if (btn) btn.disabled = true;
-
-    // Direct download path (works on static hosting without API)
-    const basePath = window.location.pathname.includes('/products/') ? '..' : '.';
-    const downloadUrl = basePath + '/downloads/' + encodeURIComponent(slug) + '.md';
-
-    try {
-      const resp = await fetch('/api/free-download', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: emailInput.value,
-          name: nameInput ? nameInput.value : '',
-          slug: slug,
-        }),
-      });
-      const data = await resp.json();
-      if (data.downloadUrl) {
-        if (msgEl) msgEl.textContent = 'Download starting...';
-        window.location.href = data.downloadUrl;
-        setTimeout(() => { if (freeModal) freeModal.style.display = 'none'; }, 1500);
-        return;
-      }
-    } catch (err) {
-      // API unavailable (static hosting) — fall through to direct download
-    }
-
-    if (msgEl) msgEl.textContent = 'Download starting...';
-    window.location.href = downloadUrl;
-    setTimeout(() => { if (freeModal) freeModal.style.display = 'none'; }, 1500);
-  });
-}
 
 // Waitlist forms (product pages)
 document.querySelectorAll('.waitlist-form').forEach(wf => {
@@ -141,9 +120,7 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
           productSlug: wf.dataset.productSlug || '',
         }),
       });
-    } catch (err) {
-      // best-effort
-    }
+    } catch (err) {}
     if (msgEl) {
       msgEl.textContent = "You're on the list! We'll notify you at launch.";
       msgEl.style.color = 'var(--pink)';
@@ -152,163 +129,51 @@ document.querySelectorAll('.waitlist-form').forEach(wf => {
   });
 });
 
-// Launching Soon popup (for products not yet available on Gumroad)
-(function() {
-  // Demo mode: skip all interception, let every link pass through to Gumroad
-  var cfg = window.NOVOCLAW_CONFIG || {};
-  if (cfg.demoMode) return;
-
-  // Known working Gumroad slugs — all others get the Launching Soon popup
-  var liveGumroadSlugs = [
-    'free-starter-kit','wgnvf','teacher-lesson-planner','27-podcast-launch-kit',
-    '103-salary-negotiation-playbook','104-study-planner-notion','105-language-learning-tracker',
-    '106-thesis-writing-planner','107-career-pivot-roadmap','108-online-course-notes-system',
-    '109-certification-exam-tracker','110-networking-crm-notion','111-home-organization-system',
-    '11-crm-notion'
-  ];
-
-  // Select explicit fallback buttons + Gumroad links with non-live slugs
-  var fallbackBtns = document.querySelectorAll('.fallback-buy-btn');
-  var gumroadBtns = document.querySelectorAll('a.buy-btn[href*="gumroad.com/l/"], a.gumroad-buy-btn[href*="gumroad.com/l/"], .gumroad-link[href*="gumroad.com/l/"]');
-  var intercepted = [];
-
-  fallbackBtns.forEach(function(btn) { intercepted.push(btn); });
-  gumroadBtns.forEach(function(btn) {
-    var href = btn.getAttribute('href') || '';
-    var m = href.match(/\/l\/([^/?#]+)/);
-    if (m && liveGumroadSlugs.indexOf(m[1]) === -1) {
-      intercepted.push(btn);
-    }
-  });
-
-  if (!intercepted.length) return;
-
-  // Create modal overlay
-  var overlay = document.createElement('div');
-  overlay.className = 'launching-soon-overlay';
-  overlay.innerHTML =
-    '<div class="launching-soon-modal">' +
-      '<button class="modal-close-btn" aria-label="Close">&times;</button>' +
-      '<h2>Launching Soon</h2>' +
-      '<p>This product is launching soon! Leave your email and a message below, and Jaci will happily move it to the next release for you.</p>' +
-      '<form id="launching-soon-form">' +
-        '<input type="email" name="email" placeholder="Your email..." required>' +
-        '<textarea name="message" placeholder="Your message (optional)..." rows="3"></textarea>' +
-        '<input type="hidden" name="product" value="">' +
-        '<button type="submit">Notify Me</button>' +
-      '</form>' +
-    '</div>';
-  document.body.appendChild(overlay);
-
-  var form = document.getElementById('launching-soon-form');
-  var productInput = form.querySelector('input[name="product"]');
-
-  // Replace all intercepted links with launching-soon buttons
-  intercepted.forEach(function(btn) {
-    btn.textContent = 'Launching Soon';
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      // Extract product slug from href or parent data
-      var slug = '';
-      var href = btn.getAttribute('href') || '';
-      var match = href.match(/\/l\/(.+)$/);
-      if (match) slug = match[1];
-      productInput.value = slug;
-      // Reset form state
-      form.reset();
-      productInput.value = slug;
-      var successMsg = overlay.querySelector('.modal-success');
-      if (successMsg) successMsg.remove();
-      form.style.display = '';
-      overlay.classList.add('active');
+// Copy link share button
+document.querySelectorAll('.share-copy').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const url = btn.dataset.url ? new URL(btn.dataset.url, window.location.href).href : window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Link'; }, 2000);
     });
   });
+});
 
-  // Close modal
-  overlay.querySelector('.modal-close-btn').addEventListener('click', function() {
-    overlay.classList.remove('active');
-  });
-  overlay.addEventListener('click', function(e) {
-    if (e.target === overlay) overlay.classList.remove('active');
-  });
+// Exit-intent modal
+const exitModal = document.getElementById('exit-intent-modal');
+const exitClose = document.getElementById('exit-intent-close');
+const exitForm = document.getElementById('exit-intent-form');
 
-  // Form submit
-  form.addEventListener('submit', function(e) {
+if (exitClose && exitModal) {
+  exitClose.addEventListener('click', () => { exitModal.style.display = 'none'; });
+  exitModal.addEventListener('click', (e) => { if (e.target === exitModal) exitModal.style.display = 'none'; });
+}
+if (exitModal) {
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 0 && !sessionStorage.getItem('exitShown')) {
+      exitModal.style.display = 'flex';
+      sessionStorage.setItem('exitShown', '1');
+    }
+  });
+}
+if (exitForm) {
+  exitForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    var emailInput = form.querySelector('input[type="email"]');
-    var messageInput = form.querySelector('textarea');
-    var submitBtn = form.querySelector('button[type="submit"]');
+    const emailInput = exitForm.querySelector('input[type="email"]');
+    const msgEl = document.getElementById('exit-intent-msg');
     if (!emailInput || !emailInput.value) return;
-    submitBtn.disabled = true;
-
-    // Post to subscribe endpoint (best-effort on static hosting)
     try {
-      fetch('/api/subscribe', {
+      await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: emailInput.value,
-          message: messageInput ? messageInput.value : '',
-          source: 'launching-soon',
-          productSlug: productInput.value,
-        }),
-      }).catch(function() {});
+        body: JSON.stringify({ email: emailInput.value, source: 'exit-intent' }),
+      });
     } catch (err) {}
-
-    // Also submit via Formsubmit as backup for static hosting
-    var cfg = window.NOVOCLAW_CONFIG || {};
-    if (cfg.formsubmitEmail) {
-      try {
-        fetch('https://formsubmit.co/ajax/' + cfg.formsubmitEmail, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email: emailInput.value,
-            message: messageInput ? messageInput.value : '',
-            product: productInput.value,
-            _subject: 'Launching Soon Request: ' + productInput.value,
-          }),
-        }).catch(function() {});
-      } catch (err) {}
-    }
-
-    // Show success
-    form.style.display = 'none';
-    var msg = document.createElement('p');
-    msg.className = 'modal-success';
-    msg.textContent = "You're on the list! We'll let you know when it drops.";
-    form.parentNode.appendChild(msg);
-    submitBtn.disabled = false;
+    if (msgEl) { msgEl.textContent = "You're in! Welcome to the community."; msgEl.style.color = 'var(--pink)'; }
+    exitForm.style.display = 'none';
   });
-})();
-
-// Demo mode: hide "Coming Soon" badges, add product page links
-(function() {
-  var cfg = window.NOVOCLAW_CONFIG || {};
-  if (!cfg.demoMode) return;
-
-  // Hide Coming Soon badges
-  document.querySelectorAll('.coming-soon-badge').forEach(function(el) {
-    el.style.display = 'none';
-  });
-
-  // Hide the Launching Soon section header
-  var lsHeader = document.querySelector('.launching-soon-header');
-  if (lsHeader) lsHeader.style.display = 'none';
-
-  // Replace "Coming Soon" text with View Product links
-  document.querySelectorAll('.coming-soon-text').forEach(function(el) {
-    var card = el.closest('.product-card');
-    if (!card) return;
-    var h3 = card.querySelector('h3');
-    if (!h3) return;
-    var link = document.createElement('a');
-    link.href = 'catalog-landing.html';
-    link.textContent = 'View Product';
-    link.className = 'gumroad-link';
-    el.replaceWith(link);
-  });
-})();
+}
 
 // Fade-in on scroll
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_140_midjourney_prompt_engineering_masterclass" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_140_midjourney_prompt_engineering_masterclass" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_140_midjourney_prompt_engineering_masterclass)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_140_midjourney_prompt_engineering_masterclass)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="273" y1="95" x2="58" y2="284" stroke="#3B82F6" stroke-width="0.8" opacity="0.07310747443797311"/>
+    <line x1="273" y1="95" x2="351" y2="319" stroke="#3B82F6" stroke-width="0.8" opacity="0.044133134589220115"/>
+    <line x1="58" y1="284" x2="369" y2="115" stroke="#3B82F6" stroke-width="0.8" opacity="0.0710240259787"/>
+    <line x1="58" y1="284" x2="351" y2="319" stroke="#3B82F6" stroke-width="0.8" opacity="0.05602435994087446"/>
+    <line x1="58" y1="284" x2="442" y2="132" stroke="#3B82F6" stroke-width="0.8" opacity="0.07936318070214202"/>
+    <line x1="369" y1="115" x2="442" y2="132" stroke="#3B82F6" stroke-width="0.8" opacity="0.08881448205652123"/>
+    <line x1="369" y1="115" x2="106" y2="189" stroke="#3B82F6" stroke-width="0.8" opacity="0.09330212319533743"/>
+    <line x1="351" y1="319" x2="442" y2="132" stroke="#3B82F6" stroke-width="0.8" opacity="0.07849353911623874"/>
+    <line x1="546" y1="143" x2="442" y2="132" stroke="#3B82F6" stroke-width="0.8" opacity="0.049414254153700626"/>
+    <circle cx="273" cy="95" r="3" fill="#2563EB" opacity="0.14200407932368725"/>
+    <circle cx="58" cy="284" r="3" fill="#2563EB" opacity="0.10710184087332918"/>
+    <circle cx="369" cy="115" r="3" fill="#2563EB" opacity="0.11602595453693773"/>
+    <circle cx="351" cy="319" r="3" fill="#2563EB" opacity="0.09470924230056561"/>
+    <circle cx="546" cy="143" r="3" fill="#2563EB" opacity="0.15628474595925163"/>
+    <circle cx="442" cy="132" r="3" fill="#2563EB" opacity="0.08492031324748718"/>
+    <circle cx="106" cy="189" r="3" fill="#2563EB" opacity="0.09034342756600826"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Midjourney Prompt</tspan>
+      <tspan x="300" dy="34">Engineering Masterclass</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

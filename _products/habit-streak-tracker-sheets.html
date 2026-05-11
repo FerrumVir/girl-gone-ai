@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Habit Streak Tracker — Girl Gone AI</title>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Poppins', -apple-system, sans-serif;
+  background: #0a0a1a;
+  color: #e0e0f0;
+  min-height: 100vh;
+}
+@media print {
+  body { background: #fff; color: #111; }
+  .brand-bar, .action-bar, .no-print { display: none !important; }
+  .container { max-width: 100%; padding: 0; }
+  .section-card { border: 1px solid #ddd; break-inside: avoid; background: #fff; }
+  .section-card h2 { color: #333; }
+  .section-card li { color: #444; border-color: #eee; }
+  .section-card li::before { color: #333; }
+  h1 { color: #111; -webkit-text-fill-color: #111; background: none; }
+  .tagline { color: #666; }
+}
+.brand-bar {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.brand-bar .logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #FF3B8B, #A855F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-decoration: none;
+}
+.brand-bar .badge {
+  font-size: 0.7rem;
+  background: rgba(16,185,129,0.15);
+  color: #10B981;
+  padding: 4px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(16,185,129,0.3);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #FF3B8B, #A855F7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+}
+.tagline {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.price-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #FF3B8B, #A855F7);
+  color: #fff;
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 32px;
+}
+.action-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s;
+}
+.action-btn:hover { transform: translateY(-1px); }
+.action-btn.primary {
+  background: linear-gradient(135deg, #FF3B8B, #A855F7);
+  color: #fff;
+}
+.action-btn.secondary {
+  background: rgba(255,255,255,0.08);
+  color: #ccc;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.section-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+.section-card h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #FF3B8B;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-card ul {
+  list-style: none;
+  padding: 0;
+}
+.section-card li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.9rem;
+  color: #ccc;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.5;
+}
+.section-card li:last-child { border-bottom: none; }
+.section-card li::before {
+  content: "\2713";
+  color: #10B981;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: #555;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  margin-top: 40px;
+}
+.footer a { color: #A855F7; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="brand-bar">
+  <a href="https://girlgone.ai" class="logo">Girl Gone AI</a>
+  <div class="badge">YOUR PRODUCT</div>
+</div>
+<div class="container">
+  <h1>Habit Streak Tracker</h1>
+  <p class="tagline">A Google Sheets habit tracker with a visual streak grid, weekly review prompts,</p>
+  <div class="price-badge">$6</div>
+  <div class="action-bar no-print">
+    <button class="action-btn primary" onclick="window.print()">Print / Save as PDF</button>
+    <a href="https://girlgone.ai" class="action-btn secondary">Browse More Products</a>
+  </div>
+  <div class="section-card">
+    <h2>What You Get</h2>
+    <ul>
+    <li>`template.csv` — The complete 5-sheet habit tracker, importable into Google Sheets in minutes</li>
+    <li>`setup-guide.md` — Step-by-step instructions for importing, activating formulas, customizing your habit list, setting up dropdowns and conditional formatting, and building a daily and weekly tracking routine</li>
+    </ul>
+  </div>
+  <div class="section-card">
+    <h2>Features at a Glance</h2>
+    <ul>
+    <li>Dashboard for up to 20 habits with current streak, best streak, and completion rate</li>
+    <li>Automatic status labels: Active / On Fire! / Streak Master! / Struggling / Restart Needed</li>
+    <li>Summary stats: total habits, average completion rate, longest active streak</li>
+    <li>Daily grid tracker with X-mark system (habits × days 1–31)</li>
+    <li>Daily completion count and percentage at the bottom of each day column</li>
+    <li>Per-habit monthly completion rate calculated at end of each row</li>
+    <li>Weekly review log with 4-week rolling average and trend indicator</li>
+    <li>Weekly habit scoreboard showing performance per habit across four weeks</li>
+    <li>Monthly summary with YTD totals and year-at-a-glance grid</li>
+    <li>Streak milestone log for recording personal records</li>
+    <li>Habit Library with 50 habits across 8 categories</li>
+    <li>Each library habit includes: frequency suggestion, difficulty rating, and why it works</li>
+    <li>Setup guide with conditional formatting instructions for visual tracking (green for complete / gray for missed)</li>
+    <li>Instructions for automated streak-length formula for advanced users</li>
+    </ul>
+  </div>
+  <div class="section-card">
+    <h2>Details</h2>
+    <ul>
+    <li>Format: CSV (importable to Google Sheets or Excel)</li>
+    <li>Compatibility: Google Sheets (primary), Microsoft Excel</li>
+    <li>Habits supported: Up to 20 (expandable)</li>
+    <li>Pre-loaded habits: 20 example habits (fully replaceable)</li>
+    <li>Habit library: 50 curated habits across 8 categories</li>
+    <li>Skill level required: Beginner — no spreadsheet experience needed</li>
+    <li>Setup time: Under 20 minutes</li>
+    <li>License: Personal use</li>
+    </ul>
+  </div>
+
+</div>
+<div class="footer">
+  <p>&copy; 2026 <a href="https://girlgone.ai">Girl Gone AI</a> by Jaci Ellis. All rights reserved.</p>
+  <p style="margin-top:8px;color:#444">Need help? Email <a href="mailto:support@girlgone.ai">support@girlgone.ai</a></p>
+</div>
+</body>
+</html>

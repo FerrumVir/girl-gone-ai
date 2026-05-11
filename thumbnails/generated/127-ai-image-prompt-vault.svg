@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_127_ai_image_prompt_vault" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_127_ai_image_prompt_vault" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_127_ai_image_prompt_vault)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_127_ai_image_prompt_vault)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="516" y1="109" x2="445" y2="255" stroke="#3B82F6" stroke-width="0.8" opacity="0.0764094179544482"/>
+    <line x1="516" y1="109" x2="511" y2="289" stroke="#3B82F6" stroke-width="0.8" opacity="0.04926810892939851"/>
+    <line x1="516" y1="109" x2="534" y2="234" stroke="#3B82F6" stroke-width="0.8" opacity="0.09402965696918061"/>
+    <line x1="516" y1="109" x2="513" y2="171" stroke="#3B82F6" stroke-width="0.8" opacity="0.09193107264545006"/>
+    <line x1="246" y1="66" x2="445" y2="255" stroke="#3B82F6" stroke-width="0.8" opacity="0.05226901007456954"/>
+    <line x1="246" y1="66" x2="511" y2="289" stroke="#3B82F6" stroke-width="0.8" opacity="0.05348437266015897"/>
+    <line x1="246" y1="66" x2="513" y2="171" stroke="#3B82F6" stroke-width="0.8" opacity="0.08992640670359492"/>
+    <line x1="445" y1="255" x2="513" y2="171" stroke="#3B82F6" stroke-width="0.8" opacity="0.08982680267999954"/>
+    <line x1="511" y1="289" x2="534" y2="234" stroke="#3B82F6" stroke-width="0.8" opacity="0.059786809835873936"/>
+    <line x1="511" y1="289" x2="542" y2="317" stroke="#3B82F6" stroke-width="0.8" opacity="0.074801713101741"/>
+    <line x1="534" y1="234" x2="542" y2="317" stroke="#3B82F6" stroke-width="0.8" opacity="0.04420105041033482"/>
+    <circle cx="516" cy="109" r="3" fill="#2563EB" opacity="0.17760012497196614"/>
+    <circle cx="246" cy="66" r="3" fill="#2563EB" opacity="0.14879942428388637"/>
+    <circle cx="445" cy="255" r="3" fill="#2563EB" opacity="0.11901266583704775"/>
+    <circle cx="511" cy="289" r="3" fill="#2563EB" opacity="0.1282480120666996"/>
+    <circle cx="534" cy="234" r="3" fill="#2563EB" opacity="0.1627821729616692"/>
+    <circle cx="542" cy="317" r="3" fill="#2563EB" opacity="0.1676790675080786"/>
+    <circle cx="513" cy="171" r="3" fill="#2563EB" opacity="0.11091412492289449"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">AI Image Generation Prompt</tspan>
+      <tspan x="300" dy="34">Vault</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

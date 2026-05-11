@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_44_chatgpt_business_prompts" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_44_chatgpt_business_prompts" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_44_chatgpt_business_prompts)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_44_chatgpt_business_prompts)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="360" y1="120" x2="311" y2="164" stroke="#3B82F6" stroke-width="0.8" opacity="0.09076726146140787"/>
+    <line x1="360" y1="120" x2="551" y2="325" stroke="#3B82F6" stroke-width="0.8" opacity="0.04031173176287151"/>
+    <line x1="360" y1="120" x2="300" y2="300" stroke="#3B82F6" stroke-width="0.8" opacity="0.07118111251930455"/>
+    <line x1="360" y1="120" x2="383" y2="196" stroke="#3B82F6" stroke-width="0.8" opacity="0.06677965210074213"/>
+    <line x1="311" y1="164" x2="551" y2="325" stroke="#3B82F6" stroke-width="0.8" opacity="0.06374363000683397"/>
+    <line x1="242" y1="236" x2="551" y2="325" stroke="#3B82F6" stroke-width="0.8" opacity="0.08792414989355994"/>
+    <line x1="551" y1="325" x2="383" y2="196" stroke="#3B82F6" stroke-width="0.8" opacity="0.07576570950141677"/>
+    <circle cx="360" cy="120" r="3" fill="#2563EB" opacity="0.1302762514733396"/>
+    <circle cx="443" cy="68" r="3" fill="#2563EB" opacity="0.12082183953118036"/>
+    <circle cx="311" cy="164" r="3" fill="#2563EB" opacity="0.13190256808140763"/>
+    <circle cx="242" cy="236" r="3" fill="#2563EB" opacity="0.1152062394917514"/>
+    <circle cx="551" cy="325" r="3" fill="#2563EB" opacity="0.13901095807480168"/>
+    <circle cx="300" cy="300" r="3" fill="#2563EB" opacity="0.15510398953194043"/>
+    <circle cx="383" cy="196" r="3" fill="#2563EB" opacity="0.13635732322486416"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">ChatGPT Power Prompts for</tspan>
+      <tspan x="300" dy="34">Business</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

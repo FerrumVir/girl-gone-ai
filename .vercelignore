@@ -1,0 +1,17 @@
+heyg/daily/
+heyg/daily-videos.json
+heyg/dashboard-video-results.json
+heyg/dashboard-video-scripts.json
+heyg/jac444-video-scripts.json
+heyg/demo-scripts.json
+heyg/generate_dashboard_videos.py
+scripts/
+server.js
+_server.js
+downloads/files/
+downloads/secure/
+downloads/pdfs/
+downloads/*.html
+downloads/*.md
+.git
+node_modules

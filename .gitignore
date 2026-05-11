@@ -7,3 +7,8 @@ email/drip-queue.json
 .vercel-output.json
 downloads/secure/.tokens.json
 downloads/tokens.json
+downloads/pdfs/*.pdf
+__pycache__/
+*.bak
+testing-mode-prices-backup.json
+.vercel

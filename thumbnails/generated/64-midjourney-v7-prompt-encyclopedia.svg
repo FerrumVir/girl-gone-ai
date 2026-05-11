@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_64_midjourney_v7_prompt_encyclopedia" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_64_midjourney_v7_prompt_encyclopedia" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_64_midjourney_v7_prompt_encyclopedia)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_64_midjourney_v7_prompt_encyclopedia)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="495" y1="336" x2="453" y2="117" stroke="#3B82F6" stroke-width="0.8" opacity="0.0849586898598125"/>
+    <line x1="495" y1="336" x2="536" y2="69" stroke="#3B82F6" stroke-width="0.8" opacity="0.04786551432613855"/>
+    <line x1="412" y1="282" x2="536" y2="69" stroke="#3B82F6" stroke-width="0.8" opacity="0.059884168772277924"/>
+    <line x1="412" y1="282" x2="258" y2="124" stroke="#3B82F6" stroke-width="0.8" opacity="0.07136155756255477"/>
+    <line x1="412" y1="282" x2="75" y2="170" stroke="#3B82F6" stroke-width="0.8" opacity="0.06865690585768151"/>
+    <line x1="453" y1="117" x2="258" y2="124" stroke="#3B82F6" stroke-width="0.8" opacity="0.08814058121310257"/>
+    <line x1="447" y1="62" x2="258" y2="124" stroke="#3B82F6" stroke-width="0.8" opacity="0.08016153481456142"/>
+    <line x1="447" y1="62" x2="75" y2="170" stroke="#3B82F6" stroke-width="0.8" opacity="0.04001755330842375"/>
+    <line x1="536" y1="69" x2="258" y2="124" stroke="#3B82F6" stroke-width="0.8" opacity="0.09004460927983332"/>
+    <line x1="536" y1="69" x2="75" y2="170" stroke="#3B82F6" stroke-width="0.8" opacity="0.05364801047905785"/>
+    <circle cx="495" cy="336" r="3" fill="#2563EB" opacity="0.08085867094236905"/>
+    <circle cx="412" cy="282" r="3" fill="#2563EB" opacity="0.12514408580102063"/>
+    <circle cx="453" cy="117" r="3" fill="#2563EB" opacity="0.10269064364385529"/>
+    <circle cx="447" cy="62" r="3" fill="#2563EB" opacity="0.13472643705273266"/>
+    <circle cx="536" cy="69" r="3" fill="#2563EB" opacity="0.0860206924384327"/>
+    <circle cx="258" cy="124" r="3" fill="#2563EB" opacity="0.11056698737975211"/>
+    <circle cx="75" cy="170" r="3" fill="#2563EB" opacity="0.16548224198226774"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Midjourney V7 Prompt</tspan>
+      <tspan x="300" dy="34">Encyclopedia</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

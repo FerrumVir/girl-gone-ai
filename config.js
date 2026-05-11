@@ -1,10 +1,10 @@
 window.NOVOCLAW_CONFIG = {
-  storefront: "gumroad",
-  storefrontName: "Gumroad",
-  stripeEnabled: false,
-  apiUrl: "",
+  storefront: "stripe",
+  storefrontName: "Stripe",
+  stripeEnabled: true,
+  apiUrl: "/api",
   subscriberCount: 200,
   formspreeFormId: "",
   formsubmitEmail: "kenny@novolinkai.com",
-  demoMode: true
+  demoMode: false
 };

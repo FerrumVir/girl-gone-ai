@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_102_interview_prep_system" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#0D9488" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_102_interview_prep_system" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#14B8A6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0D9488" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#14B8A6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_102_interview_prep_system)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_102_interview_prep_system)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <path d="M231,101 h30 v-29 h30 v-29 h30 v-29 " fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.08748069301450867"/>
+    <path d="M85,104 h35 v-21 h35 v-21 h35 v-21 " fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.13074837238220272"/>
+    <path d="M448,137 h37 v-27 h37 v-27 h37 v-27 " fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.09541958336034195"/>
+    <path d="M274,268 h33 v-18 h33 v-18 h33 v-18 " fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.0977968355733555"/>
+    <path d="M446,193 h35 v-21 h35 v-21 h35 v-21 " fill="none" stroke="#14B8A6" stroke-width="1.5" opacity="0.08489163925050741"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#14B8A6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#14B8A6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#14B8A6" letter-spacing="1.5" text-transform="uppercase">Career Templates</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#14B8A6" opacity="0.4">↑</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Interview Prep System</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#14B8A6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

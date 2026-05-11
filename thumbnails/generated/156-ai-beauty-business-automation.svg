@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_156_ai_beauty_business_automation" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_156_ai_beauty_business_automation" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_156_ai_beauty_business_automation)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_156_ai_beauty_business_automation)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="539" y1="120" x2="540" y2="163" stroke="#3B82F6" stroke-width="0.8" opacity="0.061553396878074165"/>
+    <line x1="543" y1="174" x2="387" y2="314" stroke="#3B82F6" stroke-width="0.8" opacity="0.06746065657226209"/>
+    <line x1="543" y1="174" x2="186" y2="183" stroke="#3B82F6" stroke-width="0.8" opacity="0.09832858846118939"/>
+    <line x1="543" y1="174" x2="540" y2="163" stroke="#3B82F6" stroke-width="0.8" opacity="0.042983277108005334"/>
+    <line x1="387" y1="314" x2="58" y2="126" stroke="#3B82F6" stroke-width="0.8" opacity="0.08482002513224297"/>
+    <line x1="387" y1="314" x2="540" y2="117" stroke="#3B82F6" stroke-width="0.8" opacity="0.06706425845048468"/>
+    <line x1="186" y1="183" x2="540" y2="117" stroke="#3B82F6" stroke-width="0.8" opacity="0.07972556296669533"/>
+    <line x1="186" y1="183" x2="540" y2="163" stroke="#3B82F6" stroke-width="0.8" opacity="0.07209217645168083"/>
+    <line x1="540" y1="117" x2="540" y2="163" stroke="#3B82F6" stroke-width="0.8" opacity="0.09271313923783256"/>
+    <circle cx="539" cy="120" r="3" fill="#2563EB" opacity="0.15782882564275796"/>
+    <circle cx="543" cy="174" r="3" fill="#2563EB" opacity="0.0878495236560985"/>
+    <circle cx="387" cy="314" r="3" fill="#2563EB" opacity="0.15921842691461036"/>
+    <circle cx="186" cy="183" r="3" fill="#2563EB" opacity="0.13384021427571222"/>
+    <circle cx="58" cy="126" r="3" fill="#2563EB" opacity="0.09438383316280635"/>
+    <circle cx="540" cy="117" r="3" fill="#2563EB" opacity="0.12554102553285384"/>
+    <circle cx="540" cy="163" r="3" fill="#2563EB" opacity="0.15519954389652618"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">AI Beauty Business</tspan>
+      <tspan x="300" dy="34">Automation Toolkit</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

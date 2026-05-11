@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_21_teacher_lesson_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_21_teacher_lesson_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#A855F7" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#A855F7" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_21_teacher_lesson_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_21_teacher_lesson_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="70" y="100" width="47" height="22" rx="6" fill="#A855F7" opacity="0.06973354025661861" transform="rotate(16 93 111)"/>
+    <rect x="160" y="224" width="34" height="29" rx="6" fill="#A855F7" opacity="0.14559191417003486" transform="rotate(-3 177 238)"/>
+    <rect x="444" y="243" width="44" height="42" rx="6" fill="#A855F7" opacity="0.0960069363746088" transform="rotate(22 466 264)"/>
+    <rect x="245" y="317" width="42" height="22" rx="6" fill="#A855F7" opacity="0.1204048478945512" transform="rotate(20 266 328)"/>
+    <rect x="378" y="171" width="38" height="26" rx="6" fill="#A855F7" opacity="0.07657331055303143" transform="rotate(29 397 184)"/>
+    <rect x="229" y="292" width="36" height="49" rx="6" fill="#A855F7" opacity="0.07897823314866101" transform="rotate(-21 247 316)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#A855F7" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#A855F7" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#A855F7" letter-spacing="1.5" text-transform="uppercase">Notion Templates</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#A855F7" opacity="0.4">⬛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Teacher Lesson Planner &amp;</tspan>
+      <tspan x="300" dy="34">Classroom Manager</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#A855F7" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

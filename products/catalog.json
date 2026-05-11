@@ -1,0 +1,812 @@
+[
+  {
+    "slug": "01-freelance-invoicing-notion",
+    "title": "Freelance Invoicing &amp; Client Tracker",
+    "price": 0.0
+  },
+  {
+    "slug": "02-content-calendar-notion",
+    "title": "Content Creator Editorial Calendar",
+    "price": 0.0
+  },
+  {
+    "slug": "03-job-search-notion",
+    "title": "Job Search Command Center",
+    "price": 8.0
+  },
+  {
+    "slug": "04-adhd-planner",
+    "title": "ADHD Daily Planner &amp; Focus System",
+    "price": 14.0
+  },
+  {
+    "slug": "05-wellness-tracker",
+    "title": "Wellness &amp; Habit Tracker",
+    "price": 0.0
+  },
+  {
+    "slug": "07-content-creator-prompts",
+    "title": "Content Creator AI Prompt Pack",
+    "price": 15.0
+  },
+  {
+    "slug": "08-coding-assistant-prompts",
+    "title": "Coding Assistant AI Prompt Pack",
+    "price": 19.0
+  },
+  {
+    "slug": "09-budget-tracker-sheets",
+    "title": "Personal Budget Tracker",
+    "price": 7.0
+  },
+  {
+    "slug": "10-habit-streak-tracker-sheets",
+    "title": "Habit Streak Tracker",
+    "price": 6.0
+  },
+  {
+    "slug": "100-ultimate-side-hustle-launch-kit",
+    "title": "Ultimate Side Hustle Launch Kit",
+    "price": 19.0
+  },
+  {
+    "slug": "101-resume-builder-kit",
+    "title": "Resume Builder Kit",
+    "price": 14.0
+  },
+  {
+    "slug": "102-interview-prep-system",
+    "title": "Interview Prep System",
+    "price": 12.0
+  },
+  {
+    "slug": "103-salary-negotiation-playbook",
+    "title": "Salary Negotiation Playbook",
+    "price": 11.0
+  },
+  {
+    "slug": "104-study-planner-notion",
+    "title": "Study Planner Pro",
+    "price": 10.0
+  },
+  {
+    "slug": "105-language-learning-tracker",
+    "title": "Language Learning Tracker",
+    "price": 9.0
+  },
+  {
+    "slug": "106-thesis-writing-planner",
+    "title": "Thesis &amp; Research Writing Planner",
+    "price": 13.0
+  },
+  {
+    "slug": "107-career-pivot-roadmap",
+    "title": "Career Pivot Roadmap",
+    "price": 15.0
+  },
+  {
+    "slug": "108-online-course-notes-system",
+    "title": "Online Course Notes System",
+    "price": 8.0
+  },
+  {
+    "slug": "109-certification-exam-tracker",
+    "title": "Certification Exam Tracker",
+    "price": 11.0
+  },
+  {
+    "slug": "11-crm-notion",
+    "title": "Client CRM &amp; Pipeline Tracker",
+    "price": 13.0
+  },
+  {
+    "slug": "110-networking-crm-notion",
+    "title": "Networking CRM",
+    "price": 13.0
+  },
+  {
+    "slug": "111-home-organization-system",
+    "title": "Home Organization System",
+    "price": 12.0
+  },
+  {
+    "slug": "112-photography-client-crm",
+    "title": "Photography Client Management",
+    "price": 16.0
+  },
+  {
+    "slug": "113-mental-health-journal",
+    "title": "Mental Health Check-In Journal",
+    "price": 10.0
+  },
+  {
+    "slug": "115-amazon-fba-research-toolkit",
+    "title": "Amazon FBA Product Research Toolkit",
+    "price": 17.0
+  },
+  {
+    "slug": "116-social-media-analytics-dashboard",
+    "title": "Social Media Analytics Dashboard",
+    "price": 14.0
+  },
+  {
+    "slug": "117-ai-copywriting-prompts",
+    "title": "AI Copywriting Prompt Pack",
+    "price": 13.0
+  },
+  {
+    "slug": "118-vacation-rental-manager",
+    "title": "Notion Vacation Rental Manager",
+    "price": 15.0
+  },
+  {
+    "slug": "119-couples-budget-dashboard",
+    "title": "Monthly Budget Dashboard for Couples",
+    "price": 11.0
+  },
+  {
+    "slug": "12-project-manager-notion",
+    "title": "Project Manager Pro",
+    "price": 14.0
+  },
+  {
+    "slug": "120-digital-product-launch-playbook",
+    "title": "Digital Product Launch Playbook",
+    "price": 16.0
+  },
+  {
+    "slug": "121-teacher-lesson-planner",
+    "title": "Teacher Lesson Planner &amp; Classroom Tracker",
+    "price": 12.0
+  },
+  {
+    "slug": "122-pet-care-vet-tracker",
+    "title": "Pet Care &amp; Vet Visit Tracker",
+    "price": 8.0
+  },
+  {
+    "slug": "124-remote-meeting-agenda-kit",
+    "title": "Remote Team Meeting Agenda Kit",
+    "price": 11.0
+  },
+  {
+    "slug": "125-plant-garden-planner",
+    "title": "Plant Care &amp; Garden Planner",
+    "price": 9.0
+  },
+  {
+    "slug": "126-small-business-inventory-tracker",
+    "title": "Small Business Inventory Tracker",
+    "price": 13.0
+  },
+  {
+    "slug": "127-ai-image-prompt-vault",
+    "title": "AI Image Generation Prompt Vault",
+    "price": 16.0
+  },
+  {
+    "slug": "128-youtube-script-templates",
+    "title": "YouTube Script Writing Templates",
+    "price": 12.0
+  },
+  {
+    "slug": "13-social-media-planner-notion",
+    "title": "Social Media Content Planner",
+    "price": 11.0
+  },
+  {
+    "slug": "130-contractor-tax-planner",
+    "title": "Contractor &amp; Freelancer Tax Planner",
+    "price": 15.0
+  },
+  {
+    "slug": "133-tiktok-content-strategy-planner",
+    "title": "TikTok Content Strategy Planner",
+    "price": 12.0
+  },
+  {
+    "slug": "137-shopify-store-launch-blueprint",
+    "title": "Shopify Store Launch Blueprint",
+    "price": 17.0
+  },
+  {
+    "slug": "138-professional-speaker-toolkit",
+    "title": "Professional Speaker Toolkit",
+    "price": 14.0
+  },
+  {
+    "slug": "14-real-estate-agent-planner",
+    "title": "Real Estate Agent Command Center",
+    "price": 16.0
+  },
+  {
+    "slug": "140-midjourney-prompt-engineering-masterclass",
+    "title": "Midjourney Prompt Engineering Masterclass",
+    "price": 15.0
+  },
+  {
+    "slug": "141-lash-tech-business-planner",
+    "title": "Lash Tech Business Planner &amp; Client Tracker",
+    "price": 16.0
+  },
+  {
+    "slug": "142-esthetician-client-management",
+    "title": "Esthetician Client Management System",
+    "price": 18.0
+  },
+  {
+    "slug": "143-skincare-routine-builder",
+    "title": "Skincare Routine Builder &amp; Product Tracker",
+    "price": 12.0
+  },
+  {
+    "slug": "144-beauty-business-booking-crm",
+    "title": "Beauty Business Booking &amp; Revenue Dashboard",
+    "price": 17.0
+  },
+  {
+    "slug": "145-beauty-to-brand-launch-kit",
+    "title": "Beauty Pro to Brand Owner Launch Kit",
+    "price": 22.0
+  },
+  {
+    "slug": "146-skincare-ai-prompt-pack",
+    "title": "Skincare &amp; Beauty AI Prompt Pack",
+    "price": 16.0
+  },
+  {
+    "slug": "147-beauty-influencer-content-calendar",
+    "title": "Beauty Influencer Content Calendar &amp; Strategy Planner",
+    "price": 14.0
+  },
+  {
+    "slug": "148-facial-treatment-menu-pricing",
+    "title": "Facial Treatment Menu &amp; Service Pricing Guide",
+    "price": 13.0
+  },
+  {
+    "slug": "149-glow-up-transformation-tracker",
+    "title": "Glow-Up Transformation Tracker &amp; Self-Care Planner",
+    "price": 11.0
+  },
+  {
+    "slug": "15-therapist-client-planner",
+    "title": "Therapist Practice Manager",
+    "price": 15.0
+  },
+  {
+    "slug": "150-beauty-side-hustle-starter",
+    "title": "Beauty Side Hustle Starter Kit",
+    "price": 15.0
+  },
+  {
+    "slug": "151-beauty-brand-social-templates",
+    "title": "Beauty Brand Social Media Template Pack",
+    "price": 14.0
+  },
+  {
+    "slug": "152-med-spa-business-launch",
+    "title": "Med Spa &amp; Aesthetics Business Launch Blueprint",
+    "price": 24.0
+  },
+  {
+    "slug": "153-beauty-client-intake-forms",
+    "title": "Beauty Client Intake &amp; Consent Form Bundle",
+    "price": 11.0
+  },
+  {
+    "slug": "154-lash-supply-inventory-tracker",
+    "title": "Lash &amp; Beauty Supply Inventory Tracker",
+    "price": 10.0
+  },
+  {
+    "slug": "155-skincare-brand-builder",
+    "title": "Skincare Product Line Development Kit",
+    "price": 21.0
+  },
+  {
+    "slug": "156-ai-beauty-business-automation",
+    "title": "AI Beauty Business Automation Toolkit",
+    "price": 18.0
+  },
+  {
+    "slug": "157-esthetician-to-ceo-growth",
+    "title": "Esthetician to CEO: Business Growth Roadmap",
+    "price": 19.0
+  },
+  {
+    "slug": "158-beauty-tiktok-content-prompts",
+    "title": "Beauty TikTok &amp; Reels Content Idea Generator",
+    "price": 12.0
+  },
+  {
+    "slug": "159-beauty-retreat-wellness-planner",
+    "title": "Self-Care &amp; Beauty Retreat Planner",
+    "price": 9.0
+  },
+  {
+    "slug": "16-fitness-coach-planner",
+    "title": "Fitness Coach Business Planner",
+    "price": 13.0
+  },
+  {
+    "slug": "160-beauty-business-financial-planner",
+    "title": "Beauty Business Financial Planner &amp; Tax Prep",
+    "price": 15.0
+  },
+  {
+    "slug": "17-email-marketing-workflow",
+    "title": "Email Marketing Workflow Kit",
+    "price": 17.0
+  },
+  {
+    "slug": "18-product-launch-checklist",
+    "title": "Product Launch Playbook",
+    "price": 12.0
+  },
+  {
+    "slug": "19-invoice-generator",
+    "title": "Professional Invoice Generator",
+    "price": 8.0
+  },
+  {
+    "slug": "20-proposal-template",
+    "title": "Client Proposal Template Kit",
+    "price": 10.0
+  },
+  {
+    "slug": "21-teacher-lesson-planner",
+    "title": "Teacher Lesson Planner &amp; Classroom Manager",
+    "price": 12.0
+  },
+  {
+    "slug": "22-wedding-planning-dashboard",
+    "title": "Wedding Planning Dashboard",
+    "price": 18.0
+  },
+  {
+    "slug": "23-side-hustle-tracker",
+    "title": "Side Hustle Income &amp; Expense Tracker",
+    "price": 9.0
+  },
+  {
+    "slug": "24-midjourney-prompts",
+    "title": "Midjourney &amp; AI Art Prompt Pack",
+    "price": 17.0
+  },
+  {
+    "slug": "25-meal-prep-planner",
+    "title": "Meal Prep &amp; Recipe Planner",
+    "price": 10.0
+  },
+  {
+    "slug": "26-student-study-system",
+    "title": "Student Study System",
+    "price": 8.0
+  },
+  {
+    "slug": "27-podcast-launch-kit",
+    "title": "Podcast Launch Kit",
+    "price": 14.0
+  },
+  {
+    "slug": "28-etsy-seller-toolkit",
+    "title": "Etsy Seller Toolkit",
+    "price": 15.0
+  },
+  {
+    "slug": "29-personal-finance-dashboard",
+    "title": "Personal Finance Dashboard",
+    "price": 13.0
+  },
+  {
+    "slug": "30-remote-team-meetings",
+    "title": "Remote Team Meeting System",
+    "price": 11.0
+  },
+  {
+    "slug": "31-pet-business-planner-notion",
+    "title": "Pet Business Planner",
+    "price": 15.0
+  },
+  {
+    "slug": "32-youtube-channel-growth-notion",
+    "title": "YouTube Channel Growth System",
+    "price": 16.0
+  },
+  {
+    "slug": "33-airbnb-host-management-notion",
+    "title": "Airbnb Host Management Dashboard",
+    "price": 18.0
+  },
+  {
+    "slug": "34-ai-business-prompts",
+    "title": "AI Business Prompts Pack",
+    "price": 19.0
+  },
+  {
+    "slug": "35-home-renovation-budget-sheets",
+    "title": "Home Renovation Budget Tracker",
+    "price": 8.0
+  },
+  {
+    "slug": "36-freelance-contract-templates",
+    "title": "Freelance Contract &amp; Scope Template Kit",
+    "price": 14.0
+  },
+  {
+    "slug": "37-agency-client-tracker-notion",
+    "title": "Digital Marketing Agency Client Tracker",
+    "price": 17.0
+  },
+  {
+    "slug": "39-ai-art-prompt-bible",
+    "title": "AI Art Prompt Engineering Bible",
+    "price": 22.0
+  },
+  {
+    "slug": "40-small-business-bookkeeping-sheets",
+    "title": "Small Business Bookkeeping System",
+    "price": 12.0
+  },
+  {
+    "slug": "41-digital-declutter-system-notion",
+    "title": "Digital Declutter &amp; Organization System",
+    "price": 11.0
+  },
+  {
+    "slug": "42-social-media-analytics-sheets",
+    "title": "Social Media Analytics Dashboard",
+    "price": 9.0
+  },
+  {
+    "slug": "43-rental-property-manager-notion",
+    "title": "Rental Property Manager",
+    "price": 17.0
+  },
+  {
+    "slug": "44-chatgpt-business-prompts",
+    "title": "ChatGPT Power Prompts for Business",
+    "price": 16.0
+  },
+  {
+    "slug": "45-weekly-meal-planner",
+    "title": "Weekly Meal Planning &amp; Grocery System",
+    "price": 8.0
+  },
+  {
+    "slug": "46-wedding-budget-planner-sheets",
+    "title": "Wedding Budget &amp; Planning Tracker",
+    "price": 13.0
+  },
+  {
+    "slug": "47-startup-pitch-deck-builder",
+    "title": "Startup Pitch Deck Builder",
+    "price": 19.0
+  },
+  {
+    "slug": "48-habit-loop-designer",
+    "title": "Habit Loop Designer &amp; Tracker",
+    "price": 10.0
+  },
+  {
+    "slug": "49-newsletter-growth-toolkit",
+    "title": "Newsletter Growth &amp; Monetization Toolkit",
+    "price": 14.0
+  },
+  {
+    "slug": "50-digital-product-launch-kit",
+    "title": "Digital Product Launch System",
+    "price": 15.0
+  },
+  {
+    "slug": "51-gratitude-mindfulness-journal",
+    "title": "Gratitude &amp; Mindfulness Journal",
+    "price": 9.0
+  },
+  {
+    "slug": "52-saas-metrics-dashboard-notion",
+    "title": "SaaS Metrics Dashboard",
+    "price": 18.0
+  },
+  {
+    "slug": "53-interior-design-client-manager-notion",
+    "title": "Interior Design Client Manager",
+    "price": 15.0
+  },
+  {
+    "slug": "54-instagram-growth-playbook",
+    "title": "Instagram Growth Playbook",
+    "price": 14.0
+  },
+  {
+    "slug": "55-debt-payoff-calculator-sheets",
+    "title": "Debt Payoff Calculator",
+    "price": 7.0
+  },
+  {
+    "slug": "56-course-creator-launch-kit",
+    "title": "Course Creator Launch Kit",
+    "price": 16.0
+  },
+  {
+    "slug": "57-travel-planning-dashboard-notion",
+    "title": "Travel Planning Dashboard",
+    "price": 11.0
+  },
+  {
+    "slug": "58-seo-keyword-research-toolkit-sheets",
+    "title": "SEO Keyword Research Toolkit",
+    "price": 13.0
+  },
+  {
+    "slug": "59-daily-stoic-journal",
+    "title": "Daily Stoic Journal",
+    "price": 10.0
+  },
+  {
+    "slug": "60-social-media-canva-templates",
+    "title": "Social Media Canva Template Collection",
+    "price": 12.0
+  },
+  {
+    "slug": "61-podcast-guest-outreach-system",
+    "title": "Podcast Guest Outreach System",
+    "price": 14.0
+  },
+  {
+    "slug": "62-adhd-focus-timer-task-manager",
+    "title": "ADHD Focus Timer &amp; Task Manager",
+    "price": 11.0
+  },
+  {
+    "slug": "63-etsy-seo-keyword-research-spreadsheet",
+    "title": "Etsy SEO Keyword Research Spreadsheet",
+    "price": 13.0
+  },
+  {
+    "slug": "64-midjourney-v7-prompt-encyclopedia",
+    "title": "Midjourney V7 Prompt Encyclopedia",
+    "price": 21.0
+  },
+  {
+    "slug": "68-airbnb-pricing-strategy-spreadsheet",
+    "title": "Airbnb Pricing Strategy Spreadsheet",
+    "price": 16.0
+  },
+  {
+    "slug": "69-linkedin-personal-brand-playbook",
+    "title": "LinkedIn Personal Brand Playbook",
+    "price": 15.0
+  },
+  {
+    "slug": "71-pregnancy-baby-tracker",
+    "title": "Pregnancy &amp; Baby Milestone Tracker",
+    "price": 14.0
+  },
+  {
+    "slug": "72-notion-life-os-dashboard",
+    "title": "Notion Life OS Dashboard",
+    "price": 19.0
+  },
+  {
+    "slug": "73-stable-diffusion-prompt-vault",
+    "title": "Stable Diffusion &amp; Flux Prompt Vault \u2014 200+ Tested Prompts",
+    "price": 16.0
+  },
+  {
+    "slug": "74-rental-property-roi-calculator",
+    "title": "Rental Property ROI Calculator",
+    "price": 12.0
+  },
+  {
+    "slug": "75-homeschool-curriculum-planner",
+    "title": "Homeschool Curriculum Planner",
+    "price": 15.0
+  },
+  {
+    "slug": "76-content-repurposing-workflow-kit",
+    "title": "Content Repurposing Workflow Kit",
+    "price": 13.0
+  },
+  {
+    "slug": "77-therapist-session-notes-template",
+    "title": "Therapist Session Notes &amp; Practice Management Template",
+    "price": 11.0
+  },
+  {
+    "slug": "79-pinterest-marketing-playbook",
+    "title": "Pinterest Marketing Strategy Playbook",
+    "price": 12.0
+  },
+  {
+    "slug": "80-notion-second-brain-system",
+    "title": "Notion Second Brain System",
+    "price": 17.0
+  },
+  {
+    "slug": "82-youtube-channel-growth-toolkit",
+    "title": "YouTube Channel Growth Toolkit",
+    "price": 15.0
+  },
+  {
+    "slug": "83-chatgpt-business-automation-prompts",
+    "title": "ChatGPT Business Automation Prompts",
+    "price": 12.0
+  },
+  {
+    "slug": "84-personal-finance-budget-planner",
+    "title": "Personal Finance Budget Planner",
+    "price": 9.0
+  },
+  {
+    "slug": "85-etsy-shop-launch-blueprint",
+    "title": "Etsy Shop Launch Blueprint",
+    "price": 14.0
+  },
+  {
+    "slug": "86-adhd-productivity-system-notion",
+    "title": "ADHD Productivity System for Notion",
+    "price": 16.0
+  },
+  {
+    "slug": "87-client-onboarding-workflow-kit",
+    "title": "Client Onboarding Workflow Kit",
+    "price": 13.0
+  },
+  {
+    "slug": "88-30-day-fitness-challenge-planner",
+    "title": "30-Day Fitness Challenge Planner",
+    "price": 8.0
+  },
+  {
+    "slug": "89-podcast-launch-checklist-planner",
+    "title": "Podcast Launch Checklist &amp; Planner",
+    "price": 11.0
+  },
+  {
+    "slug": "90-ai-art-business-starter-pack",
+    "title": "AI Art Business Starter Pack",
+    "price": 15.0
+  },
+  {
+    "slug": "91-meal-prep-master-planner",
+    "title": "Meal Prep Master Planner",
+    "price": 10.0
+  },
+  {
+    "slug": "92-notion-crm-solopreneurs",
+    "title": "Notion CRM for Solopreneurs",
+    "price": 14.0
+  },
+  {
+    "slug": "94-freelance-rate-calculator",
+    "title": "Freelance Rate Calculator &amp; Pricing Guide",
+    "price": 11.0
+  },
+  {
+    "slug": "97-notion-habit-tracker-streak",
+    "title": "Notion Habit Tracker &amp; Streak System",
+    "price": 10.0
+  },
+  {
+    "slug": "98-small-business-tax-deduction-tracker",
+    "title": "Small Business Tax Deduction Tracker",
+    "price": 13.0
+  },
+  {
+    "slug": "99-notion-reading-list-book-notes",
+    "title": "Notion Reading List &amp; Book Notes System",
+    "price": 9.0
+  },
+  {
+    "slug": "adhd-mental-health-bundle",
+    "title": "ADHD &amp; Mental Wellness Bundle",
+    "price": 36.0
+  },
+  {
+    "slug": "ai-mastery-extended-bundle",
+    "title": "AI Mastery Extended Bundle",
+    "price": 39.0
+  },
+  {
+    "slug": "ai-power-user-bundle",
+    "title": "AI Power User Bundle",
+    "price": 49.0
+  },
+  {
+    "slug": "ai-prompt-pack-bundle",
+    "title": "AI Prompt Pack Complete Bundle",
+    "price": 24.0
+  },
+  {
+    "slug": "business-template-bundle",
+    "title": "Business Template Complete Bundle",
+    "price": 13.0
+  },
+  {
+    "slug": "career-education-bundle",
+    "title": "Career &amp; Education Bundle",
+    "price": 49.0
+  },
+  {
+    "slug": "complete-collection",
+    "title": "The Complete Girl Gone AI Collection",
+    "price": 699.0
+  },
+  {
+    "slug": "content-creator-bundle",
+    "title": "Content Creator Bundle",
+    "price": 34.0
+  },
+  {
+    "slug": "digital-planner-bundle",
+    "title": "Digital Planner Complete Bundle",
+    "price": 41.0
+  },
+  {
+    "slug": "ecommerce-seller-bundle",
+    "title": "E-commerce Seller Bundle",
+    "price": 35.0
+  },
+  {
+    "slug": "financial-mastery-bundle",
+    "title": "Financial Mastery Bundle",
+    "price": 42.0
+  },
+  {
+    "slug": "freelancer-starter-kit",
+    "title": "Freelancer Starter Kit",
+    "price": 29.0
+  },
+  {
+    "slug": "notion-template-bundle",
+    "title": "Notion Template Complete Bundle",
+    "price": 47.0
+  },
+  {
+    "slug": "professional-productivity-bundle",
+    "title": "Professional Productivity Bundle",
+    "price": 52.0
+  },
+  {
+    "slug": "real-estate-property-bundle",
+    "title": "Real Estate &amp; Property Bundle",
+    "price": 47.0
+  },
+  {
+    "slug": "small-business-essential-pack",
+    "title": "Small Business Essential Pack",
+    "price": 39.0
+  },
+  {
+    "slug": "solopreneur-starter-bundle",
+    "title": "Solopreneur Starter Bundle",
+    "price": 20.0
+  },
+  {
+    "slug": "spreadsheet-tool-bundle",
+    "title": "Spreadsheet Tool Complete Bundle",
+    "price": 16.0
+  },
+  {
+    "slug": "wedding-complete-bundle",
+    "title": "Wedding Complete Bundle",
+    "price": 34.0
+  },
+  {
+    "slug": "wellness-lifestyle-bundle",
+    "title": "Wellness &amp; Lifestyle Bundle",
+    "price": 28.0
+  },
+  {
+    "slug": "wellness-productivity-bundle",
+    "title": "Wellness &amp; Productivity Bundle",
+    "price": 29.0
+  },
+  {
+    "slug": "workflow-kit-bundle",
+    "title": "Workflow Kit Complete Bundle",
+    "price": 20.0
+  }
+]

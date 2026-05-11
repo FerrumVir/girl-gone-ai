@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_90_ai_art_business_starter_pack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_90_ai_art_business_starter_pack" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#6D28D9" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#8B5CF6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_90_ai_art_business_starter_pack)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_90_ai_art_business_starter_pack)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <rect x="432" y="224" width="24" height="24" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.11950443262636086" transform="rotate(85 444 236)"/>
+    <rect x="480" y="85" width="15" height="15" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.06584068127436929" transform="rotate(45 487 92)"/>
+    <rect x="508" y="168" width="15" height="15" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.07519460873795522" transform="rotate(47 515 175)"/>
+    <rect x="435" y="314" width="20" height="20" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.10582728242203443" transform="rotate(65 445 324)"/>
+    <rect x="42" y="84" width="23" height="23" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.09157179477156971" transform="rotate(78 53 95)"/>
+    <rect x="274" y="111" width="19" height="19" fill="none" stroke="#8B5CF6" stroke-width="1.5" opacity="0.08353406588069268" transform="rotate(75 283 120)"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#8B5CF6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#8B5CF6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#8B5CF6" letter-spacing="1.5" text-transform="uppercase">Digital Products</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#8B5CF6" opacity="0.4">◆</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">AI Art Business Starter Pack</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#8B5CF6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

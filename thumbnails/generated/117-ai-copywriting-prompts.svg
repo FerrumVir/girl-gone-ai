@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_117_ai_copywriting_prompts" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_117_ai_copywriting_prompts" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_117_ai_copywriting_prompts)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_117_ai_copywriting_prompts)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="308" y1="125" x2="40" y2="65" stroke="#3B82F6" stroke-width="0.8" opacity="0.042981654353272565"/>
+    <line x1="308" y1="125" x2="292" y2="128" stroke="#3B82F6" stroke-width="0.8" opacity="0.0740685186892544"/>
+    <line x1="141" y1="121" x2="132" y2="318" stroke="#3B82F6" stroke-width="0.8" opacity="0.07022087057935875"/>
+    <line x1="141" y1="121" x2="185" y2="104" stroke="#3B82F6" stroke-width="0.8" opacity="0.05031544160625176"/>
+    <line x1="141" y1="121" x2="40" y2="65" stroke="#3B82F6" stroke-width="0.8" opacity="0.08233668566869552"/>
+    <line x1="141" y1="121" x2="292" y2="128" stroke="#3B82F6" stroke-width="0.8" opacity="0.07160845568759644"/>
+    <line x1="132" y1="318" x2="369" y2="134" stroke="#3B82F6" stroke-width="0.8" opacity="0.05567221237613017"/>
+    <line x1="369" y1="134" x2="292" y2="128" stroke="#3B82F6" stroke-width="0.8" opacity="0.06199515628402278"/>
+    <line x1="185" y1="104" x2="40" y2="65" stroke="#3B82F6" stroke-width="0.8" opacity="0.09631301257701577"/>
+    <line x1="185" y1="104" x2="292" y2="128" stroke="#3B82F6" stroke-width="0.8" opacity="0.09459558598461537"/>
+    <circle cx="308" cy="125" r="3" fill="#2563EB" opacity="0.17343937005548066"/>
+    <circle cx="141" cy="121" r="3" fill="#2563EB" opacity="0.15673920629293261"/>
+    <circle cx="132" cy="318" r="3" fill="#2563EB" opacity="0.17965848170663565"/>
+    <circle cx="369" cy="134" r="3" fill="#2563EB" opacity="0.12759292932289104"/>
+    <circle cx="185" cy="104" r="3" fill="#2563EB" opacity="0.09211629037758806"/>
+    <circle cx="40" cy="65" r="3" fill="#2563EB" opacity="0.1219637375513601"/>
+    <circle cx="292" cy="128" r="3" fill="#2563EB" opacity="0.10309640041911305"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">AI Copywriting Prompt Pack</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

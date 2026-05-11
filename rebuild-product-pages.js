@@ -1,0 +1,446 @@
+#!/usr/bin/env node
+const fs = require('fs');
+const path = require('path');
+
+const productsDir = path.join(__dirname, 'products');
+
+// Category → material icon + features
+const CATEGORY_DATA = {
+  'Notion Templates': {
+    icon: 'dashboard',
+    features: [
+      { icon: 'database', title: 'Smart Databases', desc: 'Linked databases with filters, views, and automations that keep everything organized without the busywork.' },
+      { icon: 'palette', title: 'Aesthetic Design', desc: 'Clean, editorial layouts that look like they belong in a design portfolio — not a corporate wiki.' },
+      { icon: 'auto_awesome', title: 'AI-Ready Workflows', desc: 'Built-in AI prompt templates and automation hooks so your workspace actually works for you.' },
+    ],
+  },
+  'AI Prompt Packs': {
+    icon: 'terminal',
+    features: [
+      { icon: 'psychology', title: 'The AI Strategy', desc: 'Engineered prompts with structural scaffolding, placeholder variables, and output specs for usable results in one pass.' },
+      { icon: 'content_copy', title: 'Copy-Paste Ready', desc: 'Every prompt is ready to drop into ChatGPT, Claude, or any AI tool. No tweaking, no guessing — just results.' },
+      { icon: 'auto_awesome', title: 'Output Optimization', desc: 'Each prompt is battle-tested for quality output. Get drafts that actually sound like you, not a robot.' },
+    ],
+  },
+  'Spreadsheet Tools': {
+    icon: 'grid_on',
+    features: [
+      { icon: 'calculate', title: 'Auto Calculations', desc: 'Pre-built formulas that handle the math so you can focus on the decisions, not the spreadsheet gymnastics.' },
+      { icon: 'bar_chart', title: 'Visual Dashboards', desc: 'Charts and summaries that give you the full picture at a glance — no pivot table degree required.' },
+      { icon: 'track_changes', title: 'Smart Tracking', desc: 'Built-in tracking systems that update automatically. See trends, catch problems, and stay ahead.' },
+    ],
+  },
+  'Digital Planners': {
+    icon: 'calendar_today',
+    features: [
+      { icon: 'schedule', title: 'Daily Structure', desc: 'Time-blocked layouts and priority systems designed for real life — not a productivity fantasy.' },
+      { icon: 'flag', title: 'Goal Tracking', desc: 'Visual progress tracking that keeps you motivated without the overwhelm of complex goal frameworks.' },
+      { icon: 'rate_review', title: 'Review System', desc: 'Built-in weekly and monthly reviews that help you reflect, adjust, and keep moving forward.' },
+    ],
+  },
+  'Workflow Kits': {
+    icon: 'route',
+    features: [
+      { icon: 'account_tree', title: 'Process Systems', desc: 'Step-by-step workflows that turn chaotic processes into repeatable, scalable systems.' },
+      { icon: 'integration_instructions', title: 'Tool Integration', desc: 'Designed to work with the tools you already use — Notion, Google Sheets, Canva, and more.' },
+      { icon: 'speed', title: 'Efficiency Engine', desc: 'Cut hours of repetitive work with templates and automations that do the heavy lifting.' },
+    ],
+  },
+  'Beauty & Wellness Business': {
+    icon: 'spa',
+    features: [
+      { icon: 'groups', title: 'Client Management', desc: 'Track clients, appointments, and follow-ups in one place. Build relationships that turn into repeat bookings.' },
+      { icon: 'storefront', title: 'Brand Building', desc: 'Templates and frameworks for building a brand that looks premium — even when you are just starting out.' },
+      { icon: 'trending_up', title: 'Revenue Growth', desc: 'Pricing strategies, upsell frameworks, and financial tracking to grow your beauty business profitably.' },
+    ],
+  },
+  'Business Templates': {
+    icon: 'business_center',
+    features: [
+      { icon: 'assignment', title: 'Business Planning', desc: 'Structured frameworks for business plans, proposals, and strategy docs that look professional and get results.' },
+      { icon: 'account_balance', title: 'Financial Modeling', desc: 'Revenue projections, expense tracking, and financial dashboards that make the numbers make sense.' },
+      { icon: 'rocket_launch', title: 'Growth Strategy', desc: 'Actionable playbooks for scaling your business — from launch to your first $10K month and beyond.' },
+    ],
+  },
+  'Career Templates': {
+    icon: 'work',
+    features: [
+      { icon: 'description', title: 'Resume Optimization', desc: 'ATS-optimized templates and frameworks that get your resume past the bots and into human hands.' },
+      { icon: 'record_voice_over', title: 'Interview Prep', desc: 'Question banks, answer frameworks, and confidence-building tools for every interview stage.' },
+      { icon: 'trending_up', title: 'Career Strategy', desc: 'Long-term career planning tools that help you navigate promotions, pivots, and salary negotiations.' },
+    ],
+  },
+  'Digital Products': {
+    icon: 'inventory_2',
+    features: [
+      { icon: 'web', title: 'Digital Framework', desc: 'Complete systems for creating, packaging, and selling digital products that generate passive income.' },
+      { icon: 'rocket_launch', title: 'Launch Ready', desc: 'Pre-built launch checklists, email sequences, and marketing templates to go from idea to income.' },
+      { icon: 'insights', title: 'Growth Tools', desc: 'Analytics frameworks and scaling strategies to turn a side project into a real business.' },
+    ],
+  },
+};
+
+const DEFAULT_FEATURES = CATEGORY_DATA['Digital Products'].features;
+
+// Format label mapping
+const FORMAT_LABELS = {
+  'Notion Templates': { label: 'Notion Template', icon: 'description' },
+  'AI Prompt Packs': { label: 'Prompt Collection', icon: 'terminal' },
+  'Spreadsheet Tools': { label: 'Google Sheets', icon: 'grid_view' },
+  'Digital Planners': { label: 'Digital Planner', icon: 'calendar_today' },
+  'Workflow Kits': { label: 'Workflow System', icon: 'account_tree' },
+  'Beauty & Wellness Business': { label: 'Business Kit', icon: 'spa' },
+  'Business Templates': { label: 'Business Template', icon: 'business_center' },
+  'Career Templates': { label: 'Career Toolkit', icon: 'work' },
+  'Digital Products': { label: 'Digital Product', icon: 'inventory_2' },
+};
+
+function extractData(html, filename) {
+  const get = (regex) => { const m = html.match(regex); return m ? m[1] : ''; };
+
+  // Handle both old and new template formats
+  const title = get(/<h1[^>]*>([^<]+)<\/h1>/);
+  const description = get(/<p class="product-description">([^<]+)<\/p>/)
+    || get(/border-l-4 border-primary pl-md py-xs">([^<]+)<\/p>/);
+  const category = get(/<span class="product-category">([^<]+)<\/span>/)
+    || get(/text-secondary uppercase tracking-widest">([^<]+)<\/span>/);
+  const priceRaw = get(/product-price-lg">([^<]+)<\/span>/)
+    || get(/text-headline-md text-primary">([^<]+)<\/span>/)
+    || get(/text-headline-md text-secondary">([^<]+)<\/span>/);
+  const slug = get(/data-slug="([^"]+)"/);
+  const thumbnail = get(/product-thumbnail"[^>]*src="([^"]+)"/i)
+    || get(/<img[^>]*src="([^"]+)"[^>]*product-thumbnail/i);
+  const format = get(/<span class="product-format">([^<]+)<\/span>/);
+  const metaDesc = get(/<meta name="description" content="([^"]+)"/);
+  const keywords = get(/<meta name="keywords" content="([^"]+)"/);
+  const canonical = get(/<link rel="canonical" href="([^"]+)"/);
+  const ogImage = get(/<meta property="og:image" content="([^"]+)"/);
+  const schemaJson = get(/<script type="application\/ld\+json">([^<]+)<\/script>/);
+
+  const isFree = priceRaw === 'Free' || priceRaw === '$0' || /Download Free/.test(html);
+  const price = priceRaw || (isFree ? 'Free' : '');
+
+  // For free products without a slug in button, derive from filename
+  const derivedSlug = slug || filename.replace('.html', '');
+
+  return { title, description, category, price, isFree, slug: derivedSlug, thumbnail, format, metaDesc, keywords, canonical, ogImage, schemaJson, filename };
+}
+
+function buildPage(d) {
+  const catData = CATEGORY_DATA[d.category] || CATEGORY_DATA['Digital Products'];
+  const features = catData.features;
+  const fmt = FORMAT_LABELS[d.category] || FORMAT_LABELS['Digital Products'];
+  const encodedUrl = encodeURIComponent(`https://girlgone.ai/products/${d.filename}`);
+  const encodedTitle = encodeURIComponent(`${d.title} — Girl Gone AI`);
+  const heroImg = d.thumbnail || `../images/categories/${d.category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-')}.svg`;
+
+  const buySection = d.isFree
+    ? `<div class="flex flex-col gap-sm">
+        <a href="../downloads/files/${d.slug.replace(/^\d+-/, '')}.html" class="w-full bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-md border-4 border-primary neo-shadow-lg neo-button-press uppercase text-center tracking-widest block">
+          Download Free
+        </a>
+        <div class="flex items-center gap-xs text-on-surface-variant">
+          <span class="material-symbols-outlined text-[20px]">verified</span>
+          <span class="font-label-bold text-label-bold uppercase">Instant digital delivery</span>
+        </div>
+      </div>`
+    : `<div class="flex flex-col gap-sm">
+        <button class="w-full bg-secondary-container text-on-secondary-container font-label-bold text-label-bold py-md border-4 border-primary neo-shadow-lg neo-button-press uppercase text-center tracking-widest stripe-buy-btn" data-slug="${d.slug}">
+          Get the Kit
+        </button>
+        <div class="flex items-center gap-xs text-on-surface-variant">
+          <span class="material-symbols-outlined text-[20px]">verified</span>
+          <span class="font-label-bold text-label-bold uppercase">Instant digital delivery</span>
+        </div>
+      </div>`;
+
+  const priceBlock = d.isFree
+    ? `<div class="flex items-baseline gap-xs pt-sm border-t-2 border-primary">
+        <span class="font-headline-md text-headline-md text-secondary">Free</span>
+      </div>`
+    : `<div class="flex items-baseline gap-xs pt-sm border-t-2 border-primary">
+        <span class="font-headline-md text-headline-md text-primary">${d.price}</span>
+      </div>`;
+
+  const bgColors = ['bg-surface', 'bg-tertiary-fixed', 'bg-surface'];
+  const iconBgs = ['bg-secondary-fixed', 'bg-surface', 'bg-secondary-fixed-dim'];
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18123569132"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18123569132');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '960211666721135');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=960211666721135&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${d.title} | Girl Gone AI</title>
+<meta name="description" content="${d.metaDesc}">
+${d.keywords ? `<meta name="keywords" content="${d.keywords}">` : ''}
+<meta property="og:title" content="${d.title} | Girl Gone AI">
+<meta property="og:description" content="${d.metaDesc}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://girlgone.ai/products/${d.filename}">
+${d.ogImage ? `<meta property="og:image" content="${d.ogImage}">` : ''}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${d.title} | Girl Gone AI">
+<meta name="twitter:description" content="${d.metaDesc}">
+<link rel="canonical" href="https://girlgone.ai/products/${d.filename}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;600;700&family=Be+Vietnam+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "surface-container-high": "#ebe7e6",
+        "surface-container-low": "#f7f3f2",
+        "on-primary-fixed": "#1c1b1b",
+        "on-tertiary": "#ffffff",
+        "on-primary-container": "#858383",
+        "inverse-primary": "#c8c6c5",
+        "on-error": "#ffffff",
+        "surface-dim": "#ddd9d8",
+        "inverse-on-surface": "#f4f0ef",
+        "on-tertiary-container": "#85809f",
+        "secondary": "#a3346a",
+        "primary": "#000000",
+        "on-tertiary-fixed-variant": "#47435f",
+        "on-error-container": "#93000a",
+        "surface-tint": "#5f5e5e",
+        "surface-variant": "#e5e2e1",
+        "tertiary-container": "#1c1831",
+        "surface-container-lowest": "#ffffff",
+        "secondary-fixed-dim": "#ffb0cd",
+        "surface-container-highest": "#e5e2e1",
+        "secondary-fixed": "#ffd9e5",
+        "tertiary": "#000000",
+        "surface": "#fdf8f8",
+        "primary-fixed-dim": "#c8c6c5",
+        "on-secondary-fixed-variant": "#841a51",
+        "on-secondary-fixed": "#3e0022",
+        "outline-variant": "#c4c7c7",
+        "tertiary-fixed-dim": "#c9c2e4",
+        "surface-bright": "#fdf8f8",
+        "on-surface-variant": "#444748",
+        "secondary-container": "#ff7eb6",
+        "on-primary": "#ffffff",
+        "primary-container": "#1c1b1b",
+        "on-background": "#1c1b1b",
+        "on-surface": "#1c1b1b",
+        "tertiary-fixed": "#e5deff",
+        "on-secondary-container": "#780d48",
+        "inverse-surface": "#313030",
+        "error": "#ba1a1a",
+        "background": "#fdf8f8",
+        "error-container": "#ffdad6",
+        "on-tertiary-fixed": "#1c1831",
+        "outline": "#747878",
+        "surface-container": "#f1edec",
+        "on-secondary": "#ffffff",
+        "on-primary-fixed-variant": "#474746",
+        "primary-fixed": "#e5e2e1"
+      },
+      borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+      spacing: { xl: "64px", lg: "40px", gutter: "24px", margin: "32px", base: "4px", sm: "16px", xs: "8px", md: "24px" },
+      fontFamily: {
+        "headline-sm": ["Newsreader"], "body-md": ["Be Vietnam Pro"], "label-bold": ["Be Vietnam Pro"],
+        "headline-md": ["Newsreader"], "display-lg": ["Newsreader"], "body-lg": ["Be Vietnam Pro"], "ui-element": ["Be Vietnam Pro"]
+      },
+      fontSize: {
+        "headline-sm": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+        "label-bold": ["14px", { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "700" }],
+        "headline-md": ["32px", { lineHeight: "1.2", fontWeight: "600" }],
+        "display-lg": ["64px", { lineHeight: "1.1", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+        "ui-element": ["14px", { lineHeight: "1", fontWeight: "600" }]
+      }
+    },
+  },
+}
+</script>
+<style>
+  .neo-shadow { box-shadow: 4px 4px 0px 0px #000000; }
+  .neo-shadow-lg { box-shadow: 8px 8px 0px 0px #000000; }
+  .neo-button-press:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px 0px #000000; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md">
+${d.schemaJson ? `<script type="application/ld+json">${d.schemaJson}</script>` : ''}
+<!-- Header -->
+<nav class="sticky top-0 z-50 flex justify-between items-center px-margin py-sm w-full bg-background neo-border-4 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">
+  <div class="flex items-center gap-xl">
+    <a href="../" class="font-display-lg text-headline-md font-bold text-primary tracking-tighter no-underline">Girl Gone AI</a>
+    <div class="hidden md:flex gap-md">
+      <a class="text-secondary font-bold underline decoration-2 underline-offset-4 font-headline-sm text-headline-sm no-underline" href="../#products">Shop Products</a>
+      <a class="text-primary font-medium hover:bg-secondary-container transition-all font-headline-sm text-headline-sm no-underline" href="../#mission">The Mission</a>
+      <a class="text-primary font-medium hover:bg-secondary-container transition-all font-headline-sm text-headline-sm no-underline" href="../free.html">Resources</a>
+    </div>
+  </div>
+  <div class="flex items-center gap-sm">
+    <a href="../" class="font-ui-element px-md py-xs bg-secondary text-on-secondary neo-border-2 neo-shadow-sm hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all no-underline">Sign Up</a>
+  </div>
+</nav>
+
+<main class="max-w-7xl mx-auto px-margin py-xl">
+  <!-- Breadcrumb -->
+  <div class="flex items-center gap-xs mb-lg font-label-bold text-label-bold text-on-surface-variant">
+    <a href="../" class="hover:text-secondary transition-colors no-underline text-on-surface-variant">Home</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <a href="../#products" class="hover:text-secondary transition-colors no-underline text-on-surface-variant">${d.category}</a>
+    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+    <span class="text-primary">${d.title}</span>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="grid grid-cols-1 lg:grid-cols-12 gap-xl items-start mb-xl">
+    <div class="lg:col-span-7 border-4 border-primary p-xs bg-surface-container-low neo-shadow-lg overflow-hidden">
+      <div class="relative aspect-[4/3] bg-surface-variant border-2 border-primary flex items-center justify-center overflow-hidden">
+        <img alt="${d.title}" class="w-full h-full object-cover" src="${heroImg}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="absolute inset-0 items-center justify-center text-primary/20" style="display:none"><span class="material-symbols-outlined text-[120px]">${catData.icon || 'inventory_2'}</span></div>
+        <div class="absolute top-4 left-4 bg-secondary text-on-secondary px-sm py-base border-2 border-primary font-label-bold text-label-bold uppercase">${d.category}</div>
+      </div>
+    </div>
+    <div class="lg:col-span-5 flex flex-col gap-md">
+      <div class="flex flex-col gap-xs">
+        <span class="font-label-bold text-label-bold text-secondary uppercase tracking-widest">${d.category}</span>
+        <h1 class="font-display-lg text-[48px] md:text-display-lg leading-none">${d.title}</h1>
+      </div>
+      <p class="font-body-lg text-body-lg text-on-surface-variant border-l-4 border-primary pl-md py-xs">${d.description}</p>
+      ${priceBlock}
+      ${buySection}
+      <div class="grid grid-cols-2 gap-sm mt-md">
+        <div class="bg-surface-container border-2 border-primary p-sm">
+          <span class="material-symbols-outlined text-secondary block mb-xs">${fmt.icon}</span>
+          <p class="font-label-bold text-label-bold">${fmt.label}</p>
+        </div>
+        <div class="bg-surface-container border-2 border-primary p-sm">
+          <span class="material-symbols-outlined text-secondary block mb-xs">download</span>
+          <p class="font-label-bold text-label-bold">Instant Download</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature Breakdown -->
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+${features.map((f, i) => `    <div class="border-4 border-primary p-lg ${bgColors[i]} flex flex-col gap-sm neo-shadow h-full">
+      <div class="w-xl h-xl ${iconBgs[i]} flex items-center justify-center border-2 border-primary">
+        <span class="material-symbols-outlined text-[32px] text-primary">${f.icon}</span>
+      </div>
+      <h3 class="font-headline-sm text-headline-sm">${f.title}</h3>
+      <p class="font-body-md text-body-md text-on-surface-variant">${f.desc}</p>
+    </div>`).join('\n')}
+  </section>
+
+  <!-- Trust Bar -->
+  <section class="bg-primary text-on-primary border-4 border-primary p-xl mb-xl flex flex-col md:flex-row justify-between items-center gap-lg">
+    <div class="text-center md:text-left">
+      <h2 class="font-headline-md text-headline-md mb-xs">Built for girls who build the future.</h2>
+      <p class="font-label-bold text-label-bold text-on-primary-container uppercase tracking-widest">Join 200+ ambitious women leveling up with AI.</p>
+    </div>
+    <a href="../#products" class="bg-secondary-container text-on-secondary-container px-xl py-md border-2 border-on-primary font-label-bold text-label-bold uppercase neo-button-press no-underline whitespace-nowrap">Browse All Products</a>
+  </section>
+
+  <!-- Founder Section -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 border-4 border-primary bg-surface-container-low mb-xl">
+    <div class="relative h-[500px] lg:h-full overflow-hidden border-b-4 lg:border-b-0 lg:border-r-4 border-primary">
+      <img alt="Founder Portrait" class="w-full h-full object-cover grayscale contrast-125" src="https://lh3.googleusercontent.com/aida/ADBb0uj9it_ZIJKBvMCODDRlx-Qmxi1f2we0e-tw5tOtJAIgLuGlzbSFskJKzb0YAPzb6x8liiTof2i2PQuKxgNCoLOqdtPvQcOo5FfcentlE0HV6dilZflKqOa0TPyc5AMhLAsC1pOzK7YvlAa31xiQDQQUvxB2LpFTBQfYZ8Tt5pa-JgwDLW3hxjqMU3C1dQr7lDxGNMMbalZIlGG8cPpegpDLzjBBrqE9C20arOnps9qkqVJt5zg3KwmjA-pHPVnyI5qgAUtlqZxqJw">
+    </div>
+    <div class="p-xl flex flex-col justify-center gap-lg">
+      <h2 class="font-display-lg text-display-lg">Why I built this.</h2>
+      <div class="flex flex-col gap-md">
+        <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+          I got tired of tools that felt like they were designed for someone else. Cold, corporate, and completely disconnected from the way we actually work and create.
+        </p>
+        <p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+          Every product I build is something I wanted to exist for myself first. If it makes my life easier, more organized, or more beautiful — I know it'll do the same for you.
+        </p>
+      </div>
+      <div class="pt-lg border-t-2 border-primary flex items-center gap-md">
+        <div class="font-headline-sm text-headline-sm italic">Jaci Ellis,</div>
+        <div class="font-label-bold text-label-bold uppercase text-secondary">Founder, Girl Gone AI</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full px-margin py-xl flex flex-col md:flex-row justify-between items-start gap-md bg-primary text-on-primary border-t-4 border-primary">
+  <div class="space-y-sm">
+    <span class="font-display-lg text-headline-sm text-on-primary">Girl Gone AI</span>
+    <p class="font-body-md text-on-primary-container max-w-xs">&copy; 2026 Girl Gone AI. All rights reserved. AI tools built for girls, by a girl.</p>
+  </div>
+  <div class="flex flex-wrap gap-xl">
+    <div class="flex flex-col gap-xs">
+      <span class="font-label-bold text-secondary">THE SYSTEM</span>
+      <a class="text-on-primary-container hover:text-secondary-container transition-colors font-body-md no-underline" href="#">Terms</a>
+      <a class="text-on-primary-container hover:text-secondary-container transition-colors font-body-md no-underline" href="#">Privacy</a>
+    </div>
+    <div class="flex flex-col gap-xs">
+      <span class="font-label-bold text-secondary">CHANNELS</span>
+      <a class="text-on-primary-container hover:text-secondary-container transition-colors font-body-md no-underline" href="https://www.instagram.com/girlgone.ai" target="_blank" rel="noopener">Instagram</a>
+      <a class="text-on-primary-container hover:text-secondary-container transition-colors font-body-md no-underline" href="../free.html">Resources</a>
+    </div>
+  </div>
+</footer>
+<script src="../config.js"></script>
+<script src="../app.js"></script>
+</body>
+</html>`;
+}
+
+// Main
+const files = fs.readdirSync(productsDir).filter(f => f.endsWith('.html'));
+let rebuilt = 0;
+let errors = [];
+
+for (const file of files) {
+  try {
+    const html = fs.readFileSync(path.join(productsDir, file), 'utf8');
+    const data = extractData(html, file);
+
+    if (!data.title || !data.slug) {
+      errors.push(`${file}: missing title or slug`);
+      continue;
+    }
+
+    const newHtml = buildPage(data);
+    fs.writeFileSync(path.join(productsDir, file), newHtml);
+    rebuilt++;
+  } catch (err) {
+    errors.push(`${file}: ${err.message}`);
+  }
+}
+
+console.log(`Rebuilt ${rebuilt}/${files.length} product pages`);
+if (errors.length) {
+  console.log(`Errors (${errors.length}):`);
+  errors.forEach(e => console.log(`  - ${e}`));
+}

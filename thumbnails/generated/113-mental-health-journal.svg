@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_113_mental_health_journal" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_113_mental_health_journal" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#FF3B8B" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_113_mental_health_journal)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_113_mental_health_journal)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <circle cx="344" cy="121" r="9" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.054721421698921864"/>
+    <circle cx="510" cy="328" r="33" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.11970290602984354"/>
+    <circle cx="64" cy="153" r="23" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.073176521623236"/>
+    <circle cx="129" cy="99" r="34" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09361503197305356"/>
+    <circle cx="118" cy="87" r="35" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.04860450311889317"/>
+    <circle cx="551" cy="67" r="15" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.11164205489013307"/>
+    <circle cx="438" cy="106" r="26" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05689456501298752"/>
+    <circle cx="111" cy="234" r="15" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05938454060139098"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#FF3B8B" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#FF3B8B" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#FF3B8B" letter-spacing="1.5" text-transform="uppercase">Digital Planners</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#FF3B8B" opacity="0.4">☆</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Mental Health Check-In</tspan>
+      <tspan x="300" dy="34">Journal</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#FF3B8B" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

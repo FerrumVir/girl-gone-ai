@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_146_skincare_ai_prompt_pack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_146_skincare_ai_prompt_pack" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#3B82F6" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_146_skincare_ai_prompt_pack)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_146_skincare_ai_prompt_pack)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="276" y1="310" x2="548" y2="120" stroke="#3B82F6" stroke-width="0.8" opacity="0.05814731513423042"/>
+    <line x1="548" y1="120" x2="242" y2="340" stroke="#3B82F6" stroke-width="0.8" opacity="0.0464139125741564"/>
+    <line x1="548" y1="120" x2="388" y2="195" stroke="#3B82F6" stroke-width="0.8" opacity="0.09324563359446923"/>
+    <line x1="548" y1="120" x2="327" y2="257" stroke="#3B82F6" stroke-width="0.8" opacity="0.07011014356717836"/>
+    <line x1="242" y1="340" x2="526" y2="221" stroke="#3B82F6" stroke-width="0.8" opacity="0.08872723422254644"/>
+    <line x1="388" y1="195" x2="69" y2="189" stroke="#3B82F6" stroke-width="0.8" opacity="0.07367558830792853"/>
+    <circle cx="276" cy="310" r="3" fill="#2563EB" opacity="0.1591627737852643"/>
+    <circle cx="548" cy="120" r="3" fill="#2563EB" opacity="0.16335247299803507"/>
+    <circle cx="242" cy="340" r="3" fill="#2563EB" opacity="0.17363019324385592"/>
+    <circle cx="388" cy="195" r="3" fill="#2563EB" opacity="0.14740885151006528"/>
+    <circle cx="69" cy="189" r="3" fill="#2563EB" opacity="0.09146575401590294"/>
+    <circle cx="526" cy="221" r="3" fill="#2563EB" opacity="0.1335727073753432"/>
+    <circle cx="327" cy="257" r="3" fill="#2563EB" opacity="0.09405189009431048"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#3B82F6" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="163" height="28" rx="6" fill="#3B82F6" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#3B82F6" letter-spacing="1.5" text-transform="uppercase">AI Prompt Packs</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#3B82F6" opacity="0.4">⚛</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Skincare &amp; Beauty AI Prompt</tspan>
+      <tspan x="300" dy="34">Pack</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#3B82F6" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

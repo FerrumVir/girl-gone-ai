@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_morning_glow_checklist" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.4"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="#0A0A14"/>
+  <rect width="600" height="400" fill="url(#bg_morning_glow_checklist)"/>
+  <text x="24" y="36" font-family="sans-serif" font-size="13" font-weight="600" fill="#FF3B8B" opacity="0.8">Digital Planners</text>
+  <text x="300" y="160" font-family="sans-serif" font-size="48" fill="#FF3B8B" text-anchor="middle" opacity="0.3">☀</text>
+  <text x="300" y="240" font-family="sans-serif" font-size="22" font-weight="700" fill="white" text-anchor="middle"><tspan x="300" dy="0">Free Morning Glow Checklist</tspan></text>
+  <text x="300" y="375" font-family="sans-serif" font-size="10" font-weight="600" fill="white" text-anchor="middle" opacity="0.4" letter-spacing="3">GIRL GONE AI</text>
+  <text x="576" y="36" font-family="sans-serif" font-size="14" font-weight="700" fill="#10B981" text-anchor="end">FREE</text>
+</svg>

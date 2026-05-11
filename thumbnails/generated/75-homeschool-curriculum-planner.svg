@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_75_homeschool_curriculum_planner" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_75_homeschool_curriculum_planner" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#FF3B8B" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#EC4899" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#FF3B8B" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_75_homeschool_curriculum_planner)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_75_homeschool_curriculum_planner)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <circle cx="440" cy="345" r="19" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.10879075062726037"/>
+    <circle cx="102" cy="356" r="17" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09295672353532253"/>
+    <circle cx="444" cy="245" r="31" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.06766829720613812"/>
+    <circle cx="438" cy="97" r="18" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05176900069270546"/>
+    <circle cx="110" cy="230" r="9" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.04515003203925948"/>
+    <circle cx="436" cy="97" r="9" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.10040481435633922"/>
+    <circle cx="96" cy="296" r="15" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.05316445499124207"/>
+    <circle cx="370" cy="270" r="29" fill="none" stroke="#FF3B8B" stroke-width="1.5" opacity="0.09413203684753146"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#FF3B8B" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="172" height="28" rx="6" fill="#FF3B8B" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#FF3B8B" letter-spacing="1.5" text-transform="uppercase">Digital Planners</text>
+
+  <!-- Icon -->
+  <text x="300" y="150" text-anchor="middle" font-size="48" fill="#FF3B8B" opacity="0.4">☆</text>
+
+  <!-- Product title -->
+  <text x="300" y="200" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">Homeschool Curriculum</tspan>
+      <tspan x="300" dy="34">Planner</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#FF3B8B" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>

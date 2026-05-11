@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="bg_58_seo_keyword_research_toolkit_sheets" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="glow_58_seo_keyword_research_toolkit_sheets" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="0"/>
+    </radialGradient>
+    <marker id="arrowhead" markerWidth="6" markerHeight="4" refX="6" refY="2" orient="auto">
+      <polygon points="0 0, 6 2, 0 4" fill="#10B981" opacity="0.3"/>
+    </marker>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="600" height="400" rx="16" fill="#0A0A14"/>
+
+  <!-- Gradient overlay -->
+  <rect width="600" height="400" rx="16" fill="url(#bg_58_seo_keyword_research_toolkit_sheets)"/>
+
+  <!-- Center glow -->
+  <ellipse cx="300" cy="180" rx="250" ry="180" fill="url(#glow_58_seo_keyword_research_toolkit_sheets)"/>
+
+  <!-- Decorative elements -->
+  <g>
+    <line x1="292" y1="122" x2="292" y2="268" stroke="#10B981" stroke-width="1" opacity="0.07610553981144036"/>
+    <line x1="529" y1="144" x2="529" y2="327" stroke="#10B981" stroke-width="1" opacity="0.060074112634783364"/>
+    <line x1="129" y1="85" x2="129" y2="323" stroke="#10B981" stroke-width="1" opacity="0.07150882463625513"/>
+    <line x1="485" y1="68" x2="485" y2="305" stroke="#10B981" stroke-width="1" opacity="0.07599556166004878"/>
+    <line x1="71" y1="314" x2="522" y2="314" stroke="#059669" stroke-width="1" opacity="0.09397719264029011"/>
+    <line x1="86" y1="216" x2="557" y2="216" stroke="#059669" stroke-width="1" opacity="0.0930672832389901"/>
+    <line x1="45" y1="121" x2="547" y2="121" stroke="#059669" stroke-width="1" opacity="0.07515286310136758"/>
+  </g>
+
+  <!-- Border -->
+  <rect width="596" height="396" x="2" y="2" rx="14" fill="none" stroke="#10B981" stroke-width="1" opacity="0.2"/>
+
+  <!-- Category label at top -->
+  <rect x="24" y="24" width="181" height="28" rx="6" fill="#10B981" opacity="0.2"/>
+  <text x="38" y="43" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="11" font-weight="700" fill="#10B981" letter-spacing="1.5" text-transform="uppercase">Spreadsheet Tools</text>
+
+  <!-- Icon -->
+  <text x="300" y="167" text-anchor="middle" font-size="48" fill="#10B981" opacity="0.4">☰</text>
+
+  <!-- Product title -->
+  <text x="300" y="217" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="26" font-weight="800" fill="white">
+      <tspan x="300" dy="0">SEO Keyword Research Toolkit</tspan>
+  </text>
+
+  <!-- Bottom line accent -->
+  <line x1="200" y1="340" x2="400" y2="340" stroke="#10B981" stroke-width="2" opacity="0.3"/>
+
+  <!-- Girl Gone AI branding -->
+  <text x="300" y="370" text-anchor="middle" font-family="'Poppins', 'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" fill="white" opacity="0.45" letter-spacing="3">GIRL GONE AI</text>
+</svg>
