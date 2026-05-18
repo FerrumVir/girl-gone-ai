@@ -23,7 +23,7 @@ const CONFIG = {
 const DataSource = {
   async getRevenue() {
     if (CONFIG.apiBaseUrl) {
-      // TODO: fetch from Gumroad/Lemon Squeezy API
+      // TODO: fetch from Stripe API
     }
     return SeedData.revenue();
   },
@@ -115,16 +115,16 @@ const SeedData = {
 
   topProducts() {
     return [
-      { name: 'Wedding Planning Dashboard', sales: 0, revenue: 0, price: 18, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/hxntlz' },
-      { name: 'Midjourney & AI Art Prompt Pack', sales: 0, revenue: 0, price: 17, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/rjfayx' },
-      { name: 'Podcast Launch Kit', sales: 0, revenue: 0, price: 14, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/jfuzt' },
-      { name: 'Teacher Lesson Planner', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/gkdlq' },
-      { name: 'Product Launch Playbook', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/apbls' },
-      { name: 'Meal Prep & Recipe Planner', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/btxunu' },
-      { name: 'Client Proposal Template Kit', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/baqfdx' },
-      { name: 'Side Hustle Income Tracker', sales: 0, revenue: 0, price: 9, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/xrlbjs' },
-      { name: 'Student Study System', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/rypqg' },
-      { name: 'Professional Invoice Generator', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgoneai.gumroad.com/l/thtyoc' },
+      { name: 'Wedding Planning Dashboard', sales: 0, revenue: 0, price: 18, status: 'LIVE', link: 'https://girlgone.ai/products/wedding-planning-dashboard.html' },
+      { name: 'Midjourney & AI Art Prompt Pack', sales: 0, revenue: 0, price: 17, status: 'LIVE', link: 'https://girlgone.ai/products/midjourney-prompts.html' },
+      { name: 'Podcast Launch Kit', sales: 0, revenue: 0, price: 14, status: 'LIVE', link: 'https://girlgone.ai/products/podcast-launch-kit.html' },
+      { name: 'Teacher Lesson Planner', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgone.ai/products/teacher-lesson-planner.html' },
+      { name: 'Product Launch Playbook', sales: 0, revenue: 0, price: 12, status: 'LIVE', link: 'https://girlgone.ai/products/product-launch-playbook.html' },
+      { name: 'Meal Prep & Recipe Planner', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgone.ai/products/meal-prep-planner.html' },
+      { name: 'Client Proposal Template Kit', sales: 0, revenue: 0, price: 10, status: 'LIVE', link: 'https://girlgone.ai/products/proposal-template.html' },
+      { name: 'Side Hustle Income Tracker', sales: 0, revenue: 0, price: 9, status: 'LIVE', link: 'https://girlgone.ai/products/side-hustle-tracker.html' },
+      { name: 'Student Study System', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgone.ai/products/student-study-system.html' },
+      { name: 'Professional Invoice Generator', sales: 0, revenue: 0, price: 8, status: 'LIVE', link: 'https://girlgone.ai/products/invoice-generator.html' },
     ];
   },
 
