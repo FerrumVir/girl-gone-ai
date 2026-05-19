@@ -355,23 +355,13 @@ const server = http.createServer(async (req, res) => {
 
     const email = (body.email || '').trim().toLowerCase();
     const name = typeof body.name === 'string' ? body.name.trim().substring(0, 200) : '';
-    const slug = typeof body.slug === 'string' ? body.slug.substring(0, 200) : '';
+    const slug = typeof body.slug === 'string' ? body.slug.substring(0, 200).replace(/[^a-z0-9-]/gi, '') : '';
 
     if (!isValidEmail(email)) {
       return json(res, 400, { error: 'Invalid email address' });
     }
     if (!slug) {
       return json(res, 400, { error: 'Product slug is required' });
-    }
-
-    const product = findProduct(slug);
-    if (!product || !product.freeLeadMagnet) {
-      return json(res, 404, { error: 'Free product not found' });
-    }
-
-    const templatePath = path.join(PRODUCTS_DIR, slug, 'template.md');
-    if (!fs.existsSync(templatePath)) {
-      return json(res, 404, { error: 'Product file not found' });
     }
 
     // Store subscriber with source: free-download
@@ -393,13 +383,16 @@ const server = http.createServer(async (req, res) => {
     }
     writeSubscribers(subs);
 
-    // Auto-enroll in email drip sequence
-    drip.enrollSubscriber(email, name, slug, 'free-download');
+    // Auto-enroll in email drip sequence (best-effort)
+    try { drip.enrollSubscriber(email, name, slug, 'free-download'); } catch (err) {
+      console.error('Drip enrollment error:', err.message);
+    }
 
+    const product = findProduct(slug);
     return json(res, 200, {
       message: 'Success! Your download is ready.',
-      downloadUrl: `/api/free-download/${encodeURIComponent(slug)}/file`,
-      productTitle: product.title,
+      downloadUrl: `/downloads/files/${encodeURIComponent(slug)}.html`,
+      productTitle: product ? product.title : slug.replace(/-/g, ' '),
     });
   }
 

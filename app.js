@@ -92,14 +92,71 @@ if (form) {
   });
 }
 
-// Free download — redirect directly to the product file via download gate
-document.querySelectorAll('.free-download-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const slug = btn.dataset.slug || '';
-    const name = slug.replace(/^\d+-/, '');
-    window.location.href = '/downloads/files/' + encodeURIComponent(name) + '.html';
+// Free download — email-gated via /api/free-download
+(function() {
+  var modal = document.getElementById('free-download-modal');
+  var closeBtn = document.getElementById('free-download-close');
+  var form = document.getElementById('free-download-form');
+  var slugInput = document.getElementById('free-download-slug');
+  var titleEl = document.getElementById('free-download-title');
+  var msgEl = document.getElementById('free-download-msg');
+  var submitBtn = document.getElementById('free-download-submit');
+
+  if (!modal || !form) return;
+
+  document.querySelectorAll('.free-download-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var slug = card.dataset.slug || '';
+      var productName = card.querySelector('h3');
+      slugInput.value = slug;
+      titleEl.textContent = productName ? productName.textContent : 'Get Your Free Download';
+      msgEl.textContent = '';
+      form.style.display = '';
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Me the Download'; }
+      modal.style.display = 'flex';
+    });
   });
-});
+
+  closeBtn.addEventListener('click', function() { modal.style.display = 'none'; });
+  modal.addEventListener('click', function(e) { if (e.target === modal) modal.style.display = 'none'; });
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var email = form.querySelector('input[name="email"]').value;
+    var name = form.querySelector('input[name="name"]').value;
+    var slug = slugInput.value;
+    if (!email || !slug) return;
+
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Loading...'; }
+    msgEl.textContent = '';
+
+    fetch('/api/free-download', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email, name: name, slug: slug })
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      if (data.downloadUrl) {
+        msgEl.style.color = '#10B981';
+        msgEl.textContent = data.message || 'Success! Redirecting to your download...';
+        form.style.display = 'none';
+        setTimeout(function() {
+          window.location.href = data.downloadUrl;
+        }, 800);
+      } else {
+        msgEl.style.color = '#ba1a1a';
+        msgEl.textContent = data.error || 'Something went wrong. Please try again.';
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Me the Download'; }
+      }
+    })
+    .catch(function() {
+      msgEl.style.color = '#ba1a1a';
+      msgEl.textContent = 'Network error. Please try again.';
+      if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Send Me the Download'; }
+    });
+  });
+})();
 
 // Waitlist forms (product pages)
 document.querySelectorAll('.waitlist-form').forEach(wf => {
