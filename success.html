@@ -150,7 +150,10 @@ tailwind.config = {
 (function() {
   var params = new URLSearchParams(window.location.search);
   var sessionId = params.get('session_id');
-  if (!sessionId) return;
+  if (!sessionId) {
+    // Manual visit (e.g. testing) — fire nothing, show static thanks
+    return;
+  }
 
   var url = '/api/checkout-session?session_id=' + encodeURIComponent(sessionId);
 
@@ -166,25 +169,50 @@ tailwind.config = {
     details.style.display = '';
 
     document.getElementById('success-product-name').textContent = data.productName || 'Your product';
-    document.getElementById('success-amount').textContent =
-      '$' + ((data.amountTotal || 0) / 100).toFixed(2) + ' ' + (data.currency || 'usd').toUpperCase();
+    var value = (data.amountTotal || 0) / 100;
+    var currency = (data.currency || 'usd').toUpperCase();
+    document.getElementById('success-amount').textContent = '$' + value.toFixed(2) + ' ' + currency;
 
     if (data.productSlug && data.paymentStatus === 'paid') {
       var dlLink = document.getElementById('download-link');
       dlLink.href = '/api/download?session_id=' + encodeURIComponent(sessionId);
       dlLink.style.display = '';
     }
+
+    // Only fire conversion events once we know the real purchase value, and only on paid sessions.
+    // Guard against duplicate fires if user refreshes (sessionStorage keyed by session id).
+    var firedKey = 'purchase_fired_' + sessionId;
+    if (data.paymentStatus === 'paid' && value > 0 && !sessionStorage.getItem(firedKey)) {
+      sessionStorage.setItem(firedKey, '1');
+      var cfg = window.NOVOCLAW_CONFIG || {};
+
+      // Meta Pixel Purchase event
+      if (typeof window.fbq === 'function') {
+        try {
+          window.fbq('track', 'Purchase', {
+            value: value,
+            currency: currency,
+            content_ids: data.productSlug ? [data.productSlug] : [],
+            content_name: data.productName || '',
+            content_type: 'product'
+          });
+        } catch (e) {}
+      }
+
+      // Google Ads Purchase conversion (real value, not hard-coded 1.0)
+      if (typeof window.gtag === 'function' && cfg.googleAdsId && cfg.googleAdsPurchaseLabel) {
+        try {
+          window.gtag('event', 'conversion', {
+            send_to: cfg.googleAdsId + '/' + cfg.googleAdsPurchaseLabel,
+            value: value,
+            currency: currency,
+            transaction_id: sessionId
+          });
+        } catch (e) {}
+      }
+    }
   }).catch(function() {});
 })();
-</script>
-<!-- Event snippet for Purchase conversion page -->
-<script>
-  gtag('event', 'conversion', {
-    'send_to': 'AW-18123569132/gKkPCPid26McEOzv_sFD',
-    'value': 1.0,
-    'currency': 'USD',
-    'transaction_id': ''
-  });
 </script>
 </body>
 </html>

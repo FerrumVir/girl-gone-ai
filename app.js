@@ -1,13 +1,59 @@
-// Stripe checkout
+// --- Conversion event helpers ---
+function fireMeta(event, params) {
+  if (typeof window.fbq === 'function') {
+    try { window.fbq('track', event, params || {}); } catch (e) {}
+  }
+}
+
+function fireGoogleAdsConversion(label, params) {
+  if (typeof window.gtag !== 'function') return;
+  var cfg = window.NOVOCLAW_CONFIG || {};
+  if (!cfg.googleAdsId || !label) return;
+  try {
+    window.gtag('event', 'conversion', Object.assign({
+      send_to: cfg.googleAdsId + '/' + label,
+    }, params || {}));
+  } catch (e) {}
+}
+
+function fireLead(email, source) {
+  fireMeta('Lead', { content_name: source || 'newsletter' });
+  var cfg = window.NOVOCLAW_CONFIG || {};
+  if (cfg.googleAdsLeadLabel) {
+    fireGoogleAdsConversion(cfg.googleAdsLeadLabel, { value: 0, currency: 'USD' });
+  }
+}
+
+// --- Fire ViewContent on product / bundle pages (for Meta ad optimization) ---
+(function() {
+  var m = window.location.pathname.match(/^\/(products|bundles)\/([^/]+)\.html$/);
+  if (!m) return;
+  var slug = decodeURIComponent(m[2]);
+  fireMeta('ViewContent', {
+    content_ids: [slug],
+    content_type: m[1] === 'bundles' ? 'product_group' : 'product'
+  });
+})();
+
+// --- Stripe checkout ---
 (function() {
   document.addEventListener('click', function(e) {
     var btn = e.target.closest('.stripe-buy-btn');
     if (!btn) return;
     e.preventDefault();
     btn.disabled = true;
+    var originalText = btn.textContent;
     btn.textContent = 'Loading...';
 
     var slug = btn.getAttribute('data-slug');
+
+    // Fire InitiateCheckout immediately (before redirect can race the pixel)
+    fireMeta('InitiateCheckout', { content_ids: [slug], content_type: 'product' });
+    var cfg = window.NOVOCLAW_CONFIG || {};
+    if (cfg.googleAdsInitiateCheckoutLabel) {
+      fireGoogleAdsConversion(cfg.googleAdsInitiateCheckoutLabel, { value: 0, currency: 'USD' });
+    }
+
     fetch('/api/create-checkout-session', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -20,18 +66,18 @@
       } else {
         alert(data.error || 'Checkout failed. Please try again.');
         btn.disabled = false;
-        btn.textContent = 'Buy Now';
+        btn.textContent = originalText;
       }
     })
     .catch(function() {
       alert('Checkout failed. Please try again.');
       btn.disabled = false;
-      btn.textContent = 'Buy Now';
+      btn.textContent = originalText;
     });
   });
 })();
 
-// Header scroll effect
+// --- Header scroll effect ---
 const header = document.getElementById('header');
 if (header) {
   window.addEventListener('scroll', () => {
@@ -39,7 +85,7 @@ if (header) {
   }, { passive: true });
 }
 
-// Mobile menu toggle
+// --- Mobile menu toggle ---
 const menuBtn = document.getElementById('menuBtn');
 const nav = document.getElementById('nav');
 if (menuBtn && nav) {
@@ -47,8 +93,6 @@ if (menuBtn && nav) {
     menuBtn.classList.toggle('active');
     nav.classList.toggle('active');
   });
-
-  // Close mobile menu on nav link click
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('active');
@@ -57,7 +101,7 @@ if (menuBtn && nav) {
   });
 }
 
-// Smooth scroll for anchor links
+// --- Smooth scroll for anchor links ---
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', (e) => {
     const target = document.querySelector(anchor.getAttribute('href'));
@@ -71,65 +115,103 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Newsletter form submission
-const form = document.getElementById('newsletter-form');
-if (form) {
-  form.addEventListener('submit', async (e) => {
+// --- Shared email-signup submission helper ---
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+async function submitSignup(form, payload) {
+  const btn = form.querySelector('button');
+  const emailInput = form.querySelector('input[type="email"]');
+  const email = emailInput ? emailInput.value.trim() : '';
+
+  if (!EMAIL_RE.test(email)) {
+    showFormMessage(form, 'Please enter a valid email address.', 'error');
+    return false;
+  }
+
+  if (btn) btn.disabled = true;
+  showFormMessage(form, '', null);
+
+  let resp, data;
+  try {
+    resp = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(Object.assign({ email }, payload || {}))
+    });
+    data = await resp.json().catch(() => ({}));
+  } catch (err) {
+    if (btn) btn.disabled = false;
+    showFormMessage(form, 'Network error. Please try again.', 'error');
+    return false;
+  }
+
+  if (!resp.ok) {
+    if (btn) btn.disabled = false;
+    showFormMessage(form, (data && data.error) || 'Something went wrong. Please try again.', 'error');
+    return false;
+  }
+
+  fireLead(email, (payload && payload.source) || 'newsletter');
+  return true;
+}
+
+function showFormMessage(form, text, kind) {
+  // Look for a sibling .form-msg or create one
+  let msg = form.parentElement.querySelector('.form-msg');
+  if (!msg) {
+    msg = document.createElement('p');
+    msg.className = 'form-msg';
+    msg.style.marginTop = '12px';
+    msg.style.fontSize = '0.95rem';
+    msg.style.fontWeight = '600';
+    form.parentElement.appendChild(msg);
+  }
+  msg.textContent = text || '';
+  msg.style.color = kind === 'error' ? '#dc2626' : '#a3346a';
+}
+
+// --- Newsletter form ---
+const newsletterForm = document.getElementById('newsletter-form');
+if (newsletterForm) {
+  newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const emailInput = form.querySelector('input[type="email"]');
-    if (emailInput && emailInput.value) {
-      const btn = form.querySelector('button');
-      if (btn) btn.disabled = true;
-      try {
-        await fetch('/api/subscribe', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: emailInput.value, source: 'newsletter' }),
-        });
-      } catch (err) {}
-      form.innerHTML = '<p style="color: var(--pink); font-weight: 600; font-size: 1.1rem; padding: 16px 0;">You\'re in! Welcome to the Girl Gone AI community.</p>';
+    const ok = await submitSignup(newsletterForm, { source: 'newsletter' });
+    if (ok) {
+      newsletterForm.innerHTML = '<p style="color: var(--pink, #a3346a); font-weight: 600; font-size: 1.1rem; padding: 16px 0;">You\'re in! Welcome to the Girl Gone AI community.</p>';
     }
   });
 }
 
-// Free download — redirect directly to the product file via download gate
+// --- Free download buttons (no email gate — direct file serve) ---
 document.querySelectorAll('.free-download-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const slug = btn.dataset.slug || '';
     const name = slug.replace(/^\d+-/, '');
+    fireMeta('Lead', { content_name: 'free-download', content_ids: [slug] });
     window.location.href = '/downloads/files/' + encodeURIComponent(name) + '.html';
   });
 });
 
-// Waitlist forms (product pages)
+// --- Waitlist forms (product pages) ---
 document.querySelectorAll('.waitlist-form').forEach(wf => {
   wf.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const emailInput = wf.querySelector('input[type="email"]');
-    const msgEl = wf.parentElement.querySelector('.waitlist-msg');
-    const btn = wf.querySelector('button');
-    if (!emailInput || !emailInput.value) return;
-    if (btn) btn.disabled = true;
-    try {
-      await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: emailInput.value,
-          source: wf.dataset.source || 'product-page',
-          productSlug: wf.dataset.productSlug || '',
-        }),
-      });
-    } catch (err) {}
-    if (msgEl) {
-      msgEl.textContent = "You're on the list! We'll notify you at launch.";
-      msgEl.style.color = 'var(--pink)';
+    const ok = await submitSignup(wf, {
+      source: wf.dataset.source || 'product-page',
+      productSlug: wf.dataset.productSlug || '',
+    });
+    if (ok) {
+      const msgEl = wf.parentElement.querySelector('.waitlist-msg');
+      if (msgEl) {
+        msgEl.textContent = "You're on the list! We'll notify you at launch.";
+        msgEl.style.color = 'var(--pink, #a3346a)';
+      }
+      wf.style.display = 'none';
     }
-    wf.style.display = 'none';
   });
 });
 
-// Copy link share button
+// --- Copy link share button ---
 document.querySelectorAll('.share-copy').forEach(btn => {
   btn.addEventListener('click', () => {
     const url = btn.dataset.url ? new URL(btn.dataset.url, window.location.href).href : window.location.href;
@@ -140,7 +222,7 @@ document.querySelectorAll('.share-copy').forEach(btn => {
   });
 });
 
-// Exit-intent modal
+// --- Exit-intent modal ---
 const exitModal = document.getElementById('exit-intent-modal');
 const exitClose = document.getElementById('exit-intent-close');
 const exitForm = document.getElementById('exit-intent-form');
@@ -160,22 +242,16 @@ if (exitModal) {
 if (exitForm) {
   exitForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const emailInput = exitForm.querySelector('input[type="email"]');
-    const msgEl = document.getElementById('exit-intent-msg');
-    if (!emailInput || !emailInput.value) return;
-    try {
-      await fetch('/api/subscribe', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailInput.value, source: 'exit-intent' }),
-      });
-    } catch (err) {}
-    if (msgEl) { msgEl.textContent = "You're in! Welcome to the community."; msgEl.style.color = 'var(--pink)'; }
-    exitForm.style.display = 'none';
+    const ok = await submitSignup(exitForm, { source: 'exit-intent' });
+    if (ok) {
+      const msgEl = document.getElementById('exit-intent-msg');
+      if (msgEl) { msgEl.textContent = "You're in! Welcome to the community."; msgEl.style.color = 'var(--pink, #a3346a)'; }
+      exitForm.style.display = 'none';
+    }
   });
 }
 
-// Fade-in on scroll
+// --- Fade-in on scroll ---
 const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {

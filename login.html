@@ -29,52 +29,178 @@ src="https://www.facebook.com/tr?id=960211666721135&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Girl Gone AI — Review Access</title>
+  <title>Girl Gone AI — Sign In</title>
   <link rel="stylesheet" href="./styles.css">
   <style>
-    .login-wrap { display:flex; align-items:center; justify-content:center; min-height:80vh; }
+    .login-wrap { display:flex; align-items:center; justify-content:center; min-height:80vh; padding: 24px; }
     .login-box { background:#fff; border:1px solid #e5e7eb; border-radius:16px;
       padding:40px; max-width:400px; width:100%; box-shadow:0 4px 24px rgba(0,0,0,0.1); text-align:center; }
     .login-box h1 { font-size:1.5rem; margin-bottom:8px; color:#1a1a2e; }
     .login-box p { color:#6b7280; margin-bottom:24px; font-size:0.95rem; }
-    .login-box input[type=password] { width:100%; padding:12px 16px; border:1px solid #e5e7eb;
-      border-radius:12px; font-size:1rem; margin-bottom:16px; }
-    .login-box button { width:100%; padding:12px; background:#A855F7; color:#fff; border:none;
+    .login-box input[type=password], .login-box input[type=email] { width:100%; padding:12px 16px; border:1px solid #e5e7eb;
+      border-radius:12px; font-size:1rem; margin-bottom:12px; box-sizing: border-box; }
+    .login-box button.primary { width:100%; padding:12px; background:#A855F7; color:#fff; border:none;
       border-radius:12px; font-size:1rem; cursor:pointer; font-weight:600; }
-    .login-box button:hover { background:#9333EA; }
-    .login-error { color:#dc2626; font-size:0.9rem; margin-bottom:12px; display:none; }
+    .login-box button.primary:hover { background:#9333EA; }
+    .login-error { color:#dc2626; font-size:0.9rem; margin-bottom:12px; min-height: 1.2em; }
+    .divider { display:flex; align-items:center; gap:12px; margin:20px 0; color:#9ca3af; font-size:0.85rem; }
+    .divider::before, .divider::after { content:''; flex:1; height:1px; background:#e5e7eb; }
+    .social-btn { width:100%; padding:12px; border-radius:12px; font-size:0.95rem;
+      cursor:pointer; font-weight:600; display:flex; align-items:center; justify-content:center; gap:10px;
+      margin-bottom:10px; background:#fff; transition: background 0.15s; }
+    .social-btn:hover:not(:disabled) { background:#f9fafb; }
+    .social-btn:disabled { opacity:0.5; cursor:not-allowed; }
+    .social-btn.google { border:1px solid #dadce0; color:#3c4043; }
+    .social-btn.apple { border:1px solid #000; background:#000; color:#fff; }
+    .social-btn.apple:hover:not(:disabled) { background:#222; }
+    .social-icon { width:20px; height:20px; flex-shrink:0; }
   </style>
 </head>
 <body>
 <div class="login-wrap">
   <div class="login-box">
     <h1>Girl Gone AI</h1>
-    <p>Enter the review password to access the product catalog.</p>
-    <div class="login-error" id="err">Incorrect password. Try again.</div>
-    <form onsubmit="return checkPw()">
-      <input type="password" id="pw" placeholder="Password" autofocus>
-      <button type="submit">Enter</button>
+    <p>Sign in to access the product catalog.</p>
+
+    <!-- Social sign-in -->
+    <button class="social-btn google" id="google-signin" type="button">
+      <svg class="social-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+      </svg>
+      Continue with Google
+    </button>
+
+    <button class="social-btn apple" id="apple-signin" type="button">
+      <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.05 20.28c-.98.95-2.05.86-3.08.4-1.09-.47-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+      </svg>
+      Continue with Apple
+    </button>
+
+    <div class="divider">or</div>
+
+    <!-- Password / email fallback (existing review-access flow) -->
+    <div class="login-error" id="err"></div>
+    <form id="login-form">
+      <input type="password" id="pw" placeholder="Access password" autofocus autocomplete="current-password">
+      <button type="submit" class="primary">Enter</button>
     </form>
   </div>
 </div>
+<script src="./config.js"></script>
 <script>
-async function sha256(msg){
-  const buf=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(msg));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+function showError(msg) {
+  var el = document.getElementById('err');
+  el.textContent = msg || '';
+  el.style.display = msg ? 'block' : 'none';
 }
-async function checkPw(){
-  const pw=document.getElementById('pw').value;
-  const hash=await sha256(pw);
-  if(hash==='b3663c549efd737afcc2792fafc77b2369475e2e308a66423b77212c6704b4c2'){
-    sessionStorage.setItem('nc_auth',hash);
-    window.location.href='./catalog-landing.html';
-    return false;
-  }
-  document.getElementById('err').style.display='block';
-  document.getElementById('pw').value='';
-  return false;
-}
-</script>
 
+async function sha256(msg) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+// Password gate (unchanged hash)
+document.getElementById('login-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const pw = document.getElementById('pw').value;
+  const hash = await sha256(pw);
+  if (hash === 'b3663c549efd737afcc2792fafc77b2369475e2e308a66423b77212c6704b4c2') {
+    sessionStorage.setItem('nc_auth', hash);
+    window.location.href = './catalog-landing.html';
+  } else {
+    showError('Incorrect password. Try again.');
+    document.getElementById('pw').value = '';
+  }
+});
+
+// --- Social sign-in ---
+// These activate as soon as window.NOVOCLAW_CONFIG.googleClientId / appleClientId are filled in config.js.
+// Until then, clicking shows a friendly message instead of silently failing.
+
+var cfg = window.NOVOCLAW_CONFIG || {};
+
+function handleSocialAuthSuccess(provider) {
+  // No backend → mirror the password-gate session pattern.
+  // When a real auth provider is wired in (Supabase/Firebase/Auth0), replace this with a
+  // session token check and redirect to a user dashboard.
+  sessionStorage.setItem('nc_auth', 'social:' + provider);
+  if (typeof window.fbq === 'function') {
+    try { window.fbq('track', 'CompleteRegistration', { content_name: provider }); } catch (e) {}
+  }
+  window.location.href = './catalog-landing.html';
+}
+
+document.getElementById('google-signin').addEventListener('click', function() {
+  if (!cfg.googleClientId) {
+    showError('Google sign-in not configured yet. (Owner: add googleClientId to config.js.)');
+    return;
+  }
+  // Google Identity Services token-flow
+  if (typeof google === 'undefined' || !google.accounts || !google.accounts.id) {
+    showError('Google sign-in is loading — please try again in a moment.');
+    return;
+  }
+  google.accounts.id.initialize({
+    client_id: cfg.googleClientId,
+    callback: function(response) {
+      if (response && response.credential) {
+        handleSocialAuthSuccess('google');
+      } else {
+        showError('Google sign-in was cancelled.');
+      }
+    },
+    auto_select: false
+  });
+  google.accounts.id.prompt();
+});
+
+document.getElementById('apple-signin').addEventListener('click', function() {
+  if (!cfg.appleClientId) {
+    showError('Apple sign-in not configured yet. (Owner: add appleClientId to config.js — requires Apple Developer account.)');
+    return;
+  }
+  if (typeof AppleID === 'undefined') {
+    showError('Apple sign-in is loading — please try again in a moment.');
+    return;
+  }
+  AppleID.auth.init({
+    clientId: cfg.appleClientId,
+    scope: 'name email',
+    redirectURI: window.location.origin + '/login.html',
+    usePopup: true
+  });
+  AppleID.auth.signIn().then(function() {
+    handleSocialAuthSuccess('apple');
+  }).catch(function(err) {
+    if (err && err.error !== 'popup_closed_by_user') {
+      showError('Apple sign-in failed. Please try again.');
+    }
+  });
+});
+</script>
+<!-- Load provider SDKs only when their client ID is configured -->
+<script>
+(function() {
+  var c = window.NOVOCLAW_CONFIG || {};
+  if (c.googleClientId) {
+    var g = document.createElement('script');
+    g.src = 'https://accounts.google.com/gsi/client';
+    g.async = true;
+    g.defer = true;
+    document.head.appendChild(g);
+  }
+  if (c.appleClientId) {
+    var a = document.createElement('script');
+    a.src = 'https://appleid.cdn-apple.com/appleauth/static/jsapi/appleid/1/en_US/appleid.auth.js';
+    a.async = true;
+    a.defer = true;
+    document.head.appendChild(a);
+  }
+})();
+</script>
 </body>
 </html>
