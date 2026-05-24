@@ -4,6 +4,7 @@
   "buildCommand": null,
   "outputDirectory": ".",
   "rewrites": [
+    { "source": "/5b255247bb274da48286a1b3790f572f.txt", "destination": "/api/indexnow-key" },
     { "source": "/downloads/files/:path*", "destination": "/api/download-gate?file=:path*" },
     { "source": "/api/(.*)", "destination": "/api/$1" }
   ],
