@@ -1,6 +1,8 @@
 # Girl Gone AI — Digital Product Catalog
 
-Static site with 140+ digital products. Deploys to any static host.
+**Live site: [girlgone.ai](https://girlgone.ai)**
+
+140+ digital products — Notion templates, planners, AI prompt packs, spreadsheet tools, and workflow kits for creators, freelancers, and small businesses.
 
 ## One-Click Deploy to Netlify
 
