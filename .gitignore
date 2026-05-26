@@ -7,8 +7,17 @@ email/drip-queue.json
 .vercel-output.json
 downloads/secure/.tokens.json
 downloads/tokens.json
-downloads/pdfs/*.pdf
+downloads/pdfs/
 __pycache__/
 *.bak
 testing-mode-prices-backup.json
 .vercel
+
+# One-time migration scripts
+fix-homepage.py
+generate-thumbnails.py
+update-product-pages.py
+_server.js
+
+# HeyGen video files (too large for git)
+heyg/daily/
